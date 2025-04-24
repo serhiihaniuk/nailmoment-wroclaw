@@ -32,6 +32,18 @@
     @apply outline-accent-orange/50;
   }
   body {
-    @apply bg-blue-background font-onest;
+    @apply bg-blue-background font-onest text-base;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.gradient-orange {
+  background: linear-gradient(300.1deg, #ffc001 0.8%, #f07706 68.35%);
 }
