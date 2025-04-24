@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
 import { cn } from "@/lib/utils";
 import { FC, ReactNode } from "react";
@@ -12,7 +12,7 @@ export const ImageCard: FC<{
   return (
     <Card className={cn("bg-white text-blue-foreground", className)}>
       <CardContent className="gap-5 flex flex-col ac-content">
-        <Image url={url} />
+        <Image url={url} alt="abcde" />
         <p className="text-center text-lg break-words">{caption}</p>
         {children}
       </CardContent>

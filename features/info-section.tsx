@@ -122,6 +122,7 @@ export const InfoSection = () => {
         <Image
           url={PLACEHOLDER_IMG_URL} // Use constant
           className="w-full"
+          alt="abcde"
         />
       </section>
 
@@ -141,6 +142,7 @@ export const InfoSection = () => {
           <Image
             url={ACCENT_CARD_WROCLAW.IMAGE_URL} // Use constant from object
             className="w-full"
+            alt="abcle"
           />
           <p>{ACCENT_CARD_WROCLAW.DESCRIPTION2}</p>
         </>
