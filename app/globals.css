@@ -47,3 +47,10 @@
 .gradient-orange {
   background: linear-gradient(300.1deg, #ffc001 0.8%, #f07706 68.35%);
 }
+.gradient-pink {
+  background: linear-gradient(300.1deg, #ff0199 0.8%, #ff59ec 68.35%);
+}
+
+.gradient-green {
+  background: linear-gradient(300.1deg, #f6d72f 0.8%, #c3c874 68.35%);
+}

@@ -20,8 +20,6 @@ const bulletPoints2 = [
   "Ми розвиваємо індустрію нігтьового сервісу в польщі та виводимо її на новий рівень",
 ];
 
-// --- New Constants ---
-
 // Image URLs
 const PLACEHOLDER_IMG_URL =
   "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/placeholder-img-C7NSLnrtqDD9dUPfNxOqAZKQC3CEOT";
@@ -92,10 +90,13 @@ export const InfoSection = () => {
   return (
     <>
       {/* Section 1: Intro & Bullets */}
-      <section className="flex items-center justify-center flex-col px-4 pt-2 pb-11 gap-4">
-        <h2 className="text-blue-foreground text-2xl font-semibold text-center">
+      <section className="flex items-center justify-center flex-col px-4 pt-2 pb-16">
+        <h2 className="text-blue-foreground text-2xl font-semibold text-center mb-4">
           {HEADINGS.FESTIVAL_INTRO}
         </h2>
+        <div className="text-blue-foreground text-left self-stretch">
+          Тільки ми:
+        </div>
         <ul className="flex flex-col gap-1.5">
           {bulletPoints.map((text, i) => (
             <ListItem
@@ -109,11 +110,11 @@ export const InfoSection = () => {
           ))}
         </ul>
 
-        <h2 className="text-blue-foreground text-2xl font-semibold text-center">
+        <h2 className="text-blue-foreground text-2xl font-semibold text-center mt-16 mb-4">
           {HEADINGS.NAIL_MOMENT_MOTTO}
         </h2>
 
-        <ul className="flex flex-col gap-5 py-2.5 bg-white rounded-lg">
+        <ul className="flex flex-col gap-5 py-2.5 bg-white rounded-lg mb-2.5">
           {bulletPoints2.map((text, i) => (
             <ListItem className="py-0" key={i} text={text} />
           ))}
@@ -122,7 +123,7 @@ export const InfoSection = () => {
         <Image
           url={PLACEHOLDER_IMG_URL} // Use constant
           className="w-full"
-          alt="abcde"
+          alt="image"
         />
       </section>
 
@@ -149,8 +150,8 @@ export const InfoSection = () => {
       </AccentCard>
 
       {/* Section 3: Market */}
-      <section className="px-4 pt-2 pb-11">
-        <h2 className="text-blue-foreground mb-4 text-2xl font-semibold text-center mt-10">
+      <section className="px-4 pb-11">
+        <h2 className="text-blue-foreground text-2xl font-semibold text-center mt-16 mb-4">
           {HEADINGS.MARKET_TITLE}
         </h2>
         <div className="flex flex-col gap-2.5">
@@ -160,7 +161,7 @@ export const InfoSection = () => {
               key={index}
               url={card.url}
               caption={card.caption}
-              className={card.className || ""} // Apply className if provided
+              className={card.className || ""}
             >
               {/* Conditionally render Button if buttonText exists */}
               {card.buttonText && (
@@ -173,7 +174,7 @@ export const InfoSection = () => {
         </div>
 
         {/* Section 4: Why Attend */}
-        <h2 className="text-blue-foreground mb-4 text-2xl font-semibold text-center mt-10">
+        <h2 className="text-blue-foreground text-2xl font-semibold text-center mt-16 mb-4">
           {HEADINGS.WHY_ATTEND_TITLE}
         </h2>
         <div className="flex flex-col gap-6">
