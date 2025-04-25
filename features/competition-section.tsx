@@ -51,7 +51,7 @@ export const CompetitionSection = () => {
           />
           <SectionHeader
             title={BATTLE_OF_MASTERS.TITLE}
-            className="text-2xl font-bold leading-[150%]"
+            className="text-2xl text-white font-bold leading-[150%]"
           />
           <div className="space-y-2.5 mt-1">
             <p className="text-lg">{BATTLE_OF_MASTERS.SUBTITLE}</p>
@@ -87,7 +87,7 @@ export const CompetitionSection = () => {
           />
           <SectionHeader
             title={PEOPLES_SPEAKER.TITLE}
-            className="text-2xl font-bold leading-[150%]"
+            className="text-2xl text-yellow-foreground font-bold leading-[150%]"
           />
           <p>{PEOPLES_SPEAKER.DESCRIPTION}</p>
           <Button className="uppercase">{PEOPLES_SPEAKER.BUTTON_TEXT}</Button>

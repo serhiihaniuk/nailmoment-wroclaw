@@ -7,17 +7,17 @@ interface FooterInfoSectionProps {
   className?: string;
 }
 
+const companyName = "Nail Moment Anhelina Rahoza";
+const nip = "5223118965";
+const regon = "529210914";
+const email = "nail.moment.wroclaw@gmail.com";
+const instagramUrl = "#";
+const telegramUrl = "#";
+const privacyPolicyUrl = "#";
+
 export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
   className,
 }) => {
-  const companyName = "Nail Moment Anhelina Rahoza";
-  const nip = "5223118965";
-  const regon = "529210914";
-  const email = "nail.moment.wroclaw@gmail.com";
-  const instagramUrl = "#"; // Replace with actual Instagram URL
-  const telegramUrl = "#"; // Replace with actual Telegram URL
-  const privacyPolicyUrl = "#"; // Replace with actual Privacy Policy URL
-
   return (
     <section
       className={cn(

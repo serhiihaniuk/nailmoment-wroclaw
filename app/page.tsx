@@ -1,4 +1,5 @@
 import { CompetitionSection } from "@/features/competition-section";
+import { FaqSection } from "@/features/faq-section";
 import { FooterInfoSection } from "@/features/footer-info-section";
 import { HeroSection } from "@/features/hero-section";
 import { InfoSection } from "@/features/info-section";
@@ -12,7 +13,7 @@ import { AfterpartyCard } from "@/widgets/afterparty-card";
 export default function Home() {
   return (
     <div className="w-full min-h-[100svh]">
-      <main className="w-full max-w-[390px] overflow-hidden space-y-14 mx-auto border border-black">
+      <main className="w-full max-w-[490px] overflow-hidden space-y-14 mx-auto border border-stone-200">
         <HeroSection />
         <InfoSection />
         <CompetitionSection />
@@ -22,6 +23,7 @@ export default function Home() {
         <FestivalScheduleSection />
         <PastEventCarouselSection />
         <LocationSection />
+        <FaqSection />
         <FooterInfoSection />
       </main>
     </div>

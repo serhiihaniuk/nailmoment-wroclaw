@@ -143,7 +143,7 @@ export const InfoSection = () => {
       </AccentCard>
 
       {/* Section 3: Market */}
-      <section className="px-4 pb-11">
+      <section className="px-4">
         <SectionHeader title={HEADINGS.MARKET_TITLE} className="mt-16 mb-4" />
 
         <div className="flex flex-col gap-2.5">
