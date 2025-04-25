@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DecorativeImage } from "@/components/ui/decorative-image";
 import { cn } from "@/lib/utils";
-import { IMAGES } from "@/shared/const";
 import { FC, ReactNode } from "react";
 
 export const AccentCard: FC<{
@@ -11,7 +10,12 @@ export const AccentCard: FC<{
   imageUrl?: string;
 }> = ({ title, children, className, imageUrl }) => {
   return (
-    <Card className={cn("gradient-orange relative text-white", className)}>
+    <Card
+      className={cn(
+        "gradient-orange relative text-white animate-view-scale",
+        className
+      )}
+    >
       <CardHeader>
         <CardTitle className="ac-title font-semibold text-2xl flex flex-col">
           {title}
@@ -22,8 +26,8 @@ export const AccentCard: FC<{
       </CardContent>
       {imageUrl && (
         <DecorativeImage
-          src={IMAGES.LEMON_URL}
-          className="right-2 -top-24 size-[180px]"
+          src={imageUrl}
+          className="right-2 -top-24 size-[180px] animate-scroll-rotate"
         />
       )}
     </Card>

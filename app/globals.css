@@ -57,3 +57,21 @@
 .gradient-green {
   background: linear-gradient(300.1deg, #f6d72f 0.8%, #c3c874 68.35%);
 }
+
+@keyframes rotate-on-scroll {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    /* Use the CSS variable set by the component, with a fallback */
+    transform: rotate(360deg);
+  }
+}
+
+.animate-scroll-rotate {
+  animation-name: rotate-on-scroll;
+  animation-duration: auto;
+  animation-timeline: scroll(root block);
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.4, 1);
+  animation-range: 0 100%;
+}

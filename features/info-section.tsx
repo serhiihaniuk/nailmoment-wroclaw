@@ -106,6 +106,10 @@ export const InfoSection = () => {
           ))}
           <DecorativeImage
             src={IMAGES.LIME_URL}
+            className="right-0 translate-1/2 bottom-1/2 size-[180px] slide-in-view"
+          />{" "}
+          <DecorativeImage
+            src={IMAGES.LIME_URL}
             className="right-0 translate-1/2 bottom-1/2 size-[180px]"
           />
         </ul>

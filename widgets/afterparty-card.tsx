@@ -11,7 +11,7 @@ export const AfterpartyCard = () => {
           Afterparty на терасі
         </span>
       }
-      className="[&_.ac-content]:px-4"
+      className="[&_.ac-content]:px-4 slide-in-view"
       imageUrl={IMAGES.LIME_URL}
     >
       <>
