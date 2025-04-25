@@ -1,6 +1,7 @@
 import { CompetitionSection } from "@/features/competition-section";
 import { HeroSection } from "@/features/hero-section";
 import { InfoSection } from "@/features/info-section";
+import { FestivalScheduleSection } from "@/features/schedule-section";
 import { SpeakersSection } from "@/features/speaker-section";
 import { TicketSection } from "@/features/tickets-section";
 import { AfterpartyCard } from "@/widgets/afterparty-card";
@@ -15,6 +16,7 @@ export default function Home() {
         <SpeakersSection />
         <AfterpartyCard />
         <TicketSection />
+        <FestivalScheduleSection />
       </main>
     </div>
   );

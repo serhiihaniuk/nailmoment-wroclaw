@@ -1,3 +1,4 @@
+import { BuyTicketButton } from "@/blocks/ui/buy-ticket";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -20,9 +21,7 @@ export const HeroSection = () => {
         </span>
       </h1>
 
-      <Button className="uppercase self-stretch text-yellow-foreground bg-yellow-background">
-        Придбати квиток
-      </Button>
+      <BuyTicketButton className="self-stretch" />
 
       <div className="grid grid-cols-2 gap-2 pt-2.5">
         <Button variant="secondary" className="text-blue-foreground" size="sm">
