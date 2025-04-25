@@ -10,7 +10,19 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Apply the Next.js recommended configurations first
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
+  // Add a new configuration object to override specific rules
+  {
+    rules: {
+      // Disable the no-img-element rule from @next/next plugin
+      "@next/next/no-img-element": "off",
+
+      // You can add other rule modifications here if needed
+      // Example: "react/react-in-jsx-scope": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

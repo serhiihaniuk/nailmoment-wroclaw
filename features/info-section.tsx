@@ -5,8 +5,8 @@ import { AccentCard } from "@/blocks/ui/accent-card";
 import { ImageCard } from "@/blocks/ui/image-card";
 import { Button } from "@/components/ui/button";
 import { ImageCaption } from "@/blocks/ui/image-caption";
+import { SectionHeader } from "@/components/ui/section-header";
 
-// --- Existing Constants ---
 const bulletPoints = [
   "збираємо топів nail-індустрії в одному місці. Ніякої води, тільки АКТУАЛЬНІ ТЕМИ ТА МК!",
   "обʼєднуємо майстрів манікюру та педикюру з усієї Європи",
@@ -20,11 +20,9 @@ const bulletPoints2 = [
   "Ми розвиваємо індустрію нігтьового сервісу в польщі та виводимо її на новий рівень",
 ];
 
-// Image URLs
 const PLACEHOLDER_IMG_URL =
   "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/placeholder-img-C7NSLnrtqDD9dUPfNxOqAZKQC3CEOT";
 
-// Section Headings
 const HEADINGS = {
   FESTIVAL_INTRO:
     "Фестиваль де новачки можуть навчитися, професіонали РОЗВИВАТИСЯ ТА БУДУВАТИ КАР’ЄРУ",
@@ -33,7 +31,6 @@ const HEADINGS = {
   WHY_ATTEND_TITLE: "Чому не можна пропустити",
 };
 
-// Accent Card Content (Wroclaw section)
 const ACCENT_CARD_WROCLAW = {
   TITLE_PART1: "Ми їдемо ",
   TITLE_PART2: "до Вроцлава",
@@ -41,17 +38,16 @@ const ACCENT_CARD_WROCLAW = {
     "Друге сердце Польщі та місто куди ви нас запрошували мільйони разів 🫶 і МИ ВИРІШИЛИ ЗНЯТИ ЦІЛИЙ ОСТРІВ, приїхати та розірвати фестивалем Nail Moment",
   DESCRIPTION2:
     "А саме Concordia Design Wrocław на острові Słodowej у самому центрі міста Вроцлав біля Старого міста",
-  IMAGE_URL: PLACEHOLDER_IMG_URL, // Use the defined constant
+  IMAGE_URL: PLACEHOLDER_IMG_URL,
 };
 
-// Market Section Image Cards Data
 const MARKET_CARDS_DATA = [
   {
     url: PLACEHOLDER_IMG_URL,
     caption:
       "Найкращі nail-бренди в одному місці. Гелі, лаки, бази, дизайни та аксесуари — все що потрібно майстру!",
-    className: "", // Default or no specific class
-    buttonText: null, // No button
+    className: "",
+    buttonText: null,
   },
   {
     url: PLACEHOLDER_IMG_URL,
@@ -63,12 +59,11 @@ const MARKET_CARDS_DATA = [
     url: PLACEHOLDER_IMG_URL,
     caption:
       "Мала зала для майстер-класів від ТОПових блогерів та інструкторів з 9:00 до 14:00",
-    className: "gradient-orange text-white", // Specific class for this card
-    buttonText: "ПРОГРАМА МАЙСТЕР-КЛАСІВ", // Button text specific to this card
+    className: "gradient-orange text-white",
+    buttonText: "ПРОГРАМА МАЙСТЕР-КЛАСІВ",
   },
 ];
 
-// "Why Attend" Section Image Captions Data
 const WHY_ATTEND_CAPTIONS_DATA = [
   {
     url: PLACEHOLDER_IMG_URL,
@@ -89,11 +84,9 @@ const WHY_ATTEND_CAPTIONS_DATA = [
 export const InfoSection = () => {
   return (
     <>
-      {/* Section 1: Intro & Bullets */}
-      <section className="flex items-center justify-center flex-col px-4 pt-2 pb-16">
-        <h2 className="text-blue-foreground text-2xl font-semibold text-center mb-4">
-          {HEADINGS.FESTIVAL_INTRO}
-        </h2>
+      <section className="flex items-center justify-center flex-col px-4">
+        <SectionHeader title={HEADINGS.FESTIVAL_INTRO} className="mb-4" />
+
         <div className="text-blue-foreground text-left self-stretch">
           Тільки ми:
         </div>
@@ -110,9 +103,11 @@ export const InfoSection = () => {
           ))}
         </ul>
 
-        <h2 className="text-blue-foreground text-2xl font-semibold text-center mt-16 mb-4">
-          {HEADINGS.NAIL_MOMENT_MOTTO}
-        </h2>
+        {/* Use SectionHeader component */}
+        <SectionHeader
+          title={HEADINGS.NAIL_MOMENT_MOTTO}
+          className="mt-16 mb-4"
+        />
 
         <ul className="flex flex-col gap-5 py-2.5 bg-white rounded-lg mb-2.5">
           {bulletPoints2.map((text, i) => (
@@ -121,9 +116,9 @@ export const InfoSection = () => {
         </ul>
 
         <Image
-          url={PLACEHOLDER_IMG_URL} // Use constant
+          url={PLACEHOLDER_IMG_URL}
           className="w-full"
-          alt="image"
+          alt="image" // Consider making this more descriptive
         />
       </section>
 
@@ -131,19 +126,17 @@ export const InfoSection = () => {
       <AccentCard
         title={
           <span className="font-semibold text-2xl flex flex-col">
-            {/* Use constants for title parts */}
             <span>{ACCENT_CARD_WROCLAW.TITLE_PART1}</span>
             <span>{ACCENT_CARD_WROCLAW.TITLE_PART2}</span>
           </span>
         }
       >
         <>
-          {/* Use constants for descriptions */}
           <p>{ACCENT_CARD_WROCLAW.DESCRIPTION1}</p>
           <Image
-            url={ACCENT_CARD_WROCLAW.IMAGE_URL} // Use constant from object
+            url={ACCENT_CARD_WROCLAW.IMAGE_URL}
             className="w-full"
-            alt="abcle"
+            alt="Concordia Design Wrocław location" // More specific alt text
           />
           <p>{ACCENT_CARD_WROCLAW.DESCRIPTION2}</p>
         </>
@@ -151,11 +144,9 @@ export const InfoSection = () => {
 
       {/* Section 3: Market */}
       <section className="px-4 pb-11">
-        <h2 className="text-blue-foreground text-2xl font-semibold text-center mt-16 mb-4">
-          {HEADINGS.MARKET_TITLE}
-        </h2>
+        <SectionHeader title={HEADINGS.MARKET_TITLE} className="mt-16 mb-4" />
+
         <div className="flex flex-col gap-2.5">
-          {/* Map over the market cards data */}
           {MARKET_CARDS_DATA.map((card, index) => (
             <ImageCard
               key={index}
@@ -163,7 +154,6 @@ export const InfoSection = () => {
               caption={card.caption}
               className={card.className || ""}
             >
-              {/* Conditionally render Button if buttonText exists */}
               {card.buttonText && (
                 <Button className="text-yellow-foreground">
                   {card.buttonText}
@@ -174,11 +164,12 @@ export const InfoSection = () => {
         </div>
 
         {/* Section 4: Why Attend */}
-        <h2 className="text-blue-foreground text-2xl font-semibold text-center mt-16 mb-4">
-          {HEADINGS.WHY_ATTEND_TITLE}
-        </h2>
+        <SectionHeader
+          title={HEADINGS.WHY_ATTEND_TITLE}
+          className="mt-16 mb-4"
+        />
+
         <div className="flex flex-col gap-6">
-          {/* Map over the why attend captions data */}
           {WHY_ATTEND_CAPTIONS_DATA.map((item, index) => (
             <ImageCaption key={index} url={item.url} caption={item.caption} />
           ))}

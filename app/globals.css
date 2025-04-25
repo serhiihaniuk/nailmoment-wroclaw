@@ -8,6 +8,7 @@
   --color-blue-background: var(--blue-background);
   --color-yellow-background: var(--yellow-background);
   --color-yellow-foreground: var(--yellow-foreground);
+  --color-green-foreground: var(--green-foreground);
   --font-onest: var(--font-onest);
 
   --text-lg: 16px;
@@ -22,6 +23,7 @@
   --blue-background: rgba(188, 217, 247, 1);
   --yellow-background: rgba(255, 192, 1, 1);
   --yellow-foreground: rgba(145, 82, 0, 1);
+  --green-foreground: rgba(103, 112, 67, 1);
 
   /* example */
   --sidebar-ring: oklch(0.708 0 0);
@@ -47,6 +49,7 @@
 .gradient-orange {
   background: linear-gradient(300.1deg, #ffc001 0.8%, #f07706 68.35%);
 }
+
 .gradient-pink {
   background: linear-gradient(300.1deg, #ff0199 0.8%, #ff59ec 68.35%);
 }
