@@ -1,11 +1,21 @@
 import { BuyTicketButton } from "@/blocks/ui/buy-ticket";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { DecorativeImage } from "@/components/ui/decorative-image";
+import { IMAGES } from "@/shared/const";
 
 export const HeroSection = () => {
   return (
-    <section className="flex items-center justify-center flex-col pt-28 pb-11 px-4">
-      <div className="grid grid-cols-2 gap-2 mb-5">
+    <section className="flex relative items-center justify-center flex-col pt-28 pb-11 px-4">
+      <DecorativeImage
+        src={IMAGES.ORANGES_URL}
+        className="left-0 -top-5 rotate-[30deg] size-[200px] z-0"
+      />
+      <DecorativeImage
+        src={IMAGES.LEMONS_URL}
+        className="right-0 -top-8 size-[180px]"
+      />
+      <div className="grid grid-cols-2 gap-2 mb-5 relative z-1">
         <Badge>20 липня</Badge>
         <Badge>Вроцлав</Badge>
       </div>

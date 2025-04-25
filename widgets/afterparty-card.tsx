@@ -1,6 +1,7 @@
 import React from "react";
 import { Image } from "@/components/ui/image";
 import { AccentCard } from "@/blocks/ui/accent-card";
+import { IMAGES } from "@/shared/const";
 
 export const AfterpartyCard = () => {
   return (
@@ -11,6 +12,7 @@ export const AfterpartyCard = () => {
         </span>
       }
       className="[&_.ac-content]:px-4"
+      imageUrl={IMAGES.LIME_URL}
     >
       <>
         <p>

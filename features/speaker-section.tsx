@@ -66,7 +66,6 @@ export const SpeakersSection: React.FC<SpeakersSectionProps> = ({
     <section className={cn("px-4", className)}>
       <SectionHeader title="Спікери фестивалю" className="mb-6" />
       <div className="flex flex-col items-center gap-4">
-        {" "}
         {speakers.map((speaker) => (
           <SpeakerCard
             key={speaker.id}

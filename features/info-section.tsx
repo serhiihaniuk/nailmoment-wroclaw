@@ -6,6 +6,8 @@ import { ImageCard } from "@/blocks/ui/image-card";
 import { Button } from "@/components/ui/button";
 import { ImageCaption } from "@/blocks/ui/image-caption";
 import { SectionHeader } from "@/components/ui/section-header";
+import { DecorativeImage } from "@/components/ui/decorative-image";
+import { IMAGES } from "@/shared/const";
 
 const bulletPoints = [
   "збираємо топів nail-індустрії в одному місці. Ніякої води, тільки АКТУАЛЬНІ ТЕМИ ТА МК!",
@@ -90,20 +92,24 @@ export const InfoSection = () => {
         <div className="text-blue-foreground text-left self-stretch">
           Тільки ми:
         </div>
-        <ul className="flex flex-col gap-1.5">
+        <ul className="flex relative flex-col gap-1.5">
           {bulletPoints.map((text, i) => (
             <ListItem
               className={cn("bg-white w-[90%]", {
                 "w-[95%]": i === 0 || i === 3,
-                "w-[90%]": i === 1 || i === 2,
+                "w-[85%]": i === 1,
+                "w-[80%]": i === 2,
               })}
               key={i}
               text={text}
             />
           ))}
+          <DecorativeImage
+            src={IMAGES.LIME_URL}
+            className="right-0 translate-1/2 bottom-1/2 size-[180px]"
+          />
         </ul>
 
-        {/* Use SectionHeader component */}
         <SectionHeader
           title={HEADINGS.NAIL_MOMENT_MOTTO}
           className="mt-16 mb-4"
@@ -130,6 +136,7 @@ export const InfoSection = () => {
             <span>{ACCENT_CARD_WROCLAW.TITLE_PART2}</span>
           </span>
         }
+        imageUrl={IMAGES.LEMON_URL}
       >
         <>
           <p>{ACCENT_CARD_WROCLAW.DESCRIPTION1}</p>

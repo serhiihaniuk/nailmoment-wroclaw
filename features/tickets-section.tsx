@@ -2,20 +2,13 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { TicketCard, type TicketInfo } from "@/blocks/ui/ticket-card";
 import { SectionHeader } from "@/components/ui/section-header";
-
-const PLACEHOLDER_LIME_URL =
-  "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/lime-mtqShEwvjgePqjyG6xw9xmvV5TxpSp";
-const PLACEHOLDER_LEMON_URL =
-  "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/orange-smu9PyPmvK9EvWuR6hGxSYZImsmDTs";
-const PLACEHOLDER_PASSION_URL =
-  "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/passion-BFAzuchqdHn4ZGhp76WW5Yp6AqIVZe";
+import { IMAGES } from "@/shared/const";
 
 const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
-  // Use Omit as vipFeatures is handled internally now
   {
     id: "guest",
     variant: "guest",
-    imageUrl: PLACEHOLDER_LIME_URL,
+    imageUrl: IMAGES.LIME_URL,
     imageAlt: "Lime slice illustration",
     title: "GUEST",
     features: [
@@ -31,7 +24,7 @@ const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
   {
     id: "standard",
     variant: "standard",
-    imageUrl: PLACEHOLDER_LEMON_URL,
+    imageUrl: IMAGES.LEMON_URL,
     imageAlt: "Lemon/Orange slice illustration",
     title: "STANDARD",
     features: [
@@ -48,7 +41,7 @@ const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
   {
     id: "vip",
     variant: "vip",
-    imageUrl: PLACEHOLDER_PASSION_URL,
+    imageUrl: IMAGES.PASSION_URL,
     imageAlt: "Passion fruit slice illustration",
     title: "VIP",
     features: [
