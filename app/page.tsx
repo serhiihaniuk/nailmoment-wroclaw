@@ -13,7 +13,7 @@ import { AfterpartyCard } from "@/widgets/afterparty-card";
 export default function Home() {
   return (
     <div className="w-full min-h-[100svh]">
-      <main className="w-full max-w-[490px] overflow-hidden space-y-14 mx-auto border border-stone-200">
+      <main className="w-full max-w-[490px] overflow-hidden space-y-14 mx-auto bg-blue-background">
         <HeroSection />
         <InfoSection />
         <CompetitionSection />

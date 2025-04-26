@@ -45,7 +45,7 @@
     @apply outline-accent-orange/50;
   }
   body {
-    @apply bg-blue-background font-onest text-base;
+    @apply bg-blue-background/70 font-onest text-base;
   }
 
   h1,
