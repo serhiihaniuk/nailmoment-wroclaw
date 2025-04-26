@@ -44,17 +44,17 @@ export const HeroSection = () => {
       </h1>
       <Marquee
         texts={["БИТВА МАЙСТРІВ", "ГОЛОВНИЙ ПРИЗ 2000 zł"]}
-        speed={50}
+        speed={150}
         direction="left"
         pauseOnHover={true}
-        className="self-stretch mt-5 bg-white absolute left-0 right-0 top-0 font-normal"
+        className="self-stretch mt-5 bg-white absolute left-0 right-0 top-0 font-medium"
       />
       <Marquee
         texts={["БИТВА МАЙСТРІВ", "ГОЛОВНИЙ ПРИЗ 2000 zł"]}
-        speed={50}
-        direction="left"
+        speed={150}
+        direction="right"
         pauseOnHover={true}
-        className="self-stretch mt-5 bg-white absolute left-0 right-0 bottom-0 font-normal"
+        className="self-stretch mt-5 bg-white absolute left-0 right-0 bottom-0 font-medium"
       />
       <BuyTicketButton className="self-stretch mt-5" />
       <div className="grid grid-cols-2 gap-2 pt-2.5">
