@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Onest } from "next/font/google";
+import { Onest, Bowlby_One } from "next/font/google";
 import "./globals.css";
 
 const onestSans = Onest({
   variable: "--font-onest",
   subsets: ["latin", "cyrillic"],
+});
+
+const bowlbyOne = Bowlby_One({
+  variable: "--font-bowlby-one",
+  weight: ["400"],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +41,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${onestSans.variable} antialiased`}>{children}</body>
+      <body
+        className={`${onestSans.variable} ${bowlbyOne.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

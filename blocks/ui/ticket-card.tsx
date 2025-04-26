@@ -20,8 +20,6 @@ const cardVariants = cva(
   }
 );
 
-// Removed imageVariants as size is directly applied
-
 const titlePriceVariants = cva("font-bold", {
   variants: {
     variant: {
@@ -97,7 +95,6 @@ const PlusIcon = ({ className }: { className?: string }) => (
 
 type TicketVariant = NonNullable<VariantProps<typeof cardVariants>["variant"]>;
 
-// Updated Feature type
 type Feature = {
   value: string;
   isVip: boolean;
@@ -109,8 +106,7 @@ export type TicketInfo = {
   imageUrl: string;
   imageAlt: string;
   title: string;
-  features: Feature[]; // Updated to use Feature type
-  // vipFeatures removed
+  features: Feature[];
   price: string;
   buttonText: string;
 };
@@ -121,61 +117,76 @@ interface TicketCardProps
   imageUrl: string;
   imageAlt: string;
   title: string;
-  features: Feature[]; // Updated to use Feature type
-  // vipFeatures?: string[]; removed
+  features: Feature[];
   price: string;
   buttonText: string;
   onButtonClick?: () => void;
 }
 
+const capitalize = (s: string = ""): string => {
+  if (!s) return "";
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
+
 export const TicketCard: React.FC<TicketCardProps> = ({
   imageUrl,
   imageAlt,
-  title,
   features,
   price,
   buttonText,
-  variant,
+  variant = "guest",
   onButtonClick,
   className,
   ...props
 }) => {
+  const titleSvgPath = `/svg/${capitalize(variant || "")}.svg`;
+  const titleSvgAlt = `${capitalize(variant || "")} Ticket Logo`;
+
   return (
     <Card className={cn(cardVariants({ variant }), className)} {...props}>
       <CardContent className="flex flex-col items-center text-center p-6 flex-grow">
-        <img src={imageUrl} alt={imageAlt} className="w-[160px]" />{" "}
-        <h3
+        <img src={imageUrl} alt={imageAlt} className="w-[160px]" />
+
+        <img
+          src={titleSvgPath}
+          alt={titleSvgAlt}
+          className="mt-5 mb-6 h-8 w-auto"
+        />
+
+        <div
           className={cn(
-            "text-3xl mt-5 uppercase mb-2 tracking-wider font-druk",
-            titlePriceVariants({ variant })
+            featureTextVariants({ variant }),
+            "mb-6 text-lg w-full"
           )}
         >
-          {title}
-        </h3>
-        {/* Single map for all features */}
-        <div className={cn(featureTextVariants({ variant }), "mb-6 text-lg")}>
           {features.map((feature, index) => (
             <div
-              key={`${variant}-${index}`} // Use variant in key for potential edge cases
-              className={cn("py-2.5", featureBorderVariants({ variant }))}
+              key={`${variant}-${index}`}
+              className={cn(
+                "py-2.5 flex items-center justify-center space-x-2",
+                featureBorderVariants({ variant })
+              )}
             >
               {feature.isVip && variant === "vip" && (
-                <PlusIcon className="w-4 h-4 text-yellow-foreground" /> // Check if this color should be dynamic
+                <PlusIcon className="w-4 h-4 text-yellow-foreground flex-shrink-0" />
               )}
               <span>{feature.value}</span>
             </div>
           ))}
         </div>
+
         <div className="mt-auto">
           <div
             className={cn(
-              "text-5xl mb-6 font-druk uppercase",
+              "text-5xl mb-6 font-bold uppercase",
               titlePriceVariants({ variant })
             )}
           >
-            {price} <span className="uppercase font-onest font-black">Zł</span>
+            {price}
+            <span className="uppercase">Zł</span>
           </div>
         </div>
+
         <Button className={buttonVariants({ variant })} onClick={onButtonClick}>
           {buttonText}
         </Button>
