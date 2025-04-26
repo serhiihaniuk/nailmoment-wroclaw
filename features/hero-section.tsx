@@ -11,7 +11,7 @@ export const HeroSection = () => {
     <section className="flex relative items-center justify-center flex-col pt-28 pb-16 px-4">
       <DecorativeImage
         src={IMAGES.ORANGES_URL}
-        className="left-0 -top-5 rotate-[30deg] size-[200px] z-0"
+        className="-left-2 -top-5 rotate-[30deg] size-[200px] z-0"
       />
       <DecorativeImage
         src={IMAGES.LEMONS_URL}
