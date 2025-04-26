@@ -36,62 +36,71 @@ export const TicketIcon: React.FC<CustomIconProps> = ({
   );
 };
 
-export const LemonIcon: React.FC<CustomIconProps> = ({
-  size = 24, // Default size consistent with TicketIcon
-  color = "currentColor", // Default color (applied to fill)
+export const NailIcon: React.FC<CustomIconProps> = ({
+  size = 60, // Default height to match original aspect ratio base
   className,
   ...props // Pass other SVG props
 }) => {
-  // Calculate width and height based on size prop
-  const width = typeof size === "string" ? size : `${size}px`;
+  // Calculate width/height, maintaining aspect ratio (230:60) based on height (size)
   const height = typeof size === "string" ? size : `${size}px`;
+  // Calculate width proportionally: width = height * (230 / 60)
+  const width =
+    typeof size === "string"
+      ? `calc(${size} * (230 / 60))` // Let CSS handle calc if size is string
+      : `${(size * 230) / 60}px`;
 
   return (
     <svg
       width={width}
       height={height}
-      viewBox="0 0 18 17" // Specific viewBox for Lemon icon
-      fill="none" // Base fill none, path will override
+      viewBox="0 0 230 60" // Crucial: Use the original viewBox
+      fill="none" // Base fill is none
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("inline-block", className)} // Added inline-block for better layout flow
-      aria-hidden="true" // Good practice for decorative icons
-      focusable="false" // Prevent focusing
+      className={cn("inline-block", className)} // Basic layout + custom classes
+      aria-hidden="true"
+      focusable="false"
       {...props}
     >
+      {/* Background Rectangle - Uses its original fixed color */}
+      <rect width="230" height="60" rx="10" fill="#F07706" />
+
+      {/* Foreground Path (Text/Shape) - Uses its original fixed color */}
       <path
-        d="M0.28418 16.918H17.7158V0.511719H0.28418L0.28418 16.918Z"
-        fill={color} // Use the color prop for fill, overriding the original #40519F
+        d="M60.1796 51.5L36.9216 28.3V51.5H19.6376V8.348H37.6176L59.7736 30.446V8.348H77.0576V51.5H60.1796ZM116.114 34.216L110.198 21.108L104.224 34.216H116.114ZM124.002 51.5L121.044 45.062H99.2942L96.3362 51.5H78.6462L99.1202 8.348H122.03L142.736 51.5H124.002ZM161.998 8.348V51.5H144.308V8.348H161.998ZM168.949 8.348H186.639V38.044H212.159V51.5H168.949V8.348Z"
+        fill="white" // Fixed fill color from original SVG
       />
     </svg>
   );
 };
 
-export const OrangeIcon: React.FC<CustomIconProps> = ({
-  size = 24, // Default size consistent with other icons
-  color = "currentColor", // Default color (applied to fill)
+export const MomentIcon: React.FC<CustomIconProps> = ({
+  size = 43,
   className,
-  ...props // Pass other SVG props
+  ...props
 }) => {
-  // Calculate width and height based on size prop
-  const width = typeof size === "string" ? size : `${size}px`;
+  // Calculate width/height, maintaining aspect ratio (358:43) based on height (size)
   const height = typeof size === "string" ? size : `${size}px`;
+  // Calculate width proportionally: width = height * (358 / 43)
+  const width =
+    typeof size === "string"
+      ? `calc(${size} * (358 / 43))`
+      : `${(size * 358) / 43}px`;
 
   return (
     <svg
       width={width}
       height={height}
-      viewBox="0 0 18 17" // Specific viewBox for this icon shape
-      fill="none" // Base fill none, path will override
+      viewBox="0 0 358 43"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("inline-block", className)} // Added inline-block for better layout flow
-      aria-hidden="true" // Good practice for decorative icons
-      focusable="false" // Prevent focusing
+      className={cn("inline-block", className)}
+      aria-hidden="true"
+      focusable="false"
       {...props}
     >
-      {/* The path data is the same as the LemonIcon provided */}
       <path
-        d="M0.28418 16.918H17.7158V0.511719H0.28418L0.28418 16.918Z"
-        fill={color} // Use the color prop for fill, overriding the original #40519F
+        d="M0.381127 41.356V1.17996H23.3851L33.1591 21.754L43.0411 1.17996H65.2891V41.356H49.0891V16.948L37.3711 41.356H27.9211L16.2571 16.948V41.356H0.381127ZM96.7876 0.477955H99.2716C122.222 0.477955 126.11 12.304 126.11 20.35V21.97C126.11 29.908 122.276 42.058 99.2716 42.058H96.7876C73.9456 42.058 70.0036 29.908 70.0036 21.97V20.35C70.0576 12.304 73.9456 0.477955 96.7876 0.477955ZM108.83 20.782C108.83 17.596 107.534 12.358 98.0296 12.358C88.4176 12.358 87.2296 17.596 87.2296 20.782V21.322C87.2296 24.616 88.6336 29.962 98.0836 29.962C107.534 29.962 108.83 24.616 108.83 21.322V20.782ZM130.797 41.356V1.17996H153.801L163.575 21.754L173.457 1.17996H195.705V41.356H179.505V16.948L167.787 41.356H158.337L146.673 16.948V41.356H130.797ZM202.202 1.17996H244.214V11.44H218.726V15.76H243.404V26.29H218.726V30.988H244.592V41.356H202.202V1.17996ZM287.833 41.356L266.179 19.756V41.356H250.087V1.17996H266.827L287.455 21.754V1.17996H303.547V41.356H287.833ZM324.628 41.356V13.33H308.212V1.17996H357.46V13.33H341.044V41.356H324.628Z"
+        fill="white" // Fixed fill color from original SVG
       />
     </svg>
   );

@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DecorativeImage } from "@/components/ui/decorative-image";
 import { IMAGES } from "@/shared/const";
-import { LemonIcon, OrangeIcon } from "@/shared/icons";
+import { MomentIcon, NailIcon } from "@/shared/icons";
 
 export const HeroSection = () => {
   return (
@@ -25,20 +25,15 @@ export const HeroSection = () => {
         <span className="uppercase text-[26px] text-blue-foreground font-semibold leading-[120%]">
           Головний nail-фестиваль Польщі
         </span>
-        <span className="text-[56px] font-druk flex gap-3.5 flex-col items-center justify-center text-white font-extrabold leading-12">
-          <span className="bg-accent-orange rounded-[10px] pt-2 px-2 pb-5 block">
-            NAIL
-          </span>
-          <span className="grid grid-cols-6 w-[360px] h-[40px] justify-center justify-items-center">
-            <span>M</span>
-            <span className="relative size-full">
-              <img
-                src={IMAGES.LEMON_URL}
-                alt="O"
-                className="absolute bottom-0 left-1 right-0 top-0 object-cover inline-block"
-              />
-            </span>
-            <span className="col-span-4">MENT</span>
+        <span className="flex w-[358px] h-[117px] gap-3.5 flex-col items-center justify-center">
+          <NailIcon />
+          <span className="relative block">
+            <MomentIcon />
+            <img
+              src={IMAGES.LEMON_URL}
+              alt="O"
+              className="absolute left-[67px] top-[-12px] size-[62px] object-cover inline-block"
+            />
           </span>
         </span>
       </h1>
