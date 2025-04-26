@@ -1,12 +1,14 @@
 import { BuyTicketButton } from "@/blocks/ui/buy-ticket";
+import Marquee from "@/blocks/ui/marquee";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DecorativeImage } from "@/components/ui/decorative-image";
 import { IMAGES } from "@/shared/const";
+import { LemonIcon, OrangeIcon } from "@/shared/icons";
 
 export const HeroSection = () => {
   return (
-    <section className="flex relative items-center justify-center flex-col pt-28 pb-11 px-4">
+    <section className="flex relative items-center justify-center flex-col pt-28 pb-16 px-4">
       <DecorativeImage
         src={IMAGES.ORANGES_URL}
         className="left-0 -top-5 rotate-[30deg] size-[200px] z-0"
@@ -40,9 +42,21 @@ export const HeroSection = () => {
           </span>
         </span>
       </h1>
-
+      <Marquee
+        texts={["БИТВА МАЙСТРІВ", "ГОЛОВНИЙ ПРИЗ 2000 zł"]}
+        speed={50}
+        direction="left"
+        pauseOnHover={true}
+        className="self-stretch mt-5 bg-white absolute left-0 right-0 top-0 font-normal"
+      />
+      <Marquee
+        texts={["БИТВА МАЙСТРІВ", "ГОЛОВНИЙ ПРИЗ 2000 zł"]}
+        speed={50}
+        direction="left"
+        pauseOnHover={true}
+        className="self-stretch mt-5 bg-white absolute left-0 right-0 bottom-0 font-normal"
+      />
       <BuyTicketButton className="self-stretch mt-5" />
-
       <div className="grid grid-cols-2 gap-2 pt-2.5">
         <Button
           variant="secondary"

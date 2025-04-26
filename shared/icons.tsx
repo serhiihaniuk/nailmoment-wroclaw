@@ -35,3 +35,64 @@ export const TicketIcon: React.FC<CustomIconProps> = ({
     </svg>
   );
 };
+
+export const LemonIcon: React.FC<CustomIconProps> = ({
+  size = 24, // Default size consistent with TicketIcon
+  color = "currentColor", // Default color (applied to fill)
+  className,
+  ...props // Pass other SVG props
+}) => {
+  // Calculate width and height based on size prop
+  const width = typeof size === "string" ? size : `${size}px`;
+  const height = typeof size === "string" ? size : `${size}px`;
+
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 18 17" // Specific viewBox for Lemon icon
+      fill="none" // Base fill none, path will override
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("inline-block", className)} // Added inline-block for better layout flow
+      aria-hidden="true" // Good practice for decorative icons
+      focusable="false" // Prevent focusing
+      {...props}
+    >
+      <path
+        d="M0.28418 16.918H17.7158V0.511719H0.28418L0.28418 16.918Z"
+        fill={color} // Use the color prop for fill, overriding the original #40519F
+      />
+    </svg>
+  );
+};
+
+export const OrangeIcon: React.FC<CustomIconProps> = ({
+  size = 24, // Default size consistent with other icons
+  color = "currentColor", // Default color (applied to fill)
+  className,
+  ...props // Pass other SVG props
+}) => {
+  // Calculate width and height based on size prop
+  const width = typeof size === "string" ? size : `${size}px`;
+  const height = typeof size === "string" ? size : `${size}px`;
+
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 18 17" // Specific viewBox for this icon shape
+      fill="none" // Base fill none, path will override
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("inline-block", className)} // Added inline-block for better layout flow
+      aria-hidden="true" // Good practice for decorative icons
+      focusable="false" // Prevent focusing
+      {...props}
+    >
+      {/* The path data is the same as the LemonIcon provided */}
+      <path
+        d="M0.28418 16.918H17.7158V0.511719H0.28418L0.28418 16.918Z"
+        fill={color} // Use the color prop for fill, overriding the original #40519F
+      />
+    </svg>
+  );
+};

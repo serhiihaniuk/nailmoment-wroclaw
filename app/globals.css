@@ -89,3 +89,49 @@
   animation-timing-function: cubic-bezier(0.2, 0.8, 0.4, 1);
   animation-range: 0 100%;
 }
+
+.marqueeContainer {
+  /* Ensure :hover works correctly if pauseOnHover is enabled */
+  display: block; /* Or inline-block, flex etc. depending on context */
+}
+
+/* Content wrapper */
+.marqueeContent {
+  display: inline-block; /* Crucial for horizontal movement */
+  white-space: nowrap; /* Prevent content wrapping */
+  will-change: transform; /* Performance hint */
+  /* animation-play-state is controlled via inline style for precision */
+}
+
+/* Class to activate the animation */
+.animate {
+  animation-name: scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* Duration comes from CSS variable set inline */
+  animation-duration: var(--marquee-duration);
+}
+
+/* The keyframes for scrolling */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    /* Move left by exactly the width of ONE text copy + its gap */
+    /* This assumes the content div contains two identical copies */
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover functionality */
+/* Apply this rule only when the container has the specific class */
+.pauseOnHover:hover .animate {
+  animation-play-state: paused !important; /* Use !important to override inline style if necessary */
+}
+
+/* Styling for the text spans - primarily for the gap */
+/* We still use the Tailwind 'gap' prop for flexibility */
+.textSpan {
+  display: inline-block; /* Ensure spans behave as blocks */
+}
