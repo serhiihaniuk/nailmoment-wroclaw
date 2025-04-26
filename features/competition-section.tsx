@@ -37,7 +37,7 @@ export const CompetitionSection = () => {
 
   return (
     <section className="px-4 flex flex-col gap-2.5 max-w-96 mx-auto">
-      <div id="battle-of-masters" className="relative scroll-mt-7">
+      <div id="battle-of-masters" className="relative scroll-mt-7 ">
         <div
           className={cn(
             "z-10 relative px-6 pb-6 rounded-xl flex flex-col text-center",
@@ -71,7 +71,7 @@ export const CompetitionSection = () => {
             {BATTLE_OF_MASTERS.BUTTON_TEXT}
           </Button>
         </div>
-        <div className="gradient-pink absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl" />
+        <div className="gradient-pink absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl shadow-xl" />
       </div>
       <div id="peoples-speaker" className="relative scroll-mt-7">
         <div
@@ -92,7 +92,7 @@ export const CompetitionSection = () => {
           <p>{PEOPLES_SPEAKER.DESCRIPTION}</p>
           <Button className="uppercase">{PEOPLES_SPEAKER.BUTTON_TEXT}</Button>
         </div>
-        <div className="gradient-green absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl" />
+        <div className="gradient-green absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl shadow-xl" />
         {/* Hardcoded gradient classes */}
       </div>
     </section>

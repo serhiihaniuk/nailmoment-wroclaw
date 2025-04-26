@@ -12,7 +12,7 @@ export const AccentCard: FC<{
   return (
     <Card
       className={cn(
-        "gradient-orange relative text-white animate-view-scale",
+        "gradient-orange relative text-white shadow-2xl md:px-7 md:py-10",
         className
       )}
     >
