@@ -17,26 +17,14 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://nailmoment.pl",
     title: "Nail Moment",
-    description:
-      "Найбільша nail конференція в Польщі. Варшава. 13 жовтня 2024.",
-    images: [
-      {
-        url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/logo_date-kUpWk5HNz7tNbBSQ7IYEUrM5rHpj69",
-        width: 500,
-        height: 320,
-        alt: "Nail Moment",
-      },
-    ],
+    description: "Найбільша nail конференція в Польщі.",
+
     siteName: "Nail Moment",
   },
   twitter: {
     card: "summary_large_image",
     title: "Nail Moment",
-    description:
-      "Найбільша nail конференція в Польщі. Варшава. 13 жовтня 2024.",
-    images: [
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/logo_date-kUpWk5HNz7tNbBSQ7IYEUrM5rHpj69",
-    ],
+    description: "Найбільша nail конференція в Польщі.",
   },
 };
 
