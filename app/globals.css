@@ -1,6 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "druk";
+  src: url("/fonts/DrukTextWideBoldTrial.woff2") format("woff2");
+  font-display: auto;
+  font-style: bold;
+  font-weight: 800;
+  font-stretch: normal;
+}
+
 @theme inline {
   --color-accent-orange: var(--accent-orange);
   --color-accent-pink: var(--accent-pink);
@@ -14,6 +23,8 @@
   --text-lg: 16px;
   --text-base: 14px;
   --text-base--line-height: 150%;
+
+  --font-druk: "druk", sans-serif;
 }
 
 :root {

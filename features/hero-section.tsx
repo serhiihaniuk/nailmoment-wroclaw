@@ -23,15 +23,25 @@ export const HeroSection = () => {
         <span className="uppercase text-[26px] text-blue-foreground font-semibold leading-[120%]">
           Головний nail-фестиваль Польщі
         </span>
-        <span className="text-[56px] flex gap-3.5 flex-col items-center justify-center text-white font-extrabold leading-12">
-          <span className="bg-accent-orange block rounded-[10px] py-2 px-3.5">
+        <span className="text-[56px] font-druk flex gap-3.5 flex-col items-center justify-center text-white font-extrabold leading-12">
+          <span className="bg-accent-orange rounded-[10px] pt-2 px-2 pb-5 block">
             NAIL
           </span>
-          <span>MOMENT</span>
+          <span className="grid grid-cols-6 w-[360px] h-[40px] justify-center justify-items-center">
+            <span>M</span>
+            <span className="relative size-full">
+              <img
+                src={IMAGES.LEMON_URL}
+                alt="O"
+                className="absolute bottom-0 left-1 right-0 top-0 object-cover inline-block"
+              />
+            </span>
+            <span className="col-span-4">MENT</span>
+          </span>
         </span>
       </h1>
 
-      <BuyTicketButton className="self-stretch" />
+      <BuyTicketButton className="self-stretch mt-5" />
 
       <div className="grid grid-cols-2 gap-2 pt-2.5">
         <Button variant="secondary" className="text-blue-foreground" size="sm">

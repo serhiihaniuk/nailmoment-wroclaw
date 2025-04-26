@@ -18,7 +18,7 @@ const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
       { value: "нетворкінг з учасниками", isVip: false },
       { value: "доступ до закритого телеграм - каналу", isVip: false },
     ],
-    price: "50 Zł",
+    price: "50",
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
   },
   {
@@ -35,7 +35,7 @@ const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
       { value: "доступ до закритого телеграм - каналу", isVip: false },
       { value: "afterparty на терасі", isVip: false },
     ],
-    price: "390 Zł",
+    price: "390",
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
   },
   {
@@ -55,7 +55,7 @@ const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
       { value: "доступ до закритого телеграм - каналу", isVip: false },
       { value: "afterparty на терасі", isVip: false },
     ],
-    price: "890 Zł",
+    price: "890",
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
   },
 ];

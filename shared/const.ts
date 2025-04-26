@@ -2,7 +2,7 @@ export const IMAGES = {
   LIME_URL:
     "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/lime-mtqShEwvjgePqjyG6xw9xmvV5TxpSp",
   LEMON_URL:
-    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/orange-smu9PyPmvK9EvWuR6hGxSYZImsmDTs",
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/lemon-3Hol2VrR6NouWjtYHaD3290vIUg4tw",
   PASSION_URL:
     "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/passion-BFAzuchqdHn4ZGhp76WW5Yp6AqIVZe",
   BALL_URL:

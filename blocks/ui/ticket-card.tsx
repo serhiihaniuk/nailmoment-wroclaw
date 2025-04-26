@@ -146,7 +146,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({
         <img src={imageUrl} alt={imageAlt} className="w-[160px]" />{" "}
         <h3
           className={cn(
-            "text-3xl mt-5 uppercase mb-2 tracking-wider",
+            "text-3xl mt-5 uppercase mb-2 tracking-wider font-druk",
             titlePriceVariants({ variant })
           )}
         >
@@ -167,8 +167,13 @@ export const TicketCard: React.FC<TicketCardProps> = ({
           ))}
         </div>
         <div className="mt-auto">
-          <div className={cn("text-5xl mb-6", titlePriceVariants({ variant }))}>
-            {price}
+          <div
+            className={cn(
+              "text-5xl mb-6 font-druk uppercase",
+              titlePriceVariants({ variant })
+            )}
+          >
+            {price} <span className="uppercase font-onest font-black">Zł</span>
           </div>
         </div>
         <Button className={buttonVariants({ variant })} onClick={onButtonClick}>
