@@ -14,8 +14,8 @@ const bowlbyOne = Bowlby_One({
 });
 
 export const metadata: Metadata = {
-  title: "Nail Moment 🍋",
-  description: "🍋Найбільша nail конференція в Польщі🍊",
+  title: "Nail Moment",
+  description: "🍋 Найбільша nail конференція в Польщі🍊",
   keywords:
     "nail, moment, conference, poland, ukraine, конференція, польща, найбільша, квиток",
   robots: "index,follow",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://nailmoment.pl",
     title: "Nail Moment",
-    description: "🍋Найбільша nail конференція в Польщі.🍊",
+    description: "🍋Найбільша nail конференція в Польщі.",
 
     siteName: "Nail Moment",
   },
