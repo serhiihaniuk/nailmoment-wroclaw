@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/ui/section-header";
+import { Section } from "@/blocks/ui/section";
 
 // --- Constants for Competition Sections (Data only, no classes) ---
 
@@ -36,8 +37,8 @@ export const CompetitionSection = () => {
   const { BATTLE_OF_MASTERS, PEOPLES_SPEAKER } = COMPETITION_DATA;
 
   return (
-    <section className="px-4 flex flex-col gap-2.5 max-w-96 mx-auto">
-      <div id="battle-of-masters" className="relative scroll-mt-7 ">
+    <Section className="flex flex-col items-center gap-2.5  mx-auto">
+      <div id="battle-of-masters" className="relative scroll-mt-7 max-w-md">
         <div
           className={cn(
             "z-10 relative px-6 pb-6 rounded-xl flex flex-col text-center",
@@ -73,7 +74,7 @@ export const CompetitionSection = () => {
         </div>
         <div className="gradient-pink absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl shadow-xl" />
       </div>
-      <div id="peoples-speaker" className="relative scroll-mt-7">
+      <div id="peoples-speaker" className="relative scroll-mt-7 max-w-md">
         <div
           className={cn(
             "z-10 space-y-2.5 relative px-6 pb-6 rounded-xl flex flex-col text-center",
@@ -95,6 +96,6 @@ export const CompetitionSection = () => {
         <div className="gradient-green absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl shadow-xl" />
         {/* Hardcoded gradient classes */}
       </div>
-    </section>
+    </Section>
   );
 };

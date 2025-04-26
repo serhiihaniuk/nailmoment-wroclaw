@@ -2,6 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Link } from "@/blocks/ui/link";
 import { Instagram, Send } from "lucide-react";
+import { Section } from "@/blocks/ui/section";
 
 interface FooterInfoSectionProps {
   className?: string;
@@ -19,9 +20,9 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
   className,
 }) => {
   return (
-    <section
+    <Section
       className={cn(
-        "bg-white flex flex-col gap-10 rounded-t-2xl py-8 px-4 text-center",
+        "bg-white flex flex-col gap-10 rounded-t-2xl py-8 text-center",
         className
       )}
     >
@@ -70,6 +71,6 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
         </p>
         <p>©{new Date().getFullYear()} Всі права захищено</p>
       </div>
-    </section>
+    </Section>
   );
 };

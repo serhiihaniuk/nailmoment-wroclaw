@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Schedule, type ScheduleEntry } from "@/blocks/ui/schedule"; // Import the Schedule component and its type
 import { SectionHeader } from "@/components/ui/section-header";
 import { BuyTicketButton } from "@/blocks/ui/buy-ticket";
+import { Section } from "@/blocks/ui/section";
 
 const scheduleData: ScheduleEntry[] = [
   {
@@ -94,7 +95,7 @@ export const FestivalScheduleSection: React.FC<
   FestivalScheduleSectionProps
 > = ({ className }) => {
   return (
-    <section className={cn("px-4 py-8 max-w-xl mx-auto", className)}>
+    <Section className={cn("py-8 max-w-xl mx-auto", className)}>
       <SectionHeader
         title="Програма Фестивалю"
         className="mb-6 text-blue-foreground"
@@ -105,6 +106,6 @@ export const FestivalScheduleSection: React.FC<
       />
 
       <BuyTicketButton className="mt-6 w-full" />
-    </section>
+    </Section>
   );
 };

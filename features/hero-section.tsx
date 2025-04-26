@@ -1,5 +1,6 @@
 import { BuyTicketButton } from "@/blocks/ui/buy-ticket";
 import Marquee from "@/blocks/ui/marquee";
+import { Section } from "@/blocks/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DecorativeImage } from "@/components/ui/decorative-image";
@@ -8,7 +9,7 @@ import { MomentIcon, NailIcon } from "@/shared/icons";
 
 export const HeroSection = () => {
   return (
-    <section className="flex relative items-center justify-center flex-col pt-28 pb-16 px-4">
+    <Section className="flex relative items-center justify-center flex-col pt-28 pb-16">
       <DecorativeImage
         src={IMAGES.ORANGES_URL}
         className="-left-4 -top-5 rotate-[30deg] size-[200px] z-0"
@@ -72,6 +73,6 @@ export const HeroSection = () => {
           </Button>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };

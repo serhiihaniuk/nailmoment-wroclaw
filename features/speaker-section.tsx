@@ -2,6 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/ui/section-header";
 import { SpeakerCard } from "@/blocks/ui/speaker-card";
+import { Section } from "@/blocks/ui/section";
 
 // --- Data ---
 const placeholderImageUrl =
@@ -63,7 +64,7 @@ export const SpeakersSection: React.FC<SpeakersSectionProps> = ({
   className,
 }) => {
   return (
-    <section className={cn("px-4", className)}>
+    <Section className={cn(className)}>
       <SectionHeader title="Спікери фестивалю" className="mb-6" />
       <div className="flex flex-col items-center gap-4">
         {speakers.map((speaker) => (
@@ -76,6 +77,6 @@ export const SpeakersSection: React.FC<SpeakersSectionProps> = ({
           />
         ))}
       </div>
-    </section>
+    </Section>
   );
 };

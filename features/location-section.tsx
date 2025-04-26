@@ -2,6 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Link } from "@/blocks/ui/link";
+import { Section } from "@/blocks/ui/section";
 
 interface LocationSectionProps {
   className?: string;
@@ -19,7 +20,7 @@ export const LocationSection: React.FC<LocationSectionProps> = ({
   const address = "Wyspa Słodowa 7, 50-266 Wrocław";
 
   return (
-    <section className={cn("px-4", className)}>
+    <Section className={cn(className)}>
       <div className="flex flex-col items-center space-y-3 text-center">
         <SectionHeader title={title} className="mb-4 text-blue-foreground" />
         <p className="text-lg text-blue-foreground/90 font-medium whitespace-pre-line">
@@ -45,6 +46,6 @@ export const LocationSection: React.FC<LocationSectionProps> = ({
           )}
         </div>
       </div>
-    </section>
+    </Section>
   );
 };

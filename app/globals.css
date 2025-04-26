@@ -18,6 +18,8 @@
   --color-yellow-background: var(--yellow-background);
   --color-yellow-foreground: var(--yellow-foreground);
   --color-green-foreground: var(--green-foreground);
+  --color-ring: var(--blue-foreground);
+  --color-ring-destructive: var(--destructive);
   --font-onest: var(--font-onest);
 
   --text-lg: 16px;
@@ -33,6 +35,8 @@
   --yellow-background: rgba(255, 192, 1, 1);
   --yellow-foreground: rgba(145, 82, 0, 1);
   --green-foreground: rgba(103, 112, 67, 1);
+
+  --ring: oklch(0.705 0.015 286.067);
 
   /* example */
   --sidebar-ring: oklch(0.708 0 0);

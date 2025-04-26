@@ -8,6 +8,7 @@ import { ImageCaption } from "@/blocks/ui/image-caption";
 import { SectionHeader } from "@/components/ui/section-header";
 import { DecorativeImage } from "@/components/ui/decorative-image";
 import { IMAGES } from "@/shared/const";
+import { Section } from "@/blocks/ui/section";
 
 const bulletPoints = [
   "збираємо топів nail-індустрії в одному місці. Ніякої води, тільки АКТУАЛЬНІ ТЕМИ ТА МК!",
@@ -86,7 +87,7 @@ const WHY_ATTEND_CAPTIONS_DATA = [
 export const InfoSection = () => {
   return (
     <>
-      <section className="flex items-center justify-center flex-col px-4">
+      <Section className="flex items-center justify-center flex-col">
         <SectionHeader title={HEADINGS.FESTIVAL_INTRO} className="mb-4" />
 
         <div className="text-blue-foreground text-left self-stretch">
@@ -129,7 +130,7 @@ export const InfoSection = () => {
           className="w-full"
           alt="image" // Consider making this more descriptive
         />
-      </section>
+      </Section>
 
       {/* Section 2: Accent Card (Wroclaw) */}
       <AccentCard
@@ -153,7 +154,7 @@ export const InfoSection = () => {
       </AccentCard>
 
       {/* Section 3: Market */}
-      <section className="px-4">
+      <Section>
         <SectionHeader title={HEADINGS.MARKET_TITLE} className="mt-16 mb-4" />
 
         <div className="flex flex-col gap-2.5">
@@ -184,7 +185,7 @@ export const InfoSection = () => {
             <ImageCaption key={index} url={item.url} caption={item.caption} />
           ))}
         </div>
-      </section>
+      </Section>
     </>
   );
 };

@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"; // Use the specified path
 import { SectionHeader } from "@/components/ui/section-header"; // Assuming path
+import { Section } from "@/blocks/ui/section";
 
 // --- FAQ Data Type ---
 export type FaqEntry = {
@@ -78,7 +79,7 @@ interface FaqSectionProps {
 
 export const FaqSection: React.FC<FaqSectionProps> = ({ className }) => {
   return (
-    <section className={cn("px-4", className)}>
+    <Section className={cn(className)}>
       <SectionHeader title="Відповіді на часті питання" className="mb-6" />
       <Accordion type="single" collapsible className="w-full max-w-2xl mx-auto">
         {faqData.map((item) => (
@@ -96,6 +97,6 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ className }) => {
           </AccordionItem>
         ))}
       </Accordion>
-    </section>
+    </Section>
   );
 };
