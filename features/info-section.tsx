@@ -92,7 +92,7 @@ export const InfoSection = () => {
         <div className="text-blue-foreground text-left self-stretch">
           Тільки ми:
         </div>
-        <ul className="flex relative flex-col gap-1.5">
+        <ul className="flex relative flex-col gap-1.5 self-stretch">
           {bulletPoints.map((text, i) => (
             <ListItem
               className={cn("bg-white w-[90%]", {
@@ -116,10 +116,9 @@ export const InfoSection = () => {
 
         <SectionHeader
           title={HEADINGS.NAIL_MOMENT_MOTTO}
-          className="mt-16 mb-4"
+          className="mt-16 mb-4 md:mt-36"
         />
-
-        <ul className="flex flex-col gap-5 py-2.5 bg-white rounded-lg mb-2.5">
+        <ul className="flex flex-col gap-5 py-2.5 bg-white rounded-lg mb-2.5 self-stretch">
           {bulletPoints2.map((text, i) => (
             <ListItem className="py-0" key={i} text={text} />
           ))}

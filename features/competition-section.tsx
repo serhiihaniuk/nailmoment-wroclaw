@@ -36,7 +36,7 @@ export const CompetitionSection = () => {
   const { BATTLE_OF_MASTERS, PEOPLES_SPEAKER } = COMPETITION_DATA;
 
   return (
-    <section className="px-4 flex flex-col gap-2.5">
+    <section className="px-4 flex flex-col gap-2.5 max-w-96 mx-auto">
       <div id="battle-of-masters" className="relative scroll-mt-7">
         <div
           className={cn(

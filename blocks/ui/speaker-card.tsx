@@ -24,7 +24,7 @@ export const SpeakerCard: React.FC<ProfileCardProps> = ({
   return (
     <div
       className={cn(
-        "flex items-center gap-4 p-3 bg-white rounded-lg border border-gray-200 w-full max-w-sm",
+        "flex items-center gap-4 p-3 bg-white rounded-lg border border-gray-200 w-full max-w-2xl",
         className
       )}
     >

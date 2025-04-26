@@ -68,7 +68,7 @@ export const TicketSection: React.FC<TicketSectionProps> = ({ className }) => {
   return (
     <section id="ticket-section" className={cn("px-4 scroll-mt-9", className)}>
       <SectionHeader title="Квитки на фестиваль" className="mb-6" />
-      <div className="relative rounded-xl mb-5 uppercase text-lg font-semibold flex items-center justify-center pr-20 pl-4 text-white bg-accent-pink bottom-0 left-0 right-0 h-16">
+      <div className="relative max-w-96 mx-auto rounded-xl mb-5 uppercase text-lg font-semibold flex items-center justify-center pr-20 pl-4 text-white bg-accent-pink bottom-0 left-0 right-0 h-16">
         <div>
           <a href="#battle-of-masters">
             Придбати квиток Участника Битви Майстрів

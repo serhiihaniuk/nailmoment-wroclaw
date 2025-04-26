@@ -11,7 +11,7 @@ export const HeroSection = () => {
     <section className="flex relative items-center justify-center flex-col pt-28 pb-16 px-4">
       <DecorativeImage
         src={IMAGES.ORANGES_URL}
-        className="-left-2 -top-5 rotate-[30deg] size-[200px] z-0"
+        className="-left-4 -top-5 rotate-[30deg] size-[200px] z-0"
       />
       <DecorativeImage
         src={IMAGES.LEMONS_URL}
@@ -51,24 +51,26 @@ export const HeroSection = () => {
         pauseOnHover={true}
         className="self-stretch mt-5 bg-white absolute left-0 right-0 bottom-0 font-medium"
       />
-      <BuyTicketButton className="self-stretch mt-5" />
-      <div className="grid grid-cols-2 gap-2 pt-2.5">
-        <Button
-          variant="secondary"
-          asChild
-          className="text-blue-foreground flex items-center justify-center text-center"
-          size="sm"
-        >
-          <a href="#battle-of-masters">Конкурс «Битва Майстрів»</a>
-        </Button>
-        <Button
-          className="text-blue-foreground flex items-center justify-center text-center"
-          variant="secondary"
-          asChild
-          size="sm"
-        >
-          <a href="#peoples-speaker">Народний Спікер</a>
-        </Button>
+      <div className="flex flex-col gap-2.5 self-center pt-5 max-w-96 items-center">
+        <BuyTicketButton className="self-stretch" />
+        <div className="grid grid-cols-2 gap-2">
+          <Button
+            variant="secondary"
+            asChild
+            className="text-blue-foreground flex items-center justify-center text-center"
+            size="sm"
+          >
+            <a href="#battle-of-masters">Конкурс «Битва Майстрів»</a>
+          </Button>
+          <Button
+            className="text-blue-foreground flex items-center justify-center text-center"
+            variant="secondary"
+            asChild
+            size="sm"
+          >
+            <a href="#peoples-speaker">Народний Спікер</a>
+          </Button>
+        </div>
       </div>
     </section>
   );
