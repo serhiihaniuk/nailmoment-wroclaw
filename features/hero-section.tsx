@@ -44,11 +44,21 @@ export const HeroSection = () => {
       <BuyTicketButton className="self-stretch mt-5" />
 
       <div className="grid grid-cols-2 gap-2 pt-2.5">
-        <Button variant="secondary" className="text-blue-foreground" size="sm">
-          Конкурс «Битва Майстрів»
+        <Button
+          variant="secondary"
+          asChild
+          className="text-blue-foreground flex items-center justify-center text-center"
+          size="sm"
+        >
+          <a href="#battle-of-masters">Конкурс «Битва Майстрів»</a>
         </Button>
-        <Button className="text-blue-foreground" variant="secondary" size="sm">
-          Народний Спікер
+        <Button
+          className="text-blue-foreground flex items-center justify-center text-center"
+          variant="secondary"
+          asChild
+          size="sm"
+        >
+          <a href="#peoples-speaker">Народний Спікер</a>
         </Button>
       </div>
     </section>

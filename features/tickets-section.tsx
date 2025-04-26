@@ -66,10 +66,14 @@ interface TicketSectionProps {
 
 export const TicketSection: React.FC<TicketSectionProps> = ({ className }) => {
   return (
-    <section className={cn("px-4 ", className)}>
+    <section id="ticket-section" className={cn("px-4 scroll-mt-9", className)}>
       <SectionHeader title="Квитки на фестиваль" className="mb-6" />
       <div className="relative rounded-xl mb-5 uppercase text-lg font-semibold flex items-center justify-center pr-20 pl-4 text-white bg-accent-pink bottom-0 left-0 right-0 h-16">
-        <div>Придбати квиток Участника Битви Майстрів</div>
+        <div>
+          <a href="#battle-of-masters">
+            Придбати квиток Участника Битви Майстрів
+          </a>
+        </div>
         <div className="w-[42px] h-[74px] absolute right-[10px] bottom-[10px]">
           <img
             alt="icon"

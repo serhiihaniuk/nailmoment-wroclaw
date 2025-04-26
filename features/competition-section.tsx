@@ -37,7 +37,7 @@ export const CompetitionSection = () => {
 
   return (
     <section className="px-4 flex flex-col gap-2.5">
-      <div className="relative">
+      <div id="battle-of-masters" className="relative scroll-mt-7">
         <div
           className={cn(
             "z-10 relative px-6 pb-6 rounded-xl flex flex-col text-center",
@@ -73,7 +73,7 @@ export const CompetitionSection = () => {
         </div>
         <div className="gradient-pink absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl" />
       </div>
-      <div className="relative">
+      <div id="peoples-speaker" className="relative scroll-mt-7">
         <div
           className={cn(
             "z-10 space-y-2.5 relative px-6 pb-6 rounded-xl flex flex-col text-center",
