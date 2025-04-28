@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Section } from "@/blocks/ui/section";
+import Link from "next/link";
 
 // --- Constants for Competition Sections (Data only, no classes) ---
 
@@ -68,8 +69,8 @@ export const CompetitionSection = () => {
               </div>
             ))}
           </div>
-          <Button className="text-accent-pink uppercase">
-            {BATTLE_OF_MASTERS.BUTTON_TEXT}
+          <Button className="text-accent-pink uppercase" asChild>
+            <Link href="battle">{BATTLE_OF_MASTERS.BUTTON_TEXT}</Link>
           </Button>
         </div>
         <div className="gradient-pink absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl shadow-xl" />
@@ -91,10 +92,11 @@ export const CompetitionSection = () => {
             className="text-2xl text-yellow-foreground font-bold leading-[150%]"
           />
           <p>{PEOPLES_SPEAKER.DESCRIPTION}</p>
-          <Button className="uppercase">{PEOPLES_SPEAKER.BUTTON_TEXT}</Button>
+          <Button className="uppercase" asChild>
+            <Link href="speaker">{PEOPLES_SPEAKER.BUTTON_TEXT}</Link>
+          </Button>
         </div>
         <div className="gradient-green absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl shadow-xl" />
-        {/* Hardcoded gradient classes */}
       </div>
     </Section>
   );

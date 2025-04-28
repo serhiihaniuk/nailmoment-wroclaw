@@ -15,11 +15,9 @@ interface ImageCarouselProps {
   images: string[]; // Array of image URLs
   imageAlt?: string;
   className?: string;
-  /** Placeholder blurDataURLs corresponding to the images array. Required for blur effect on remote images. */
   blurDataURLs?: string[];
 }
 
-// Calculate height based on width 900 and 16:9 ratio
 const imageWidth = 900;
 const imageHeight = Math.round(imageWidth * (9 / 16)); // 506
 
@@ -32,7 +30,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   className,
 }) => {
   return (
-    <div className={cn("w-full relative max-w-3xl mx-auto", className)}>
+    <div className={cn("w-full relative max-w-xl mx-auto", className)}>
       <Carousel
         opts={{
           align: "start",
@@ -42,7 +40,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
       >
         <CarouselContent className="bg-transparent -ml-4">
           {images.map((imageUrl, index) => (
-            <CarouselItem key={index} className="bg-transparent pl-4 w-full">
+            <CarouselItem key={index} className="bg-transparent pl-4 w-">
               {/* Wrapper div for rounded corners and overflow clipping */}
               <div className="overflow-hidden rounded-lg w-full aspect-video relative">
                 <NextImage
@@ -60,7 +58,6 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* Controls and Decorative Image remain the same */}
         <div className="flex relative justify-center items-center gap-3 mt-4">
           <CarouselPrevious className="static bg-transparent border-white border-2 translate-x-0 translate-y-0" />
           <CarouselNext className="static bg-transparent border-white border-2 translate-x-0 translate-y-0" />

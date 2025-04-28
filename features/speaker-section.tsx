@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/ui/section-header";
-import { SpeakerCard } from "@/blocks/ui/speaker-card"; // Use the updated SpeakerCard
+import { SpeakerCard } from "@/blocks/ui/speaker-card";
 import { Section } from "@/blocks/ui/section";
 
 const shadowImageUrl =
@@ -155,7 +155,6 @@ const speakers = [
   },
 ];
 
-// --- Component (Layout remains the same) ---
 interface SpeakersSectionProps {
   className?: string;
 }
@@ -164,7 +163,7 @@ export const SpeakersSection: React.FC<SpeakersSectionProps> = ({
   className,
 }) => {
   return (
-    <Section className={cn("py-12 md:py-16", className)}>
+    <Section className={cn("md:py-16", className)}>
       <SectionHeader
         title="Спікери фестивалю"
         className="mb-8 md:mb-10 text-center"

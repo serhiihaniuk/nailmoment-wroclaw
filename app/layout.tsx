@@ -49,7 +49,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${onestSans.variable} ${bowlbyOne.variable} antialiased`}
+        className={`${onestSans.variable} ${bowlbyOne.variable} antialiased min-h-[100dvg] flex flex-col`}
       >
         {children}
       </body>

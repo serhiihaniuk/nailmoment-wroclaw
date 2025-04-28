@@ -40,7 +40,6 @@ export const PastEventCarouselSection: React.FC<
 
   return (
     <Section className={cn("relative", className)}>
-      {/* Alternative: Use simple heading elements */}
       <SectionHeader title={title} />
       <h3 className="text-xl font-medium text-blue-foreground text-center mb-6">
         {subtitle}
