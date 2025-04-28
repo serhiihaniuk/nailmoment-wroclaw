@@ -67,7 +67,11 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
 
       <div className="text-sm text-blue-foreground/70 space-y-1">
         <p>
-          <Link href={privacyPolicyUrl} icon className="hover:underline">
+          <Link
+            target="_self"
+            href={privacyPolicyUrl}
+            className="hover:underline"
+          >
             Polityka prywatnosci
           </Link>
         </p>
