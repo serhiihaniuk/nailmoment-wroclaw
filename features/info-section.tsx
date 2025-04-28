@@ -125,6 +125,7 @@ export const InfoSection = () => {
 
         <Image
           url="https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_1-ipwjoiGlvxVH6goYOLVxxA5mG98VtR.jpg"
+          width={900}
           className="w-full"
           alt="image"
         />

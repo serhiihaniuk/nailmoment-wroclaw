@@ -23,13 +23,16 @@ interface ImageCarouselProps {
 const imageWidth = 900;
 const imageHeight = Math.round(imageWidth * (9 / 16)); // 506
 
+const genericBlurDataURL =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA4IDUnPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0nZycgeDE9JzAlJyB5MT0nMCUnIHgyPScwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyNmMGYwZjAnLz48c3RvcCBvZmZzZXQ9JzEwMCUnIHN0b3AtY29sb3I9JyNkOWQ5ZDknLz48L2xpbmVhckdyYWRpZW50PjxmaWx0ZXIgaWQ9J2InPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249JzEnLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9JzgnIGhlaWdodD0nNScgZmlsbD0ndXJsKCNnKScgZmlsdGVyPSd1cmwoI2IpJy8+PC9zdmc+";
+
 export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   images,
   imageAlt = "Past event",
   className,
 }) => {
   return (
-    <div className={cn("w-full relative max-w-xl mx-auto", className)}>
+    <div className={cn("w-full relative max-w-3xl mx-auto", className)}>
       <Carousel
         opts={{
           align: "start",
@@ -39,22 +42,18 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
       >
         <CarouselContent className="bg-transparent -ml-4">
           {images.map((imageUrl, index) => (
-            <CarouselItem key={index} className="bg-transparent pl-4">
+            <CarouselItem key={index} className="bg-transparent pl-4 w-full">
               {/* Wrapper div for rounded corners and overflow clipping */}
-              <div className="overflow-hidden rounded-lg">
+              <div className="overflow-hidden rounded-lg w-full aspect-video relative">
                 <NextImage
                   src={imageUrl}
                   alt={`${imageAlt} ${index + 1}`}
-                  width={imageWidth} // Explicit width
-                  height={imageHeight} // Explicit height for 16:9 ratio
-                  placeholder="blur" // Use blur placeholder
-                  // Ensure image scales correctly within its container
-                  // 'w-full' makes it take the container width, 'h-auto' maintains aspect ratio
-                  className="w-full h-auto object-cover"
-                  // Optimize loading strategy if needed (e.g., priority for the first image)
+                  width={imageWidth}
+                  height={imageHeight}
+                  placeholder="blur"
+                  blurDataURL={genericBlurDataURL}
+                  className="inset-0 absolute object-cover"
                   priority={index === 0}
-                  // Define sizes for better resource loading based on layout
-                  // Example: Adjust based on your max-w-xl and responsive layout
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 900px"
                 />
               </div>
