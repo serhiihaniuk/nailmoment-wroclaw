@@ -121,7 +121,7 @@ export const FestivalScheduleSection: React.FC<
   FestivalScheduleSectionProps
 > = ({ className }) => {
   return (
-    <Section className={cn("md:py-16", className)}>
+    <Section className={cn("md:py-2", className)}>
       <SectionHeader
         title="Програма Фестивалю"
         className="mb-8 md:mb-10 text-center text-blue-foreground"
