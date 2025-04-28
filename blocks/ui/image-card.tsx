@@ -12,7 +12,7 @@ export const ImageCard: FC<{
   return (
     <Card className={cn("bg-white text-blue-foreground shadow-2xl", className)}>
       <CardContent className="gap-5 flex flex-col ac-content">
-        <Image url={url} alt="abcde" />
+        <Image url={url} alt="event" width={900} />
         <p className="text-center text-lg break-words">{caption}</p>
         {children}
       </CardContent>

@@ -145,7 +145,8 @@ export const InfoSection = () => {
           <Image
             url={ACCENT_CARD_WROCLAW.IMAGE_URL}
             className="w-full"
-            alt="Concordia Design Wrocław location" // More specific alt text
+            width={900}
+            alt="Concordia Design Wrocław location"
           />
           <p>{ACCENT_CARD_WROCLAW.DESCRIPTION2}</p>
         </>
