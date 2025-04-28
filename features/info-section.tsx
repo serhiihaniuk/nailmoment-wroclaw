@@ -9,6 +9,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { DecorativeImage } from "@/components/ui/decorative-image";
 import { IMAGES } from "@/shared/const";
 import { Section } from "@/blocks/ui/section";
+import Link from "next/link";
 
 const bulletPoints = [
   "збираємо топів nail-індустрії в одному місці. Ніякої води, тільки АКТУАЛЬНІ ТЕМИ ТА МК!",
@@ -61,6 +62,7 @@ const MARKET_CARDS_DATA = [
     caption:
       "Мала зала для майстер-класів від ТОПових блогерів та інструкторів з 10:00 до 14:00",
     className: "gradient-orange text-white",
+    buttonHref: "/master-klass",
     buttonText: "ПРОГРАМА МАЙСТЕР-КЛАСІВ",
   },
 ];
@@ -167,7 +169,7 @@ export const InfoSection = () => {
             >
               {card.buttonText && (
                 <Button className="text-yellow-foreground">
-                  {card.buttonText}
+                  <Link href={card.buttonHref}>{card.buttonText}</Link>
                 </Button>
               )}
             </ImageCard>
