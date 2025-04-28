@@ -16,7 +16,7 @@ const email = "Nailmoment.Official@gmail.com";
 const instagramUrl =
   "https://www.instagram.com/nail_moment_pl?igsh=YWZpY2JjOTFueXc5";
 const telegramUrl = "https://t.me/nail_moment_pl"; // Added https:// for proper linking
-const privacyPolicyUrl = "#"; // Keep or update this as needed
+const privacyPolicyUrl = "/polityka"; // Keep or update this as needed
 
 export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
   className,
