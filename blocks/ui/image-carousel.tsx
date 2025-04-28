@@ -18,7 +18,7 @@ interface ImageCarouselProps {
 
 export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   images,
-  imageAlt = "Carousel image",
+  imageAlt = "Past event",
   className,
 }) => {
   return (
@@ -30,21 +30,22 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
         }}
         className="w-full"
       >
-        <CarouselContent className="bg-transparent">
+        <CarouselContent className="bg-transparent -ml-4">
           {images.map((imageUrl, index) => (
-            <CarouselItem key={index} className="bg-transparent">
-              <div className="p-1">
+            <CarouselItem key={index} className="bg-transparent pl-4">
+              <div className="relative overflow-hidden aspect-video rounded-lg overflow-hidden">
                 <img
                   src={imageUrl}
                   alt={`${imageAlt} ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  // Absolute positioning to fill the container, object-cover handles the rest
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
         <div className="flex relative justify-center items-center gap-3 mt-4">
-          <CarouselPrevious className="static bg-transparent border-white border-2  translate-x-0 translate-y-0" />
+          <CarouselPrevious className="static bg-transparent border-white border-2 translate-x-0 translate-y-0" />
           <CarouselNext className="static bg-transparent border-white border-2 translate-x-0 translate-y-0" />
         </div>
         <DecorativeImage

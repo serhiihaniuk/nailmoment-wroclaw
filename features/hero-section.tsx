@@ -12,14 +12,14 @@ export const HeroSection = () => {
     <Section className="flex relative items-center justify-center flex-col pt-28 pb-16">
       <DecorativeImage
         src={IMAGES.ORANGES_URL}
-        className="-left-4 -top-5 rotate-[30deg] size-[200px] z-0"
+        className="-left-14 -top-5 md:-left-6 md:-top-5 rotate-[30deg] size-[200px] z-0"
       />
       <DecorativeImage
         src={IMAGES.LEMONS_URL}
-        className="right-0 -top-8 size-[180px]"
+        className="-right-8 md:-right-2 -top-8 size-[180px]"
       />
       <div className="grid grid-cols-2 gap-2 mb-5 relative z-1">
-        <Badge>20 липня</Badge>
+        <Badge>27 липня</Badge>
         <Badge>Вроцлав</Badge>
       </div>
       <h1 className="flex flex-col gap-7 text-center items-center justify-center mb-8">

@@ -27,7 +27,7 @@ export const AccentCard: FC<{
       {imageUrl && (
         <DecorativeImage
           src={imageUrl}
-          className="right-2 -top-24 size-[180px] animate-scroll-rotate"
+          className="-right-10 md:right-2 -top-20 md:-top-24 size-[140px] md:size-[180px] animate-scroll-rotate"
         />
       )}
     </Card>

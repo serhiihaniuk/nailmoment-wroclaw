@@ -21,7 +21,7 @@ export const AfterpartyCard = () => {
           НЕЙМОВІРНИМ краєвидом на цілий Вроцлав
         </p>
         <Image
-          url="https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/placeholder-img-C7NSLnrtqDD9dUPfNxOqAZKQC3CEOT"
+          url="https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_9-zp1kS80sJZtEk9dRQMLr3aiq2osIUN.jpg"
           className="w-full"
           alt="Concordia Design Wrocław location"
         />

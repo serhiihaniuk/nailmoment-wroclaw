@@ -36,7 +36,7 @@ const titlePriceVariants = cva("font-bold", {
 const featureTextVariants = cva("w-full text-lg", {
   variants: {
     variant: {
-      guest: "text-green-foreground/80",
+      guest: "text-green-foreground",
       standard: "text-yellow-foreground",
       vip: "text-white",
     },
@@ -94,31 +94,17 @@ const PlusIcon = ({ className }: { className?: string }) => (
 );
 
 type TicketVariant = NonNullable<VariantProps<typeof cardVariants>["variant"]>;
-
-type Feature = {
-  value: string;
-  isVip: boolean;
-};
-
-export type TicketInfo = {
-  id: string;
-  variant: TicketVariant;
-  imageUrl: string;
-  imageAlt: string;
-  title: string;
-  features: Feature[];
-  price: string;
-  buttonText: string;
-};
+type Feature = { value: string; isVip: boolean };
 
 interface TicketCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {
   imageUrl: string;
   imageAlt: string;
-  title: string;
   features: Feature[];
   price: string;
+  priceIncreaseDate?: string;
+  newPrice?: string;
   buttonText: string;
   onButtonClick?: () => void;
 }
@@ -128,11 +114,26 @@ const capitalize = (s: string = ""): string => {
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
+export type TicketInfo = {
+  id: string;
+  variant: TicketVariant;
+  imageUrl: string;
+  imageAlt: string;
+  title: string; // Keeping title for data consistency
+  features: Feature[];
+  price: string;
+  priceIncreaseDate?: string;
+  newPrice?: string;
+  buttonText: string;
+};
+
 export const TicketCard: React.FC<TicketCardProps> = ({
   imageUrl,
   imageAlt,
   features,
   price,
+  priceIncreaseDate,
+  newPrice,
   buttonText,
   variant = "guest",
   onButtonClick,
@@ -144,21 +145,20 @@ export const TicketCard: React.FC<TicketCardProps> = ({
 
   return (
     <Card className={cn(cardVariants({ variant }), className)} {...props}>
-      <CardContent className="flex flex-col items-center text-center p-6 flex-grow">
+      <CardContent
+        className={cn(
+          "flex flex-col items-center text-center p-6 flex-grow",
+          featureTextVariants({ variant })
+        )}
+      >
         <img src={imageUrl} alt={imageAlt} className="w-[160px]" />
-
         <img
           src={titleSvgPath}
           alt={titleSvgAlt}
           className="mt-5 mb-6 h-8 w-auto"
         />
 
-        <div
-          className={cn(
-            featureTextVariants({ variant }),
-            "mb-6 text-lg w-full"
-          )}
-        >
+        <div className={cn("mb-6 text-lg w-full")}>
           {features.map((feature, index) => (
             <div
               key={`${variant}-${index}`}
@@ -175,16 +175,24 @@ export const TicketCard: React.FC<TicketCardProps> = ({
           ))}
         </div>
 
-        <div className="mt-auto">
+        <div className="mt-auto w-full">
           <div
             className={cn(
-              "text-5xl mb-6 font-bold uppercase",
-              titlePriceVariants({ variant })
+              "text-5xl font-bold uppercase",
+              titlePriceVariants({ variant }),
+              priceIncreaseDate && newPrice ? "mb-2" : "mb-6"
             )}
           >
             {price}
-            <span className="uppercase">Zł</span>
+            <span className="lowercase">zł</span>
           </div>
+
+          {priceIncreaseDate && newPrice && (
+            <div className={cn("text-sm mb-4 px-2")}>
+              <p>Встигніть придбати за цією ціною до {priceIncreaseDate}!</p>
+              <p>Після цієї дати вартість буде: {newPrice} Zł</p>
+            </div>
+          )}
         </div>
 
         <Button className={buttonVariants({ variant })} onClick={onButtonClick}>

@@ -5,7 +5,12 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { IMAGES } from "@/shared/const";
 import { Section } from "@/blocks/ui/section";
 
-const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
+const priceIncreaseDate = "12.05";
+const newGuestPrice = "60";
+const newStandardPrice = "429";
+const newVipPrice = "729";
+
+const ticketData: TicketInfo[] = [
   {
     id: "guest",
     variant: "guest",
@@ -20,6 +25,8 @@ const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
       { value: "доступ до закритого телеграм - каналу", isVip: false },
     ],
     price: "50",
+    priceIncreaseDate: priceIncreaseDate,
+    newPrice: newGuestPrice,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
   },
   {
@@ -37,6 +44,8 @@ const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
       { value: "afterparty на терасі", isVip: false },
     ],
     price: "390",
+    priceIncreaseDate: priceIncreaseDate,
+    newPrice: newStandardPrice,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
   },
   {
@@ -46,9 +55,14 @@ const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
     imageAlt: "Passion fruit slice illustration",
     title: "VIP",
     features: [
+      // --- Added new VIP features at the top ---
+      { value: "презентації спікерів", isVip: true },
+      { value: "мерч фестивалю", isVip: true },
+      // --- Existing VIP features ---
       { value: "місця у перших рядах", isVip: true },
       { value: "подарунки від брендів", isVip: true },
       { value: "сертифікат про участь у заході", isVip: true },
+      // --- Standard features included in VIP ---
       { value: "доступ до nail-маркету", isVip: false },
       { value: "усі виступи спікерів", isVip: false },
       { value: "доступ до Малої Зали з МК", isVip: false },
@@ -56,7 +70,9 @@ const ticketData: Omit<TicketInfo, "vipFeatures">[] = [
       { value: "доступ до закритого телеграм - каналу", isVip: false },
       { value: "afterparty на терасі", isVip: false },
     ],
-    price: "890",
+    price: "699",
+    priceIncreaseDate: priceIncreaseDate,
+    newPrice: newVipPrice,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
   },
 ];
@@ -90,9 +106,11 @@ export const TicketSection: React.FC<TicketSectionProps> = ({ className }) => {
             variant={ticket.variant}
             imageUrl={ticket.imageUrl}
             imageAlt={ticket.imageAlt}
-            title={ticket.title}
-            features={ticket.features} // Pass the updated features array
+            // title prop removed from TicketCard internal display, but keep if used elsewhere
+            features={ticket.features}
             price={ticket.price}
+            priceIncreaseDate={ticket.priceIncreaseDate} // Pass the new prop
+            newPrice={ticket.newPrice} // Pass the new prop
             buttonText={ticket.buttonText}
           />
         ))}

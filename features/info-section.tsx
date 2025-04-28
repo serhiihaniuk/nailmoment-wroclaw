@@ -20,11 +20,8 @@ const bulletPoints = [
 const bulletPoints2 = [
   "Ми підтримуємо нейл-майстрів, допомагаємо їм будувати успішний бізнес",
   "Ми створюємо середовище, де кожен може навчатися, надихатися та знайомитися з однодумцями",
-  "Ми розвиваємо індустрію нігтьового сервісу в польщі та виводимо її на новий рівень",
+  "Ми розвиваємо індустрію нігтьового сервісу в Польщі та виводимо її на новий рівень",
 ];
-
-const PLACEHOLDER_IMG_URL =
-  "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/placeholder-img-C7NSLnrtqDD9dUPfNxOqAZKQC3CEOT";
 
 const HEADINGS = {
   FESTIVAL_INTRO:
@@ -41,27 +38,28 @@ const ACCENT_CARD_WROCLAW = {
     "Друге сердце Польщі та місто куди ви нас запрошували мільйони разів 🫶 і МИ ВИРІШИЛИ ЗНЯТИ ЦІЛИЙ ОСТРІВ, приїхати та розірвати фестивалем Nail Moment",
   DESCRIPTION2:
     "А саме Concordia Design Wrocław на острові Słodowej у самому центрі міста Вроцлав біля Старого міста",
-  IMAGE_URL: PLACEHOLDER_IMG_URL,
+  IMAGE_URL:
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_2-zLUsJEsHj6HKKo8df232AH8ENlQinx.jpg",
 };
 
 const MARKET_CARDS_DATA = [
   {
-    url: PLACEHOLDER_IMG_URL,
+    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_3-5BVLJjTs1IcJNNgxbdo9ibUdVvOPc4.jpg",
     caption:
       "Найкращі nail-бренди в одному місці. Гелі, лаки, бази, дизайни та аксесуари — все що потрібно майстру!",
     className: "",
     buttonText: null,
   },
   {
-    url: PLACEHOLDER_IMG_URL,
+    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_4-oioS6W6uP0LuMJQtD5PNrNtYeAXywD.jpg",
     caption: "Акції, від яких хочеться скупити все! Та безпрограшні лотереї!",
     className: "",
     buttonText: null,
   },
   {
-    url: PLACEHOLDER_IMG_URL,
+    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img-5-hk2l7jPXRwcaBM3hKdBh9vqoUWjQSW.jpg",
     caption:
-      "Мала зала для майстер-класів від ТОПових блогерів та інструкторів з 9:00 до 14:00",
+      "Мала зала для майстер-класів від ТОПових блогерів та інструкторів з 10:00 до 14:00",
     className: "gradient-orange text-white",
     buttonText: "ПРОГРАМА МАЙСТЕР-КЛАСІВ",
   },
@@ -69,15 +67,15 @@ const MARKET_CARDS_DATA = [
 
 const WHY_ATTEND_CAPTIONS_DATA = [
   {
-    url: PLACEHOLDER_IMG_URL,
+    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_6-rY2ktPUtg6rYIJ33rZJ7k1H3HTDHYn.jpg",
     caption: "Супервигода, яку не знайдеш в онлайні",
   },
   {
-    url: PLACEHOLDER_IMG_URL,
+    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_7-POulgpQwlT7KSZO7TgLzEfidLksgTQ.jpg",
     caption: "Живе спілкування, нові знайомствата натхнення",
   },
   {
-    url: PLACEHOLDER_IMG_URL,
+    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_8-PGLaKE5Xj3ZKjSZ1QQAFZ6GHxMoei8.jpg",
     caption: "Подарунки та емоції, які залишаться з тобою надовго",
   },
 ];
@@ -96,7 +94,7 @@ export const InfoSection = () => {
         <ul className="flex relative flex-col gap-1.5 self-stretch">
           {bulletPoints.map((text, i) => (
             <ListItem
-              className={cn("bg-white w-[90%]", {
+              className={cn("capitalize bg-white w-[90%]", {
                 "w-[95%]": i === 0 || i === 3,
                 "w-[85%]": i === 1,
                 "w-[80%]": i === 2,
@@ -126,9 +124,9 @@ export const InfoSection = () => {
         </ul>
 
         <Image
-          url={PLACEHOLDER_IMG_URL}
+          url="https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_1-ipwjoiGlvxVH6goYOLVxxA5mG98VtR.jpg"
           className="w-full"
-          alt="image" // Consider making this more descriptive
+          alt="image"
         />
       </Section>
 

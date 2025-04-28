@@ -8,13 +8,15 @@ interface FooterInfoSectionProps {
   className?: string;
 }
 
-const companyName = "Nail Moment Anhelina Rahoza";
-const nip = "5223118965";
-const regon = "529210914";
-const email = "nail.moment.wroclaw@gmail.com";
-const instagramUrl = "#";
-const telegramUrl = "#";
-const privacyPolicyUrl = "#";
+// Updated company details
+const companyName = "KATERYNA TARALA NAIL MOMENT";
+const nip = "8943258555";
+// REGON removed
+const email = "Nailmoment.Official@gmail.com";
+const instagramUrl =
+  "https://www.instagram.com/nail_moment_pl?igsh=YWZpY2JjOTFueXc5";
+const telegramUrl = "https://t.me/nail_moment_pl"; // Added https:// for proper linking
+const privacyPolicyUrl = "#"; // Keep or update this as needed
 
 export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
   className,
@@ -33,7 +35,7 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
         <div className="text-base text-blue-foreground/90 space-y-0.5">
           <p>{companyName}</p>
           <p>NIP: {nip}</p>
-          <p>REGON: {regon}</p>
+          {/* REGON line removed */}
         </div>
       </div>
 
