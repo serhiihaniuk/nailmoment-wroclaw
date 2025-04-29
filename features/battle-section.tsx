@@ -38,7 +38,7 @@ export const BattleSection = () => {
           </span>
         </span>
       </h1>
-      <div className="capitalize flex  text-centeritems-center justify-center py-10 text-blue-foreground text-5xl font-black">
+      <div className="capitalize flex  text-center items-center justify-center py-10 text-blue-foreground text-5xl font-black">
         скоро розповімо 😉
       </div>
       <Button className="text-blue-foreground flex gap-2 items-center" asChild>
