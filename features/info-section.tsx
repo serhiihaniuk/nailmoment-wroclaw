@@ -69,7 +69,7 @@ const MARKET_CARDS_DATA = [
 
 const WHY_ATTEND_CAPTIONS_DATA = [
   {
-    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_6-rY2ktPUtg6rYIJ33rZJ7k1H3HTDHYn.jpg",
+    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_8-PGLaKE5Xj3ZKjSZ1QQAFZ6GHxMoei8.jpg",
     caption: "Супервигода, яку не знайдеш в онлайні",
   },
   {
@@ -77,7 +77,7 @@ const WHY_ATTEND_CAPTIONS_DATA = [
     caption: "Живе спілкування, нові знайомствата натхнення",
   },
   {
-    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_8-PGLaKE5Xj3ZKjSZ1QQAFZ6GHxMoei8.jpg",
+    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_6-rY2ktPUtg6rYIJ33rZJ7k1H3HTDHYn.jpg",
     caption: "Подарунки та емоції, які залишаться з тобою надовго",
   },
 ];
