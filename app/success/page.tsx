@@ -72,7 +72,7 @@ export default function SuccessPayment() {
       </Section>
       <LocationSection />
       <Button
-        className="text-blue-foreground w-full max-w-80 mx-auto my-10 flex gap-2 items-center"
+        className="text-blue-foreground w-full max-w-80 mx-auto my-6 flex gap-2 items-center"
         asChild
       >
         <Link href="/">
