@@ -50,7 +50,7 @@ const speakers = [
   {
     id: 3,
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/ragoza-AMTBDV5Wa6pK7UjHBk0Kb7di2PYSiA.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/ragoza-bMjMeE9tpzi9EsVP6NOrFLgeGynAAd.jpg",
     imageAlt: "Ангеліна Рагоза",
     name: "Ангеліна Рагоза",
     description: (
