@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cva, type VariantProps } from "class-variance-authority";
+import Link from "next/link";
 
 const cardVariants = cva(
   "w-full max-w-sm flex flex-col overflow-hidden rounded-xl p-0",
@@ -106,7 +107,7 @@ interface TicketCardProps
   priceIncreaseDate?: string;
   newPrice?: string;
   buttonText: string;
-  onButtonClick?: () => void;
+  href: string;
 }
 
 const capitalize = (s: string = ""): string => {
@@ -119,12 +120,13 @@ export type TicketInfo = {
   variant: TicketVariant;
   imageUrl: string;
   imageAlt: string;
-  title: string; // Keeping title for data consistency
+  title: string;
   features: Feature[];
   price: string;
   priceIncreaseDate?: string;
   newPrice?: string;
   buttonText: string;
+  href: string;
 };
 
 export const TicketCard: React.FC<TicketCardProps> = ({
@@ -136,7 +138,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({
   newPrice,
   buttonText,
   variant = "guest",
-  onButtonClick,
+  href,
   className,
   ...props
 }) => {
@@ -195,8 +197,8 @@ export const TicketCard: React.FC<TicketCardProps> = ({
           )}
         </div>
 
-        <Button className={buttonVariants({ variant })} onClick={onButtonClick}>
-          {buttonText}
+        <Button className={buttonVariants({ variant })} asChild>
+          <Link href={href}>{buttonText}</Link>
         </Button>
       </CardContent>
     </Card>
