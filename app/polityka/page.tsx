@@ -12,9 +12,7 @@ export default function Polityka() {
     // Main container from the new project
     <main className="w-full max-w-4xl shadow-2xl overflow-hidden mx-auto bg-blue-background grow min-h-[100dvh] flex flex-col">
       {/* Section containing decorative images and logo (from new project) */}
-      <Section className="flex flex-col relative items-center justify-start pt-16 pb-10">
-        {" "}
-        {/* Reduced top padding slightly */}
+      <Section className="flex flex-col relative items-center justify-start pt-44 pb-10">
         <DecorativeImage
           src={IMAGES.ORANGES_URL}
           className="-left-14 -top-5 md:-left-6 md:-top-5 rotate-[30deg] size-[200px] z-0"

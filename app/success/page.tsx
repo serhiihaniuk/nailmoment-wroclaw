@@ -12,16 +12,16 @@ import Link from "next/link"; // Import Link for buttons
 // Consider renaming the file to reflect its purpose, e.g., success-payment.tsx
 export default function SuccessPayment() {
   return (
-    <main className="w-full max-w-4xl shadow-2xl overflow-hidden mx-auto bg-blue-background grow min-h-[100dvh] flex flex-col gap-12">
+    <main className="w-full max-w-4xl shadow-2xl overflow-hidden mx-auto bg-blue-background grow min-h-[100dvh] flex flex-col">
       {/* Header Section with Logo and Decorative Images */}
-      <Section className="flex flex-col relative items-center justify-start pt-16 pb-10">
+      <Section className="flex flex-col relative items-center justify-start pt-22">
         <DecorativeImage
           src={IMAGES.ORANGES_URL}
-          className="-left-14 -top-5 md:-left-6 md:-top-5 rotate-[30deg] size-[200px] z-0"
+          className="-left-14 -top-10 md:-left-6 md:-top-5 rotate-[30deg] size-[200px] z-0"
         />
         <DecorativeImage
           src={IMAGES.LEMONS_URL}
-          className="-right-8 md:-right-2 -top-8 size-[180px]"
+          className="-right-8 md:-right-2 -top-12 size-[180px]"
         />
         {/* Optional: Keep a back button if needed, maybe link to user's account or events page */}
         <Link
@@ -43,20 +43,20 @@ export default function SuccessPayment() {
             />
           </span>
         </span>
-      </Section>
-
-      <Section className="px-6 md:px-10 lg:px-16 pb-16 grow">
-        {/* Updated Heading */}
-        <h1 className="text-3xl md:text-4xl font-semibold text-blue-foreground text-center mb-8 pb-4 border-b border-white/30">
-          Оплата успішна! {/* Changed Heading */}
-        </h1>
-        <div className="grid grid-cols-2 gap-2 mb-5 relative z-1 max-w-sm mx-auto">
+        <div className="grid grid-cols-2 gap-2 mb-5 relative z-1 max-w-xs mx-auto">
           <Badge>27 липня</Badge>
           <Badge>Вроцлав</Badge>
         </div>
+      </Section>
+
+      <Section className="px-6 md:px-10 lg:px-16 pb-10 grow">
+        {/* Updated Heading */}
+        <h1 className="text-3xl md:text-4xl font-semibold text-blue-foreground text-center mb-2 pb-2 border-b border-white/30">
+          Оплата успішна! {/* Changed Heading */}
+        </h1>
 
         {/* Updated Content */}
-        <div className="space-y-5 text-blue-foreground/90 text-base leading-relaxed text-center max-w-md mx-auto">
+        <div className="space-y-5 text-blue-foreground font-medium text-lg leading-relaxed text-center max-w-md mx-auto">
           {" "}
           {/* Added text-center for better presentation */}
           <p>
@@ -69,12 +69,10 @@ export default function SuccessPayment() {
             забудьте перевірити вхідні листи (а також папку “Спам”, якщо що)!
           </p>
         </div>
-
-        {/* Button to go back to homepage */}
       </Section>
       <LocationSection />
       <Button
-        className="text-blue-foreground w-full max-w-80 mx-auto mt-10 flex gap-2 items-center"
+        className="text-blue-foreground w-full max-w-80 mx-auto my-10 flex gap-2 items-center"
         asChild
       >
         <Link href="/">
