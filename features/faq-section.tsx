@@ -122,7 +122,7 @@ interface FaqSectionProps {
 
 export const FaqSection: React.FC<FaqSectionProps> = ({ className }) => {
   return (
-    <Section className={cn("py-12 md:py-16", className)}>
+    <Section className={cn(className)}>
       <SectionHeader
         title="Відповіді на часті питання"
         className="mb-8 md:mb-10 text-center"
