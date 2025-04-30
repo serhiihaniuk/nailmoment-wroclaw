@@ -163,7 +163,7 @@ export const SpeakersSection: React.FC<SpeakersSectionProps> = ({
   className,
 }) => {
   return (
-    <Section className={cn("md:py-16", className)}>
+    <Section className={cn(className)}>
       <SectionHeader
         title="Спікери фестивалю"
         className="mb-8 md:mb-10 text-center"
