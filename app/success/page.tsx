@@ -4,21 +4,16 @@ import { Section } from "@/blocks/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DecorativeImage } from "@/components/ui/decorative-image";
-import { SectionHeader } from "@/components/ui/section-header";
 import { FooterInfoSection } from "@/features/footer-info-section";
 import { LocationSection } from "@/features/location-section";
 import { IMAGES } from "@/shared/const";
 import { MomentIcon, NailIcon } from "@/shared/icons";
+import { BattleCTA } from "@/widgets/battle-cta";
 import { StepBack } from "lucide-react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-
-const battleOfMastersLink = "/battle";
+import { Suspense } from "react";
 
 export default function SuccessPayment() {
-  const searchParams = useSearchParams();
-  const showBattle = searchParams?.get("showBattle") === "true";
-
   return (
     <main className="w-full max-w-4xl shadow-2xl overflow-hidden mx-auto bg-blue-background grow min-h-[100dvh] flex flex-col gap-5">
       {/* Hero */}
@@ -67,24 +62,9 @@ export default function SuccessPayment() {
         </div>
       </Section>
 
-      {showBattle && (
-        <Section className="text-center text-blue-foreground mt-5 space-y-4 bg-blue-foreground/10 py-4 flex flex-col items-center justify-center gap-1 mb-3">
-          <SectionHeader title="🔥 Битва Майстрів!" className="p-0 m-0" />
-          <p className="text-lg leading-relaxed max-w-sm mx-auto">
-            Маєте хист до змагань? Після придбання цього квитка ви отримуєте
-            ексклюзивну можливість взяти участь у конкурсі&nbsp;
-            <strong>«Битва Майстрів»</strong>! Для участі необхідно додатково
-            придбати окремий квиток конкурсанта.
-          </p>
-
-          <Button
-            asChild
-            className="text-yellow-foreground bg-yellow-background uppercase"
-          >
-            <Link href={battleOfMastersLink}>Дізнатися більше</Link>
-          </Button>
-        </Section>
-      )}
+      <Suspense>
+        <BattleCTA />
+      </Suspense>
 
       {/* Location, footer and navigation */}
       <LocationSection />
