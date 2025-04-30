@@ -9,7 +9,7 @@ const onestSans = Onest({
 
 export const metadata: Metadata = {
   title: "Nail Moment",
-  description: "🍋 Найбільша nail конференція в Польщі🍊",
+  description: "Найбільша nail конференція в Польщі🍊",
   keywords:
     "nail, moment, conference, poland, ukraine, конференція, польща, найбільша, квиток",
   robots: "index,follow",
@@ -17,15 +17,26 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://nailmoment.pl",
     title: "Nail Moment",
-    description: "🍋Найбільша nail конференція в Польщі.",
-
+    description: "Найбільша nail конференція в Польщі.",
     siteName: "Nail Moment",
   },
   twitter: {
     card: "summary_large_image",
     title: "Nail Moment",
-    description: "🍋Найбільша nail конференція в Польщі. ",
+    description: "Найбільша nail конференція в Польщі. ",
   },
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "any" }, // Standard .ico
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", type: "image/png" }, // You can optionally add sizes: '180x180'
+    ],
+  },
+  manifest: "/manifest.webmanifest", // Make sure you have this file in /public
 };
 
 export default function RootLayout({
@@ -35,13 +46,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
-      <head>
-        <link
-          rel="icon"
-          type="image/svg+xml"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍊</text></svg>"
-        />
-      </head>
       <body
         className={`${onestSans.variable} antialiased min-h-[100dvh] flex flex-col`}
       >
