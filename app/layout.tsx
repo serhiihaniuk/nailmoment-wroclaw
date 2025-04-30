@@ -9,21 +9,29 @@ const onestSans = Onest({
 
 export const metadata: Metadata = {
   title: "Nail Moment",
-  description: "Найбільша nail конференція в Польщі🍊",
+  description: "Найбільша nail конференція в Польщі",
   keywords:
     "nail, moment, conference, poland, ukraine, конференція, польща, найбільша, квиток",
   robots: "index,follow",
   openGraph: {
     type: "website",
-    url: "https://nailmoment.pl",
+    url: "https://www.nailmoment.pl",
     title: "Nail Moment",
     description: "Найбільша nail конференція в Польщі.",
     siteName: "Nail Moment",
+    images: [
+      {
+        url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/og-image-bEUynVYYMaJfJUgToNRzhSFGxVgMph.jpg",
+        width: 230,
+        height: 205,
+        alt: "Nail Moment",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nail Moment",
-    description: "Найбільша nail конференція в Польщі. ",
+    description: "Найбільша nail конференція в Польщі.",
   },
 
   icons: {
