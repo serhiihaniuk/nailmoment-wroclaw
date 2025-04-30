@@ -1,19 +1,27 @@
+"use client";
+
 import { Section } from "@/blocks/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DecorativeImage } from "@/components/ui/decorative-image";
+import { SectionHeader } from "@/components/ui/section-header";
 import { FooterInfoSection } from "@/features/footer-info-section";
 import { LocationSection } from "@/features/location-section";
 import { IMAGES } from "@/shared/const";
 import { MomentIcon, NailIcon } from "@/shared/icons";
 import { StepBack } from "lucide-react";
-import Link from "next/link"; // Import Link for buttons
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
-// Consider renaming the file to reflect its purpose, e.g., success-payment.tsx
+const battleOfMastersLink = "/battle";
+
 export default function SuccessPayment() {
+  const searchParams = useSearchParams();
+  const showBattle = searchParams?.get("showBattle") === "true";
+
   return (
-    <main className="w-full max-w-4xl shadow-2xl overflow-hidden mx-auto bg-blue-background grow min-h-[100dvh] flex flex-col">
-      {/* Header Section with Logo and Decorative Images */}
+    <main className="w-full max-w-4xl shadow-2xl overflow-hidden mx-auto bg-blue-background grow min-h-[100dvh] flex flex-col gap-5">
+      {/* Hero */}
       <Section className="flex flex-col relative items-center justify-start pt-22">
         <DecorativeImage
           src={IMAGES.ORANGES_URL}
@@ -40,19 +48,16 @@ export default function SuccessPayment() {
         </div>
       </Section>
 
-      <Section className="px-6 md:px-10 lg:px-16 pb-10 grow">
-        {/* Updated Heading */}
+      {/* Purchase confirmation */}
+      <Section className="px-6 md:px-10 lg:px-16 grow">
         <h1 className="text-3xl md:text-4xl font-semibold text-blue-foreground text-center mb-2 pb-2 border-b border-white/30">
-          Оплата успішна! {/* Changed Heading */}
+          Оплата успішна!
         </h1>
 
-        {/* Updated Content */}
         <div className="space-y-5 text-blue-foreground font-medium text-lg leading-relaxed text-center max-w-md mx-auto">
-          {" "}
-          {/* Added text-center for better presentation */}
           <p>
             Дякуємо за покупку квитка на фестиваль NailMoment!
-            <br /> {/* Added line break for better flow */}
+            <br />
             Ми вже в передчутті зустрічі з вами на нашій неймовірній тусовці!
           </p>
           <p>
@@ -61,6 +66,27 @@ export default function SuccessPayment() {
           </p>
         </div>
       </Section>
+
+      {showBattle && (
+        <Section className="text-center text-blue-foreground mt-5 space-y-4 bg-blue-foreground/10 py-4 flex flex-col items-center justify-center gap-1 mb-3">
+          <SectionHeader title="🔥 Битва Майстрів!" className="p-0 m-0" />
+          <p className="text-lg leading-relaxed max-w-sm mx-auto">
+            Маєте хист до змагань? Після придбання цього квитка ви отримуєте
+            ексклюзивну можливість взяти участь у конкурсі&nbsp;
+            <strong>«Битва Майстрів»</strong>! Для участі необхідно додатково
+            придбати окремий квиток конкурсанта.
+          </p>
+
+          <Button
+            asChild
+            className="text-yellow-foreground bg-yellow-background uppercase"
+          >
+            <Link href={battleOfMastersLink}>Дізнатися більше</Link>
+          </Button>
+        </Section>
+      )}
+
+      {/* Location, footer and navigation */}
       <LocationSection />
       <Button
         className="text-blue-foreground w-full max-w-80 mx-auto my-6 flex gap-2 items-center"
