@@ -23,7 +23,6 @@ export default function SuccessPayment() {
           src={IMAGES.LEMONS_URL}
           className="-right-8 md:-right-2 -top-12 size-[180px]"
         />
-        {/* Optional: Keep a back button if needed, maybe link to user's account or events page */}
         <Link
           href="/" // Or maybe link to a user dashboard or event list?
           className="absolute top-4 left-4 text-sm text-blue-foreground/80 hover:text-white transition-colors z-10"
@@ -32,7 +31,7 @@ export default function SuccessPayment() {
           ← Назад {/* Updated text */}
         </Link>
         {/* Logo */}
-        <span className="flex w-[358px] h-[117px] gap-3.5 flex-col items-center justify-center mb-10">
+        <span className="flex w-[358px] h-[117px] gap-3.5 flex-col items-center justify-center mb-5">
           <NailIcon />
           <span className="relative block">
             <MomentIcon />
