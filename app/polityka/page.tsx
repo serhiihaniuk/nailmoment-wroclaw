@@ -21,15 +21,6 @@ export default function Polityka() {
           src={IMAGES.LEMONS_URL}
           className="-right-8 md:-right-2 -top-8 size-[180px]"
         />
-        {/* Back Link - Added and styled for the new theme */}
-        <Link
-          href="/" // Link back to the homepage or previous relevant page
-          className="absolute top-4 left-4 text-sm text-blue-foreground/80 hover:text-white transition-colors z-10"
-          aria-label="Powrót do strony głównej" // Accessibility label
-        >
-          ← Powrót {/* Using arrow */}
-        </Link>
-        {/* Logo span from new project */}
         <span className="flex w-[358px] h-[117px] gap-3.5 flex-col items-center justify-center mb-10">
           {" "}
           {/* Added bottom margin */}
