@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     siteName: "Nail Moment",
     images: [
       {
-        url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/og-image-bEUynVYYMaJfJUgToNRzhSFGxVgMph.jpg",
-        width: 230,
-        height: 205,
+        url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/og2-itM99A0oDYEdytAq1F2DfFNlQ4CZC5.jpg",
+        width: 500,
+        height: 196,
         alt: "Nail Moment",
       },
     ],
