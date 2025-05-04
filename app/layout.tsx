@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Onest } from "next/font/google";
 import "./globals.css";
 
@@ -58,6 +59,7 @@ export default function RootLayout({
         className={`${onestSans.variable} antialiased min-h-[100dvh] flex flex-col`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
