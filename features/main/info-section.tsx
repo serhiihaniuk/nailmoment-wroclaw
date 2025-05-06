@@ -168,7 +168,7 @@ export const InfoSection = () => {
               className={card.className || ""}
             >
               {card.buttonText && (
-                <Button className="text-yellow-foreground">
+                <Button className="text-yellow-foreground text-center" asChild>
                   <Link href={card.buttonHref}>{card.buttonText}</Link>
                 </Button>
               )}
