@@ -44,13 +44,12 @@ export default function SuccessBattlePayment() {
         </div>
       </Section>
 
-      <Section className="grow">
+      <Section>
         <h1 className="text-3xl md:text-4xl font-semibold text-blue-foreground text-center mb-2 pb-2 border-b border-white/30">
           Ви успішно зареєструвалися на <br />
           Битву Майстрів!
         </h1>
-
-        <div className="space-y-5 text-blue-foreground font-medium text-lg leading-relaxed text-center max-w-lg mx-auto">
+        <div className="space-y-5 text-blue-foreground font-medium text-lg leading-relaxed text-center max-w-lg mx-auto ">
           <p>
             Дякуємо за покупку квитка учасника конкурсу &quot;Битва
             Майстрів&quot;!
@@ -66,7 +65,7 @@ export default function SuccessBattlePayment() {
       </Section>
 
       {/* "Що робити далі" Section */}
-      <Section className="">
+      <Section className="bg-blue-foreground/10 py-4">
         <h2 className="text-2xl font-semibold text-blue-foreground text-center mb-3">
           Що робити далі:
         </h2>
@@ -95,18 +94,17 @@ export default function SuccessBattlePayment() {
             </li>
           </ol>
         </div>
-      </Section>
-
-      <Section className="text-center py-10">
-        <h3 className="text-2xl"> Хочу ще один квиток учасника! </h3>
-        <Link
-          href={INSTAGRAM_LINK}
-          target="_blank"
-          icon
-          className="text-accent-pink text-xl"
-        >
-          Написати в Instagram
-        </Link>
+        <div className="text-center py-10">
+          <h3 className="text-2xl"> Хочу ще один квиток учасника! </h3>
+          <Link
+            href={INSTAGRAM_LINK}
+            target="_blank"
+            icon
+            className="text-accent-pink text-xl"
+          >
+            Написати в Instagram
+          </Link>
+        </div>
       </Section>
 
       {/* Location, footer and navigation - Kept for context and consistency */}

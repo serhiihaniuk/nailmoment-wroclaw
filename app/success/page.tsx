@@ -66,7 +66,6 @@ export default function SuccessPayment() {
         <BattleCTA />
       </Suspense>
 
-      {/* Location, footer and navigation */}
       <LocationSection />
       <Button
         className="text-blue-foreground w-full max-w-80 mx-auto my-6 flex gap-2 items-center"

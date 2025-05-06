@@ -11,7 +11,6 @@ const images = {
   n6: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n6-07STkcqyAFGfns5IT9CoBJO5gjqsLo.jpg", // Classic French (French)
 };
 
-// Corrected mapping based on visual style and title
 const NOMINATIONS_DATA = [
   { id: 1, title: "Французький манікюр", imageUrl: images.n6 },
   { id: 2, title: "Градієнт", imageUrl: images.n5 },
@@ -21,21 +20,28 @@ const NOMINATIONS_DATA = [
   { id: 6, title: "Екстра довжина", imageUrl: images.n1 },
 ];
 
-const SELECTION_CRITERIA_DATA = [
+const FIRST_ROUND_CRITERIA_DATA = [
   "Робота має відповідати номінації",
   "Робота має бути чистою, акуратною і красивою",
   "Фото мають бути чіткі та високої якості",
 ];
 
+const FINAL_ROUND_CRITERIA_DATA = [
+  "БЕЗ НОМІНАЦІЙ та рамок, тільки твоя фантазія!",
+  "Роби на нігтях що хочеш, підготуйся та прояви максимум креативу.",
+  "Має бути фото ДО, ПІСЛЯ, колаж з ДО та ПІСЛЯ, а також короткий відеоролик роботи (до 15 секунд).",
+];
+// ---------------------------------
+
 const SECTION_HEADINGS = {
   NOMINATIONS_TITLE: "Номінації у відбірковому турі",
-  CRITERIA_TITLE: "Критерії відбору робіт у першому турі",
+  FIRST_ROUND_CRITERIA_TITLE: "Критерії відбору робіт у першому турі",
+  FINAL_ROUND_CRITERIA_TITLE: "Критерії відбору робіт у фінальному турі",
 };
 
 export const CriteriaSection = () => {
   return (
     <Section>
-      {/* Nominations Part */}
       <SectionHeader
         title={SECTION_HEADINGS.NOMINATIONS_TITLE}
         className="mb-10 md:mb-12 text-center text-blue-foreground"
@@ -52,8 +58,7 @@ export const CriteriaSection = () => {
                 alt={nomination.title}
                 width={640}
                 height={640}
-                layout="responsive"
-                className="rounded-t-xl transition-transform duration-300 group-hover:scale-105"
+                className="rounded-t-xl object-cover w-full h-auto aspect-square transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div className="p-4 text-center bg-white rounded-b-xl">
@@ -64,15 +69,34 @@ export const CriteriaSection = () => {
           </div>
         ))}
       </div>
-
-      {/* Criteria Part */}
       <SectionHeader
-        title={SECTION_HEADINGS.CRITERIA_TITLE}
+        title={SECTION_HEADINGS.FIRST_ROUND_CRITERIA_TITLE}
         className="mb-8 md:mb-10 text-center text-blue-foreground"
       />
-      <div className="max-w-xl mx-auto bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-200/40">
+      <div className="max-w-xl mx-auto bg-white/80 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-lg border border-gray-200/50">
         <ul className="space-y-3 text-blue-foreground">
-          {SELECTION_CRITERIA_DATA.map((criterion, index) => (
+          {FIRST_ROUND_CRITERIA_DATA.map((criterion, index) => (
+            <li key={index} className="flex items-start text-sm md:text-base">
+              <span
+                className="flex-shrink-0 flex items-center justify-center mr-3 size-6 
+                           bg-gradient-to-br from-yellow-400 to-orange-500 
+                           text-white font-semibold text-xs rounded-full shadow-sm"
+              >
+                {index + 1}
+              </span>
+              <span>{criterion}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <SectionHeader
+        title={SECTION_HEADINGS.FINAL_ROUND_CRITERIA_TITLE}
+        className="mb-8 md:mb-10 mt-10 text-center text-blue-foreground"
+      />
+
+      <div className="max-w-xl mx-auto bg-white/80 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-lg border border-gray-200/50">
+        <ul className="space-y-3 text-blue-foreground">
+          {FINAL_ROUND_CRITERIA_DATA.map((criterion, index) => (
             <li key={index} className="flex items-start text-sm md:text-base">
               <span
                 className="flex-shrink-0 flex items-center justify-center mr-3 size-6 
