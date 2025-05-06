@@ -12,3 +12,9 @@ export const IMAGES = {
   ORANGES_URL:
     "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/image%206-9LgUp2GmUfMON8GLXuCc4MN0g5hadZ.png",
 };
+
+export const INFO_URL = {
+  INSTAGRAM: "https://www.instagram.com/nail_moment_pl",
+  TELEGRAM: "https://t.me/nail_moment_pl",
+  EMAIL: "Nailmoment.Official@gmail.com",
+};

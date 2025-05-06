@@ -50,9 +50,8 @@ export const Image: React.FC<ImageProps> = ({
         width={width}
         height={height}
         priority={priority}
-        sizes={sizes} // Pass the sizes prop for optimization
-        {...rest} // Spread remaining props (like onClick, style, etc.) onto NextImage
-        // No specific className needed on NextImage itself for this layout
+        sizes={sizes}
+        {...rest}
       />
     </div>
   );
