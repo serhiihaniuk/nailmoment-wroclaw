@@ -198,7 +198,9 @@ export const TicketCard: React.FC<TicketCardProps> = ({
         </div>
 
         <Button className={buttonVariants({ variant })} asChild>
-          <Link href={href}>{buttonText}</Link>
+          <Link target="_blank" href={href}>
+            {buttonText}
+          </Link>
         </Button>
       </CardContent>
     </Card>
