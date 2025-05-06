@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card"; // Assuming this is the correct path to your card components
 import Link from "next/link";
 import { INFO_URL } from "@/shared/const";
+import { BuyBattleTicketButton } from "@/blocks/ui/buy-battle-ticket";
 
 const BATTLE_STEPS_DATA = [
   {
@@ -36,7 +37,7 @@ const BATTLE_STEPS_DATA = [
     additionalInfo:
       "Чим більше номінацій — тим більше знижка на наступний квиток участника конкурсу 🍋\nЧим більше номінацій —тим більше твій шанс потрапити у фінал🏆",
     actionText: "Придбати квиток участника Битви Майстрів",
-    actionHref: "/battle-pass-ticket",
+    actionHref: "https://buy.stripe.com/9AQcMSb5T0l4ehW14x",
   },
   {
     stepNumber: 4,
@@ -44,7 +45,7 @@ const BATTLE_STEPS_DATA = [
     description:
       "Обери свою номінацію та надішли 1–3 фотографії своєї роботи до 20 червня. 20 найкращих робіт з кожної номінації потраплять на публічне голосування.",
     actionText: "Вислати свою роботу",
-    actionHref: INFO_URL.INSTAGRAM,
+    actionHref: INFO_URL.TELEGRAM,
     isExternal: true,
   },
   {
@@ -138,6 +139,7 @@ export const BattleInfoSection = () => {
           </Card>
         ))}
       </div>
+      <BuyBattleTicketButton className="mt-10 max-w-sm mx-auto text-sm text-center" />
     </Section>
   );
 };
