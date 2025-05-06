@@ -20,9 +20,6 @@ export const BattleSection = () => {
         <Badge>Вроцлав</Badge>
       </div>
       <h1 className="flex flex-col gap-7 text-center items-center justify-center mb-8">
-        <span className="uppercase text-[26px] text-blue-foreground font-semibold leading-[120%]">
-          Конкурс «Битва Майстрів»
-        </span>
         <span className="flex w-[358px] h-[117px] gap-3.5 flex-col items-center justify-center">
           <NailIcon />
           <span className="relative block">
@@ -33,6 +30,9 @@ export const BattleSection = () => {
               className="absolute left-[67px] top-[-12px] size-[62px] object-cover inline-block"
             />
           </span>
+        </span>
+        <span className="uppercase text-[26px] text-blue-foreground font-semibold leading-[120%]">
+          Конкурс «Битва Майстрів»
         </span>
       </h1>
       <p className="text-center max-w-md items-center flex justify-center pt-10 text-blue-foreground text-lg">
