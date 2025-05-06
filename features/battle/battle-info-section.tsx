@@ -1,0 +1,143 @@
+import { Section } from "@/blocks/ui/section";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardContent,
+} from "@/components/ui/card"; // Assuming this is the correct path to your card components
+import Link from "next/link";
+import { INFO_URL } from "@/shared/const";
+
+const BATTLE_STEPS_DATA = [
+  {
+    stepNumber: 1,
+    title: "Ознайомся з умовами конкурсу",
+    description:
+      "Уважно прочитай повні умови участі. Подавши заявку, ти підтверджуєш, що згоден з усіма правилами.",
+    actionText: "Прочитати умови",
+    actionHref: "/battle/regulamin",
+  },
+  {
+    stepNumber: 2,
+    title: "Придбай квиток на фестиваль Nail Moment (Standard або VIP)",
+    description:
+      "Для того щоб прийняти участь у конкурсі «Битва Майстрів», треба буди учасником фестивалю.",
+    actionText: "Придбати квиток",
+    actionHref: "/#ticket-section",
+  },
+  {
+    stepNumber: 3,
+    title: "Придбай квиток учасника конкурсу",
+    description:
+      "1 квиток = 1 номінація\n\nЯкщо хочеш взяти участь у двох та більше номінаціях треба купити додатковий квиток на кожну номінацію окремо.\nНа кожну наступну номінацію отримуєш знижку учасника ❗️",
+    additionalInfo:
+      "Чим більше номінацій — тим більше знижка на наступний квиток участника конкурсу 🍋\nЧим більше номінацій —тим більше твій шанс потрапити у фінал🏆",
+    actionText: "Придбати квиток участника Битви Майстрів",
+    actionHref: "/battle-pass-ticket",
+  },
+  {
+    stepNumber: 4,
+    title: "Візьми участь у відбірковому турі",
+    description:
+      "Обери свою номінацію та надішли 1–3 фотографії своєї роботи до 20 червня. 20 найкращих робіт з кожної номінації потраплять на публічне голосування.",
+    actionText: "Вислати свою роботу",
+    actionHref: INFO_URL.INSTAGRAM,
+    isExternal: true,
+  },
+  {
+    stepNumber: 5,
+    title: "Фінальний тур",
+    description:
+      "Якщо ти став фіналістом, приїжджай на фестиваль Nail Moment 27 липня у Вроцлав, де відбудеться фінал конкурсу.\n\n" +
+      "На фіналі тобі нададуть:\n" +
+      "• Модель\n" +
+      "• Стіл\n" +
+      "• Два стільці\n" +
+      "• 2 години 30 хвилин (дві з половиною години) для створення повного ПЕРЕВТІЛЕННЯ однієї руки моделі за власним баченням.\n\n" +
+      "Після цього у тебе буде:\n" +
+      "• 30 хвилин на фото та відео зйомку своєї роботи.\n" +
+      "• 30 хвилин для підготовки фото- та відеопрезентації, яка буде представлена для фінального голосування.",
+  },
+  {
+    stepNumber: 6,
+    title:
+      "Забери головний приз 2000 зл та кубок переможця «Битви Майстрів» 🏆",
+    description:
+      'За підсумками фінального голосування 27 липня 2025 року буде визначено переможця конкурсу "Битва майстрів", і якщо це будеш ти, ти отримаєш головний приз переможця 2000 зл та кубок «Битви Майстрів» 🏆',
+  },
+];
+
+const HEADINGS = {
+  BATTLE_TITLE: "Етапи участі",
+};
+
+export const BattleInfoSection = () => {
+  return (
+    <Section>
+      <SectionHeader
+        title={HEADINGS.BATTLE_TITLE}
+        className="mb-12 text-center text-blue-foreground"
+      />
+
+      <div className="max-w-xl mx-auto space-y-8">
+        {BATTLE_STEPS_DATA.map((step) => (
+          <Card
+            key={step.stepNumber}
+            className="bg-white/80 text-blue-foreground shadow-xl overflow-hidden"
+          >
+            <CardHeader>
+              <div className="flex items-start gap-x-4">
+                {/* Step Number */}
+                <div className="flex-shrink-0">
+                  <span
+                    className="flex items-center justify-center size-8 
+                               bg-gradient-to-br from-yellow-400 to-orange-500 
+                               text-white font-bold text-lg rounded-full shadow-md"
+                  >
+                    {step.stepNumber}
+                  </span>
+                </div>
+                {/* Title */}
+                <div className="flex-1">
+                  <CardTitle className="text-lg">{step.title}</CardTitle>
+                </div>
+              </div>
+            </CardHeader>
+
+            <CardContent>
+              <p className="whitespace-pre-line text-sm md:text-base leading-relaxed">
+                {step.description}
+              </p>
+              {step.additionalInfo && (
+                <p className="mt-4 text-xs md:text-sm italic whitespace-pre-line bg-blue-background p-3 rounded-md border">
+                  {step.additionalInfo}
+                </p>
+              )}
+            </CardContent>
+
+            {step.actionText && step.actionHref && (
+              <CardFooter className="pt-4">
+                <Button
+                  variant="secondary"
+                  asChild
+                  className="w-auto text-center ml-auto"
+                >
+                  <Link
+                    href={step.actionHref}
+                    target={step.isExternal ? "_blank" : undefined}
+                    rel={step.isExternal ? "noopener noreferrer" : undefined}
+                  >
+                    {step.actionText}
+                  </Link>
+                </Button>
+              </CardFooter>
+            )}
+          </Card>
+        ))}
+      </div>
+    </Section>
+  );
+};

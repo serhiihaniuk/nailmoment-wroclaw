@@ -3,20 +3,15 @@ import { cn } from "@/lib/utils";
 import { Link } from "@/blocks/ui/link";
 import { Instagram, Send } from "lucide-react";
 import { Section } from "@/blocks/ui/section";
+import { INFO_URL } from "@/shared/const";
 
 interface FooterInfoSectionProps {
   className?: string;
 }
 
-// Updated company details
 const companyName = "KATERYNA TARALA NAIL MOMENT";
 const nip = "8943258555";
-// REGON removed
-const email = "Nailmoment.Official@gmail.com";
-const instagramUrl =
-  "https://www.instagram.com/nail_moment_pl?igsh=YWZpY2JjOTFueXc5";
-const telegramUrl = "https://t.me/nail_moment_pl"; // Added https:// for proper linking
-const privacyPolicyUrl = "/polityka"; // Keep or update this as needed
+const privacyPolicyUrl = "/polityka";
 
 export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
   className,
@@ -43,8 +38,8 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
         <h3 className="text-xl font-semibold uppercase text-blue-foreground ">
           КОНТАКТНА ТОЧКА
         </h3>
-        <Link href={`mailto:${email}`} icon>
-          {email}
+        <Link href={`mailto:${INFO_URL.EMAIL}`} icon>
+          {INFO_URL.EMAIL}
         </Link>
       </div>
 
@@ -56,10 +51,14 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
           Якщо виникли питання, пишіть на:
         </p>
         <div className="flex justify-center gap-4 pt-2">
-          <Link href={instagramUrl} target="_blank" aria-label="Instagram">
+          <Link
+            href={INFO_URL.INSTAGRAM}
+            target="_blank"
+            aria-label="Instagram"
+          >
             <Instagram className="size-8 text-blue-foreground hover:opacity-80 transition-opacity" />
           </Link>
-          <Link href={telegramUrl} target="_blank" aria-label="Telegram">
+          <Link href={INFO_URL.TELEGRAM} target="_blank" aria-label="Telegram">
             <Send className="size-8 text-blue-foreground hover:opacity-80 transition-opacity" />
           </Link>
         </div>

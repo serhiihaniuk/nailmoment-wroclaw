@@ -1,13 +1,13 @@
 import { CompetitionSection } from "@/features/competition-section";
 import { FaqSection } from "@/features/faq-section";
 import { FooterInfoSection } from "@/features/footer-info-section";
-import { HeroSection } from "@/features/hero-section";
-import { InfoSection } from "@/features/info-section";
+import { HeroSection } from "@/features/main/hero-section";
+import { InfoSection } from "@/features/main/info-section";
 import { LocationSection } from "@/features/location-section";
-import { PastEventCarouselSection } from "@/features/past-event-section";
-import { FestivalScheduleSection } from "@/features/schedule-section";
-import { SpeakersSection } from "@/features/speaker-section";
-import { TicketSection } from "@/features/tickets-section";
+import { PastEventCarouselSection } from "@/features/main/past-event-section";
+import { FestivalScheduleSection } from "@/features/main/schedule-section";
+import { SpeakersSection } from "@/features/main/speaker-section";
+import { TicketSection } from "@/features/main/tickets-section";
 import { AfterpartyCard } from "@/widgets/afterparty-card";
 
 export default function Home() {

@@ -1,15 +1,12 @@
 import { Section } from "@/blocks/ui/section";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { DecorativeImage } from "@/components/ui/decorative-image";
 import { IMAGES } from "@/shared/const";
 import { MomentIcon, NailIcon } from "@/shared/icons";
-import { StepBack } from "lucide-react";
-import Link from "next/link";
 
 export const BattleSection = () => {
   return (
-    <Section className="flex grow relative items-center justify-center flex-col pt-28 pb-16">
+    <Section className="flex grow relative items-center justify-center flex-col pt-28">
       <DecorativeImage
         src={IMAGES.ORANGES_URL}
         className="-left-14 -top-5 md:-left-6 md:-top-5 rotate-[30deg] size-[200px] z-0"
@@ -38,15 +35,14 @@ export const BattleSection = () => {
           </span>
         </span>
       </h1>
-      <div className="capitalize flex  text-center items-center justify-center py-10 text-blue-foreground text-5xl font-black">
-        скоро розповімо 😉
-      </div>
-      <Button className="text-blue-foreground flex gap-2 items-center" asChild>
-        <Link href="/">
-          <StepBack />
-          Повернутися на головну сторінку
-        </Link>
-      </Button>
+      <p className="text-center max-w-md items-center flex justify-center pt-10 text-blue-foreground text-lg">
+        «Битва Майстрів» — це унікальний конкурс для майстрів манікюру, де
+        головними критеріями є твоя креативність, професіоналізм та результат.
+        Жодних строгих технік, відомих суддів чи жорстких таймінгів❗️
+        <br />
+        Оцінювати роботи будуть самі майстри! Конкурс в якому майстер може
+        заробити 2000 зл та забрати кубок переможця «Битви Майстрів»🏆
+      </p>
     </Section>
   );
 };

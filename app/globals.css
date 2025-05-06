@@ -20,6 +20,7 @@
   --color-green-foreground: var(--green-foreground);
   --color-ring: var(--blue-foreground);
   --color-ring-destructive: var(--destructive);
+  --color-destructive: var(--destructive);
   --font-onest: var(--font-onest);
 
   --text-lg: 16px;
@@ -35,6 +36,7 @@
   --yellow-background: rgba(255, 192, 1, 1);
   --yellow-foreground: rgba(145, 82, 0, 1);
   --green-foreground: rgba(103, 112, 67, 1);
+  --destructive: rgba(255, 0, 0, 1);
 
   --ring: oklch(0.705 0.015 286.067);
 
