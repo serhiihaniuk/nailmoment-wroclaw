@@ -1,248 +1,313 @@
 import { Section } from "@/blocks/ui/section";
-import { Button } from "@/components/ui/button";
+import { SectionHeader } from "@/components/ui/section-header";
 import { DecorativeImage } from "@/components/ui/decorative-image";
-import { IMAGES, INFO_URL } from "@/shared/const";
-import { MomentIcon, NailIcon } from "@/shared/icons";
-import { StepBack, CheckCircle, Star, Mic } from "lucide-react"; // Added more icons
-import { Badge } from "@/components/ui/badge"; // Import Badge
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/blocks/ui/link";
+import { IMAGES, INFO_URL } from "@/shared/const";
+import { NailIcon, MomentIcon } from "@/shared/icons";
+import { Mic, Star, CheckCircle, StepBack } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { ListItem } from "@/components/ui/list-item";
+import { AccentCard } from "@/blocks/ui/accent-card";
 
-// Helper component for list items with icons
-const ListItemWithIcon: React.FC<{
-  icon: React.ReactNode;
+// -----------------------------------------------------------------------------
+// Helper data
+// -----------------------------------------------------------------------------
+
+const EVENT_BADGES = [{ label: "27 липня" }, { label: "Вроцлав" }];
+
+const WHAT_IS_ITEMS = [
+  {
+    icon: <Mic size={24} />,
+    text: "Унікальна можливість для кожного майстра манікюру проявити себе.",
+  },
+  {
+    icon: <Star size={24} />,
+    text: "Твоя тема, твій стиль, твоя енергія — і ти на сцені поруч із зірками нейл-індустрії!",
+  },
+  {
+    icon: <CheckCircle size={24} />,
+    text: "Виступати на одній сцені з мастодонтами nail‑індустрії такими як — Анастасія Котенко та Юлія Зварич.",
+  },
+];
+
+const WHY_JOIN_ITEMS = [
+  {
+    text: (
+      <>
+        <span className="font-semibold">Жодних обмежень:</span> неважливо,
+        скільки в тебе підписників або який у тебе Instagram.
+      </>
+    ),
+  },
+  {
+    text: (
+      <>
+        <span className="font-semibold">Головне — твоя ідея:</span> актуальна,
+        корисна, свіжа тема для виступу.
+      </>
+    ),
+  },
+  {
+    text: (
+      <>
+        <span className="font-semibold">Виступ на головній сцені:</span> 30
+        хвилин слави — майстер‑клас або спіч перед усією аудиторією.
+      </>
+    ),
+  },
+  { text: "Твоя фотографія на банері фестивалю." },
+  { text: "Визнання від усієї спільноти майстрів Польщі та Європи." },
+  {
+    text: (
+      <>
+        Шанс, який буває раз у житті! <Star size={20} className="inline" />
+      </>
+    ),
+  },
+];
+
+const PRIZE_ITEMS = [
+  {
+    icon: <Mic size={24} className="text-accent-pink" />,
+    text: (
+      <>
+        Виступ <span className="font-bold">27 липня</span> на головній сцені
+        фестивалю Nail Moment у Вроцлаві.
+      </>
+    ),
+  },
+  {
+    icon: <CheckCircle size={24} className="text-accent-pink" />,
+    text: (
+      <>
+        <span className="font-bold">30 хвилин</span> для майстер‑класу або
+        виступу на обрану тему.
+      </>
+    ),
+  },
+  {
+    icon: <CheckCircle size={24} className="text-accent-pink" />,
+    text: "Фотографія на банері фестивалю.",
+  },
+  {
+    icon: <CheckCircle size={24} className="text-accent-pink" />,
+    text: "Визнання, аудиторія, нові можливості.",
+  },
+  {
+    icon: <CheckCircle size={24} className="text-accent-pink" />,
+    text: "Реклама тебе у соцмережах фестивалю.",
+  },
+  {
+    icon: <CheckCircle size={24} className="text-accent-pink" />,
+    text: "Безкоштовний вхід на весь фестиваль.",
+  },
+];
+
+// -----------------------------------------------------------------------------
+// Re‑usable components
+// -----------------------------------------------------------------------------
+
+type BulletProps = {
+  icon?: React.ReactNode;
   children: React.ReactNode;
-}> = ({ icon, children }) => (
-  <li className="flex items-start gap-3">
-    <span className="text-accent-pink mt-1">{icon}</span>
+  className?: string;
+};
+
+const Bullet: React.FC<BulletProps> = ({ icon, children, className }) => (
+  <li className={cn("flex items-start gap-3", className)}>
+    {icon && <span className="text-accent-pink mt-1">{icon}</span>}
     <span>{children}</span>
   </li>
 );
 
-export const PeoplesSpeakerSection = () => {
-  return (
-    <>
-      <Section className="flex flex-col relative items-center justify-start pt-22">
-        <DecorativeImage
-          src={IMAGES.ORANGES_URL}
-          className="-left-14 -top-5 md:-left-6 md:-top-5 rotate-[30deg] size-[180px] sm:size-[200px] z-0"
-        />
-        <DecorativeImage
-          src={IMAGES.LEMONS_URL}
-          className="-right-8 md:-right-2 -top-8 size-[160px] sm:size-[180px]"
-        />
-        <div className="grid grid-cols-2 gap-2 mb-5 relative z-[1]">
-          <Badge>27 липня</Badge>
-          <Badge>Вроцлав</Badge>
-        </div>
-        <span className="flex w-[358px] h-[117px] gap-3.5 flex-col items-center justify-center">
-          <NailIcon />
-          <span className="relative block">
-            <MomentIcon />
-            <img
-              src={IMAGES.LEMON_URL}
-              alt="O"
-              className="absolute left-[67px] top-[-12px] size-[62px] object-cover inline-block"
-            />
-          </span>
+// -----------------------------------------------------------------------------
+// Main component
+// -----------------------------------------------------------------------------
+
+export const PeoplesSpeakerSection = () => (
+  <>
+    {/* Hero */}
+    <Section className="flex mb-2 flex-col items-center relative pt-20">
+      {/* Decorative fruits */}
+      <DecorativeImage
+        src={IMAGES.ORANGES_URL}
+        className="-left-14 -top-5 md:-left-6 md:-top-5 rotate-[30deg] size-[180px] sm:size-[200px] z-0"
+      />
+      <DecorativeImage
+        src={IMAGES.LEMONS_URL}
+        className="-right-8 md:-right-2 -top-8 size-[160px] sm:size-[180px]"
+      />
+
+      {/* Date & City badges */}
+      <div className="grid grid-cols-2 gap-2 mb-5 relative z-[1]">
+        {EVENT_BADGES.map(({ label }) => (
+          <Badge key={label}>{label}</Badge>
+        ))}
+      </div>
+      <span className="flex scale-[0.5] w-[358px] h-[117px] flex-col items-center justify-center gap-3.5">
+        <NailIcon />
+        <span className="relative block">
+          <MomentIcon />
+          <img
+            src={IMAGES.LEMON_URL}
+            alt="O"
+            className="absolute left-[67px] -top-3 size-[62px] object-cover inline-block"
+          />
         </span>
-      </Section>
+      </span>
+    </Section>
 
-      <Section>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-foreground text-center mb-4 leading-tight">
-          «Народний спікер»
-        </h1>
-        <p className="text-xl sm:text-2xl text-accent-pink text-center mb-8 font-semibold">
-          — стань зіркою головної сцени Nail Moment!
+    {/* Intro */}
+    <Section>
+      <SectionHeader title="«Народний спікер»" className="mb-2 text-5xl" />
+      <p className="text-xl sm:text-2xl text-accent-pink text-center mb-8 font-semibold">
+        — стань зіркою головної сцени Nail Moment!
+      </p>
+      <div className="space-y-6 text-blue-foreground/95 text-base sm:text-lg leading-relaxed">
+        <p className="text-center text-lg sm:text-xl">
+          Перший в Україні та Польщі конкурс, де саме{" "}
+          <span className="font-bold text-accent-pink">ти</span> можеш стати
+          спікером фестивалю, навіть якщо тебе ще ніхто не знає!
         </p>
+        <p className="text-center font-semibold text-xl sm:text-2xl text-blue-foreground">
+          Ми шукаємо нові голоси, нові ідеї, нових героїв спільноти.
+          <br />
+          <span className="text-accent-pink">Це можеш бути ТИ!</span>
+        </p>
+      </div>
+    </Section>
 
-        <div className="space-y-8 text-blue-foreground/95 text-base sm:text-lg leading-relaxed">
-          <p className="text-center text-lg sm:text-xl">
-            Перший в Україні та Польщі конкурс, де саме{" "}
-            <span className="font-bold text-accent-pink">ти</span> можеш стати
-            спікером фестивалю, навіть якщо тебе ще ніхто не знає!
-          </p>
-          <p className="text-center font-semibold text-xl sm:text-2xl text-blue-foreground">
-            Ми шукаємо нові голоси, нові ідеї, нових героїв спільноти.
-            <br />
-            <span className="text-accent-pink">Це можеш бути ТИ!</span>
-          </p>
+    <AccentCard className="relative" title="Народний Спікер - це:">
+      <DecorativeImage
+        src={IMAGES.LEMON_URL}
+        className="-right-12 -top-12 size-[120px]"
+      />
+      <ul className="space-y-3 w-full pt-5 mx-auto">
+        {WHAT_IS_ITEMS.map(({ text }, i) => (
+          <ListItem
+            key={i}
+            text={text}
+            className="[&_p]:text-white font-semibold text-lg"
+            iconClassName="text-white"
+          />
+        ))}
+      </ul>
+    </AccentCard>
+    <Section>
+      {/* 2. Why join */}
+      <SectionHeader
+        title="Чому варто приєднатися?"
+        className="mt-14 mb-6 text-blue-foreground"
+      />
+      <ul className="space-y-3 max-w-2xl mx-auto">
+        {WHY_JOIN_ITEMS.map(({ text }, i) => (
+          <Bullet key={i} icon={<CheckCircle size={24} />}>
+            {text}
+          </Bullet>
+        ))}
+      </ul>
 
-          <div className="mt-10 pt-6 border-t border-white/20">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-blue-foreground text-center mb-6">
-              Народний Спікер - це:
-            </h2>
-            <ul className="space-y-3 max-w-2xl mx-auto">
-              <ListItemWithIcon icon={<Mic size={24} />}>
-                Унікальна можливість для кожного майстра манікюру проявити себе.
-              </ListItemWithIcon>
-              <ListItemWithIcon icon={<Star size={24} />}>
-                Твоя тема, твій стиль, твоя енергія — і ти на сцені поруч із
-                зірками нейл-індустрії!
-              </ListItemWithIcon>
-              <ListItemWithIcon icon={<CheckCircle size={24} />}>
-                Виступати на одній сцені з мастодонтами nail-індустрії такими як
-                — Анастасія Котенко та Юлія Зварич.
-              </ListItemWithIcon>
-            </ul>
-          </div>
-
-          <div className="mt-10 pt-6 border-t border-white/20">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-blue-foreground text-center mb-6">
-              Чому варто прийняти участь?
-            </h2>
-            <ul className="space-y-3 max-w-2xl mx-auto">
-              <ListItemWithIcon icon={<CheckCircle size={24} />}>
-                <span className="font-semibold">Жодних обмежень:</span>{" "}
-                неважливо, скільки в тебе підписників або який у тебе Instagram.
-              </ListItemWithIcon>
-              <ListItemWithIcon icon={<CheckCircle size={24} />}>
-                <span className="font-semibold">Головне — твоя ідея:</span>{" "}
-                актуальна, корисна, свіжа тема для виступу.
-              </ListItemWithIcon>
-              <ListItemWithIcon icon={<CheckCircle size={24} />}>
-                <span className="font-semibold">Виступ на головній сцені:</span>{" "}
-                30 хвилин слави — майстер-клас або спіч перед усією аудиторією.
-              </ListItemWithIcon>
-              <ListItemWithIcon icon={<CheckCircle size={24} />}>
-                Твоя фотографія на банері фестивалю.
-              </ListItemWithIcon>
-              <ListItemWithIcon icon={<CheckCircle size={24} />}>
-                Визнання від усієї спільноти майстрів Польщі та Європи.
-              </ListItemWithIcon>
-              <ListItemWithIcon icon={<Star size={24} />}>
-                Шанс, який буває раз у житті!
-              </ListItemWithIcon>
-            </ul>
-          </div>
-
-          <div className="mt-10 pt-6 border-t border-white/20">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-blue-foreground text-center mb-6">
-              Як взяти участь?
-            </h2>
-            <ol className="space-y-4 max-w-2xl mx-auto list-decimal list-inside  marker:font-bold">
-              <li>
-                <span className="font-semibold">
-                  Запиши відео до 2 хвилин, де:
-                </span>
-                <ul className="list-disc pl-6 mt-2 space-y-1">
-                  <li>коротко розкажи про себе;</li>
-                  <li>презентуй тему, з якою хочеш виступити;</li>
-                  <li>поясни, чому ця тема важлива;</li>
-                  <li>розкажи, чому саме тебе мають обрати.</li>
-                </ul>
-              </li>
-              <li>
-                <span className="font-semibold">Змонтуй відео</span> так, щоб
-                воно було енергійним та зрозумілим.
-              </li>
-              <li>
-                <span className="font-semibold">Надішли його в Telegram</span>{" "}
-                фестивалю Nail Moment{" "}
-                <span className="font-bold text-accent-pink">до 15 червня</span>{" "}
-                <Link href={INFO_URL.TELEGRAM} target="_blank" icon>
-                  (посилання на Telegram)
-                </Link>
-                .
-              </li>
-            </ol>
-          </div>
-
-          <div className="mt-10 pt-6 border-t border-white/20">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-blue-foreground text-center mb-6">
-              Як обирається переможець?
-            </h2>
-            <ul className="space-y-3 max-w-2xl mx-auto list-disc list-inside">
-              <li>10-15 найкращих роликів попадуть на народне голосування.</li>
-              <li>
-                Дедлайн подачі презентацій —{" "}
-                <span className="font-bold">15 червня</span>.
-              </li>
-              <li>
-                З <span className="font-bold">20-25 червня</span> стартує
-                народне голосування серед майстрів у чат-боті.
-              </li>
-              <li>
-                <span className="font-bold">27 червня</span> оголошення
-                переможця.
-              </li>
-              <li>
-                Хто набере найбільше голосів — той і стає “Народним спікером”.
-              </li>
-            </ul>
-          </div>
-
-          <div className="mt-10 pt-6 border-t border-white/20 bg-accent-pink/10 p-6 rounded-xl">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-accent-pink text-center mb-6">
-              Що отримує переможець?{" "}
-              <Star className="inline mb-1 text-accent-pink" />
-            </h2>
-            <ul className="space-y-3 max-w-2xl mx-auto text-blue-foreground">
-              <ListItemWithIcon
-                icon={<Mic size={24} className="text-accent-pink" />}
-              >
-                Виступ <span className="font-bold">27 липня</span> на головній
-                сцені фестивалю Nail Moment у Вроцлаві.
-              </ListItemWithIcon>
-              <ListItemWithIcon
-                icon={<CheckCircle size={24} className="text-accent-pink" />}
-              >
-                <span className="font-bold">30 хвилин</span> для майстер-класу
-                або виступу на обрану тему.
-              </ListItemWithIcon>
-              <ListItemWithIcon
-                icon={<CheckCircle size={24} className="text-accent-pink" />}
-              >
-                Фотографія на банері фестивалю.
-              </ListItemWithIcon>
-              <ListItemWithIcon
-                icon={<CheckCircle size={24} className="text-accent-pink" />}
-              >
-                Визнання, аудиторія, нові можливості.
-              </ListItemWithIcon>
-              <ListItemWithIcon
-                icon={<CheckCircle size={24} className="text-accent-pink" />}
-              >
-                Реклама тебе у соцмережах фестивалю.
-              </ListItemWithIcon>
-              <ListItemWithIcon
-                icon={<CheckCircle size={24} className="text-accent-pink" />}
-              >
-                Безкоштовний вхід на весь фестиваль.
-              </ListItemWithIcon>
-            </ul>
-          </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-xl sm:text-2xl font-semibold mb-2">
-              Не пропусти цей шанс!
-            </p>
-            <p className="text-lg sm:text-xl mb-4">
-              Такого ще ніколи не було — вперше сцена обирає не зірок, а
-              майстрів із народу.
-            </p>
-            <p className="text-lg sm:text-xl font-medium">
-              Запиши відео, покажи себе, поділись своєю темою — і стань новою
-              зіркою Nail Moment!
-            </p>
-            <p className="text-2xl sm:text-3xl font-bold text-destructive mt-6">
-              Дедлайн — 15 червня!
-            </p>
-            <Button variant="secondary" className="mt-10" asChild>
-              <Link href={INFO_URL.TELEGRAM}>Вислати в Telegram</Link>
-            </Button>
-          </div>
-        </div>
-
-        <Button
-          className="text-blue-foreground w-full max-w-xs mx-auto mt-22 flex gap-2 items-center"
-          asChild
-        >
-          <Link href="/">
-            <StepBack />
-            Повернутися на головну сторінку
+      <SectionHeader
+        title="Як взяти участь?"
+        className="mt-14 mb-6 text-blue-foreground"
+      />
+      <ol className="space-y-4 text-blue-foreground max-w-md mx-auto list-decimal bg-white p-6 rounded-xl list-inside marker:font-bold text-lg">
+        <li>
+          <span className="font-semibold">Запиши відео до 2 хвилин, де:</span>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <ListItem text="коротко розкажи про себе;" />
+            <ListItem text="презентуй тему, з якою хочеш виступити;" />
+            <ListItem text="поясни, чому ця тема важлива;" />
+            <ListItem text="розкажи, чому саме тебе мають обрати." />
+          </ul>
+        </li>
+        <li>
+          <span className="font-semibold">Змонтуй відео</span> так, щоб воно
+          було енергійним та зрозумілим.
+        </li>
+        <li>
+          <span className="font-semibold">Надішли його в Telegram</span>{" "}
+          фестивалю Nail Moment{" "}
+          <span className="font-bold text-accent-pink">до 15 червня</span>
+          <Link href={INFO_URL.TELEGRAM} target="_blank" icon className="ml-1">
+            (посилання)
           </Link>
+          .
+        </li>
+      </ol>
+
+      <SectionHeader
+        title="Як обирається переможець?"
+        className="mt-14 mb-6 text-blue-foreground"
+      />
+
+      <ul className="flex relative flex-col gap-1.5 p-6 self-stretch max-w-md mx-auto bg-white rounded-lg mb-2.5 self-stretch">
+        <ListItem text="10‑15 найкращих роликів попадуть на народне голосування." />
+        <ListItem text="Дедлайн подачі презентацій — 15 червня." />
+        <ListItem text="З 20‑25 червня стартує народне голосування серед майстрів у чат‑боті." />
+        <ListItem text="27 червня оголошення переможця." />
+        <ListItem text="Хто набере найбільше голосів — той і стає “Народним спікером”." />
+      </ul>
+
+      {/* 5. Prize */}
+      <div className="mt-14 pt-6">
+        <SectionHeader
+          title="Що отримує переможець?"
+          className="mb-6 text-accent-pink"
+        />
+        <ul className="space-y-3 p-6 relative rounded-xl max-w-md text-lg mx-auto text-blue-foreground">
+          {PRIZE_ITEMS.map(({ text }, i) => (
+            <ListItem
+              key={i}
+              text={text}
+              iconClassName="text-white"
+              className={cn("[&_p]:text-white bg-accent-pink rounded-md", {
+                "w-[95%]": i === 0 || i === 3,
+                "w-[85%]": i === 1,
+                "w-[80%]": i === 2,
+              })}
+            />
+          ))}
+          <DecorativeImage
+            src={IMAGES.PASSION_URL}
+            className="right-0 translate-1/2 top-[5%] size-[180px]"
+          />
+        </ul>
+      </div>
+
+      {/* Call to action */}
+      <div className="mt-16 bg-blue-foreground/10 p-6 rounded-xl text-center">
+        <p className="text-xl sm:text-2xl font-semibold mb-2">
+          Не пропусти цей шанс!
+        </p>
+        <p className="text-lg sm:text-xl mb-4">
+          Такого ще ніколи не було — вперше сцена обирає не зірок, а майстрів із
+          народу.
+        </p>
+        <p className="text-lg sm:text-xl font-medium">
+          Запиши відео, покажи себе, поділись своєю темою — і стань новою зіркою
+          Nail Moment!
+        </p>
+        <p className="text-2xl sm:text-3xl font-bold text-destructive mt-6">
+          Дедлайн — 15 червня!
+        </p>
+        <Button variant="secondary" className="mt-10" asChild>
+          <Link href={INFO_URL.TELEGRAM}>Вислати в Telegram</Link>
         </Button>
-      </Section>
-    </>
-  );
-};
+      </div>
+
+      {/* Back home button */}
+      <Button
+        className="text-blue-foreground w-full max-w-xs mx-auto mt-20 flex gap-2 items-center"
+        asChild
+      >
+        <Link href="/" target="_self">
+          <StepBack />
+          Повернутися на головну сторінку
+        </Link>
+      </Button>
+    </Section>
+  </>
+);
