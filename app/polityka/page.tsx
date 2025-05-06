@@ -22,8 +22,6 @@ export default function Polityka() {
           className="-right-8 md:-right-2 -top-8 size-[180px]"
         />
         <span className="flex w-[358px] h-[117px] gap-3.5 flex-col items-center justify-center mb-10">
-          {" "}
-          {/* Added bottom margin */}
           <NailIcon />
           <span className="relative block">
             <MomentIcon />
