@@ -66,11 +66,11 @@ export default function SuccessBattlePayment() {
 
       {/* "Що робити далі" Section */}
       <Section className="bg-blue-foreground/10 py-4">
-        <h2 className="text-2xl font-semibold text-blue-foreground text-center mb-3">
+        <h2 className="text-2xl font-semibold text-center mb-3">
           Що робити далі:
         </h2>
         <div className="max-w-xl mx-auto  p-6 ">
-          <ol className="list-decimal list-inside space-y-4 text-blue-foreground/90 text-base md:text-lg leading-relaxed">
+          <ol className="list-decimal list-inside space-y-4 text-base md:text-lg leading-relaxed">
             <li>Виберіть категорію, на яку будете надсилати свою роботу.</li>
             <li>
               Підготуйте якісну роботу згідно з обраною номінацією. Зробіть 1-3
@@ -100,7 +100,7 @@ export default function SuccessBattlePayment() {
             href={INSTAGRAM_LINK}
             target="_blank"
             icon
-            className="text-accent-pink text-xl"
+            className="text-accent-pink text-xl font-semibold"
           >
             Написати в Instagram
           </Link>

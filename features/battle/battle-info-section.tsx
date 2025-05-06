@@ -95,7 +95,7 @@ export const BattleInfoSection = () => {
                 <div className="flex-shrink-0">
                   <span
                     className="flex items-center justify-center size-8 
-                               bg-gradient-to-br from-yellow-400 to-orange-500 
+                               bg-gradient-to-br from-pink-400 to-pink-500 
                                text-white font-bold text-lg rounded-full shadow-md"
                   >
                     {step.stepNumber}

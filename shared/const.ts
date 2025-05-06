@@ -11,6 +11,8 @@ export const IMAGES = {
     "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/image%205-dk8tP8MKMN0kOsGMshqDwqvMnCYpHN.png",
   ORANGES_URL:
     "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/image%206-9LgUp2GmUfMON8GLXuCc4MN0g5hadZ.png",
+  FINGER_URL:
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/img-finger-WdpnLoNKOMaSCSWqLTsxyzt6qn1dTL",
 };
 
 export const INFO_URL = {

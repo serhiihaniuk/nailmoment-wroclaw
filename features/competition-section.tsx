@@ -3,13 +3,13 @@ import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Section } from "@/blocks/ui/section";
 import Link from "next/link";
+import { IMAGES } from "@/shared/const";
 
 // --- Constants for Competition Sections (Data only, no classes) ---
 
 const COMPETITION_DATA = {
   BATTLE_OF_MASTERS: {
-    IMAGE_URL:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/img-finger-WdpnLoNKOMaSCSWqLTsxyzt6qn1dTL",
+    IMAGE_URL: IMAGES.FINGER_URL,
     IMAGE_ALT: "Finger pointing up - Battle of Masters Competition",
     TITLE: "Супер-конкурс БИТВА МАЙСТРІВ",
     SUBTITLE: "Покажи свої вміння та забери 2000 zł",

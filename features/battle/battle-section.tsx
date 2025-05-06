@@ -31,17 +31,23 @@ export const BattleSection = () => {
             />
           </span>
         </span>
-        <span className="uppercase text-[26px] text-blue-foreground font-semibold leading-[120%]">
-          Конкурс «Битва Майстрів»
-        </span>
       </h1>
-      <p className="text-center max-w-md items-center flex justify-center pt-10 text-blue-foreground text-lg">
+      <h2 className="uppercase my-10 text-[36px] text-blue-foreground font-semibold leading-[120%]">
+        Конкурс «Битва Майстрів»
+      </h2>
+      <p className="text-center max-w-md items-center flex flex-col justify-center text-white bg-accent-pink p-10 rounded-lg font-semibold text-lg">
+        <img
+          src={IMAGES.FINGER_URL}
+          alt="Finger pointing up"
+          className="w-18 block mb-10"
+        />
         «Битва Майстрів» — це унікальний конкурс для майстрів манікюру, де
         головними критеріями є твоя креативність, професіоналізм та результат.
         Жодних строгих технік, відомих суддів чи жорстких таймінгів❗️
         <br />
         Оцінювати роботи будуть самі майстри! Конкурс в якому майстер може
         заробити 2000 зл та забрати кубок переможця «Битви Майстрів»🏆
+        <br />
       </p>
     </Section>
   );

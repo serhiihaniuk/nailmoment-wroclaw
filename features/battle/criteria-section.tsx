@@ -21,7 +21,9 @@ const NOMINATIONS_DATA = [
 ];
 
 const FIRST_ROUND_CRITERIA_DATA = [
-  "Робота має відповідати номінації",
+  <span key={1}>
+    Робота має відповідати <span className="font-bold">номінації</span>
+  </span>,
   "Робота має бути чистою, акуратною і красивою",
   "Фото мають бути чіткі та високої якості",
 ];
@@ -41,7 +43,7 @@ const SECTION_HEADINGS = {
 
 export const CriteriaSection = () => {
   return (
-    <Section>
+    <Section className="relative">
       <SectionHeader
         title={SECTION_HEADINGS.NOMINATIONS_TITLE}
         className="mb-10 md:mb-12 text-center text-blue-foreground"
