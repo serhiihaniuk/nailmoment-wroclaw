@@ -150,7 +150,7 @@ export default function RegulaminKonkursu() {
               Так з кожної номінації ми отримаємо по 3 фіналісти! А всього це
               буде <span className="font-bold">18 фіналістів</span> (по 3 з 6
               номінацій), які отримають шанс поборотися за кубок Конкурсу Битва
-              Майстрів, чек на <span className="font-bold">1000 злотих</span> та
+              Майстрів, чек на <span className="font-bold">2000 злотих</span> та
               бокс на суму <span className="font-bold">2000 зл</span> від
               спонсору заходу Edlen Profesional! А ми отримаємо незрівнянне
               задоволення вболівати за них і стежити за їхньою роботою у фіналі
