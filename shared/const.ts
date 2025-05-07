@@ -21,3 +21,6 @@ export const INFO_URL = {
   TELEGRAM_USERNAME: "nail_moment_pl",
   EMAIL: "Nailmoment.Official@gmail.com",
 };
+
+export const shadowImageUrl =
+  "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/soon-ubkgrDK0uFcyfGfF3ACeovMcT61QKZ.jpg";
