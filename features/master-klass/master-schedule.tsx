@@ -1,3 +1,4 @@
+import { BuyTicketButton } from "@/blocks/ui/buy-ticket";
 import { Section } from "@/blocks/ui/section";
 import { SpeakerScheduleCard } from "@/blocks/ui/speaker-schedule-card";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -8,7 +9,7 @@ const PARTNER_LOGO_URL = {
   EDLEN:
     "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/partners-logo/elden-3LnfjHFXYtYTaE96P6HrDSV8zWrp5E.png",
   JZ: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/partners-logo/jz-sZ57HGRTtTFNtFoNbSa7i870bCnZxb.png",
-  LUNA: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/partners-logo/luna_white-d5AqZPhJAcskrbqfxW533aoEFhPepR.png",
+  LUNA: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/partners-logo/luna-black-jod9iRG6CybaeQnbWLcFA83x9RniRY.png",
 };
 
 const speakers = [
@@ -20,11 +21,14 @@ const speakers = [
     name: "Аліна Бойко",
     time: "10:00",
     topic: "Зміцнення нігтів. Комбо - гель желе та бази",
-    description: <p>інструктор JZ NAILS GROUP м.Цешин</p>,
+    description: (
+      <p>
+        інструктор <b>JZ NAILS GROUP</b> м.Цешин
+      </p>
+    ),
     logo: PARTNER_LOGO_URL.JZ,
     logoSize: {
-      w: 100,
-      h: 100,
+      w: 150,
     },
   },
   {
@@ -34,12 +38,12 @@ const speakers = [
     name: "Спікер від бренду EDLEN",
     time: "11:00",
     topic: "Coming soon..",
-    description: <p>Спікер від бренду EDLEN</p>,
+    description: (
+      <p>
+        Спікер від бренду <b>EDLEN</b>
+      </p>
+    ),
     logo: PARTNER_LOGO_URL.EDLEN,
-    logoSize: {
-      w: 100,
-      h: 100,
-    },
   },
   {
     id: 3,
@@ -50,7 +54,7 @@ const speakers = [
     time: "12:00",
     topic: "3D дизайн в моделюванні та укріплені нігтів.",
     description: (
-      <>
+      <div className="pt-2">
         <p>
           Директор навчального відділу та головний технолог бренду{" "}
           <strong>DNKa’</strong>.
@@ -64,13 +68,9 @@ const speakers = [
           Її місія — підняти nail-індустрію до рівня справжньої професії з ім’ям
           та авторитетом.
         </p>
-      </>
+      </div>
     ),
     logo: PARTNER_LOGO_URL.DNKA,
-    logoSize: {
-      w: 100,
-      h: 100,
-    },
   },
   {
     id: 4,
@@ -81,11 +81,6 @@ const speakers = [
     topic: "Робота з верхніми формами LUNAmoon та Premium gel",
     description: <p></p>,
     logo: PARTNER_LOGO_URL.LUNA,
-    logoSize: {
-      w: 200,
-      h: 100,
-    },
-    logoBg: "dark",
   },
 ];
 
@@ -96,7 +91,7 @@ export const MasterSchedule = () => {
         title="РОЗКЛАД МАЙСТЕР-КЛАСІВ (10:00 – 14:00)"
         className="mb-4"
       />
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-4 md:gap-12">
         {speakers.map((speaker) => (
           <SpeakerScheduleCard
             key={speaker.id}
@@ -107,11 +102,12 @@ export const MasterSchedule = () => {
             topic={speaker.topic}
             logo={speaker.logo}
             logoSize={speaker.logoSize}
-            logoBg={speaker.logoBg}
             description={speaker.description} // Pass the JSX description
           />
         ))}
       </div>
+
+      <BuyTicketButton className="my-10 max-w-md mx-auto" />
     </Section>
   );
 };

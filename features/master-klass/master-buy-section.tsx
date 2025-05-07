@@ -10,13 +10,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ListItem } from "@/components/ui/list-item";
-import { SectionHeader } from "@/components/ui/section-header";
 
 export const MasterBuySection = () => {
   return (
     <Section>
-      <SectionHeader title="Придбати квиток" className="mb-4" />
-
       <div className="flex flex-col gap-6">
         <Card>
           <CardContent>
