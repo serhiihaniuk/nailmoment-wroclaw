@@ -1,7 +1,6 @@
 import { BuyTicketButton } from "@/blocks/ui/buy-ticket";
 import { Section } from "@/blocks/ui/section";
 import { SpeakerScheduleCard } from "@/blocks/ui/speaker-schedule-card";
-import { SectionHeader } from "@/components/ui/section-header";
 import { shadowImageUrl } from "@/shared/const";
 
 const PARTNER_LOGO_URL = {
@@ -87,10 +86,10 @@ const speakers = [
 export const MasterSchedule = () => {
   return (
     <Section>
-      <SectionHeader
-        title="РОЗКЛАД МАЙСТЕР-КЛАСІВ (10:00 – 14:00)"
-        className="mb-4"
-      />
+      <h3 className="gradient-orange flex flex-col gap-1 max-w-md font-bold mx-auto text-center mb-6 py-2 text-2xl text-shadow-md px-4 rounded-xl text-white">
+        РОЗКЛАД МАЙСТЕР-КЛАСІВ{" "}
+        <span className="font-bold text-3xl">10:00 – 14:00</span>
+      </h3>
       <div className="flex flex-col items-center gap-4 md:gap-12">
         {speakers.map((speaker) => (
           <SpeakerScheduleCard
