@@ -7,12 +7,9 @@ import { Button } from "@/components/ui/button";
 import { DecorativeImage } from "@/components/ui/decorative-image";
 import { FooterInfoSection } from "@/features/footer-info-section";
 import { LocationSection } from "@/features/location-section";
-import { IMAGES } from "@/shared/const";
+import { IMAGES, INFO_URL } from "@/shared/const";
 import { MomentIcon, NailIcon } from "@/shared/icons";
 import { StepBack } from "lucide-react";
-
-const TELEGRAM_SUBMISSION_USERNAME = "nail_moment_pl";
-const INSTAGRAM_LINK = "https://www.instagram.com/nail_moment_pl";
 
 export default function SuccessBattlePayment() {
   return (
@@ -64,7 +61,6 @@ export default function SuccessBattlePayment() {
         </div>
       </Section>
 
-      {/* "Що робити далі" Section */}
       <Section className="bg-blue-foreground/10 py-4">
         <h2 className="text-2xl font-semibold text-center mb-3">
           Що робити далі:
@@ -79,12 +75,8 @@ export default function SuccessBattlePayment() {
             <li>
               Вкажіть вашу номінацію, прикріпіть 1-3 фотографії вашої роботи та
               надішліть нам у Telegram:{" "}
-              <Link
-                href={`https://t.me/${TELEGRAM_SUBMISSION_USERNAME}`}
-                target="_blank"
-                icon
-              >
-                @{TELEGRAM_SUBMISSION_USERNAME}
+              <Link href={INFO_URL.TELEGRAM} target="_blank" icon>
+                @{INFO_URL.TELEGRAM_USERNAME}
               </Link>
               .
             </li>
@@ -97,7 +89,7 @@ export default function SuccessBattlePayment() {
         <div className="text-center py-10">
           <h3 className="text-2xl"> Хочу ще один квиток учасника! </h3>
           <Link
-            href={INSTAGRAM_LINK}
+            href={INFO_URL.INSTAGRAM}
             target="_blank"
             icon
             className="text-accent-pink text-xl font-semibold"
@@ -107,7 +99,6 @@ export default function SuccessBattlePayment() {
         </div>
       </Section>
 
-      {/* Location, footer and navigation - Kept for context and consistency */}
       <LocationSection />
       <Button
         className="text-blue-foreground w-full max-w-80 mx-auto my-6 flex gap-2 items-center"

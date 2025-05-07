@@ -18,5 +18,6 @@ export const IMAGES = {
 export const INFO_URL = {
   INSTAGRAM: "https://www.instagram.com/nail_moment_pl",
   TELEGRAM: "https://t.me/nail_moment_pl",
+  TELEGRAM_USERNAME: "nail_moment_pl",
   EMAIL: "Nailmoment.Official@gmail.com",
 };

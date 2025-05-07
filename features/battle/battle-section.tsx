@@ -32,7 +32,7 @@ export const BattleSection = () => {
           </span>
         </span>
       </h1>
-      <h2 className="uppercase my-10 text-[36px] text-blue-foreground font-semibold leading-[120%]">
+      <h2 className="uppercase my-10 text-[36px] text-center text-blue-foreground font-semibold leading-[120%]">
         Конкурс «Битва Майстрів»
       </h2>
       <p className="text-center max-w-md items-center flex flex-col justify-center text-white bg-accent-pink p-10 rounded-lg font-semibold text-lg">
