@@ -21,9 +21,21 @@ const speakers = [
     time: "10:00",
     topic: "Зміцнення нігтів. Комбо - гель желе та бази",
     description: (
-      <p>
-        інструктор <b>JZ NAILS GROUP</b> м.Цешин
-      </p>
+      <div className="space-y-2">
+        <p>
+          Інструктор і експертка у сфері нігтьового сервісу, діючий інструктор{" "}
+          <b>JZ Nails Group.</b>
+        </p>
+        <p>
+          Авторка програми наставництва, що базується на техніках коучингу та
+          психології.
+        </p>
+        <p>
+          «Моя мета — не лише вдосконалення технічних навичок, а й допомога
+          майстрам у розкритті потенціалу через роботу з мисленням і внутрішніми
+          установками»
+        </p>
+      </div>
     ),
     logo: PARTNER_LOGO_URL.JZ,
     logoSize: {
@@ -73,12 +85,24 @@ const speakers = [
   },
   {
     id: 4,
-    imageUrl: shadowImageUrl,
+    imageUrl:
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/lora-kIQzxc3GJCQGoEHwokQBQrkkly15kl.jpg",
     imageAlt: "Лора Шейдерова",
     name: "Лора Шейдерова",
     time: "13:00",
     topic: "Робота з верхніми формами LUNAmoon та Premium gel",
-    description: <p></p>,
+    description: (
+      <p>
+        Для мене верхні форми — це не просто «шльопнути». Це сучасний
+        інструмент, який відкриває зовсім інші можливості:
+        <ul>
+          <li>швидкість</li>
+          <li>точність архітектури</li>
+          <li>зменшення опилу</li>
+          <li>ідеальна симетрія навіть у найпроблемніших нігтях.</li>
+        </ul>
+      </p>
+    ),
     logo: PARTNER_LOGO_URL.LUNA,
   },
 ];
