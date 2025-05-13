@@ -124,7 +124,7 @@ export type TicketInfo = {
   features: Feature[];
   price: string;
   priceIncreaseDate?: string;
-  newPrice?: string;
+  newPrice: string;
   buttonText: string;
   href: string;
 };
@@ -134,8 +134,6 @@ export const TicketCard: React.FC<TicketCardProps> = ({
   imageAlt,
   features,
   price,
-  priceIncreaseDate,
-  newPrice,
   buttonText,
   variant = "guest",
   href,
@@ -180,21 +178,13 @@ export const TicketCard: React.FC<TicketCardProps> = ({
         <div className="mt-auto w-full">
           <div
             className={cn(
-              "text-5xl font-bold uppercase",
-              titlePriceVariants({ variant }),
-              priceIncreaseDate && newPrice ? "mb-2" : "mb-6"
+              "text-5xl font-bold uppercase mb-5",
+              titlePriceVariants({ variant })
             )}
           >
             {price}
             <span className="lowercase">zł</span>
           </div>
-
-          {priceIncreaseDate && newPrice && (
-            <div className={cn("text-sm mb-4 px-2")}>
-              <p>Встигніть придбати за цією ціною до {priceIncreaseDate}!</p>
-              <p>Після цієї дати вартість буде: {newPrice} Zł</p>
-            </div>
-          )}
         </div>
 
         <Button className={buttonVariants({ variant })} asChild>

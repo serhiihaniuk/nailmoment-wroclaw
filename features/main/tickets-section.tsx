@@ -28,8 +28,8 @@ const ticketData: TicketInfo[] = [
     priceIncreaseDate: priceIncreaseDate,
     newPrice: newGuestPrice,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
-    href: "https://buy.stripe.com/8wMbIO5Lz8RAgq43cy",
-    // href: "https://buy.stripe.com/28o4gmgqdaZI7Ty3cD" //60
+    // href: "https://buy.stripe.com/8wMbIO5Lz8RAgq43cy",
+    href: "https://buy.stripe.com/28o4gmgqdaZI7Ty3cD", //60
   },
   {
     id: "standard",
@@ -49,8 +49,8 @@ const ticketData: TicketInfo[] = [
     priceIncreaseDate: priceIncreaseDate,
     newPrice: newStandardPrice,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
-    href: "https://buy.stripe.com/aEU7sy8XLffYgq428v",
-    // href: "https://buy.stripe.com/8wM14agqd4Bkc9O9B0" // 429
+    // href: "https://buy.stripe.com/aEU7sy8XLffYgq428v",
+    href: "https://buy.stripe.com/8wM14agqd4Bkc9O9B0", // 429
   },
   {
     id: "vip",
@@ -78,8 +78,8 @@ const ticketData: TicketInfo[] = [
     priceIncreaseDate: priceIncreaseDate,
     newPrice: newVipPrice,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
-    href: "https://buy.stripe.com/8wM8wC1vj3xg3Di6oM",
-    // href: "https://buy.stripe.com/aEUeV0c9X3xg6Pu14t" // 729
+    //href: "https://buy.stripe.com/8wM8wC1vj3xg3Di6oM",
+    href: "https://buy.stripe.com/aEUeV0c9X3xg6Pu14t", // 729
   },
 ];
 
@@ -113,9 +113,7 @@ export const TicketSection: React.FC<TicketSectionProps> = ({ className }) => {
             imageUrl={ticket.imageUrl}
             imageAlt={ticket.imageAlt}
             features={ticket.features}
-            price={ticket.price}
-            priceIncreaseDate={ticket.priceIncreaseDate} // Pass the new prop
-            newPrice={ticket.newPrice} // Pass the new prop
+            price={ticket.newPrice}
             buttonText={ticket.buttonText}
             href={ticket.href}
           />
