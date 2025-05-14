@@ -75,6 +75,7 @@ const ticketData: TicketInfo[] = [
       { value: "afterparty на терасі", isVip: false },
     ],
     price: "699",
+    soldOut: true,
     priceIncreaseDate: priceIncreaseDate,
     newPrice: newVipPrice,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
@@ -116,6 +117,7 @@ export const TicketSection: React.FC<TicketSectionProps> = ({ className }) => {
             price={ticket.newPrice}
             buttonText={ticket.buttonText}
             href={ticket.href}
+            soldOut={ticket.soldOut}
           />
         ))}
       </div>

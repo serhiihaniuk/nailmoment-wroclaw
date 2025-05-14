@@ -108,6 +108,7 @@ interface TicketCardProps
   newPrice?: string;
   buttonText: string;
   href: string;
+  soldOut?: boolean;
 }
 
 const capitalize = (s: string = ""): string => {
@@ -127,6 +128,7 @@ export type TicketInfo = {
   newPrice: string;
   buttonText: string;
   href: string;
+  soldOut?: boolean;
 };
 
 export const TicketCard: React.FC<TicketCardProps> = ({
@@ -138,6 +140,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({
   variant = "guest",
   href,
   className,
+  soldOut,
   ...props
 }) => {
   const titleSvgPath = `/svg/${capitalize(variant || "")}.svg`;
@@ -187,10 +190,18 @@ export const TicketCard: React.FC<TicketCardProps> = ({
           </div>
         </div>
 
-        <Button className={buttonVariants({ variant })} asChild>
-          <Link target="_blank" href={href}>
-            {buttonText}
-          </Link>
+        <Button
+          disabled={soldOut}
+          className={buttonVariants({ variant })}
+          asChild
+        >
+          {soldOut ? (
+            <span className="text-center">SOLD OUT</span>
+          ) : (
+            <Link target="_blank" href={href}>
+              {buttonText}
+            </Link>
+          )}
         </Button>
       </CardContent>
     </Card>
