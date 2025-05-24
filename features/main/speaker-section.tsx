@@ -137,12 +137,24 @@ const speakers = [
   },
   {
     id: 7,
-    imageUrl: shadowImageUrl,
-    imageAlt: "Coming soon speaker",
-    name: "Coming soon..",
+    imageUrl:
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/avdeeva-Y1iYdu9x6cE44qgJ3GGupYhoQFrWtE.jpg",
+    imageAlt: "Вікторія Авдєєва",
+    name: "Вікторія Авдєєва",
     description: (
       <>
-        <p>Слідкуйте за оновленнями!</p>
+        <p>
+          Зірка нігтьової індустрії, що стоїть за понад 150 перемогами на
+          українських та міжнародних чемпіонатах. 3-разова володарка{" "}
+          <b>ГРАН ПРІ</b>, топ-10 майстрів України за версією{" "}
+          <b>STELLA BEAUTY Awards</b>.
+        </p>
+        <p>
+          Суддя, конкурсний тренер, автор авторських програм навчання та
+          засновниця школи <b>Victoria Avdeeva</b> з понад 5000 випускників.
+          Сертифікований викладач міжнародного рівня та власниця бренду
+          професійної косметики.
+        </p>
       </>
     ),
   },

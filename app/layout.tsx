@@ -39,15 +39,13 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/favicon.ico", type: "image/x-icon", sizes: "any" }, // Standard .ico
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "any" },
       { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
       { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", type: "image/png" }, // You can optionally add sizes: '180x180'
-    ],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
   },
-  manifest: "/manifest.webmanifest", // Make sure you have this file in /public
+  manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({
