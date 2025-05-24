@@ -160,10 +160,12 @@ export const PeoplesSpeakerSection = () => (
     </Section>
 
     {/* Intro */}
-    <Section>
+    <Section className="space-y-5">
       <SectionHeader title="«Народний спікер»" className="mb-2 text-5xl" />
-      <p className="text-xl sm:text-2xl text-accent-pink text-center mb-8 font-semibold">
-        — стань зіркою головної сцени Nail Moment!
+      <p className="gradient-orange py-2 text-xl text-shadow-md px-4 rounded-xl text-white max-w-md mx-auto text-center">
+        <span className="font-bold text-3xl">
+          стань зіркою головної сцени Nail Moment!
+        </span>
       </p>
       <div className="space-y-6 text-blue-foreground/95 text-base sm:text-lg leading-relaxed">
         <p className="text-center text-lg sm:text-xl">
@@ -171,10 +173,22 @@ export const PeoplesSpeakerSection = () => (
           <span className="font-bold text-accent-pink">ти</span> можеш стати
           спікером фестивалю, навіть якщо тебе ще ніхто не знає!
         </p>
-        <p className="text-center font-semibold text-xl sm:text-2xl text-blue-foreground">
-          Ми шукаємо нові голоси, нові ідеї, нових героїв спільноти.
-          <br />
-          <span className="text-accent-pink">Це можеш бути ТИ!</span>
+
+        <p className="font-black text-2xl overflow-hidden bg-blue-foreground text-white p-4 rounded-xl relative max-w-md uppercase mx-auto text-center">
+          <DecorativeImage
+            src={IMAGES.ORANGES_URL}
+            className="size-[99px] left-0 -top-10 z-0"
+          />
+          <DecorativeImage
+            src={IMAGES.PASSION_URL}
+            className="size-[99px] -right-5 -bottom-10 z-0"
+          />
+          <span className="relative z-10 text-shadow-md">
+            Ми шукаємо нові голоси, нові ідеї, нових героїв спільноти.
+          </span>
+        </p>
+        <p className="bg-blue-foreground py-2 text-xl text-shadow-md px-4 rounded-xl text-white max-w-md mx-auto text-center">
+          <span className="font-bold text-3xl">Це можеш бути ТИ!</span>
         </p>
       </div>
     </Section>
