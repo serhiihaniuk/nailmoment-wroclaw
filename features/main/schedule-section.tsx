@@ -29,7 +29,8 @@ const scheduleData: ScheduleEntry[] = [
   {
     id: 5,
     time: "14:10",
-    title: "Спікер coming soon",
+    title: "Вікторія Авдєєва",
+    description: "Як почати інструкторство. Перші головні кроки",
   },
   {
     id: 6,
