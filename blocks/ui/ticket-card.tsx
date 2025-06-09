@@ -12,6 +12,7 @@ const cardVariants = cva(
       variant: {
         guest: "bg-white border border-gray-200",
         standard: "bg-yellow-background",
+        maxi: "bg-emerald-700",
         vip: "gradient-pink",
       },
     },
@@ -26,6 +27,7 @@ const titlePriceVariants = cva("font-bold", {
     variant: {
       guest: "text-green-foreground",
       standard: "text-yellow-foreground",
+      maxi: "text-white",
       vip: "text-white",
     },
   },
@@ -39,6 +41,7 @@ const featureTextVariants = cva("w-full text-lg", {
     variant: {
       guest: "text-green-foreground",
       standard: "text-yellow-foreground",
+      maxi: "text-white",
       vip: "text-white",
     },
   },
@@ -52,6 +55,7 @@ const featureBorderVariants = cva("", {
     variant: {
       guest: "border-b border-gray-300 last:border-b-0",
       standard: "border-b border-yellow-foreground/30 last:border-b-0",
+      maxi: "border-b border-white/30 last:border-b-0",
       vip: "border-b border-white/30 last:border-b-0",
     },
   },
@@ -65,6 +69,7 @@ const buttonVariants = cva("w-full font-semibold uppercase", {
     variant: {
       guest: "bg-green-foreground text-white hover:bg-green-foreground/80",
       standard: "bg-accent-orange text-white hover:bg-accent-orange/80",
+      maxi: "bg-[#f6d72f] text-emerald-800",
       vip: "bg-white text-accent-pink hover:bg-white/90",
     },
   },
@@ -155,11 +160,15 @@ export const TicketCard: React.FC<TicketCardProps> = ({
         )}
       >
         <img src={imageUrl} alt={imageAlt} className="w-[160px]" />
-        <img
-          src={titleSvgPath}
-          alt={titleSvgAlt}
-          className="mt-5 mb-6 h-8 w-auto"
-        />
+        {variant !== "maxi" ? (
+          <img
+            src={titleSvgPath}
+            alt={titleSvgAlt}
+            className="mt-5 mb-6 h-8 w-auto"
+          />
+        ) : (
+          <div className="font-black text-5xl py-3 text-[#f6d72f]">MAXI</div>
+        )}
 
         <div className={cn("mb-6 text-lg w-full")}>
           {features.map((feature, index) => (

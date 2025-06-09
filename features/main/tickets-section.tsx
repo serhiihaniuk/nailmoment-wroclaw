@@ -9,6 +9,7 @@ const priceIncreaseDate = "12.05";
 const newGuestPrice = "60";
 const newStandardPrice = "429";
 const newVipPrice = "729";
+const newMaxiPrice = "590";
 
 const ticketData: TicketInfo[] = [
   {
@@ -28,7 +29,6 @@ const ticketData: TicketInfo[] = [
     priceIncreaseDate: priceIncreaseDate,
     newPrice: newGuestPrice,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
-    // href: "https://buy.stripe.com/8wMbIO5Lz8RAgq43cy",
     href: "https://buy.stripe.com/28o4gmgqdaZI7Ty3cD", //60
   },
   {
@@ -49,8 +49,33 @@ const ticketData: TicketInfo[] = [
     priceIncreaseDate: priceIncreaseDate,
     newPrice: newStandardPrice,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
-    // href: "https://buy.stripe.com/aEU7sy8XLffYgq428v",
     href: "https://buy.stripe.com/8wM14agqd4Bkc9O9B0", // 429
+  },
+  {
+    id: "maxi",
+    variant: "maxi",
+    imageUrl: IMAGES.PINEAPPLE_URL, // Placeholder for your pineapple image
+    imageAlt: "Pineapple slice illustration",
+    title: "MAXI",
+    features: [
+      { value: "місце в центральній зоні (3-5 ряд)", isVip: false },
+      { value: "доступ до всіх лекцій та майстер-класів", isVip: false },
+      {
+        value: "презентації спікерів (залишаться з тобою назавжди)",
+        isVip: false,
+      },
+      { value: "доступ до закритого телеграм-каналу", isVip: false },
+      { value: "нейл маркет", isVip: false },
+      { value: "мерч від організаторів", isVip: false },
+      { value: "живий сертифікат", isVip: false },
+      { value: "afterparty", isVip: false },
+      { value: "подарунки від партнерів", isVip: false },
+    ],
+    price: "590",
+    priceIncreaseDate: priceIncreaseDate,
+    newPrice: newMaxiPrice,
+    buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
+    href: "https://buy.stripe.com/4gM4gz9d50Rq7LG7TJc7u0u",
   },
   {
     id: "vip",
@@ -59,14 +84,11 @@ const ticketData: TicketInfo[] = [
     imageAlt: "Passion fruit slice illustration",
     title: "VIP",
     features: [
-      // --- Added new VIP features at the top ---
       { value: "презентації спікерів", isVip: true },
       { value: "мерч фестивалю", isVip: true },
-      // --- Existing VIP features ---
       { value: "місця у перших рядах", isVip: true },
       { value: "подарунки від брендів", isVip: true },
       { value: "сертифікат про участь у заході", isVip: true },
-      // --- Standard features included in VIP ---
       { value: "доступ до nail-маркету", isVip: false },
       { value: "усі виступи спікерів", isVip: false },
       { value: "доступ до Малої Зали з МК", isVip: false },
@@ -79,7 +101,6 @@ const ticketData: TicketInfo[] = [
     priceIncreaseDate: priceIncreaseDate,
     newPrice: newVipPrice,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
-    //href: "https://buy.stripe.com/8wM8wC1vj3xg3Di6oM",
     href: "https://buy.stripe.com/aEUeV0c9X3xg6Pu14t", // 729
   },
 ];

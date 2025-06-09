@@ -11,10 +11,6 @@ import { cn } from "@/lib/utils";
 import { ListItem } from "@/components/ui/list-item";
 import { AccentCard } from "@/blocks/ui/accent-card";
 
-// -----------------------------------------------------------------------------
-// Helper data
-// -----------------------------------------------------------------------------
-
 const EVENT_BADGES = [{ label: "27 липня" }, { label: "Вроцлав" }];
 
 const WHAT_IS_ITEMS = [
@@ -104,10 +100,6 @@ const PRIZE_ITEMS = [
     text: "Безкоштовний вхід на весь фестиваль.",
   },
 ];
-
-// -----------------------------------------------------------------------------
-// Re‑usable components
-// -----------------------------------------------------------------------------
 
 type BulletProps = {
   icon?: React.ReactNode;
@@ -210,7 +202,6 @@ export const PeoplesSpeakerSection = () => (
       </ul>
     </AccentCard>
     <Section>
-      {/* 2. Why join */}
       <SectionHeader
         title="Чому варто приєднатися?"
         className="mt-14 mb-6 text-blue-foreground"
