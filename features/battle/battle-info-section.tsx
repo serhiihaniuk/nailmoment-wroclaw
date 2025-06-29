@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card"; // Assuming this is the correct path to your card components
 import Link from "next/link";
 import { INFO_URL } from "@/shared/const";
+import { BuyBattleTicketButton } from "@/blocks/ui/buy-battle-ticket";
 
 const BATTLE_STEPS_DATA = [
   {
@@ -135,6 +136,7 @@ export const BattleInfoSection = () => {
           </Card>
         ))}
       </div>
+      <BuyBattleTicketButton className="mt-10 max-w-sm mx-auto text-sm text-center" />
     </Section>
   );
 };
