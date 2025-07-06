@@ -74,6 +74,7 @@ const ticketData: TicketInfo[] = [
     price: "590",
     priceIncreaseDate: priceIncreaseDate,
     newPrice: newMaxiPrice,
+    soldOut: true,
     buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
     href: "https://buy.stripe.com/4gM4gz9d50Rq7LG7TJc7u0u",
   },
