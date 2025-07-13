@@ -160,10 +160,20 @@ const speakers = [
   },
   {
     id: 8,
-    imageUrl: shadowImageUrl,
-    imageAlt: "Народний Спікер",
-    name: "Народний Спікер",
-    description: <></>,
+    imageUrl: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/valentyna_kozlova.jpg",
+    imageAlt: "Валентина Козлова",
+    name: "Валентина Козлова",
+    description: (
+      <>
+        <p>
+          <strong>Народний спікер 2025</strong> - Експертка з 8-річним досвідом,
+          Подологиня й викладачка.
+        </p>
+        <p>
+          Вона пройшла шлях від майстрині з прасувальної дошки до експертки з чеком за навчання $650 і записом на 2 місяці вперед.
+        </p>
+      </>
+    ),
   },
 ];
 

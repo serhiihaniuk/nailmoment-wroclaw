@@ -37,7 +37,7 @@ export const MasterKlassSection = () => {
 
       <div className="text-center gap-6 max-w-md items-center pt-4  text-blue-foreground flex flex-col justify-center">
         <SectionHeader className="font-black text-5xl" title="МАЛИЙ ЗАЛ" />
-        <p className="font-black text-2xl overflow-hidden bg-blue-foreground text-white p-4 rounded-xl relative">
+        <div className="font-black text-2xl overflow-hidden bg-blue-foreground text-white p-4 rounded-xl relative">
           <DecorativeImage
             src={IMAGES.ORANGES_URL}
             className="size-[99px] left-0 -top-10 z-0"
@@ -49,7 +49,7 @@ export const MasterKlassSection = () => {
           <span className="relative z-10 text-shadow-md">
             МАЙСТЕР-КЛАСИ ВІД ТОПОВИХ ІНСТРУКТОРІВ ТА БРЕНД-ЕКСПЕРТІВ
           </span>
-        </p>
+        </div>
         <p className="gradient-orange py-2 text-xl text-shadow-md px-4 rounded-xl text-white">
           Перед великим фестивалем —<br />{" "}
           <span className="font-bold text-3xl">ВЕЛИКА ПРОКАЧКА!</span>

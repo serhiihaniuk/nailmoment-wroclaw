@@ -10,6 +10,7 @@ import { Mic, Star, CheckCircle, StepBack } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ListItem } from "@/components/ui/list-item";
 import { AccentCard } from "@/blocks/ui/accent-card";
+import NextImage from "next/image";
 
 const EVENT_BADGES = [{ label: "27 липня" }, { label: "Вроцлав" }];
 
@@ -166,7 +167,7 @@ export const PeoplesSpeakerSection = () => (
           спікером фестивалю, навіть якщо тебе ще ніхто не знає!
         </p>
 
-        <p className="font-black text-2xl overflow-hidden bg-blue-foreground text-white p-4 rounded-xl relative max-w-md uppercase mx-auto text-center">
+        <div className="font-black text-2xl overflow-hidden bg-blue-foreground text-white p-4 rounded-xl relative max-w-md uppercase mx-auto text-center">
           <DecorativeImage
             src={IMAGES.ORANGES_URL}
             className="size-[99px] left-0 -top-10 z-0"
@@ -178,7 +179,7 @@ export const PeoplesSpeakerSection = () => (
           <span className="relative z-10 text-shadow-md">
             Ми шукаємо нові голоси, нові ідеї, нових героїв спільноти.
           </span>
-        </p>
+        </div>
         <p className="bg-blue-foreground py-2 text-xl text-shadow-md px-4 rounded-xl text-white max-w-md mx-auto text-center">
           <span className="font-bold text-3xl">Це можеш бути ТИ!</span>
         </p>
@@ -282,25 +283,43 @@ export const PeoplesSpeakerSection = () => (
         </ul>
       </div>
 
-      {/* Call to action */}
-      <div className="mt-16 bg-blue-foreground/10 p-6 rounded-xl text-center">
-        <p className="text-xl sm:text-2xl font-semibold mb-2">
-          Не пропусти цей шанс!
-        </p>
-        <p className="text-lg sm:text-xl mb-4">
-          Такого ще ніколи не було — вперше сцена обирає не зірок, а майстрів із
-          народу.
-        </p>
-        <p className="text-lg sm:text-xl font-medium">
-          Запиши відео, покажи себе, поділись своєю темою — і стань новою зіркою
-          Nail Moment!
-        </p>
-        <p className="text-2xl sm:text-3xl font-bold text-destructive mt-6">
-          Дедлайн — 15 червня!
-        </p>
-        <Button variant="secondary" className="mt-10" asChild>
-          <Link href={INFO_URL.TELEGRAM}>Вислати в Telegram</Link>
-        </Button>
+      {/* Featured People's Speaker */}
+      <div className="mt-16 mb-16">
+        <SectionHeader
+          title="Народний спікер 2025"
+          className="mb-8 text-accent-pink"
+        />
+        <div className="bg-gradient-to-br from-accent-pink/10 to-blue-foreground/10 p-8 rounded-xl max-w-2xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="relative">
+              <NextImage
+                src="https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/valentyna_kozlova.jpg"
+                alt="Валентина Козлова"
+                width={160}
+                height={224}
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA4IDUnPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0nZycgeDE9JzAlJyB5MT0nMCUnIHgyPScwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyNmMGYwZjAnLz48c3RvcCBvZmZzZXQ9JzEwMCUnIHN0b3AtY29sb3I9JyNkOWQ5ZDknLz48L2xpbmVhckdyYWRpZW50PjxmaWx0ZXIgaWQ9J2InPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249JzEnLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9JzgnIGhlaWdodD0nNScgZmlsbD0ndXJsKCNnKScgZmlsdGVyPSd1cmwoI2IpJy8+PC9zdmc+"
+                sizes="(max-width: 767px) 160px, 160px"
+                className="w-40 h-56 rounded-xl object-cover border-4 border-white shadow-lg"
+              />
+              <div className="absolute -top-2 -right-2 bg-accent-pink text-white px-3 py-1 rounded-full text-sm font-bold">
+                Переможець
+              </div>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-2xl sm:text-3xl font-bold text-blue-foreground mb-4">
+                ВАЛЕНТИНА КОЗЛОВА
+              </h3>
+              <div className="text-lg text-blue-foreground/90 leading-relaxed">
+                Експертка з 8-річним досвідом,
+                <br />
+                Подологиня й викладачка.
+                <br />
+                Вона пройшла шлях від майстрині з прасувальної дошки до експертки з чеком за навчання $650 і записом на 2 місяці вперед.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Back home button */}
