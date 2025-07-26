@@ -111,6 +111,8 @@ interface TicketSectionProps {
 }
 
 export const TicketSection: React.FC<TicketSectionProps> = ({ className }) => {
+  const soldOutDate = new Date("2025-07-27T23:10:00");
+  const isSoldOut = new Date() > soldOutDate;
   return (
     <Section id="ticket-section" className={cn("scroll-mt-9", className)}>
       <SectionHeader title="Квитки на фестиваль" className="mb-6" />
@@ -139,7 +141,7 @@ export const TicketSection: React.FC<TicketSectionProps> = ({ className }) => {
             price={ticket.newPrice}
             buttonText={ticket.buttonText}
             href={ticket.href}
-            soldOut={ticket.soldOut}
+            soldOut={isSoldOut || ticket.soldOut}
           />
         ))}
       </div>
