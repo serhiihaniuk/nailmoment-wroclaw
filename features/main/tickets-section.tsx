@@ -111,7 +111,7 @@ interface TicketSectionProps {
 }
 
 export const TicketSection: React.FC<TicketSectionProps> = ({ className }) => {
-  const soldOutDate = new Date("2025-07-27T23:10:00");
+  const soldOutDate = new Date("2025-07-27T10:00:00");
   const isSoldOut = new Date() > soldOutDate;
   return (
     <Section id="ticket-section" className={cn("scroll-mt-9", className)}>
