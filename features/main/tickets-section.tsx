@@ -4,39 +4,16 @@ import { TicketCard, type TicketInfo } from "@/blocks/ui/ticket-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { IMAGES } from "@/shared/const";
 import { Section } from "@/blocks/ui/section";
-
-const priceIncreaseDate = "12.05";
-const newGuestPrice = "60";
-const newStandardPrice = "429";
-const newVipPrice = "729";
-const newMaxiPrice = "590";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const ticketData: TicketInfo[] = [
   {
-    id: "guest",
-    variant: "guest",
-    imageUrl: IMAGES.LIME_URL,
-    imageAlt: "Lime slice illustration",
-    title: "GUEST",
-    features: [
-      { value: "(вхід від 9:00 до 14:00)", isVip: false },
-      { value: "доступ до nail-маркету", isVip: false },
-      { value: "доступ до Малої Зали з МК", isVip: false },
-      { value: "нетворкінг з учасниками", isVip: false },
-      { value: "доступ до закритого телеграм - каналу", isVip: false },
-    ],
-    price: "50",
-    priceIncreaseDate: priceIncreaseDate,
-    newPrice: newGuestPrice,
-    buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
-    href: "https://buy.stripe.com/28o4gmgqdaZI7Ty3cD", //60
-  },
-  {
     id: "standard",
     variant: "standard",
-    imageUrl: IMAGES.LEMON_URL,
-    imageAlt: "Lemon/Orange slice illustration",
-    title: "STANDARD",
+    imageUrl: IMAGES.TICKET_STANDARD_DECOR,
+    imageAlt: "Standard ticket decoration",
+    title: "Standard",
     features: [
       { value: "доступ до nail-маркету", isVip: false },
       { value: "усі виступи спікерів", isVip: false },
@@ -45,48 +22,18 @@ const ticketData: TicketInfo[] = [
       { value: "доступ до закритого телеграм - каналу", isVip: false },
       { value: "afterparty на терасі", isVip: false },
     ],
-    price: "390",
-    priceIncreaseDate: priceIncreaseDate,
-    newPrice: newStandardPrice,
-    buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
-    href: "https://buy.stripe.com/8wM14agqd4Bkc9O9B0", // 429
-  },
-  {
-    id: "maxi",
-    variant: "maxi",
-    imageUrl: IMAGES.PINEAPPLE_URL, // Placeholder for your pineapple image
-    imageAlt: "Pineapple slice illustration",
-    title: "MAXI",
-    features: [
-      { value: "місце в центральній зоні (3-5 ряд)", isVip: false },
-      { value: "доступ до всіх лекцій та майстер-класів", isVip: false },
-      {
-        value: "презентації спікерів (залишаться з тобою назавжди)",
-        isVip: false,
-      },
-      { value: "доступ до закритого телеграм-каналу", isVip: false },
-      { value: "нейл маркет", isVip: false },
-      { value: "мерч від організаторів", isVip: false },
-      { value: "живий сертифікат", isVip: false },
-      { value: "afterparty", isVip: false },
-      { value: "подарунки від партнерів", isVip: false },
-    ],
-    price: "590",
-    priceIncreaseDate: priceIncreaseDate,
-    newPrice: newMaxiPrice,
-    soldOut: true,
-    buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
-    href: "https://buy.stripe.com/4gM4gz9d50Rq7LG7TJc7u0u",
+    price: "499",
+    newPrice: "399",
+    buttonText: "Перейти до оплати",
+    href: "https://buy.stripe.com/8wM14agqd4Bkc9O9B0",
   },
   {
     id: "vip",
     variant: "vip",
-    imageUrl: IMAGES.PASSION_URL,
-    imageAlt: "Passion fruit slice illustration",
+    imageUrl: IMAGES.TICKET_VIP_DECOR,
+    imageAlt: "VIP ticket decoration",
     title: "VIP",
     features: [
-      { value: "презентації спікерів", isVip: true },
-      { value: "мерч фестивалю", isVip: true },
       { value: "місця у перших рядах", isVip: true },
       { value: "подарунки від брендів", isVip: true },
       { value: "сертифікат про участь у заході", isVip: true },
@@ -97,12 +44,10 @@ const ticketData: TicketInfo[] = [
       { value: "доступ до закритого телеграм - каналу", isVip: false },
       { value: "afterparty на терасі", isVip: false },
     ],
-    price: "699",
-    soldOut: true,
-    priceIncreaseDate: priceIncreaseDate,
-    newPrice: newVipPrice,
-    buttonText: "ПЕРЕЙТИ ДО ОПЛАТИ",
-    href: "https://buy.stripe.com/aEUeV0c9X3xg6Pu14t", // 729
+    price: "899",
+    newPrice: "729",
+    buttonText: "Перейти до оплати",
+    href: "https://buy.stripe.com/aEUeV0c9X3xg6Pu14t",
   },
 ];
 
@@ -111,24 +56,55 @@ interface TicketSectionProps {
 }
 
 export const TicketSection: React.FC<TicketSectionProps> = ({ className }) => {
-  const isSoldOut = true
   return (
     <Section id="ticket-section" className={cn("scroll-mt-9", className)}>
       <SectionHeader title="Квитки на фестиваль" className="mb-6" />
-      <div className="relative max-w-96 mx-auto rounded-xl mb-5 uppercase text-lg font-semibold flex items-center justify-center pr-20 pl-4 text-white bg-accent-pink bottom-0 left-0 right-0 h-16">
-        <div>
-          <a href="#battle-of-masters">
-            Придбати квиток Участника Битви Майстрів
-          </a>
+
+      {/* Battle participant ticket card */}
+      <div className="max-w-96 mx-auto mb-8 bg-yellow-foreground rounded-xl p-5 text-white">
+        <img
+          src={IMAGES.TICKET_BATTLE_DECOR}
+          alt="Battle ticket"
+          className="w-full rounded-xl mb-4 object-cover"
+        />
+        <div className="text-center space-y-2">
+          <p className="text-base">Участь у конкурсі</p>
+          <h3 className="text-2xl font-bold">Битва Майстрів</h3>
+          <p className="text-base">у рамках фестивалю Nail Moment</p>
         </div>
-        <div className="w-[42px] h-[74px] absolute right-[10px] bottom-[10px]">
-          <img
-            alt="icon"
-            className="w-[42px] h-[74px]"
-            src="https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/img-finger-WdpnLoNKOMaSCSWqLTsxyzt6qn1dTL"
-          />
+        <div className="space-y-2 mt-4">
+          <div className="bg-white/20 rounded-md px-3 py-2 text-sm">
+            🏆Можливість виграти головний приз — 2000 zł
+          </div>
+          <div className="bg-white/20 rounded-md px-3 py-2 text-sm">
+            🎁 Цінні подарунки від Головного спонсора конкурсу та партнерів фестивалю
+          </div>
+          <div className="bg-white/20 rounded-md px-3 py-2 text-sm">
+            🥈🥉 Призи для 2 та 3 місця — сертифікати переможців та подарункові набори
+          </div>
+          <div className="bg-white/20 rounded-md px-3 py-2 text-sm">
+            🎁 Подарунковий пакет для фіналістів конкурсу від партнерів фестивалю
+          </div>
+          <div className="bg-white/20 rounded-md px-3 py-2 text-sm">
+            📜 Сертифікат фіналіста або переможця конкурсу
+          </div>
+        </div>
+        <p className="text-xs mt-3 opacity-70">
+          * Список подарунків буде доповнюватися після підтвердження партнерів.
+          {"\n"}** Минулого року загальна вартість подарунків для переможця перевищила 5000 zł
+        </p>
+        <div className="flex flex-col gap-2 mt-4">
+          <Button className="bg-blue-background text-yellow-foreground w-full" asChild>
+            <a href="#battle-of-masters">
+              Придбати квиток учасника Битви Майстрів
+            </a>
+          </Button>
+          <Button variant="secondary" className="border-white text-white w-full" asChild>
+            <Link href="/battle">Дізнатися подробиці</Link>
+          </Button>
         </div>
       </div>
+
       <div className="flex flex-col gap-8 items-center">
         {ticketData.map((ticket) => (
           <TicketCard
@@ -140,7 +116,7 @@ export const TicketSection: React.FC<TicketSectionProps> = ({ className }) => {
             price={ticket.newPrice}
             buttonText={ticket.buttonText}
             href={ticket.href}
-            soldOut={isSoldOut || ticket.soldOut}
+            soldOut={false}
           />
         ))}
       </div>

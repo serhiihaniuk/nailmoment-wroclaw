@@ -4,9 +4,6 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { SpeakerCard } from "@/blocks/ui/speaker-card";
 import { Section } from "@/blocks/ui/section";
 
-const shadowImageUrl =
-  "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/soon-ubkgrDK0uFcyfGfF3ACeovMcT61QKZ.jpg";
-
 const speakers = [
   {
     id: 1,
@@ -160,7 +157,8 @@ const speakers = [
   },
   {
     id: 8,
-    imageUrl: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/valentyna_kozlova.jpg",
+    imageUrl:
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/valentyna_kozlova.jpg",
     imageAlt: "Валентина Козлова",
     name: "Валентина Козлова",
     description: (
@@ -170,7 +168,8 @@ const speakers = [
           Подологиня й викладачка.
         </p>
         <p>
-          Вона пройшла шлях від майстрині з прасувальної дошки до експертки з чеком за навчання $650 і записом на 2 місяці вперед.
+          Вона пройшла шлях від майстрині з прасувальної дошки до експертки з
+          чеком за навчання $650 і записом на 2 місяці вперед.
         </p>
       </>
     ),
@@ -197,7 +196,7 @@ export const SpeakersSection: React.FC<SpeakersSectionProps> = ({
             imageUrl={speaker.imageUrl}
             imageAlt={speaker.imageAlt}
             name={speaker.name}
-            description={speaker.description} // Pass the JSX description
+            description={speaker.description}
           />
         ))}
       </div>

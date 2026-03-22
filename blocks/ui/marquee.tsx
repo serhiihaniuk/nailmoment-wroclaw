@@ -14,6 +14,8 @@ interface MarqueeProps {
   spacingGap?: number;
   /** Additional CSS classes */
   className?: string;
+  /** Text color class override */
+  textColorClass?: string;
 }
 
 const Marquee: FC<MarqueeProps> = ({
@@ -23,6 +25,7 @@ const Marquee: FC<MarqueeProps> = ({
   pauseOnHover = true,
   spacingGap = 16,
   className = "",
+  textColorClass = "text-blue-foreground",
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -75,7 +78,9 @@ const Marquee: FC<MarqueeProps> = ({
           className="inline-block mx-2"
           style={{ padding: `0 ${spacingGap}px` }}
         >
-          {index % 2 === 0 ? "🍋" : "🍊"}
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 0L8.75 5.25L14 7L8.75 8.75L7 14L5.25 8.75L0 7L5.25 5.25L7 0Z" fill="currentColor" opacity="0.5" />
+          </svg>
         </span>
       );
 
@@ -96,7 +101,7 @@ const Marquee: FC<MarqueeProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`overflow-hidden h-8 text-blue-foreground flex items-center justify-center font-semibold ${className}`}
+      className={`overflow-hidden h-8 ${textColorClass} flex items-center justify-center font-semibold ${className}`}
     >
       <div
         className={`whitespace-nowrap ${

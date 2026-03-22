@@ -11,9 +11,9 @@ const cardVariants = cva(
     variants: {
       variant: {
         guest: "bg-white border border-gray-200",
-        standard: "bg-yellow-background",
+        standard: "bg-card-background",
         maxi: "bg-emerald-700",
-        vip: "gradient-pink",
+        vip: "bg-blue-foreground",
       },
     },
     defaultVariants: {
@@ -26,7 +26,7 @@ const titlePriceVariants = cva("font-bold", {
   variants: {
     variant: {
       guest: "text-green-foreground",
-      standard: "text-yellow-foreground",
+      standard: "text-blue-foreground",
       maxi: "text-white",
       vip: "text-white",
     },
@@ -40,7 +40,7 @@ const featureTextVariants = cva("w-full text-lg", {
   variants: {
     variant: {
       guest: "text-green-foreground",
-      standard: "text-yellow-foreground",
+      standard: "text-blue-foreground",
       maxi: "text-white",
       vip: "text-white",
     },
@@ -54,9 +54,9 @@ const featureBorderVariants = cva("", {
   variants: {
     variant: {
       guest: "border-b border-gray-300 last:border-b-0",
-      standard: "border-b border-yellow-foreground/30 last:border-b-0",
+      standard: "border-b border-blue-foreground/20 last:border-b-0",
       maxi: "border-b border-white/30 last:border-b-0",
-      vip: "border-b border-white/30 last:border-b-0",
+      vip: "border-b border-white/20 last:border-b-0",
     },
   },
   defaultVariants: {
@@ -68,9 +68,9 @@ const buttonVariants = cva("w-full font-semibold uppercase", {
   variants: {
     variant: {
       guest: "bg-green-foreground text-white hover:bg-green-foreground/80",
-      standard: "bg-accent-orange text-white hover:bg-accent-orange/80",
+      standard: "bg-blue-foreground text-white hover:bg-blue-foreground/80",
       maxi: "bg-[#f6d72f] text-emerald-800",
-      vip: "bg-white text-accent-pink hover:bg-white/90",
+      vip: "bg-blue-foreground text-white hover:bg-blue-foreground/80",
     },
   },
   defaultVariants: {

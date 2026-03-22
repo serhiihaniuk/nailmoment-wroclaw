@@ -12,7 +12,7 @@ export const ListItem: FC<{
       className={cn("flex items-center gap-4 px-3 rounded-sm py-3", className)}
     >
       <CheckCircle
-        className={cn("text-accent-pink size-[24px] shrink-0", iconClassName)}
+        className={cn("text-blue-foreground size-[24px] shrink-0", iconClassName)}
       />
       <p className="text-blue-foreground leading-snug">{text}</p>
     </li>

@@ -32,52 +32,41 @@ const HEADINGS = {
   WHY_ATTEND_TITLE: "Чому не можна пропустити",
 };
 
-const ACCENT_CARD_WROCLAW = {
-  TITLE_PART1: "Ми їдемо ",
-  TITLE_PART2: "до Вроцлава",
+const ACCENT_CARD_WARSAW = {
+  TITLE_PART1: "Ми повертаємось ",
+  TITLE_PART2: "до Варшави",
   DESCRIPTION1:
-    "Друге сердце Польщі та місто куди ви нас запрошували мільйони разів 🫶 і МИ ВИРІШИЛИ ЗНЯТИ ЦІЛИЙ ОСТРІВ, приїхати та розірвати фестивалем Nail Moment",
-  DESCRIPTION2:
-    "А саме Concordia Design Wrocław на острові Słodowej у самому центрі міста Вроцлав біля Старого міста",
-  IMAGE_URL:
-    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_2-zLUsJEsHj6HKKo8df232AH8ENlQinx.jpg",
+    "Ви казали, що це найзручніше місто для фестивалю. Ми чуємо та прислоховуємося до наших людей \u{1F49B}",
+  IMAGE_URL: IMAGES.WARSAW_PHOTO,
 };
 
 const MARKET_CARDS_DATA = [
   {
-    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_3-5BVLJjTs1IcJNNgxbdo9ibUdVvOPc4.jpg",
+    url: IMAGES.MARKET_1,
     caption:
-      "Найкращі nail-бренди в одному місці. Гелі, лаки, бази, дизайни та аксесуари — все що потрібно майстру!",
+      "Найкращі nail-бренди в одному місці\n\nГелі, лаки, бази, дизайни та аксесуари — все що потрібно майстру!",
     className: "",
     buttonText: null,
   },
   {
-    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_4-oioS6W6uP0LuMJQtD5PNrNtYeAXywD.jpg",
+    url: IMAGES.MARKET_2,
     caption: "Акції, від яких хочеться скупити все! Та безпрограшні лотереї!",
     className: "",
     buttonText: null,
-  },
-  {
-    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img-5-hk2l7jPXRwcaBM3hKdBh9vqoUWjQSW.jpg",
-    caption:
-      "Мала зала для майстер-класів від ТОПових блогерів та інструкторів з 10:00 до 14:00",
-    className: "gradient-orange text-white",
-    buttonHref: "/master-klass",
-    buttonText: "ПРОГРАМА МАЙСТЕР-КЛАСІВ",
   },
 ];
 
 const WHY_ATTEND_CAPTIONS_DATA = [
   {
-    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_8-PGLaKE5Xj3ZKjSZ1QQAFZ6GHxMoei8.jpg",
+    url: IMAGES.WHY_ATTEND_1,
     caption: "Супервигода, яку не знайдеш в онлайні",
   },
   {
-    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_7-POulgpQwlT7KSZO7TgLzEfidLksgTQ.jpg",
-    caption: "Живе спілкування, нові знайомствата натхнення",
+    url: IMAGES.WHY_ATTEND_2,
+    caption: "Живе спілкування, нові знайомства та натхнення",
   },
   {
-    url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_6-rY2ktPUtg6rYIJ33rZJ7k1H3HTDHYn.jpg",
+    url: IMAGES.WHY_ATTEND_3,
     caption: "Подарунки та емоції, які залишаться з тобою надовго",
   },
 ];
@@ -96,7 +85,7 @@ export const InfoSection = () => {
         <ul className="flex relative flex-col gap-1.5 self-stretch">
           {bulletPoints.map((text, i) => (
             <ListItem
-              className={cn("capitalize bg-white w-[90%]", {
+              className={cn("bg-blue-background w-[90%]", {
                 "w-[95%]": i === 0 || i === 3,
                 "w-[85%]": i === 1,
                 "w-[80%]": i === 2,
@@ -106,11 +95,11 @@ export const InfoSection = () => {
             />
           ))}
           <DecorativeImage
-            src={IMAGES.LIME_URL}
+            src={IMAGES.DECORATIVE_LEAF_5}
             className="right-0 translate-1/2 bottom-1/2 size-[180px] slide-in-view"
           />{" "}
           <DecorativeImage
-            src={IMAGES.LIME_URL}
+            src={IMAGES.DECORATIVE_LEAF_5}
             className="right-0 translate-1/2 bottom-1/2 size-[180px]"
           />
         </ul>
@@ -126,32 +115,31 @@ export const InfoSection = () => {
         </ul>
 
         <Image
-          url="https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/img_1-ipwjoiGlvxVH6goYOLVxxA5mG98VtR.jpg"
+          url={IMAGES.HERO_MAIN}
           width={900}
           className="w-full"
           alt="image"
         />
       </Section>
 
-      {/* Section 2: Accent Card (Wroclaw) */}
+      {/* Section 2: Accent Card (Warsaw) */}
       <AccentCard
         title={
           <span className="font-semibold text-2xl flex flex-col">
-            <span>{ACCENT_CARD_WROCLAW.TITLE_PART1}</span>
-            <span>{ACCENT_CARD_WROCLAW.TITLE_PART2}</span>
+            <span>{ACCENT_CARD_WARSAW.TITLE_PART1}</span>
+            <span>{ACCENT_CARD_WARSAW.TITLE_PART2}</span>
           </span>
         }
-        imageUrl={IMAGES.LEMON_URL}
+        imageUrl={IMAGES.HERO_LOGO_1}
       >
         <>
-          <p>{ACCENT_CARD_WROCLAW.DESCRIPTION1}</p>
+          <p>{ACCENT_CARD_WARSAW.DESCRIPTION1}</p>
           <Image
-            url={ACCENT_CARD_WROCLAW.IMAGE_URL}
+            url={ACCENT_CARD_WARSAW.IMAGE_URL}
             className="w-full"
             width={900}
-            alt="Concordia Design Wrocław location"
+            alt="Warsaw location"
           />
-          <p>{ACCENT_CARD_WROCLAW.DESCRIPTION2}</p>
         </>
       </AccentCard>
 
@@ -166,20 +154,24 @@ export const InfoSection = () => {
               url={card.url}
               caption={card.caption}
               className={card.className || ""}
-            >
-              {card.buttonText && (
-                <Button className="text-yellow-foreground text-center" asChild>
-                  <Link href={card.buttonHref}>{card.buttonText}</Link>
-                </Button>
-              )}
-            </ImageCard>
+            />
           ))}
+
+          {/* БОКСОПАД section */}
+          <ImageCard
+            url={IMAGES.BOXOPAD}
+            caption=""
+            className=""
+          >
+            <h3 className="text-2xl font-bold text-blue-foreground text-center">&quot;БОКСОПАД&quot;</h3>
+            <p className="text-blue-foreground text-center">розіграші боксів з продукцією від провідних брендів</p>
+          </ImageCard>
         </div>
 
         {/* Section 4: Why Attend */}
         <SectionHeader
           title={HEADINGS.WHY_ATTEND_TITLE}
-          className="mt-16 mb-4"
+          className="mt-16 mb-4 text-yellow-foreground uppercase text-3xl"
         />
 
         <div className="flex flex-col gap-6">

@@ -35,8 +35,8 @@ interface PastEventCarouselSectionProps {
 export const PastEventCarouselSection: React.FC<
   PastEventCarouselSectionProps
 > = ({ className }) => {
-  const title = "Як це було в жовтні 2024";
-  const subtitle = "Баскетбольна арена";
+  const title = "Як це було на попередніх фестивалях";
+  const subtitle = "";
 
   return (
     <Section className={cn("relative", className)}>

@@ -16,8 +16,8 @@ export const BattleSection = () => {
         className="-right-8 md:-right-2 -top-8 size-[180px]"
       />
       <div className="grid grid-cols-2 gap-2 mb-5 relative z-1">
-        <Badge>27 липня</Badge>
-        <Badge>Вроцлав</Badge>
+        <Badge className="bg-card-background border-0">7 червня</Badge>
+        <Badge className="bg-card-background border-0">Варшава</Badge>
       </div>
       <h1 className="flex flex-col gap-7 text-center items-center justify-center mb-8">
         <span className="flex w-[358px] h-[117px] gap-3.5 flex-col items-center justify-center">

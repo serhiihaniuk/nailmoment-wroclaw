@@ -12,7 +12,7 @@ import { ListItem } from "@/components/ui/list-item";
 import { AccentCard } from "@/blocks/ui/accent-card";
 import NextImage from "next/image";
 
-const EVENT_BADGES = [{ label: "27 липня" }, { label: "Вроцлав" }];
+const EVENT_BADGES = [{ label: "7 червня" }, { label: "Варшава" }];
 
 const WHAT_IS_ITEMS = [
   {
@@ -70,8 +70,8 @@ const PRIZE_ITEMS = [
     icon: <Mic size={24} className="text-accent-pink" />,
     text: (
       <>
-        Виступ <span className="font-bold">27 липня</span> на головній сцені
-        фестивалю Nail Moment у Вроцлаві.
+        Виступ <span className="font-bold">7 червня</span> на головній сцені
+        фестивалю Nail Moment у Варшаві.
       </>
     ),
   },

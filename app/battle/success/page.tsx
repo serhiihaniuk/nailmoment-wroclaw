@@ -36,8 +36,8 @@ export default function SuccessBattlePayment() {
           </span>
         </span>
         <div className="grid grid-cols-2 gap-2 mb-5 relative z-1 max-w-xs mx-auto">
-          <Badge>27 липня</Badge>
-          <Badge>Вроцлав</Badge>
+          <Badge className="bg-card-background border-0">7 червня</Badge>
+          <Badge className="bg-card-background border-0">Варшава</Badge>
         </div>
       </Section>
 

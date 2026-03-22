@@ -9,22 +9,15 @@ import { IMAGES } from "@/shared/const";
 
 const COMPETITION_DATA = {
   BATTLE_OF_MASTERS: {
-    IMAGE_URL: IMAGES.FINGER_URL,
-    IMAGE_ALT: "Finger pointing up - Battle of Masters Competition",
+    IMAGE_URL: IMAGES.BATTLE_PHOTO,
+    IMAGE_ALT: "Battle of Masters Competition",
     TITLE: "Супер-конкурс БИТВА МАЙСТРІВ",
-    SUBTITLE: "Покажи свої вміння та забери 2000 zł",
-    DESCRIPTION:
-      "Не типовий конкурс в якому найважливіше ваша якість роботи, творчість та фантазія",
-    RULES: [
-      "❌ без жорстких часових обмежень",
-      "✅ 3 години на повний манікюр з дизайном на ваш вибір (на одній руці)",
-    ],
+    PRIZE: "2000 зл + СУПЕР ПРИЗ від спонсору конкурсу",
     BUTTON_TEXT: "Перейти до БИТВА МАЙСТРІВ",
   },
   PEOPLES_SPEAKER: {
-    IMAGE_URL:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/img-mike-6WDwCjoptpYcBJ072JUZw5elZN7Ias",
-    IMAGE_ALT: "Microphone - People's Speaker Competition",
+    IMAGE_URL: IMAGES.PEOPLES_SPEAKER_PHOTO,
+    IMAGE_ALT: "People's Speaker Competition",
     TITLE: "Прийми участь у конкурсі Народний спікер",
     DESCRIPTION:
       "Якщо ти гориш своєю справою та хочеш запалати інших, виступи зі спічем або МК на головній сцені фестивалю Nail Moment",
@@ -39,15 +32,15 @@ export const CompetitionSection = () => {
 
   return (
     <Section className="flex flex-col items-center gap-2.5  mx-auto">
-      <div id="battle-of-masters" className="relative scroll-mt-7 max-w-md">
+      <div id="battle-of-masters" className="relative scroll-mt-7 max-w-md w-full">
         <div
           className={cn(
-            "z-10 relative px-6 pb-6 rounded-xl flex flex-col text-center",
-            "text-white"
+            "z-10 relative p-5 rounded-xl flex flex-col text-center gap-2.5",
+            "bg-yellow-foreground text-white"
           )}
         >
           <img
-            className="w-[101px] h-[176px] self-center"
+            className="w-full rounded-xl object-cover aspect-video"
             src={BATTLE_OF_MASTERS.IMAGE_URL}
             alt={BATTLE_OF_MASTERS.IMAGE_ALT}
           />
@@ -55,48 +48,35 @@ export const CompetitionSection = () => {
             title={BATTLE_OF_MASTERS.TITLE}
             className="text-2xl text-white font-bold leading-[150%]"
           />
-          <div className="space-y-2.5 mt-1">
-            <p className="text-lg">{BATTLE_OF_MASTERS.SUBTITLE}</p>
-            <p className="text-md">{BATTLE_OF_MASTERS.DESCRIPTION}</p>
+          <div className="bg-yellow-background/30 rounded-md px-4 py-3">
+            <p className="font-semibold">{BATTLE_OF_MASTERS.PRIZE}</p>
           </div>
-          <div className="text-lg space-y-2.5 py-2.5">
-            {BATTLE_OF_MASTERS.RULES.map((rule, index) => (
-              <div
-                key={index}
-                className="px-4 py-3 flex justify-center items-center bg-white/30 rounded-md"
-              >
-                {rule}
-              </div>
-            ))}
-          </div>
-          <Button className="text-accent-pink uppercase" asChild>
+          <Button className="bg-blue-background text-yellow-foreground uppercase" asChild>
             <Link href="battle">{BATTLE_OF_MASTERS.BUTTON_TEXT}</Link>
           </Button>
         </div>
-        <div className="gradient-pink absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl shadow-xl" />
       </div>
-      <div id="peoples-speaker" className="relative scroll-mt-7 max-w-md">
+      <div id="peoples-speaker" className="relative scroll-mt-7 max-w-md w-full">
         <div
           className={cn(
-            "z-10 space-y-2.5 relative px-6 pb-6 rounded-xl flex flex-col text-center",
-            "text-yellow-foreground"
+            "z-10 space-y-2.5 relative p-5 rounded-xl flex flex-col text-center",
+            "bg-white text-blue-foreground"
           )}
         >
           <img
-            className="size-[286px] self-center"
+            className="w-full rounded-xl object-cover"
             src={PEOPLES_SPEAKER.IMAGE_URL}
             alt={PEOPLES_SPEAKER.IMAGE_ALT}
           />
           <SectionHeader
             title={PEOPLES_SPEAKER.TITLE}
-            className="text-2xl text-yellow-foreground font-bold leading-[150%]"
+            className="text-2xl text-blue-foreground font-bold leading-[150%]"
           />
           <p>{PEOPLES_SPEAKER.DESCRIPTION}</p>
-          <Button className="uppercase" asChild>
+          <Button className="bg-blue-foreground text-white uppercase" asChild>
             <Link href="speaker">{PEOPLES_SPEAKER.BUTTON_TEXT}</Link>
           </Button>
         </div>
-        <div className="gradient-green absolute bottom-0 left-0 right-0 h-[80%] z-1 rounded-xl shadow-xl" />
       </div>
     </Section>
   );

@@ -163,8 +163,8 @@ export default function RegulaminKonkursu() {
           </h3>
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              Відбудеться <span className="font-bold">27 липня 2025</span> на
-              фестивалі Nail Moment у місті Вроцлав.
+              Відбудеться <span className="font-bold">7 червня 2026</span> на
+              фестивалі Nail Moment у місті Варшава.
             </li>
             <li>
               Підбиття підсумку голосування, оголошення Переможця конкурсу,
@@ -339,7 +339,7 @@ export default function RegulaminKonkursu() {
               день голосування в останній номінації ВІДБІРОЧНОГО ТУРУ.
             </li>
             <li>
-              <span className="font-bold">27 липня 2025 року</span> - фінальний
+              <span className="font-bold">7 червня 2026 року</span> - фінальний
               етап і запуск голосування за фінальні роботи. Підбиття підсумків
               голосування та нагородження переможця!
             </li>

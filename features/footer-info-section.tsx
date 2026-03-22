@@ -3,14 +3,12 @@ import { cn } from "@/lib/utils";
 import { Link } from "@/blocks/ui/link";
 import { Instagram, Send } from "lucide-react";
 import { Section } from "@/blocks/ui/section";
-import { INFO_URL } from "@/shared/const";
+import { INFO_URL, COMPANY_INFO } from "@/shared/const";
 
 interface FooterInfoSectionProps {
   className?: string;
 }
 
-const companyName = "KATERYNA TARALA NAIL MOMENT";
-const nip = "8943258555";
 const privacyPolicyUrl = "/polityka";
 
 export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
@@ -28,9 +26,9 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
           ДАНІ КОМПАНІЇ
         </h3>
         <div className="text-base text-blue-foreground/90 space-y-0.5">
-          <p>{companyName}</p>
-          <p>NIP: {nip}</p>
-          {/* REGON line removed */}
+          <p>{COMPANY_INFO.NAME}</p>
+          <p>NIP: {COMPANY_INFO.NIP}</p>
+          <p>REGON: {COMPANY_INFO.REGON}</p>
         </div>
       </div>
 

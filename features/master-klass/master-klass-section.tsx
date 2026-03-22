@@ -17,8 +17,8 @@ export const MasterKlassSection = () => {
         className="-right-12 md:-right-2 -top-22 size-[180px]"
       />
       <div className="grid grid-cols-2 gap-2 mb-5 relative z-1">
-        <Badge>27 липня</Badge>
-        <Badge>Вроцлав</Badge>
+        <Badge className="bg-card-background border-0">7 червня</Badge>
+        <Badge className="bg-card-background border-0">Варшава</Badge>
       </div>
 
       <h1 className="flex flex-col select-none gap-3.5 text-center items-center justify-center mb-4">

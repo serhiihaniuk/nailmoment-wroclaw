@@ -18,6 +18,7 @@
   --color-yellow-background: var(--yellow-background);
   --color-yellow-foreground: var(--yellow-foreground);
   --color-green-foreground: var(--green-foreground);
+  --color-card-background: var(--card-background);
   --color-ring: var(--blue-foreground);
   --color-ring-destructive: var(--destructive);
   --color-destructive: var(--destructive);
@@ -31,12 +32,13 @@
 :root {
   --accent-orange: rgba(240, 119, 6, 1);
   --accent-pink: rgba(255, 24, 175, 1);
-  --blue-foreground: rgba(64, 81, 159, 1);
-  --blue-background: rgba(188, 217, 247, 1);
+  --blue-foreground: #395500;
+  --blue-background: #FFFEF6;
   --yellow-background: rgba(255, 192, 1, 1);
-  --yellow-foreground: rgba(145, 82, 0, 1);
-  --green-foreground: rgba(103, 112, 67, 1);
+  --yellow-foreground: #542826;
+  --green-foreground: #395500;
   --destructive: rgba(255, 0, 0, 1);
+  --card-background: #F4F3E6;
 
   --ring: oklch(0.705 0.015 286.067);
 

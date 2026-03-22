@@ -51,6 +51,7 @@ export const Image: React.FC<ImageProps> = ({
         height={height}
         priority={priority}
         sizes={sizes}
+        className="h-full w-full object-cover object-center"
         {...rest}
       />
     </div>
