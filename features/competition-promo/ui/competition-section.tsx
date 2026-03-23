@@ -2,9 +2,10 @@ import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
-import { SectionHeader } from "@/shared/ui/section-header";
+import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
 import { cn, mergeUi } from "@/shared/lib/utils";
 import { HOME_COMPETITION_CONTENT } from "@/features/competition-promo/model/content";
+import { CompetitionPrizeBanner } from "@/features/competition-promo/ui/competition-prize-banner";
 import Link from "next/link";
 
 type CompetitionCardProps = {
@@ -13,6 +14,8 @@ type CompetitionCardProps = {
   imageAlt: string;
   title: string;
   description: string;
+  prizeTitle?: string;
+  prizeSubtitle?: string;
   href: string;
   buttonText: string;
   surface: "accent" | "default";
@@ -25,6 +28,8 @@ function CompetitionCard({
   id,
   imageAlt,
   imageUrl,
+  prizeSubtitle,
+  prizeTitle,
   surface,
   title,
 }: CompetitionCardProps) {
@@ -37,35 +42,54 @@ function CompetitionCard({
       uiId={uiId}
       spacing="none"
       surface={surface === "accent" ? "accent" : "default"}
-      className={cn("scroll-mt-24")}
+      className={cn(
+        "scroll-mt-24",
+        accent && "bg-brand-brown text-text-inverse"
+      )}
     >
-      <CardContent uiId={mergeUi(uiId, "content")} className="flex flex-col gap-5 px-5 py-5 text-center md:px-6 md:py-6">
+      <CardContent
+        uiId={mergeUi(uiId, "content")}
+        className="flex flex-col gap-4 p-4 text-center md:gap-5 md:p-5"
+      >
         <img
           data-ui={mergeUi(uiId, "image")}
-          className="aspect-video w-full rounded-2xl object-cover"
+          className="aspect-video w-full rounded-[1.4rem] object-cover"
           src={imageUrl}
           alt={imageAlt}
         />
         <Stack uiId={mergeUi(uiId, "copy")} gap="sm" className="items-center">
-          <SectionHeader
+          <TypographyTitle
+            as="h3"
             uiId={mergeUi(uiId, "title")}
+            size="card"
             align="center"
-            size="sm"
             tone={accent ? "inverse" : "default"}
-            title={title}
-            titleClassName="max-w-[18ch]"
-          />
-          <div
-            data-ui={mergeUi(uiId, "description")}
-            className={cn(
-              "rounded-2xl px-4 py-3 text-sm leading-6 md:text-base",
-              accent
-                ? "bg-brand-gold/20 text-text-inverse"
-                : "bg-surface-muted text-text-primary"
-            )}
           >
-            {description}
-          </div>
+            {title}
+          </TypographyTitle>
+          {accent && prizeTitle && prizeSubtitle ? (
+            <CompetitionPrizeBanner
+              uiId={mergeUi(uiId, "prize")}
+              title={prizeTitle}
+              subtitle={prizeSubtitle}
+            />
+          ) : (
+            <div
+              data-ui={mergeUi(uiId, "description-shell")}
+              className="w-full rounded-[1.4rem] bg-surface-muted px-4 py-3 text-text-primary"
+            >
+              <TypographyText
+                as="p"
+                uiId={mergeUi(uiId, "description")}
+                size="body"
+                align="center"
+                tone="default"
+                className="font-semibold"
+              >
+                {description}
+              </TypographyText>
+            </div>
+          )}
         </Stack>
         <Button
           uiId={mergeUi(uiId, "button")}

@@ -21,22 +21,24 @@ export function HeroSection() {
     >
       <div
         data-ui="hero-section-shell"
-        className="relative overflow-hidden bg-surface-muted/50 px-4 py-10 md:px-8 md:py-14"
+        className="relative isolate overflow-hidden bg-surface-muted/50 px-4 py-10 md:px-8 md:py-14"
       >
-        <DecorativeImage
-          uiId="hero-background"
+        <img
+          data-ui="hero-background"
           src={IMAGES.DECORATIVE_BG_1}
-          className="left-0 top-10 h-[32rem] w-full opacity-10"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-40"
         />
         <DecorativeImage
           uiId="hero-leaf-right"
           src={IMAGES.DECORATIVE_LEAF_1}
-          className="-right-8 -top-16 h-[21rem] w-[16rem] z-[2]"
+          className="-right-8 -top-16 h-[21rem] w-[16rem] z-[1]"
         />
         <DecorativeImage
           uiId="hero-leaf-left"
           src={IMAGES.DECORATIVE_LEAF_4}
-          className="-left-8 top-1 h-48 w-44 z-[2]"
+          className="-left-8 top-1 h-48 w-44 z-[1]"
         />
 
         <Marquee
@@ -48,7 +50,7 @@ export function HeroSection() {
           className="absolute inset-x-0 top-0 z-[3] self-stretch bg-surface-muted font-medium"
         />
 
-        <Stack uiId="hero-content" gap="lg" className="relative z-[1] items-center pt-6 text-center">
+        <Stack uiId="hero-content" gap="lg" className="relative z-[2] items-center pt-6 text-center">
           <Cluster uiId="hero-badges" gap="sm" justify="center" className="w-full">
             {HOME_HERO_CONTENT.badges.map((badge, index) => (
               <Badge

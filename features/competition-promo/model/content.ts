@@ -7,6 +7,8 @@ export const HOME_COMPETITION_CONTENT = {
     imageAlt: "Battle of Masters Competition",
     title: "Супер-конкурс БИТВА МАЙСТРІВ",
     description: "2000 зл + СУПЕР ПРИЗ від спонсору конкурсу",
+    prizeTitle: "2000 зл + СУПЕР ПРИЗ",
+    prizeSubtitle: "від спонсору конкурсу",
     href: "/battle",
     buttonText: "Перейти до БИТВА МАЙСТРІВ",
     surface: "accent" as const,

@@ -8,21 +8,33 @@ import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { SectionHeader } from "@/shared/ui/section-header";
 import { mergeUi } from "@/shared/lib/utils";
+import { IMAGES } from "@/shared/config/const";
 import { MARKET_SHOWCASE_CONTENT } from "../model/content";
 
 export function MarketShowcaseSection() {
   return (
     <Section uiId="market-section" density="compact">
-      <Stack uiId="market-groups" gap="xl">
+      <div data-ui="market-shell" className="relative">
+        <img
+          data-ui="market-gap-background"
+          src={IMAGES.DECORATIVE_BG_1}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-6 top-[47%] z-0 h-72 w-44 -translate-y-1/2 object-cover opacity-40"
+        />
+        <Stack uiId="market-groups" gap="xl" className="relative z-[1]">
         <Stack uiId="market-block" gap="lg" className="items-center">
           <SectionHeader
             uiId="market-title"
-            className="max-w-4xl"
             title={MARKET_SHOWCASE_CONTENT.title}
           />
           <div data-ui="market-cards" className="grid gap-8 md:gap-10">
             {MARKET_SHOWCASE_CONTENT.cards.map((card, index) => (
-              <MediaCard uiId={mergeUi("market-card", index + 1)} key={card.url}>
+              <MediaCard
+                uiId={mergeUi("market-card", index + 1)}
+                key={card.url}
+                surface="subtle"
+              >
                 <MediaCardImage
                   uiId={mergeUi("market-card", index + 1)}
                   url={card.url}
@@ -35,7 +47,7 @@ export function MarketShowcaseSection() {
               </MediaCard>
             ))}
           </div>
-          <MediaCard uiId="boxopad">
+          <MediaCard uiId="boxopad" surface="subtle">
             <Stack uiId="boxopad-copy" gap="sm" className="items-center text-center">
               <MediaCardTitle uiId="boxopad">
                 {MARKET_SHOWCASE_CONTENT.boxopad.title}
@@ -72,17 +84,18 @@ export function MarketShowcaseSection() {
                   alt="Why attend"
                   width={900}
                 />
-                <MediaCardText
+                <MediaCardTitle
                   uiId={mergeUi("why-attend-card", index + 1)}
-                  className="mx-auto max-w-[30ch] font-medium"
+                  className="mx-auto"
                 >
                   {item.caption}
-                </MediaCardText>
+                </MediaCardTitle>
               </MediaCard>
             ))}
           </div>
         </Stack>
-      </Stack>
+        </Stack>
+      </div>
     </Section>
   );
 }

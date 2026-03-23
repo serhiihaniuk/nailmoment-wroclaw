@@ -73,7 +73,7 @@ export function SectionHeader({
           size="sm"
           tone={tone === "default" ? "muted" : tone}
           uiId={mergeUi(uiId, "description")}
-          className={cn("max-w-[46ch]", descriptionClassName)}
+          className={descriptionClassName}
         >
           {description}
         </TypographyText>

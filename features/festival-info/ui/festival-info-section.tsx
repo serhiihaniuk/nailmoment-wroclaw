@@ -18,7 +18,6 @@ export function FestivalInfoSection() {
               <SectionHeader
                 uiId="festival-info-title"
                 tone="accent"
-                className="max-w-4xl"
                 title={FESTIVAL_INFO_CONTENT.introTitle}
               />
 
@@ -49,7 +48,6 @@ export function FestivalInfoSection() {
               <SectionHeader
                 uiId="festival-info-motto-title"
                 tone="accent"
-                className="max-w-3xl"
                 title={FESTIVAL_INFO_CONTENT.mottoTitle}
               />
               <ul

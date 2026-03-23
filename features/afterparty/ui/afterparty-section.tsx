@@ -7,7 +7,7 @@ export function AfterpartySection() {
   return (
     <Section density="compact">
       <AccentCard title={HOME_AFTERPARTY_CONTENT.title} imageUrl={HOME_AFTERPARTY_CONTENT.decorUrl}>
-        <p className="max-w-2xl text-base leading-7 text-text-inverse/90 md:text-lg">
+        <p className="text-base leading-7 text-text-inverse/90 md:text-lg">
           {HOME_AFTERPARTY_CONTENT.description}
         </p>
         <Image

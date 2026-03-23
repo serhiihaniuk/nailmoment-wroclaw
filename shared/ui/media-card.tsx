@@ -7,7 +7,7 @@ import { ComponentPropsWithoutRef, ReactNode } from "react";
 type MediaCardProps = {
   children: ReactNode;
   className?: string;
-  surface?: "default" | "transparent";
+  surface?: "default" | "subtle" | "transparent";
   uiId?: string;
 };
 
@@ -31,8 +31,9 @@ export function MediaCard({
   return (
     <Card
       uiId={mergeUi(uiId, "card")}
+      surface={surface === "subtle" ? "subtle" : "default"}
       spacing="none"
-      className={cn("rounded-[2rem] bg-surface-card text-text-primary", className)}
+      className={cn("rounded-[2rem] text-text-primary", className)}
     >
       <CardContent
         uiId={mergeUi(uiId, "content")}
