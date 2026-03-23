@@ -29,18 +29,20 @@ export function FestivalInfoSection() {
                 data-ui="festival-info-list"
                 className="relative flex w-full flex-col gap-2.5 rounded-xl bg-surface-page p-4 md:p-5"
               >
-                {FESTIVAL_INFO_CONTENT.introBullets.map((text, index) => (
-                  <ListItem
-                    uiId={mergeUi("festival-info-item", index + 1)}
-                    key={text}
-                    text={text}
+                <>
+                  {FESTIVAL_INFO_CONTENT.introBullets.map((text, index) => (
+                    <ListItem
+                      uiId={mergeUi("festival-info-item", index + 1)}
+                      key={text}
+                      text={text}
+                    />
+                  ))}
+                  <DecorativeImage
+                    uiId="festival-info-leaf"
+                    src={IMAGES.DECORATIVE_LEAF_7}
+                    className="-right-6 rotate-y-180 bottom-1/2 translate-y-1/2 size-[200px]"
                   />
-                ))}
-                <DecorativeImage
-                  uiId="festival-info-leaf"
-                  src={IMAGES.DECORATIVE_LEAF_5}
-                  className="-right-8 bottom-6 h-44 w-44"
-                />
+                </>
               </ul>
             </Stack>
 

@@ -24,7 +24,7 @@ export const DecorativeImage: React.FC<DecorativeImageProps> = ({
         data-ui={mergeUi(uiId, "image")}
         src={src}
         alt={alt}
-        className="absolute inset-0 h-full w-full object-contain"
+        className="absolute inset-0 h-full w-full object-cover"
       />
     </div>
   );
