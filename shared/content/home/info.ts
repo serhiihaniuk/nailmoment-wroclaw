@@ -19,9 +19,8 @@ export const HOME_INFO_CONTENT = {
   warsawCard: {
     title: ["Ми повертаємось", "до Варшави"],
     description:
-      "Ви казали, що це найзручніше місто для фестивалю. Ми чуємо та прислуховуємося до наших людей.",
-    imageUrl: IMAGES.WARSAW_PHOTO,
-    decorUrl: IMAGES.HERO_LOGO_1,
+      "Ви казали, що це найзручніше місто для фестивалю. Ми чуємо та прислоховуємося до наших людей 💛",
+    imageUrl: IMAGES.HERO_MAIN,
   },
   marketTitle: "Nail-МАРКЕТ від Nail Moment. Твій ідеальний день для шопінгу!",
   marketCards: [

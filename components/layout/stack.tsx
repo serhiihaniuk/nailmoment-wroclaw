@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn, mergeUi } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ComponentPropsWithoutRef, ElementType } from "react";
 
@@ -19,6 +19,7 @@ const stackVariants = cva("flex flex-col", {
 
 type StackProps<T extends ElementType = "div"> = {
   as?: T;
+  uiId?: string;
 } & Omit<ComponentPropsWithoutRef<T>, "as"> &
   VariantProps<typeof stackVariants>;
 
@@ -26,8 +27,15 @@ export function Stack<T extends ElementType = "div">({
   as,
   className,
   gap,
+  uiId,
   ...props
 }: StackProps<T>) {
   const Comp = as ?? "div";
-  return <Comp className={cn(stackVariants({ gap }), className)} {...props} />;
+  return (
+    <Comp
+      data-ui={mergeUi(uiId ?? "stack")}
+      className={cn(stackVariants({ gap }), className)}
+      {...props}
+    />
+  );
 }

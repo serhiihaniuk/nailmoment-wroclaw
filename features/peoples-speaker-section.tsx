@@ -290,7 +290,7 @@ export const PeoplesSpeakerSection = () => (
           className="mb-8 text-accent-pink"
         />
         <div className="bg-gradient-to-br from-accent-pink/10 to-blue-foreground/10 p-8 rounded-xl max-w-2xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="flex flex-col items-center gap-8">
             <div className="relative">
               <NextImage
                 src="https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/valentyna_kozlova.jpg"

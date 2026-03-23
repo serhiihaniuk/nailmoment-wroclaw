@@ -2,6 +2,7 @@ import { Section } from "@/components/layout/section";
 import { Stack } from "@/components/layout/stack";
 import { SpeakerCard } from "@/components/patterns/speaker-card";
 import { SectionHeader } from "@/components/ui/section-header";
+import { mergeUi } from "@/lib/utils";
 import {
   HOME_SPEAKERS,
   HOME_SPEAKER_SECTION,
@@ -13,12 +14,13 @@ type SpeakersSectionProps = {
 
 export function SpeakersSection({ className }: SpeakersSectionProps) {
   return (
-    <Section density="compact" className={className}>
-      <Stack gap="lg" className="items-center">
-        <SectionHeader title={HOME_SPEAKER_SECTION.title} />
-        <div className="flex w-full flex-col items-center gap-5 md:gap-6">
-          {HOME_SPEAKERS.map((speaker) => (
+    <Section uiId="speakers-section" density="compact" className={className}>
+      <Stack uiId="speakers-content" gap="lg" className="items-center">
+        <SectionHeader uiId="speakers-title" title={HOME_SPEAKER_SECTION.title} />
+        <div data-ui="speakers-list" className="flex w-full flex-col items-center gap-5 md:gap-6">
+          {HOME_SPEAKERS.map((speaker, index) => (
             <SpeakerCard
+              uiId={mergeUi("speaker", index + 1)}
               key={speaker.id}
               imageUrl={speaker.imageUrl}
               imageAlt={speaker.imageAlt}

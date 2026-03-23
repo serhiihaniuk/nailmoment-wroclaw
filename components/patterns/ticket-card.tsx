@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { cn, mergeUi } from "@/lib/utils";
 import {
   type TicketFeature,
   type TicketInfo,
@@ -113,6 +113,7 @@ interface TicketCardProps
   buttonText: string;
   href: string;
   soldOut?: boolean;
+  uiId?: string;
 }
 
 const capitalize = (value = "") => {
@@ -135,6 +136,7 @@ export function TicketCard({
   price,
   soldOut,
   title,
+  uiId,
   variant = "guest",
   ...props
 }: TicketCardProps) {
@@ -143,26 +145,34 @@ export function TicketCard({
 
   return (
     <Card
+      uiId={mergeUi(uiId, "card")}
       spacing="none"
       className={cn(cardVariants({ variant }), className)}
       {...props}
     >
       <CardContent
+        uiId={mergeUi(uiId, "content")}
         className={cn(
           "flex flex-col items-center gap-6 px-6 py-8 text-center",
           featureTextVariants({ variant })
         )}
       >
-        <img src={imageUrl} alt={imageAlt} className="w-40" />
+        <img data-ui={mergeUi(uiId, "image")} src={imageUrl} alt={imageAlt} className="w-40" />
         {variant !== "maxi" ? (
-          <img src={titleSvgPath} alt={titleSvgAlt} className="h-8 w-auto" />
+          <img
+            data-ui={mergeUi(uiId, "logo")}
+            src={titleSvgPath}
+            alt={titleSvgAlt}
+            className="h-8 w-auto"
+          />
         ) : (
-          <div className="py-2 text-5xl font-black text-brand-gold">{title}</div>
+          <div data-ui={mergeUi(uiId, "title")} className="py-2 text-5xl font-black text-brand-gold">{title}</div>
         )}
 
-        <div className="w-full">
+        <div data-ui={mergeUi(uiId, "features")} className="w-full">
           {features.map((feature, index) => (
             <div
+              data-ui={mergeUi(uiId, "feature", index + 1)}
               key={`${variant}-${index}`}
               className={cn(
                 "flex items-center justify-center gap-2 py-3 text-base leading-6",
@@ -172,12 +182,13 @@ export function TicketCard({
               {feature.isVip && variant === "vip" ? (
                 <PlusIcon className="h-4 w-4 text-brand-gold" />
               ) : null}
-              <span>{feature.value}</span>
+              <span data-ui={mergeUi(uiId, "feature-text", index + 1)}>{feature.value}</span>
             </div>
           ))}
         </div>
 
         <div
+          data-ui={mergeUi(uiId, "price")}
           className={cn(
             "text-5xl leading-none",
             titlePriceVariants({ variant })
@@ -188,14 +199,15 @@ export function TicketCard({
         </div>
 
         <Button
+          uiId={mergeUi(uiId, "button")}
           disabled={soldOut}
           className={cn("w-full uppercase", buttonToneVariants({ variant }))}
           asChild
         >
           {soldOut ? (
-            <span className="text-center">SOLD OUT</span>
+            <span data-ui={mergeUi(uiId, "button-label")} className="text-center">SOLD OUT</span>
           ) : (
-            <Link target="_blank" href={href}>
+            <Link data-ui={mergeUi(uiId, "link")} target="_blank" href={href}>
               {buttonText}
             </Link>
           )}

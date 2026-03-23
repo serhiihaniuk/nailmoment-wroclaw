@@ -48,7 +48,7 @@ export const CriteriaSection = () => {
         title={SECTION_HEADINGS.NOMINATIONS_TITLE}
         className="mb-10 md:mb-12 text-center text-blue-foreground"
       />
-      <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-8 sm:gap-y-10 mb-12 md:mb-16">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 gap-y-8 mb-12 md:mb-16">
         {NOMINATIONS_DATA.map((nomination) => (
           <div
             key={nomination.id}

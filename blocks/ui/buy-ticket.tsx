@@ -1,18 +1,27 @@
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, mergeUi } from "@/lib/utils";
 import { TicketIcon } from "@/shared/icons";
 import Link from "next/link";
 import { FC } from "react";
 
-export const BuyTicketButton: FC<{ className?: string }> = ({ className }) => {
+export const BuyTicketButton: FC<{ className?: string; uiId?: string }> = ({
+  className,
+  uiId,
+}) => {
   return (
-    <Button variant="accent" className={cn(className)} asChild>
+    <Button
+      uiId={mergeUi(uiId, "button")}
+      variant="accent"
+      className={cn(className)}
+      asChild
+    >
       <Link
         href="/#ticket-section"
-        className="uppercase flex items-center justify-center gap-2"
+        data-ui={mergeUi(uiId, "link")}
+        className="flex items-center justify-center gap-2 uppercase"
       >
         Придбати квиток
-        <TicketIcon className="size-7" />
+        <TicketIcon data-ui={mergeUi(uiId, "icon")} className="size-7" />
       </Link>
     </Button>
   );

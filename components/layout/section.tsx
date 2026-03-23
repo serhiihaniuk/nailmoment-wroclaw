@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn, mergeUi } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ComponentPropsWithoutRef } from "react";
 
@@ -39,6 +39,7 @@ export type SectionProps = ComponentPropsWithoutRef<"section"> &
   VariantProps<typeof sectionVariants> &
   VariantProps<typeof innerVariants> & {
     innerClassName?: string;
+    uiId?: string;
   };
 
 export function Section({
@@ -48,14 +49,19 @@ export function Section({
   density,
   innerClassName,
   surface,
+  uiId,
   ...props
 }: SectionProps) {
   return (
     <section
+      data-ui={mergeUi(uiId ?? "section")}
       className={cn(sectionVariants({ density, surface }), className)}
       {...props}
     >
-      <div className={cn(innerVariants({ container }), innerClassName)}>
+      <div
+        data-ui={mergeUi(uiId, "inner")}
+        className={cn(innerVariants({ container }), innerClassName)}
+      >
         {children}
       </div>
     </section>

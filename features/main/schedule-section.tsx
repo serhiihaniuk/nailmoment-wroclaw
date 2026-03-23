@@ -16,13 +16,13 @@ export function FestivalScheduleSection({
   className,
 }: FestivalScheduleSectionProps) {
   return (
-    <Section density="compact" className={className}>
-      <Stack gap="lg" className="items-center">
-        <SectionHeader title={HOME_SCHEDULE_SECTION.title} />
-        <div className="w-full max-w-3xl">
-          <Schedule items={HOME_SCHEDULE} />
+    <Section uiId="schedule-section" density="compact" className={className}>
+      <Stack uiId="schedule-content" gap="lg" className="items-center">
+        <SectionHeader uiId="schedule-title" title={HOME_SCHEDULE_SECTION.title} />
+        <div data-ui="schedule-wrap" className="w-full max-w-3xl">
+          <Schedule uiId="schedule" items={HOME_SCHEDULE} />
         </div>
-        <BuyTicketButton className="w-full max-w-xs" />
+        <BuyTicketButton uiId="schedule-buy-ticket" className="w-full max-w-xs" />
       </Stack>
     </Section>
   );

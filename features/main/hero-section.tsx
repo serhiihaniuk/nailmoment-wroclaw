@@ -6,23 +6,35 @@ import { Stack } from "@/components/layout/stack";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DecorativeImage } from "@/components/ui/decorative-image";
+import { mergeUi } from "@/lib/utils";
 import { IMAGES } from "@/shared/const";
 import { HOME_HERO_CONTENT } from "@/shared/content/home/hero";
 import { NailMomentLogo } from "@/shared/icons";
 
 export function HeroSection() {
   return (
-    <Section density="hero" innerClassName="max-w-none" className="px-0 md:px-0 xl:px-0">
-      <div className="relative overflow-hidden bg-surface-muted/50 px-4 py-10 md:px-8 md:py-14">
+    <Section
+      uiId="hero-section"
+      density="hero"
+      innerClassName="max-w-none"
+      className="px-0 md:px-0 xl:px-0"
+    >
+      <div
+        data-ui="hero-section-shell"
+        className="relative overflow-hidden bg-surface-muted/50 px-4 py-10 md:px-8 md:py-14"
+      >
         <DecorativeImage
+          uiId="hero-background"
           src={IMAGES.DECORATIVE_BG_1}
           className="left-0 top-10 h-[32rem] w-full opacity-10"
         />
         <DecorativeImage
+          uiId="hero-leaf-right"
           src={IMAGES.DECORATIVE_LEAF_1}
           className="-right-8 -top-16 h-[21rem] w-[16rem] z-[2]"
         />
         <DecorativeImage
+          uiId="hero-leaf-left"
           src={IMAGES.DECORATIVE_LEAF_4}
           className="-left-8 top-1 h-48 w-44 z-[2]"
         />
@@ -36,11 +48,12 @@ export function HeroSection() {
           className="absolute inset-x-0 top-0 z-[3] self-stretch bg-surface-muted font-medium"
         />
 
-        <Stack gap="lg" className="relative z-[1] items-center pt-6 text-center">
-          <Cluster gap="sm" justify="center" className="w-full">
-            {HOME_HERO_CONTENT.badges.map((badge) => (
+        <Stack uiId="hero-content" gap="lg" className="relative z-[1] items-center pt-6 text-center">
+          <Cluster uiId="hero-badges" gap="sm" justify="center" className="w-full">
+            {HOME_HERO_CONTENT.badges.map((badge, index) => (
               <Badge
                 key={badge}
+                uiId={mergeUi("hero-badge", index + 1)}
                 className="min-w-[9rem] border-0 bg-surface-card/90"
               >
                 {badge}
@@ -48,19 +61,20 @@ export function HeroSection() {
             ))}
           </Cluster>
 
-          <h1 className="flex flex-col items-center gap-4 text-center">
-            <span className="text-2xl font-semibold uppercase leading-tight tracking-tight text-text-primary">
+          <h1 data-ui="hero-title-group" className="flex flex-col items-center gap-4 text-center">
+            <span data-ui="hero-eyebrow" className="text-2xl font-semibold uppercase leading-tight tracking-tight text-text-primary">
               {HOME_HERO_CONTENT.eyebrow}
             </span>
-            <NailMomentLogo className="w-full max-w-sm" />
+            <NailMomentLogo data-ui="hero-logo" className="w-full max-w-sm" />
           </h1>
 
-          <Stack gap="sm" className="w-full max-w-2xl">
-            <BuyTicketButton className="w-full" />
-            <div className="grid grid-cols-2 gap-3">
-              {HOME_HERO_CONTENT.shortcuts.map((shortcut) => (
+          <Stack uiId="hero-actions" gap="sm" className="w-full max-w-2xl">
+            <BuyTicketButton uiId="hero-buy-ticket" className="w-full" />
+            <div data-ui="hero-shortcuts" className="grid grid-cols-2 gap-3">
+              {HOME_HERO_CONTENT.shortcuts.map((shortcut, index) => (
                 <Button
                   key={shortcut.href}
+                  uiId={mergeUi("hero-shortcut", index + 1)}
                   variant="secondary"
                   size="sm"
                   asChild

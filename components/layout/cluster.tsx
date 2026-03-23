@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn, mergeUi } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ComponentPropsWithoutRef } from "react";
 
@@ -23,15 +23,22 @@ const clusterVariants = cva("flex flex-wrap items-center", {
 });
 
 type ClusterProps = ComponentPropsWithoutRef<"div"> &
-  VariantProps<typeof clusterVariants>;
+  VariantProps<typeof clusterVariants> & {
+    uiId?: string;
+  };
 
 export function Cluster({
   className,
   gap,
   justify,
+  uiId,
   ...props
 }: ClusterProps) {
   return (
-    <div className={cn(clusterVariants({ gap, justify }), className)} {...props} />
+    <div
+      data-ui={mergeUi(uiId ?? "cluster")}
+      className={cn(clusterVariants({ gap, justify }), className)}
+      {...props}
+    />
   );
 }

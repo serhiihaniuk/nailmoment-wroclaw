@@ -2,7 +2,7 @@ import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils";
+import { cn, mergeUi } from "@/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-transparent text-base font-semibold transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/30 aria-invalid:border-destructive",
@@ -40,16 +40,19 @@ function Button({
   size,
   font,
   asChild = false,
+  uiId,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
+    uiId?: string;
   }) {
   const Comp = asChild ? Slot : "button";
 
   return (
     <Comp
       data-slot="button"
+      data-ui={mergeUi(uiId ?? "button")}
       className={cn(buttonVariants({ font, size, variant }), className)}
       {...props}
     />

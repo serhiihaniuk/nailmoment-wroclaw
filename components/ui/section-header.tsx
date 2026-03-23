@@ -1,6 +1,7 @@
-import { cn } from "@/lib/utils";
+import { cn, mergeUi } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ElementType, ReactNode } from "react";
+import { TypographyText, TypographyTitle } from "@/components/ui/typography";
 
 const wrapperVariants = cva("flex flex-col gap-3", {
   variants: {
@@ -14,40 +15,8 @@ const wrapperVariants = cva("flex flex-col gap-3", {
   },
 });
 
-const titleVariants = cva("font-semibold uppercase tracking-tight", {
-  variants: {
-    size: {
-      sm: "text-xl md:text-2xl",
-      default: "text-2xl",
-      display: "text-3xl md:text-4xl",
-    },
-    tone: {
-      default: "text-text-primary",
-      inverse: "text-text-inverse",
-      accent: "text-brand-brown",
-    },
-  },
-  defaultVariants: {
-    size: "default",
-    tone: "default",
-  },
-});
-
-const descriptionVariants = cva("max-w-[46ch] text-sm leading-6", {
-  variants: {
-    tone: {
-      default: "text-text-muted",
-      inverse: "text-text-inverse/80",
-      accent: "text-brand-brown/80",
-    },
-  },
-  defaultVariants: {
-    tone: "default",
-  },
-});
-
 type SectionHeaderProps = VariantProps<typeof wrapperVariants> &
-  VariantProps<typeof titleVariants> & {
+  {
     as?: ElementType;
     eyebrow?: ReactNode;
     title: ReactNode;
@@ -55,6 +24,9 @@ type SectionHeaderProps = VariantProps<typeof wrapperVariants> &
     className?: string;
     titleClassName?: string;
     descriptionClassName?: string;
+    size?: "sm" | "default" | "display";
+    tone?: "default" | "inverse" | "accent";
+    uiId?: string;
   };
 
 export function SectionHeader({
@@ -68,23 +40,43 @@ export function SectionHeader({
   title,
   titleClassName,
   tone,
+  uiId,
 }: SectionHeaderProps) {
   const HeadingTag = as ?? "h2";
 
   return (
-    <div className={cn(wrapperVariants({ align }), className)}>
+    <div
+      data-ui={mergeUi(uiId ?? "section-header")}
+      className={cn(wrapperVariants({ align }), className)}
+    >
       {eyebrow ? (
-        <span className="text-xs font-semibold uppercase tracking-[0.24em] text-text-muted">
+        <span
+          data-ui={mergeUi(uiId, "eyebrow")}
+          className="text-xs font-semibold uppercase tracking-[0.24em] text-text-muted"
+        >
           {eyebrow}
         </span>
       ) : null}
-      <HeadingTag className={cn(titleVariants({ size, tone }), titleClassName)}>
+      <TypographyTitle
+        as={HeadingTag}
+        align={align}
+        size={size === "default" ? "section" : size}
+        tone={tone}
+        uiId={mergeUi(uiId, "title")}
+        className={titleClassName}
+      >
         {title}
-      </HeadingTag>
+      </TypographyTitle>
       {description ? (
-        <p className={cn(descriptionVariants({ tone }), descriptionClassName)}>
+        <TypographyText
+          align={align}
+          size="sm"
+          tone={tone === "default" ? "muted" : tone}
+          uiId={mergeUi(uiId, "description")}
+          className={cn("max-w-[46ch]", descriptionClassName)}
+        >
           {description}
-        </p>
+        </TypographyText>
       ) : null}
     </div>
   );

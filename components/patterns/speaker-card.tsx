@@ -1,6 +1,6 @@
 import NextImage from "next/image";
 import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { cn, mergeUi } from "@/lib/utils";
 import { ReactNode } from "react";
 
 interface SpeakerCardProps {
@@ -11,6 +11,7 @@ interface SpeakerCardProps {
   className?: string;
   blurDataURL?: string;
   sizes?: string;
+  uiId?: string;
 }
 
 const genericBlurDataURL =
@@ -24,12 +25,18 @@ export function SpeakerCard({
   imageUrl,
   name,
   sizes = "(max-width: 767px) 100vw, 208px",
+  uiId,
 }: SpeakerCardProps) {
   return (
-    <Card spacing="none" className={cn("w-full max-w-4xl", className)}>
-      <div className="grid gap-5 md:grid-cols-[208px_minmax(0,1fr)] md:gap-0">
-        <div className="p-4 md:p-6">
+    <Card
+      uiId={mergeUi(uiId, "card")}
+      spacing="none"
+      className={cn("w-full max-w-4xl", className)}
+    >
+      <div data-ui={mergeUi(uiId, "layout")} className="grid gap-5">
+        <div data-ui={mergeUi(uiId, "media")} className="p-4">
           <NextImage
+            data-ui={mergeUi(uiId, "image")}
             src={imageUrl}
             alt={imageAlt}
             width={208}
@@ -40,11 +47,20 @@ export function SpeakerCard({
             className="aspect-[13/20] h-auto w-full rounded-3xl object-cover"
           />
         </div>
-        <div className="flex flex-col justify-center gap-4 px-5 pb-6 md:px-8 md:py-8">
-          <h3 className="text-xl font-semibold uppercase text-text-primary">
+        <div
+          data-ui={mergeUi(uiId, "content")}
+          className="flex flex-col justify-center gap-4 px-5 pb-6"
+        >
+          <h3
+            data-ui={mergeUi(uiId, "title")}
+            className="text-xl font-semibold uppercase text-text-primary"
+          >
             {name}
           </h3>
-          <div className="space-y-3 text-sm leading-7 text-text-muted md:text-base">
+          <div
+            data-ui={mergeUi(uiId, "text")}
+            className="space-y-3 text-sm leading-7 text-text-muted md:text-base"
+          >
             {description}
           </div>
         </div>

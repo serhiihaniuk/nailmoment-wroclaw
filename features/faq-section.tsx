@@ -100,24 +100,25 @@ type FaqSectionProps = {
 
 export function FaqSection({ className }: FaqSectionProps) {
   return (
-    <Section density="compact" className={cn(className)}>
-      <Stack gap="lg" className="items-center">
+    <Section uiId="faq-section" density="compact" className={cn(className)}>
+      <Stack uiId="faq-content" gap="lg" className="items-center">
         <SectionHeader
           title="Відповіді на часті питання"
           description="Зібрали основні організаційні моменти, щоб не доводилося шукати їх у чатах чи соцмережах."
         />
-        <div className="w-full max-w-4xl rounded-3xl border border-border-subtle bg-surface-card px-4 py-2 shadow-[0_18px_48px_rgba(57,85,0,0.08)] md:px-6">
-          <Accordion type="single" collapsible className="w-full">
+        <div data-ui="faq-shell" className="w-full max-w-4xl rounded-3xl border border-border-subtle bg-surface-card px-4 py-2 shadow-[0_18px_48px_rgba(57,85,0,0.08)] md:px-6">
+          <Accordion uiId="faq-accordion" type="single" collapsible className="w-full">
             {faqData.map((item) => (
               <AccordionItem
+                uiId={item.id}
                 value={item.id}
                 key={item.id}
                 className="border-b border-border-subtle last:border-b-0"
               >
-                <AccordionTrigger className="px-2 py-5 text-left text-base font-medium text-text-primary hover:no-underline md:text-lg">
+                <AccordionTrigger uiId={item.id} className="px-2 py-5 text-left text-base font-medium text-text-primary hover:no-underline md:text-lg">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-2 pb-5 pt-0 text-sm leading-7 text-text-muted md:text-base">
+                <AccordionContent uiId={item.id} className="px-2 pb-5 pt-0 text-sm leading-7 text-text-muted md:text-base">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

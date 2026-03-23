@@ -1,6 +1,6 @@
 import React from "react";
 import NextImage from "next/image"; // Import the Next.js Image component
-import { cn } from "@/lib/utils";
+import { cn, mergeUi } from "@/lib/utils";
 
 interface ImageProps {
   /** The source URL for the image */
@@ -20,6 +20,7 @@ interface ImageProps {
    * See Next.js Image docs for details.
    */
   sizes?: string;
+  uiId?: string;
 }
 
 const genericBlurDataURL =
@@ -31,12 +32,14 @@ export const Image: React.FC<ImageProps> = ({
   alt = "",
   priority,
   sizes,
+  uiId,
   width = 900,
   height = 507,
   ...rest // Pass any other compatible props to NextImage
 }) => {
   return (
     <div
+      data-ui={mergeUi(uiId ?? "image")}
       className={cn(
         "relative overflow-hidden aspect-video rounded-lg", // Wrapper maintains aspect ratio and relative positioning
         className

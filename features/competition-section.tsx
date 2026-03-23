@@ -3,7 +3,7 @@ import { Stack } from "@/components/layout/stack";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader } from "@/components/ui/section-header";
-import { cn } from "@/lib/utils";
+import { cn, mergeUi } from "@/lib/utils";
 import { HOME_COMPETITION_CONTENT } from "@/shared/content/home/competition";
 import Link from "next/link";
 
@@ -29,22 +29,26 @@ function CompetitionCard({
   title,
 }: CompetitionCardProps) {
   const accent = surface === "accent";
+  const uiId = mergeUi("competition", id);
 
   return (
     <Card
       id={id}
+      uiId={uiId}
       spacing="none"
       surface={surface === "accent" ? "accent" : "default"}
       className={cn("scroll-mt-24")}
     >
-      <CardContent className="flex flex-col gap-5 px-5 py-5 text-center md:px-6 md:py-6">
+      <CardContent uiId={mergeUi(uiId, "content")} className="flex flex-col gap-5 px-5 py-5 text-center md:px-6 md:py-6">
         <img
+          data-ui={mergeUi(uiId, "image")}
           className="aspect-video w-full rounded-2xl object-cover"
           src={imageUrl}
           alt={imageAlt}
         />
-        <Stack gap="sm" className="items-center">
+        <Stack uiId={mergeUi(uiId, "copy")} gap="sm" className="items-center">
           <SectionHeader
+            uiId={mergeUi(uiId, "title")}
             align="center"
             size="sm"
             tone={accent ? "inverse" : "default"}
@@ -52,6 +56,7 @@ function CompetitionCard({
             titleClassName="max-w-[18ch]"
           />
           <div
+            data-ui={mergeUi(uiId, "description")}
             className={cn(
               "rounded-2xl px-4 py-3 text-sm leading-6 md:text-base",
               accent
@@ -63,6 +68,7 @@ function CompetitionCard({
           </div>
         </Stack>
         <Button
+          uiId={mergeUi(uiId, "button")}
           asChild
           variant={accent ? "default" : "accent"}
           className={cn("w-full uppercase", accent ? "text-brand-brown" : "")}
@@ -76,8 +82,8 @@ function CompetitionCard({
 
 export function CompetitionSection() {
   return (
-    <Section density="compact">
-      <div className="grid gap-6">
+    <Section uiId="competition-section" density="compact">
+      <div data-ui="competition-cards" className="grid gap-6">
         <CompetitionCard {...HOME_COMPETITION_CONTENT.battle} />
         <CompetitionCard {...HOME_COMPETITION_CONTENT.peoplesSpeaker} />
       </div>

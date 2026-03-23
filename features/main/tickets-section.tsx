@@ -4,6 +4,7 @@ import { TicketCard } from "@/components/patterns/ticket-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader } from "@/components/ui/section-header";
+import { mergeUi } from "@/lib/utils";
 import { HOME_TICKET_SECTION, HOME_TICKETS } from "@/shared/content/home/tickets";
 import Link from "next/link";
 
@@ -13,22 +14,24 @@ type TicketSectionProps = {
 
 export function TicketSection({ className }: TicketSectionProps) {
   return (
-    <Section id="ticket-section" density="compact" className={className}>
-      <Stack gap="xl" className="items-center">
-        <SectionHeader title={HOME_TICKET_SECTION.title} />
+    <Section uiId="ticket-section" id="ticket-section" density="compact" className={className}>
+      <Stack uiId="ticket-content" gap="xl" className="items-center">
+        <SectionHeader uiId="ticket-title" title={HOME_TICKET_SECTION.title} />
 
-        <Card surface="accent" spacing="none" className="w-full max-w-xl">
-          <CardContent className="flex flex-col gap-5 px-5 py-5 text-center md:px-8 md:py-8">
+        <Card uiId="ticket-highlight" surface="accent" spacing="none" className="w-full max-w-xl">
+          <CardContent uiId="ticket-highlight" className="flex flex-col gap-5 px-5 py-5 text-center md:px-8 md:py-8">
             <img
+              data-ui="ticket-highlight-image"
               src={HOME_TICKET_SECTION.battleCard.imageUrl}
               alt={HOME_TICKET_SECTION.battleCard.imageAlt}
               className="w-full rounded-2xl object-cover"
             />
-            <Stack gap="sm" className="items-center">
-              <p className="text-base text-text-inverse/80">
+            <Stack uiId="ticket-highlight-copy" gap="sm" className="items-center">
+              <p data-ui="ticket-highlight-eyebrow" className="text-base text-text-inverse/80">
                 {HOME_TICKET_SECTION.battleCard.eyebrow}
               </p>
               <SectionHeader
+                uiId="ticket-highlight-title"
                 size="sm"
                 tone="inverse"
                 title={HOME_TICKET_SECTION.battleCard.title}
@@ -60,9 +63,10 @@ export function TicketSection({ className }: TicketSectionProps) {
           </CardContent>
         </Card>
 
-        <div className="grid w-full gap-6">
-          {HOME_TICKETS.map((ticket) => (
+        <div data-ui="ticket-cards" className="grid w-full gap-6">
+          {HOME_TICKETS.map((ticket, index) => (
             <TicketCard
+              uiId={mergeUi("ticket-card", index + 1)}
               key={ticket.id}
               variant={ticket.variant}
               imageUrl={ticket.imageUrl}
