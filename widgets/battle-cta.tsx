@@ -1,8 +1,8 @@
 "use client";
 
-import { Section } from "@/blocks/ui/section";
-import { Button } from "@/components/ui/button";
-import { SectionHeader } from "@/components/ui/section-header";
+import { Section } from "@/shared/ui/layout/section";
+import { Button } from "@/shared/ui/button";
+import { SectionHeader } from "@/shared/ui/section-header";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 

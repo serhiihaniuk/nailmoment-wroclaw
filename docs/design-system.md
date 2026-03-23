@@ -28,13 +28,14 @@
 - Use component APIs for recurring headings instead of raw one-off text utilities unless the treatment is genuinely unique.
 
 ## Ownership
-- `components/ui`: low-level primitives only.
-- `components/layout`: page and spacing primitives.
-- `components/patterns`: reusable product-level composites.
-- `features/*`: page/business sections only.
-- `shared/content/*`: static copy and datasets.
-- `widgets/*`: avoid for homepage-specific sections; absorb into `features/*` unless a widget is truly shared across pages/flows.
+- `shared/ui`: low-level primitives, layout primitives, and reusable visual compositions.
+- `shared/lib`: generic helpers only.
+- `shared/config`: global constants and asset maps.
+- `entities/*`: reusable business objects such as speaker and ticket.
+- `features/*`: page/business sections with local `ui/` and `model/`.
+- `widgets/*`: route composition only.
 
 ## Migration Rule
-- New homepage work should start in `shared/content` and `components/layout` / `components/patterns`.
-- Feature files should primarily compose primitives and select content, not hold large copy arrays or invent local spacing systems.
+- New UI work should start from `shared/ui`, `entities/*`, or the owning `features/*` slice.
+- Route composition belongs in `widgets/*`, not `app/*`.
+- Feature files should compose primitives and select content, not hold large copy arrays or invent local spacing systems.
