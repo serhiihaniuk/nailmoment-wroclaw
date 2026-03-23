@@ -1,8 +1,7 @@
-import React from "react";
-import { cn } from "@/lib/utils";
+import { Section } from "@/components/layout/section";
+import { Stack } from "@/components/layout/stack";
 import { ImageCarousel } from "@/blocks/ui/image-carousel";
 import { SectionHeader } from "@/components/ui/section-header";
-import { Section } from "@/blocks/ui/section";
 
 const carouselImages = [
   "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/prev-event/0978-min-Hp3AvzD2KoZbm9P8xDzVhBc80AV7Vb.JPG",
@@ -28,24 +27,22 @@ const carouselImages = [
   "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/prev-event/IMG_6990-min-r2dSLZZQvDug7nEa0NfnaXt7vQSW4Q.JPG",
 ];
 
-interface PastEventCarouselSectionProps {
+type PastEventCarouselSectionProps = {
   className?: string;
-}
+};
 
-export const PastEventCarouselSection: React.FC<
-  PastEventCarouselSectionProps
-> = ({ className }) => {
-  const title = "Як це було на попередніх фестивалях";
-  const subtitle = "";
-
+export function PastEventCarouselSection({
+  className,
+}: PastEventCarouselSectionProps) {
   return (
-    <Section className={cn("relative", className)}>
-      <SectionHeader title={title} />
-      <h3 className="text-xl font-medium text-blue-foreground text-center mb-6">
-        {subtitle}
-      </h3>
-
-      <ImageCarousel images={carouselImages} imageAlt="Past event photo" />
+    <Section density="compact" className={className}>
+      <Stack gap="lg" className="items-center">
+        <SectionHeader
+          title="Як це було на попередніх фестивалях"
+          description="Кадри з атмосфери, нетворкінгу, виступів та маркету, заради яких люди повертаються на Nail Moment."
+        />
+        <ImageCarousel images={carouselImages} imageAlt="Past event photo" />
+      </Stack>
     </Section>
   );
-};
+}
