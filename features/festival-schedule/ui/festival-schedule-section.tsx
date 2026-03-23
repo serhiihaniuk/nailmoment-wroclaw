@@ -22,7 +22,7 @@ export function FestivalScheduleSection({
         <div data-ui="schedule-wrap" className="w-full max-w-3xl">
           <Schedule uiId="schedule" items={HOME_SCHEDULE} />
         </div>
-        <BuyTicketButton uiId="schedule-buy-ticket" className="w-full max-w-xs" />
+        <BuyTicketButton uiId="schedule-buy-ticket" className="w-full sm:max-w-xs" />
       </Stack>
     </Section>
   );

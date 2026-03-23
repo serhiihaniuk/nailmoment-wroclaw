@@ -71,21 +71,28 @@ const buttonToneVariants = cva("", {
 const PlusIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
     fill="none"
-    stroke="currentColor"
-    strokeWidth="3"
+    stroke="none"
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("inline-block shrink-0", className)}
   >
-    <circle cx="12" cy="12" r="10" fill="white" stroke="none" />
-    <g stroke="currentColor">
-      <line x1="12" y1="8" x2="12" y2="16" />
-      <line x1="8" y1="12" x2="16" y2="12" />
-    </g>
+    <circle cx="10" cy="10" r="9.5" fill="#FFF9EC" />
+    <path
+      d="M10 6.5V13.5"
+      stroke="#395500"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <path
+      d="M6.5 10H13.5"
+      stroke="#395500"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
   </svg>
 );
 
@@ -145,12 +152,15 @@ export function TicketCard({
               data-ui={mergeUi(uiId, "feature", index + 1)}
               key={`${variant}-${index}`}
               className={cn(
-                "flex items-center justify-center gap-2 py-3 text-base leading-6",
+                "flex items-center gap-3 py-3 text-base leading-6",
+                feature.isVip && variant === "vip"
+                  ? "justify-center text-left"
+                  : "justify-center text-center",
                 featureBorderVariants({ variant })
               )}
             >
               {feature.isVip && variant === "vip" ? (
-                <PlusIcon className="h-4 w-4 text-brand-gold" />
+                <PlusIcon className="size-5" />
               ) : null}
               <span data-ui={mergeUi(uiId, "feature-text", index + 1)}>{feature.value}</span>
             </div>
