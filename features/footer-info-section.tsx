@@ -1,9 +1,8 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Link } from "@/blocks/ui/link";
-import { Instagram, Send } from "lucide-react";
-import { Section } from "@/blocks/ui/section";
-import { INFO_URL, COMPANY_INFO } from "@/shared/const";
+import { INFO_URL, COMPANY_INFO, IMAGES } from "@/shared/const";
+import { DecorativeImage } from "@/components/ui/decorative-image";
 
 interface FooterInfoSectionProps {
   className?: string;
@@ -15,65 +14,103 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
   className,
 }) => {
   return (
-    <Section
+    <section
       className={cn(
-        "bg-white flex flex-col gap-10 rounded-t-2xl py-8 text-center",
+        "relative isolate min-h-[440px] overflow-hidden rounded-t-[10px] bg-blue-foreground px-4 pb-[26px] pt-[26px] text-center",
         className
       )}
     >
-      <div className="flex flex-col gap-1 justify-center items-center">
-        <h3 className="text-xl font-semibold uppercase text-blue-foreground">
-          ДАНІ КОМПАНІЇ
-        </h3>
-        <div className="text-base text-blue-foreground/90 space-y-0.5">
-          <p>{COMPANY_INFO.NAME}</p>
-          <p>NIP: {COMPANY_INFO.NIP}</p>
-          <p>REGON: {COMPANY_INFO.REGON}</p>
+      <img
+        src={IMAGES.DECORATIVE_BG_1}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-[0.04]"
+      />
+      <DecorativeImage
+        src={IMAGES.DECORATIVE_LEAF_7}
+        className="-left-5 top-[41px] h-[157px] w-[210px] z-0"
+      />
+      <DecorativeImage
+        src={IMAGES.DECORATIVE_LEAF_1}
+        className="-right-[46px] top-[258px] h-[240px] w-[181px] z-0"
+      />
+
+      <div className="relative z-[1] mx-auto flex w-full max-w-[360px] flex-col items-center">
+        <div className="flex flex-col items-center gap-4">
+          <h3 className="text-2xl font-semibold uppercase leading-[120%] tracking-[-0.528px] text-[#FFF9EC]">
+            ДАНІ КОМПАНІЇ
+          </h3>
+          <div className="space-y-0.5 text-sm font-medium leading-[150%] tracking-[-0.308px] text-[#FFF9EC]">
+            <p>{COMPANY_INFO.NAME}</p>
+            <p>NIP: {COMPANY_INFO.NIP}</p>
+            <p>REGON: {COMPANY_INFO.REGON}</p>
+          </div>
+        </div>
+
+        <div className="mt-[18px] flex flex-col items-center gap-4">
+          <h3 className="text-2xl font-semibold uppercase leading-[120%] tracking-[-0.528px] text-[#FFF9EC]">
+            КОНТАКТНА ТОЧКА
+          </h3>
+          <Link
+            href={`mailto:${INFO_URL.EMAIL}`}
+            className="text-sm font-medium leading-[150%] tracking-[-0.308px] text-[#FFF9EC] no-underline"
+          >
+            {INFO_URL.EMAIL}
+          </Link>
+        </div>
+
+        <div className="mt-[18px] flex flex-col items-center gap-4">
+          <h3 className="text-2xl font-semibold uppercase leading-[120%] tracking-[-0.528px] text-[#FFF9EC]">
+            ВІДДІЛ ТУРБОТИ
+          </h3>
+          <p className="text-sm font-medium leading-[150%] tracking-[-0.308px] text-[#FFF9EC]">
+            Якщо виникли питання,
+            <br />
+            пишіть на:
+          </p>
+          <div className="flex justify-center gap-[10px] pt-[7px]">
+            <Link
+              href={INFO_URL.INSTAGRAM}
+              target="_blank"
+              aria-label="Instagram"
+              className="no-underline"
+            >
+              <img
+                src="/images/2026/instagram-icon.svg"
+                alt=""
+                aria-hidden="true"
+                className="size-8"
+              />
+            </Link>
+            <Link
+              href={INFO_URL.TELEGRAM}
+              target="_blank"
+              aria-label="Telegram"
+              className="no-underline"
+            >
+              <img
+                src="/images/2026/telegram-icon.svg"
+                alt=""
+                aria-hidden="true"
+                className="size-8"
+              />
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-[10px] space-y-1 text-sm font-medium leading-[150%] tracking-[-0.308px] text-[#FFF9EC]">
+          <p>
+            <Link
+              target="_self"
+              href={privacyPolicyUrl}
+              className="text-[#FFF9EC] no-underline"
+            >
+              Polityka prywatnosci
+            </Link>
+          </p>
+          <p>©2026 Всі права захищено</p>
         </div>
       </div>
-
-      <div className="flex flex-col gap-1 justify-center items-center">
-        <h3 className="text-xl font-semibold uppercase text-blue-foreground ">
-          КОНТАКТНА ТОЧКА
-        </h3>
-        <Link href={`mailto:${INFO_URL.EMAIL}`} icon>
-          {INFO_URL.EMAIL}
-        </Link>
-      </div>
-
-      <div className="flex flex-col gap-1 justify-center items-center">
-        <h3 className="text-xl font-semibold uppercase text-blue-foreground">
-          ВІДДІЛ ТУРБОТИ
-        </h3>
-        <p className="text-sm text-blue-foreground/90 ">
-          Якщо виникли питання, пишіть на:
-        </p>
-        <div className="flex justify-center gap-4 pt-2">
-          <Link
-            href={INFO_URL.INSTAGRAM}
-            target="_blank"
-            aria-label="Instagram"
-          >
-            <Instagram className="size-8 text-blue-foreground hover:opacity-80 transition-opacity" />
-          </Link>
-          <Link href={INFO_URL.TELEGRAM} target="_blank" aria-label="Telegram">
-            <Send className="size-8 text-blue-foreground hover:opacity-80 transition-opacity" />
-          </Link>
-        </div>
-      </div>
-
-      <div className="text-sm text-blue-foreground/70 space-y-1">
-        <p>
-          <Link
-            target="_self"
-            href={privacyPolicyUrl}
-            className="hover:underline"
-          >
-            Polityka prywatnosci
-          </Link>
-        </p>
-        <p>©{new Date().getFullYear()} Всі права захищено</p>
-      </div>
-    </Section>
+    </section>
   );
 };
