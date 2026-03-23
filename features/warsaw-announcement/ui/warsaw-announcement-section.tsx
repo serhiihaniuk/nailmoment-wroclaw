@@ -35,6 +35,7 @@ export function WarsawAnnouncementSection() {
           uiId="warsaw"
           url={WARSAW_ANNOUNCEMENT_CONTENT.imageUrl}
           alt={WARSAW_ANNOUNCEMENT_CONTENT.imageAlt}
+          elevated
           width={900}
           className="aspect-[4/5]"
         />

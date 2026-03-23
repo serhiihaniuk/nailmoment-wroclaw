@@ -8,8 +8,6 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/shared/ui/carousel";
-import { DecorativeImage } from "@/shared/ui/decorative-image";
-import { IMAGES } from "@/shared/config/const";
 
 interface ImageCarouselProps {
   images: string[]; // Array of image URLs
@@ -62,10 +60,6 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
           <CarouselPrevious className="static bg-transparent border-white border-2 translate-x-0 translate-y-0" />
           <CarouselNext className="static bg-transparent border-white border-2 translate-x-0 translate-y-0" />
         </div>
-        <DecorativeImage
-          src={IMAGES.BALL_URL}
-          className="left-[-55px] bottom-0 size-[150px]"
-        />
       </Carousel>
     </div>
   );

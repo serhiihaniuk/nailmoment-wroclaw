@@ -19,13 +19,7 @@ export function MediaCard({
 }: MediaCardProps) {
   if (surface === "transparent") {
     return (
-      <div
-        data-ui={mergeUi(uiId, "card")}
-        className={cn(
-          "flex flex-col gap-4 [&_[data-ui$='-image']]:shadow-card",
-          className
-        )}
-      >
+      <div data-ui={mergeUi(uiId, "card")} className={cn("flex flex-col gap-4", className)}>
         {children}
       </div>
     );
@@ -49,6 +43,7 @@ export function MediaCard({
 }
 
 type MediaCardImageProps = Omit<ComponentPropsWithoutRef<typeof Image>, "url"> & {
+  elevated?: boolean;
   url: string;
   uiId?: string;
 };
@@ -56,6 +51,7 @@ type MediaCardImageProps = Omit<ComponentPropsWithoutRef<typeof Image>, "url"> &
 export function MediaCardImage({
   alt = "",
   className,
+  elevated = false,
   url,
   uiId,
   ...props
@@ -65,7 +61,12 @@ export function MediaCardImage({
       uiId={mergeUi(uiId, "image")}
       url={url}
       alt={alt}
-      className={cn("w-full rounded-[1.4rem]", className)}
+      className={cn(
+        "w-full rounded-[1.4rem]",
+        elevated &&
+          "shadow-[0_8px_20px_rgba(57,85,0,0.08),0_18px_42px_rgba(57,85,0,0.12)]",
+        className
+      )}
       {...props}
     />
   );

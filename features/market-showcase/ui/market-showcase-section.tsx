@@ -82,6 +82,7 @@ export function MarketShowcaseSection() {
                   uiId={mergeUi("why-attend-card", index + 1)}
                   url={item.url}
                   alt="Why attend"
+                  elevated
                   width={900}
                 />
                 <MediaCardTitle
