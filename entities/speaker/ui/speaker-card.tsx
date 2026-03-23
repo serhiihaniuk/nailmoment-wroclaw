@@ -31,10 +31,14 @@ export function SpeakerCard({
     <Card
       uiId={mergeUi(uiId, "card")}
       spacing="none"
+      surface="subtle"
       className={cn("w-full max-w-4xl", className)}
     >
-      <div data-ui={mergeUi(uiId, "layout")} className="grid gap-5">
-        <div data-ui={mergeUi(uiId, "media")} className="p-4">
+      <div
+        data-ui={mergeUi(uiId, "layout")}
+        className="flex items-center gap-4 p-3 md:gap-5 md:p-4"
+      >
+        <div data-ui={mergeUi(uiId, "media")} className="shrink-0">
           <NextImage
             data-ui={mergeUi(uiId, "image")}
             src={imageUrl}
@@ -44,22 +48,22 @@ export function SpeakerCard({
             placeholder="blur"
             blurDataURL={blurDataURL}
             sizes={sizes}
-            className="aspect-[13/20] h-auto w-full rounded-3xl object-cover"
+            className="aspect-[13/20] h-auto w-28 rounded-2xl object-cover sm:w-32 md:w-36"
           />
         </div>
         <div
           data-ui={mergeUi(uiId, "content")}
-          className="flex flex-col justify-center gap-4 px-5 pb-6"
+          className="flex min-w-0 flex-1 flex-col justify-center gap-2 pr-3 md:gap-3 md:pr-4"
         >
           <h3
             data-ui={mergeUi(uiId, "title")}
-            className="text-xl font-semibold uppercase text-text-primary"
+            className="text-2xl font-black text-text-primary"
           >
             {name}
           </h3>
           <div
             data-ui={mergeUi(uiId, "text")}
-            className="space-y-3 text-sm leading-7 text-text-muted md:text-base"
+            className="space-y-1 text-sm leading-6 text-text-muted md:text-base md:leading-7"
           >
             {description}
           </div>

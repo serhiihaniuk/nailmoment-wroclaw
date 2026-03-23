@@ -2,13 +2,13 @@ import { cn, mergeUi } from "@/shared/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ComponentPropsWithoutRef, ElementType } from "react";
 
-const titleVariants = cva("font-semibold uppercase tracking-tight", {
+const titleVariants = cva("font-black uppercase tracking-tight", {
   variants: {
     size: {
       card: "text-2xl",
       section: "text-2xl",
       display: "text-3xl md:text-4xl",
-      sm: "text-xl md:text-2xl",
+      sm: "text-2xl",
     },
     tone: {
       default: "text-text-primary",
