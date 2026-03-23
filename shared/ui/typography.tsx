@@ -5,10 +5,10 @@ import { ComponentPropsWithoutRef, ElementType } from "react";
 const titleVariants = cva("font-black uppercase tracking-tight", {
   variants: {
     size: {
-      card: "text-2xl",
-      section: "text-2xl",
+      card: "text-xl md:text-3xl",
+      section: "text-xl md:text-5xl",
       display: "text-3xl md:text-4xl",
-      sm: "text-2xl",
+      sm: "text-xl md:text-5xl",
     },
     tone: {
       default: "text-text-primary",

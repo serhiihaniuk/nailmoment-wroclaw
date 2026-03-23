@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/shared/ui/card";
 import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
 import { cn, mergeUi } from "@/shared/lib/utils";
 import { HOME_COMPETITION_CONTENT } from "@/features/competition-promo/model/content";
+import { CompetitionPeoplesSpeakerCard } from "@/features/competition-promo/ui/competition-peoples-speaker-card";
 import { CompetitionPrizeBanner } from "@/features/competition-promo/ui/competition-prize-banner";
 import Link from "next/link";
 
@@ -109,7 +110,9 @@ export function CompetitionSection() {
     <Section uiId="competition-section" density="compact">
       <div data-ui="competition-cards" className="grid gap-6">
         <CompetitionCard {...HOME_COMPETITION_CONTENT.battle} />
-        <CompetitionCard {...HOME_COMPETITION_CONTENT.peoplesSpeaker} />
+        <CompetitionPeoplesSpeakerCard
+          {...HOME_COMPETITION_CONTENT.peoplesSpeaker}
+        />
       </div>
     </Section>
   );

@@ -57,7 +57,7 @@ export function SpeakerCard({
         >
           <h3
             data-ui={mergeUi(uiId, "title")}
-            className="text-2xl font-black text-text-primary"
+            className="text-xl font-black text-text-primary md:text-3xl"
           >
             {name}
           </h3>

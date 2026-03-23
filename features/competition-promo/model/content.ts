@@ -15,13 +15,13 @@ export const HOME_COMPETITION_CONTENT = {
   },
   peoplesSpeaker: {
     id: "peoples-speaker",
-    imageUrl: IMAGES.PEOPLES_SPEAKER_PHOTO,
-    imageAlt: "People's Speaker Competition",
-    title: "Прийми участь у конкурсі Народний спікер",
+    imageUrl: IMAGES.PEOPLES_SPEAKER_TROPHY,
+    imageAlt: "People's Speaker trophy",
+    title: "ПРИЙМИ УЧАСТЬ У КОНКУРСІ НАРОДНИЙ СПІКЕР",
     description:
-      "Якщо ти гориш своєю справою та хочеш запалати інших, виступи зі спічем або МК на головній сцені фестивалю Nail Moment.",
+      "Якщо ти гориш своєю справою та хочеш запалати інших, виступи зі спічем або МК на головній сцені фестивалю Nail Moment",
     href: "/speaker",
-    buttonText: "Перейти до Народний спікер",
+    buttonText: "ПЕРЕЙТИ ДО НАРОДНИЙ СПІКЕР",
     surface: "default" as const,
   },
 };

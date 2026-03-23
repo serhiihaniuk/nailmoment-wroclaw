@@ -1,4 +1,3 @@
-import { AfterpartySection } from "@/features/afterparty/ui/afterparty-section";
 import { CompetitionSection } from "@/features/competition-promo/ui/competition-section";
 import { FaqSection } from "@/features/faq/ui/faq-section";
 import { FestivalInfoSection } from "@/features/festival-info/ui/festival-info-section";
@@ -22,7 +21,6 @@ export function HomePage() {
       <MarketShowcaseSection />
       <CompetitionSection />
       <SpeakersSection />
-      <AfterpartySection />
       <TicketSection />
       <FestivalScheduleSection />
       <PastEventCarouselSection />
