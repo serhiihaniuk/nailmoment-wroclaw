@@ -25,6 +25,11 @@
   - `size`: `sm`, `default`, `display`
   - `align`: `left`, `center`
   - `tone`: `default`, `inverse`, `accent`
+- `TypographyDisplay` is for large display text (ticket titles, hero callouts) — Montserrat, black weight, uppercase, normal tracking.
+- Approved `TypographyDisplay` variants:
+  - `size`: `sm`, `default`, `lg`
+  - `align`: `left`, `center`
+  - `tone`: `default`, `inverse`, `accent`, `olive`, `gold`
 - Use component APIs for recurring headings instead of raw one-off text utilities unless the treatment is genuinely unique.
 
 ## Ownership

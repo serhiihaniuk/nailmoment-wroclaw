@@ -17,11 +17,11 @@ export function HeroSection() {
       uiId="hero-section"
       density="hero"
       innerClassName="max-w-none"
-      className="px-0 md:px-0 xl:px-0"
+      className="px-0 md:px-0 xl:px-0 pt-0 md:pt-0"
     >
       <div
         data-ui="hero-section-shell"
-        className="relative isolate overflow-hidden bg-surface-muted/50 px-4 py-10 md:px-8 md:py-14"
+        className="relative isolate flex flex-col overflow-hidden bg-surface-muted/50 px-4 pt-10 pb-20 md:px-8 md:pt-14 h-[clamp(650px,100dvh,750px)]"
       >
         <img
           data-ui="hero-background"
@@ -47,10 +47,10 @@ export function HeroSection() {
           direction="left"
           pauseOnHover
           textColorClass="text-text-primary"
-          className="absolute inset-x-0 top-0 z-[3] self-stretch bg-surface-muted font-medium"
+          className="absolute inset-x-0 top-[25px] z-[3] self-stretch bg-surface-muted font-medium"
         />
 
-        <Stack uiId="hero-content" gap="lg" className="relative z-[2] items-center pt-6 text-center">
+        <div data-ui="hero-content" className="relative z-[2] flex flex-1 flex-col items-center pt-6 text-center">
           <Cluster uiId="hero-badges" gap="sm" justify="center" className="w-full">
             {HOME_HERO_CONTENT.badges.map((badge, index) => (
               <Badge
@@ -63,6 +63,8 @@ export function HeroSection() {
             ))}
           </Cluster>
 
+          <div className="flex-1" />
+
           <h1 data-ui="hero-title-group" className="flex flex-col items-center gap-4 text-center">
             <span data-ui="hero-eyebrow" className="text-2xl font-semibold uppercase leading-tight tracking-tight text-text-primary">
               {HOME_HERO_CONTENT.eyebrow}
@@ -70,9 +72,11 @@ export function HeroSection() {
             <NailMomentLogo data-ui="hero-logo" className="w-full max-w-sm" />
           </h1>
 
+          <div className="flex-1" />
+
           <Stack uiId="hero-actions" gap="sm" className="w-full max-w-2xl">
             <BuyTicketButton uiId="hero-buy-ticket" className="w-full" />
-            <div data-ui="hero-shortcuts" className="grid grid-cols-2 gap-3">
+            <div data-ui="hero-shortcuts" className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {HOME_HERO_CONTENT.shortcuts.map((shortcut, index) => (
                 <Button
                   key={shortcut.href}
@@ -87,7 +91,7 @@ export function HeroSection() {
               ))}
             </div>
           </Stack>
-        </Stack>
+        </div>
 
         <Marquee
           texts={HOME_HERO_CONTENT.marquee}
@@ -95,7 +99,7 @@ export function HeroSection() {
           direction="right"
           pauseOnHover
           textColorClass="text-brand-brown"
-          className="absolute inset-x-0 bottom-0 z-[3] self-stretch bg-surface-muted font-medium"
+          className="absolute inset-x-0 bottom-[25px] z-[3] self-stretch bg-surface-muted font-medium"
         />
       </div>
     </Section>

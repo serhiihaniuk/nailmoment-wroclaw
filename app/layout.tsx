@@ -2,12 +2,17 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import { Onest } from "next/font/google";
+import { Onest, Montserrat } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 
 const onestSans = Onest({
   variable: "--font-onest",
+  subsets: ["latin", "cyrillic"],
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin", "cyrillic"],
 });
 
@@ -96,7 +101,7 @@ export default function RootLayout({
         </noscript>
       </head>
       <body
-        className={`${onestSans.variable} antialiased min-h-[100dvh] flex flex-col`}
+        className={`${onestSans.variable} ${montserrat.variable} antialiased min-h-[100dvh] flex flex-col`}
       >
         {children}
         <Analytics />

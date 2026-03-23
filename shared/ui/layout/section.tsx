@@ -6,8 +6,8 @@ const sectionVariants = cva("relative px-4 md:px-8 xl:px-12", {
   variants: {
     density: {
       hero: "py-10 md:py-14",
-      default: "py-8 md:py-12",
-      compact: "py-6 md:py-10",
+      default: "pt-12 pb-6 md:pt-16 md:pb-10",
+      compact: "pt-10 pb-4 md:pt-14 md:pb-8",
     },
     surface: {
       transparent: "bg-transparent",

@@ -23,7 +23,7 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
     >
       <section
         data-ui="footer-shell"
-        className="relative isolate min-h-96 overflow-hidden rounded-t-2xl md:rounded-2xl bg-blue-foreground px-4 pb-8 pt-8 text-center md:px-8"
+        className="relative isolate min-h-96 overflow-hidden rounded-2xl bg-blue-foreground px-4 pb-8 pt-8 text-center md:px-8"
       >
         <img
           data-ui="footer-background"

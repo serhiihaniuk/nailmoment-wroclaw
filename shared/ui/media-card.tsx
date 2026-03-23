@@ -22,7 +22,7 @@ export function MediaCard({
       <div
         data-ui={mergeUi(uiId, "card")}
         className={cn(
-          "flex flex-col gap-4 [&_[data-ui$='-image']]:shadow-[1px_2px_4px_rgba(57,85,0,0.05),8px_14px_26px_rgba(57,85,0,0.07),14px_22px_40px_rgba(57,85,0,0.035)]",
+          "flex flex-col gap-4 [&_[data-ui$='-image']]:shadow-card",
           className
         )}
       >

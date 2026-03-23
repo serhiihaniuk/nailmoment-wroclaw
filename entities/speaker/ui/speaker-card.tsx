@@ -36,7 +36,7 @@ export function SpeakerCard({
     >
       <div
         data-ui={mergeUi(uiId, "layout")}
-        className="flex items-center gap-4 p-3 md:gap-5 md:p-4"
+        className="flex items-start gap-4 p-3 md:gap-5 md:p-4"
       >
         <div data-ui={mergeUi(uiId, "media")} className="shrink-0">
           <NextImage
@@ -53,7 +53,7 @@ export function SpeakerCard({
         </div>
         <div
           data-ui={mergeUi(uiId, "content")}
-          className="flex min-w-0 flex-1 flex-col justify-center gap-2 pr-3 md:gap-3 md:pr-4"
+          className="flex min-w-0 flex-1 flex-col gap-2 pr-3 md:gap-3 md:pr-4"
         >
           <h3
             data-ui={mergeUi(uiId, "title")}

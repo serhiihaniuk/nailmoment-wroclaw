@@ -2,13 +2,13 @@ import { cn, mergeUi } from "@/shared/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ComponentPropsWithoutRef, ElementType } from "react";
 
-const titleVariants = cva("font-black uppercase tracking-tight", {
+const titleVariants = cva("font-montserrat font-black uppercase tracking-tight", {
   variants: {
     size: {
       card: "text-xl md:text-3xl",
-      section: "text-xl md:text-5xl",
+      section: "text-2xl md:text-3xl",
       display: "text-3xl md:text-4xl",
-      sm: "text-xl md:text-5xl",
+      sm: "text-3xl md:text-5xl",
     },
     tone: {
       default: "text-text-primary",
@@ -102,4 +102,55 @@ export function TypographyText<T extends ElementType = "p">({
   );
 }
 
-export { titleVariants, textVariants };
+const displayVariants = cva("font-montserrat font-black uppercase tracking-normal leading-[1.1]", {
+  variants: {
+    size: {
+      default: "text-5xl",
+      lg: "text-6xl",
+      sm: "text-4xl",
+    },
+    tone: {
+      default: "text-text-primary",
+      inverse: "text-text-inverse",
+      accent: "text-brand-brown",
+      olive: "text-brand-olive",
+      gold: "text-brand-gold",
+    },
+    align: {
+      left: "text-left",
+      center: "text-center",
+    },
+  },
+  defaultVariants: {
+    size: "default",
+    tone: "default",
+    align: "center",
+  },
+});
+
+type TypographyDisplayProps<T extends ElementType = "span"> = {
+  as?: T;
+  uiId?: string;
+} & Omit<ComponentPropsWithoutRef<T>, "as"> &
+  VariantProps<typeof displayVariants>;
+
+export function TypographyDisplay<T extends ElementType = "span">({
+  as,
+  className,
+  align,
+  size,
+  tone,
+  uiId,
+  ...props
+}: TypographyDisplayProps<T>) {
+  const Comp = as ?? "span";
+  return (
+    <Comp
+      data-ui={mergeUi(uiId ?? "display")}
+      className={cn(displayVariants({ align, size, tone }), className)}
+      {...props}
+    />
+  );
+}
+
+export { titleVariants, textVariants, displayVariants };

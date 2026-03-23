@@ -13,7 +13,7 @@ type TicketSectionProps = {
 export function TicketSection({ className }: TicketSectionProps) {
   return (
     <Section uiId="ticket-section" id="ticket-section" density="compact" className={className}>
-      <Stack uiId="ticket-content" gap="xl" className="items-center">
+      <Stack uiId="ticket-content" gap="lg" className="items-center">
         <SectionHeader uiId="ticket-title" title={HOME_TICKET_SECTION.title} />
 
         <BattleTicketHighlightCard {...HOME_TICKET_SECTION.battleCard} />

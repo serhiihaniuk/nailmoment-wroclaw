@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { TicketIcon } from "@/shared/assets/icons";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
-import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
+import { TypographyText, TypographyDisplay } from "@/shared/ui/typography";
 import { mergeUi } from "@/shared/lib/utils";
 
 type BattleTicketHighlightCardProps = {
@@ -57,16 +58,9 @@ export function BattleTicketHighlightCard({
           >
             {eyebrow}
           </TypographyText>
-          <TypographyTitle
-            as="h3"
-            uiId={mergeUi(uiId, "title")}
-            size="section"
-            tone="inverse"
-            align="center"
-            className="leading-[0.95]"
-          >
+          <TypographyDisplay as="h3" uiId={mergeUi(uiId, "title")} tone="inverse">
             {title}
-          </TypographyTitle>
+          </TypographyDisplay>
           <TypographyText
             as="p"
             uiId={mergeUi(uiId, "description")}
@@ -115,12 +109,11 @@ export function BattleTicketHighlightCard({
           >
             <a href="#battle-of-masters">
               <span>ПРИДБАТИ КВИТОК УЧАСНИКА БИТВИ МАЙСТРІВ</span>
-              <img
+              <TicketIcon
                 data-ui={mergeUi(uiId, "buy-icon")}
-                src="/images/2026/ticket-icon.svg"
-                alt=""
+                color="currentColor"
                 aria-hidden="true"
-                className="h-6 w-6 shrink-0"
+                className="h-[1.8rem] w-[1.8rem] shrink-0"
               />
             </a>
           </Button>

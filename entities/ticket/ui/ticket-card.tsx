@@ -5,11 +5,12 @@ import {
   type TicketInfo,
   type TicketFeature,
 } from "@/entities/ticket/model/types";
+import { TypographyDisplay } from "@/shared/ui/typography";
 import { cva, type VariantProps } from "class-variance-authority";
 import Link from "next/link";
 
 const cardVariants = cva(
-  "w-full max-w-xl mx-auto overflow-hidden rounded-3xl border shadow-[0_18px_48px_rgba(57,85,0,0.08)]",
+  "w-full max-w-xl mx-auto overflow-hidden rounded-3xl border shadow-card",
   {
     variants: {
       variant: {
@@ -24,20 +25,6 @@ const cardVariants = cva(
     },
   }
 );
-
-const titlePriceVariants = cva("font-bold uppercase", {
-  variants: {
-    variant: {
-      guest: "text-brand-olive",
-      standard: "text-brand-olive",
-      maxi: "text-brand-cream",
-      vip: "text-brand-cream",
-    },
-  },
-  defaultVariants: {
-    variant: "guest",
-  },
-});
 
 const featureTextVariants = cva("w-full", {
   variants: {
@@ -116,14 +103,6 @@ interface TicketCardProps
   uiId?: string;
 }
 
-const capitalize = (value = "") => {
-  if (!value) {
-    return "";
-  }
-
-  return value.charAt(0).toUpperCase() + value.slice(1);
-};
-
 export type { TicketInfo };
 
 export function TicketCard({
@@ -140,8 +119,8 @@ export function TicketCard({
   variant = "guest",
   ...props
 }: TicketCardProps) {
-  const titleSvgPath = `/svg/${capitalize(variant || "")}.svg`;
-  const titleSvgAlt = `${capitalize(variant || "")} Ticket Logo`;
+  const titleTone = variant === "maxi" ? "gold" : variant === "vip" ? "inverse" : undefined;
+  const priceTone = variant === "maxi" || variant === "vip" ? "inverse" : "olive";
 
   return (
     <Card
@@ -158,16 +137,7 @@ export function TicketCard({
         )}
       >
         <img data-ui={mergeUi(uiId, "image")} src={imageUrl} alt={imageAlt} className="w-40" />
-        {variant !== "maxi" ? (
-          <img
-            data-ui={mergeUi(uiId, "logo")}
-            src={titleSvgPath}
-            alt={titleSvgAlt}
-            className="h-8 w-auto"
-          />
-        ) : (
-          <div data-ui={mergeUi(uiId, "title")} className="py-2 text-5xl font-black text-brand-gold">{title}</div>
-        )}
+        <TypographyDisplay as="div" uiId={mergeUi(uiId, "title")} tone={titleTone}>{title}</TypographyDisplay>
 
         <div data-ui={mergeUi(uiId, "features")} className="w-full">
           {features.map((feature, index) => (
@@ -187,16 +157,10 @@ export function TicketCard({
           ))}
         </div>
 
-        <div
-          data-ui={mergeUi(uiId, "price")}
-          className={cn(
-            "text-5xl leading-none",
-            titlePriceVariants({ variant })
-          )}
-        >
+        <TypographyDisplay as="div" uiId={mergeUi(uiId, "price")} tone={priceTone}>
           {price}
           <span className="ml-1 text-2xl lowercase">zł</span>
-        </div>
+        </TypographyDisplay>
 
         <Button
           uiId={mergeUi(uiId, "button")}

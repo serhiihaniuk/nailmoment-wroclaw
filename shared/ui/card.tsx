@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn, mergeUi } from "@/shared/lib/utils";
 
 const cardVariants = cva(
-  "relative flex flex-col overflow-hidden rounded-3xl border shadow-[1px_2px_4px_rgba(57,85,0,0.05),8px_14px_26px_rgba(57,85,0,0.07),14px_22px_40px_rgba(57,85,0,0.035)]",
+  "relative flex flex-col overflow-hidden rounded-3xl border shadow-card",
   {
     variants: {
       surface: {
