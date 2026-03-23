@@ -1,34 +1,28 @@
-import React from "react";
-import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Section } from "@/components/layout/section";
+import { Stack } from "@/components/layout/stack";
 import { SectionHeader } from "@/components/ui/section-header";
-import { Section } from "@/blocks/ui/section";
-import { Link } from "@/blocks/ui/link"; // Assuming path is correct
+import { Link } from "@/blocks/ui/link";
+import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
-// --- FAQ Data Type ---
 export type FaqEntry = {
   id: string;
   question: string;
-  answer: React.ReactNode;
+  answer: ReactNode;
 };
 
-// --- Instagram Link Component ---
-const InstagramLink: React.FC<{ handle: string }> = ({ handle }) => (
-  <Link
-    href={`https://www.instagram.com/${handle}/`}
-    icon={true}
-    target="_blank"
-  >
+const InstagramLink = ({ handle }: { handle: string }) => (
+  <Link href={`https://www.instagram.com/${handle}/`} icon target="_blank">
     @{handle}
   </Link>
 );
 
-// --- REVISED FAQ Data ---
 const faqData: FaqEntry[] = [
   {
     id: "faq-1",
@@ -56,8 +50,8 @@ const faqData: FaqEntry[] = [
     answer: (
       <>
         Так, є можливість придбати квиток у розстрочку. Щоб дізнатися детальні
-        умови, напишіть нам на сторінку{" "}
-        <InstagramLink handle="nail_moment_pl" />.
+        умови, напишіть нам на сторінку <InstagramLink handle="nail_moment_pl" />
+        .
       </>
     ),
   },
@@ -66,8 +60,8 @@ const faqData: FaqEntry[] = [
     question: "Як взяти участь у розіграші БОКСОПАДУ?",
     answer: (
       <>
-        Деталі щодо участі у розіграші БОКСОПАДУ будуть оголошені ближче до
-        дати фестивалю. Слідкуйте за оновленнями на нашій сторінці{" "}
+        Деталі щодо участі у розіграші БОКСОПАДУ будуть оголошені ближче до дати
+        фестивалю. Слідкуйте за оновленнями на нашій сторінці{" "}
         <InstagramLink handle="nail_moment_pl" />.
       </>
     ),
@@ -75,27 +69,16 @@ const faqData: FaqEntry[] = [
   {
     id: "faq-5",
     question: "Чи можна буде поїсти на фестивалі?",
-    answer: (
-      <>
-        Так, на локації буде можливість перекусити. Також поруч є багато
-        ресторанів та кафе.
-      </>
-    ),
+    answer: <>Так, на локації буде можливість перекусити. Також поруч є багато ресторанів та кафе.</>,
   },
   {
     id: "faq-6",
     question: "Де та до котрої буде Afterparty?",
-    answer: (
-      <>
-        Afterparty відбудеться на даху одразу після завершення основної
-        програми фестивалю Nail Moment.
-      </>
-    ),
+    answer: <>Afterparty відбудеться на даху одразу після завершення основної програми фестивалю Nail Moment.</>,
   },
   {
     id: "faq-7",
-    question:
-      "Я купив(ла) квиток, але змінилися плани і я хочу повернути кошти",
+    question: "Я купив(ла) квиток, але змінилися плани і я хочу повернути кошти",
     answer: (
       <>
         Повернення квитка можливе не пізніше, ніж за 14 днів до дати проведення
@@ -104,41 +87,44 @@ const faqData: FaqEntry[] = [
         Якщо до події залишилося менше 14 днів:
         <br />
         - Повернення коштів можливе лише за умови повного розпродажу всіх
-        квитків (включно з вашим).
+        квитків.
         <br />- Ви також маєте право самостійно перепродати свій квиток.
       </>
     ),
   },
 ];
 
-// --- FAQ Section Component (No changes needed here) ---
-interface FaqSectionProps {
+type FaqSectionProps = {
   className?: string;
-}
+};
 
-export const FaqSection: React.FC<FaqSectionProps> = ({ className }) => {
+export function FaqSection({ className }: FaqSectionProps) {
   return (
-    <Section className={cn(className)}>
-      <SectionHeader
-        title="Відповіді на часті питання"
-        className="mb-8 md:mb-10 text-center"
-      />
-      <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
-        {faqData.map((item) => (
-          <AccordionItem
-            value={item.id}
-            key={item.id}
-            className="border-b border-blue-foreground/20 last:border-b-0"
-          >
-            <AccordionTrigger className="text-lg text-left font-medium text-blue-foreground hover:no-underline py-4 px-2 md:px-4">
-              {item.question}
-            </AccordionTrigger>
-            <AccordionContent className="text-base text-blue-foreground/90 pb-4 pt-2 px-2 md:px-4 leading-relaxed">
-              {item.answer}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+    <Section density="compact" className={cn(className)}>
+      <Stack gap="lg" className="items-center">
+        <SectionHeader
+          title="Відповіді на часті питання"
+          description="Зібрали основні організаційні моменти, щоб не доводилося шукати їх у чатах чи соцмережах."
+        />
+        <div className="w-full max-w-4xl rounded-[2rem] border border-border-subtle bg-surface-card px-4 py-2 shadow-[0_18px_48px_rgba(57,85,0,0.08)] md:px-6">
+          <Accordion type="single" collapsible className="w-full">
+            {faqData.map((item) => (
+              <AccordionItem
+                value={item.id}
+                key={item.id}
+                className="border-b border-border-subtle last:border-b-0"
+              >
+                <AccordionTrigger className="px-2 py-5 text-left text-base font-medium text-text-primary hover:no-underline md:text-lg">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-2 pb-5 pt-0 text-sm leading-7 text-text-muted md:text-base">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </Stack>
     </Section>
   );
-};
+}

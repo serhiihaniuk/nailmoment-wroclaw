@@ -5,22 +5,25 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "gap-2 rounded-md text-lg transition-all disabled:pointer-events-none cursor-pointer disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-transparent text-sm font-semibold transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/30 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
-        default: "bg-white",
-        secondary: "border-1 border-blue-foreground",
+        default: "bg-white text-text-primary shadow-sm hover:bg-white/90",
+        secondary:
+          "border-border-subtle bg-transparent text-text-primary hover:bg-surface-muted/70",
+        accent: "bg-brand-olive text-white hover:bg-brand-olive/90",
+        warm: "bg-brand-brown text-white hover:bg-brand-brown/90",
       },
       font: {
-        default: "font-semibold leading-[150%]",
-        regular: "font-regular",
+        default: "",
+        regular: "font-medium",
       },
       size: {
-        default: "px-4 py-4 has-[>svg]:px-3",
-        sm: "px-2 py-2 rounded-md gap-1.5 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
+        default: "min-h-12 px-5 py-3",
+        sm: "min-h-10 px-4 py-2.5 text-sm",
+        lg: "min-h-14 px-6 py-4 text-base",
+        icon: "size-12 rounded-full",
       },
     },
     defaultVariants: {
@@ -47,7 +50,7 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className, font }))}
+      className={cn(buttonVariants({ font, size, variant }), className)}
       {...props}
     />
   );

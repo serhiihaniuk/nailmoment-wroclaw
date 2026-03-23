@@ -9,12 +9,15 @@ export const ListItem: FC<{
 }> = ({ text, className, iconClassName }) => {
   return (
     <li
-      className={cn("flex items-center gap-4 px-3 rounded-sm py-3", className)}
+      className={cn(
+        "flex items-start gap-3 rounded-2xl px-4 py-4 text-left",
+        className
+      )}
     >
       <CheckCircle
-        className={cn("text-blue-foreground size-[24px] shrink-0", iconClassName)}
+        className={cn("mt-0.5 size-5 shrink-0 text-text-primary", iconClassName)}
       />
-      <p className="text-blue-foreground leading-snug">{text}</p>
+      <p className="leading-6 text-text-primary">{text}</p>
     </li>
   );
 };

@@ -11,47 +11,64 @@
 }
 
 @theme inline {
-  --color-accent-orange: var(--accent-orange);
-  --color-accent-pink: var(--accent-pink);
-  --color-blue-foreground: var(--blue-foreground);
-  --color-blue-background: var(--blue-background);
-  --color-yellow-background: var(--yellow-background);
-  --color-yellow-foreground: var(--yellow-foreground);
-  --color-green-foreground: var(--green-foreground);
-  --color-card-background: var(--card-background);
-  --color-ring: var(--blue-foreground);
+  --color-brand-olive: var(--brand-olive);
+  --color-brand-cream: var(--brand-cream);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-brown: var(--brand-brown);
+  --color-brand-pink: var(--brand-pink);
+  --color-surface-page: var(--surface-page);
+  --color-surface-card: var(--surface-card);
+  --color-surface-muted: var(--surface-muted);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+  --color-border-subtle: var(--border-subtle);
+  --color-accent-orange: var(--brand-gold);
+  --color-accent-pink: var(--brand-pink);
+  --color-blue-foreground: var(--brand-olive);
+  --color-blue-background: var(--surface-page);
+  --color-yellow-background: var(--brand-gold);
+  --color-yellow-foreground: var(--brand-brown);
+  --color-green-foreground: var(--brand-olive);
+  --color-card-background: var(--surface-muted);
+  --color-ring: var(--brand-olive);
   --color-ring-destructive: var(--destructive);
   --color-destructive: var(--destructive);
   --font-onest: var(--font-onest);
+  --font-display: "druk", var(--font-onest), sans-serif;
 
-  --text-lg: 16px;
-  --text-base: 14px;
-  --text-base--line-height: 150%;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
 }
 
 :root {
-  --accent-orange: rgba(240, 119, 6, 1);
-  --accent-pink: rgba(255, 24, 175, 1);
-  --blue-foreground: #395500;
-  --blue-background: #FFFEF6;
-  --yellow-background: rgba(255, 192, 1, 1);
-  --yellow-foreground: #542826;
-  --green-foreground: #395500;
+  --brand-olive: #395500;
+  --brand-cream: #fff9ec;
+  --brand-gold: #ffc001;
+  --brand-brown: #542826;
+  --brand-pink: #ff18af;
+  --surface-page: #fffef6;
+  --surface-card: #ffffff;
+  --surface-muted: #f4f3e6;
+  --text-primary: #395500;
+  --text-muted: rgb(57 85 0 / 0.78);
+  --text-inverse: #fff9ec;
+  --border-subtle: rgb(57 85 0 / 0.14);
   --destructive: rgba(255, 0, 0, 1);
-  --card-background: #F4F3E6;
-
-  --ring: oklch(0.705 0.015 286.067);
-
-  /* example */
-  --sidebar-ring: oklch(0.708 0 0);
+  --ring: var(--brand-olive);
 }
 
 @layer base {
   * {
     @apply outline-accent-orange/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-blue-background/30 font-onest text-base;
+    @apply bg-surface-page font-onest text-base text-text-primary;
   }
 
   h1,
@@ -61,8 +78,8 @@
     padding: 0;
     margin: 0;
   }
-  html {
-    scroll-behavior: smooth;
+  p {
+    margin: 0;
   }
 }
 
