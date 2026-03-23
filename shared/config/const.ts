@@ -23,7 +23,7 @@ export const IMAGES = {
     "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/img-mike-6WDwCjoptpYcBJ072JUZw5elZN7Ias",
   SPEAKER_PLACEHOLDER: "/images/2026/speaker-placeholder.png",
   TICKET_STANDARD_DECOR: "/images/2026/ticket-standard-decor.png",
-  TICKET_BATTLE_DECOR: "/images/2026/ticket-battle-decor.png",
+  TICKET_BATTLE_DECOR: "/images/2026/ticket-battle-decor2.png",
   TICKET_VIP_DECOR: "/images/2026/ticket-vip-decor.png",
   PAST_EVENT: "/images/2026/past-event.png",
   LOCATION_MAP: "/images/2026/location-map.png",
