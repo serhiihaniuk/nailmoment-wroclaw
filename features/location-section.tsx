@@ -27,7 +27,7 @@ export function LocationSection({
         >
           Al. Jerozolimskie 133A, 02-304 Warszawa
         </Link>
-        <div className="w-full max-w-4xl overflow-hidden rounded-[2rem] border border-border-subtle bg-surface-card shadow-[0_18px_48px_rgba(57,85,0,0.08)]">
+        <div className="w-full max-w-4xl overflow-hidden rounded-3xl border border-border-subtle bg-surface-card shadow-[0_18px_48px_rgba(57,85,0,0.08)]">
           <iframe
             src={mapIframeSrc}
             className="aspect-video w-full border-0"

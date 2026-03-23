@@ -106,7 +106,7 @@ export function FaqSection({ className }: FaqSectionProps) {
           title="Відповіді на часті питання"
           description="Зібрали основні організаційні моменти, щоб не доводилося шукати їх у чатах чи соцмережах."
         />
-        <div className="w-full max-w-4xl rounded-[2rem] border border-border-subtle bg-surface-card px-4 py-2 shadow-[0_18px_48px_rgba(57,85,0,0.08)] md:px-6">
+        <div className="w-full max-w-4xl rounded-3xl border border-border-subtle bg-surface-card px-4 py-2 shadow-[0_18px_48px_rgba(57,85,0,0.08)] md:px-6">
           <Accordion type="single" collapsible className="w-full">
             {faqData.map((item) => (
               <AccordionItem

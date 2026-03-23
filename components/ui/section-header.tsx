@@ -17,9 +17,9 @@ const wrapperVariants = cva("flex flex-col gap-3", {
 const titleVariants = cva("font-semibold uppercase tracking-tight", {
   variants: {
     size: {
-      sm: "text-2xl md:text-3xl",
-      default: "text-3xl md:text-4xl",
-      display: "text-4xl md:text-6xl",
+      sm: "text-xl md:text-2xl",
+      default: "text-2xl",
+      display: "text-3xl md:text-4xl",
     },
     tone: {
       default: "text-text-primary",
@@ -33,7 +33,7 @@ const titleVariants = cva("font-semibold uppercase tracking-tight", {
   },
 });
 
-const descriptionVariants = cva("max-w-[46ch] text-base leading-7 md:text-lg", {
+const descriptionVariants = cva("max-w-[46ch] text-sm leading-6", {
   variants: {
     tone: {
       default: "text-text-muted",

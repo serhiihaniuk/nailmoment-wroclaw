@@ -22,7 +22,7 @@ export function TicketSection({ className }: TicketSectionProps) {
             <img
               src={HOME_TICKET_SECTION.battleCard.imageUrl}
               alt={HOME_TICKET_SECTION.battleCard.imageAlt}
-              className="w-full rounded-[1.5rem] object-cover"
+              className="w-full rounded-2xl object-cover"
             />
             <Stack gap="sm" className="items-center">
               <p className="text-base text-text-inverse/80">
@@ -49,7 +49,7 @@ export function TicketSection({ className }: TicketSectionProps) {
             <p className="text-left text-xs leading-5 text-text-inverse/70">
               {HOME_TICKET_SECTION.battleCard.note}
             </p>
-            <div className="grid gap-3 md:grid-cols-2">
+            <div className="grid gap-3">
               <Button asChild className="w-full bg-surface-page text-brand-brown">
                 <a href="#battle-of-masters">Придбати квиток учасника</a>
               </Button>
@@ -60,7 +60,7 @@ export function TicketSection({ className }: TicketSectionProps) {
           </CardContent>
         </Card>
 
-        <div className="grid w-full gap-6 md:grid-cols-2">
+        <div className="grid w-full gap-6">
           {HOME_TICKETS.map((ticket) => (
             <TicketCard
               key={ticket.id}

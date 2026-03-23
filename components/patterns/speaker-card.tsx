@@ -37,11 +37,11 @@ export function SpeakerCard({
             placeholder="blur"
             blurDataURL={blurDataURL}
             sizes={sizes}
-            className="aspect-[13/20] h-auto w-full rounded-[1.75rem] object-cover"
+            className="aspect-[13/20] h-auto w-full rounded-3xl object-cover"
           />
         </div>
         <div className="flex flex-col justify-center gap-4 px-5 pb-6 md:px-8 md:py-8">
-          <h3 className="text-2xl font-semibold uppercase text-text-primary md:text-3xl">
+          <h3 className="text-xl font-semibold uppercase text-text-primary">
             {name}
           </h3>
           <div className="space-y-3 text-sm leading-7 text-text-muted md:text-base">

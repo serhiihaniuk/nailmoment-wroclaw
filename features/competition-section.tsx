@@ -39,7 +39,7 @@ function CompetitionCard({
     >
       <CardContent className="flex flex-col gap-5 px-5 py-5 text-center md:px-6 md:py-6">
         <img
-          className="aspect-video w-full rounded-[1.5rem] object-cover"
+          className="aspect-video w-full rounded-2xl object-cover"
           src={imageUrl}
           alt={imageAlt}
         />
@@ -77,7 +77,7 @@ function CompetitionCard({
 export function CompetitionSection() {
   return (
     <Section density="compact">
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6">
         <CompetitionCard {...HOME_COMPETITION_CONTENT.battle} />
         <CompetitionCard {...HOME_COMPETITION_CONTENT.peoplesSpeaker} />
       </div>

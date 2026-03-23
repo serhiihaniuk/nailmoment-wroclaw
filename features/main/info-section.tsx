@@ -3,6 +3,7 @@ import { ImageCaption } from "@/components/patterns/image-caption";
 import { ImageCard } from "@/components/patterns/image-card";
 import { Section } from "@/components/layout/section";
 import { Stack } from "@/components/layout/stack";
+import { Card, CardContent } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
 import { ListItem } from "@/components/ui/list-item";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -14,47 +15,51 @@ export function InfoSection() {
   return (
     <>
       <Section density="compact">
-        <Stack gap="xl">
-          <Stack gap="lg" className="items-center">
-            <SectionHeader
-              className="max-w-4xl"
-              title={HOME_INFO_CONTENT.introTitle}
-            />
-            <ul className="relative flex w-full max-w-4xl flex-col gap-3">
-              {HOME_INFO_CONTENT.introBullets.map((text) => (
-                <ListItem
-                  key={text}
-                  className="bg-surface-muted"
-                  text={text}
+        <Card surface="subtle" spacing="none">
+          <CardContent className="py-6 md:py-8">
+            <Stack gap="xl">
+              <Stack gap="lg" className="items-center">
+                <SectionHeader
+                  tone="accent"
+                  className="max-w-4xl"
+                  title={HOME_INFO_CONTENT.introTitle}
                 />
-              ))}
-              <DecorativeImage
-                src={IMAGES.DECORATIVE_LEAF_5}
-                className="-right-8 bottom-6 h-44 w-44"
-              />
-            </ul>
-          </Stack>
 
-          <Stack gap="lg" className="items-center">
-            <SectionHeader
-              className="max-w-3xl"
-              title={HOME_INFO_CONTENT.mottoTitle}
-            />
-            <div className="w-full max-w-4xl rounded-[2rem] bg-surface-card p-5 md:p-8">
-              <ul className="flex flex-col gap-3">
-                {HOME_INFO_CONTENT.mottoBullets.map((text) => (
-                  <ListItem key={text} className="bg-surface-muted/65" text={text} />
-                ))}
-              </ul>
-            </div>
-            <Image
-              url={HOME_INFO_CONTENT.heroImage}
-              width={900}
-              className="w-full max-w-4xl"
-              alt="Festival mood"
-            />
-          </Stack>
-        </Stack>
+                <p className="text-base font-medium text-text-primary">Тільки ми:</p>
+
+                <ul className="relative flex w-full flex-col gap-2.5 rounded-xl bg-surface-page p-4 md:p-5">
+                  {HOME_INFO_CONTENT.introBullets.map((text) => (
+                    <ListItem key={text} text={text} />
+                  ))}
+                  <DecorativeImage
+                    src={IMAGES.DECORATIVE_LEAF_5}
+                    className="-right-8 bottom-6 h-44 w-44"
+                  />
+                </ul>
+              </Stack>
+
+              <Stack gap="lg" className="items-center">
+                <SectionHeader
+                  tone="accent"
+                  className="max-w-3xl"
+                  title={HOME_INFO_CONTENT.mottoTitle}
+                />
+                <ul className="flex w-full flex-col gap-2.5 rounded-xl bg-surface-page p-4 md:p-5">
+                  {HOME_INFO_CONTENT.mottoBullets.map((text) => (
+                    <ListItem key={text} text={text} />
+                  ))}
+                </ul>
+              </Stack>
+            </Stack>
+          </CardContent>
+        </Card>
+
+        <Image
+          url={HOME_INFO_CONTENT.heroImage}
+          width={900}
+          className="mt-6 w-full max-w-4xl"
+          alt="Festival mood"
+        />
       </Section>
 
       <Section density="compact">
@@ -87,7 +92,7 @@ export function InfoSection() {
               className="max-w-4xl"
               title={HOME_INFO_CONTENT.marketTitle}
             />
-            <div className="grid gap-5 md:grid-cols-2">
+            <div className="grid gap-5">
               {HOME_INFO_CONTENT.marketCards.map((card) => (
                 <ImageCard
                   key={card.url}
@@ -113,7 +118,7 @@ export function InfoSection() {
               tone="accent"
               title={HOME_INFO_CONTENT.whyAttendTitle}
             />
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6">
               {HOME_INFO_CONTENT.whyAttendItems.map((item) => (
                 <ImageCaption
                   key={item.url}

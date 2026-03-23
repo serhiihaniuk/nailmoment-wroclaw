@@ -6,10 +6,10 @@ import { FC } from "react";
 
 export const BuyTicketButton: FC<{ className?: string }> = ({ className }) => {
   return (
-    <Button className={cn("bg-blue-foreground", className)} asChild>
+    <Button variant="accent" className={cn(className)} asChild>
       <Link
         href="/#ticket-section"
-        className="uppercase flex items-center justify-center gap-2 text-white"
+        className="uppercase flex items-center justify-center gap-2"
       >
         Придбати квиток
         <TicketIcon className="size-7" />

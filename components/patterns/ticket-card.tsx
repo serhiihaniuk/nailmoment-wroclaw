@@ -9,7 +9,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import Link from "next/link";
 
 const cardVariants = cva(
-  "w-full max-w-sm overflow-hidden rounded-[2rem] border shadow-[0_18px_48px_rgba(57,85,0,0.08)]",
+  "w-full max-w-xl mx-auto overflow-hidden rounded-3xl border shadow-[0_18px_48px_rgba(57,85,0,0.08)]",
   {
     variants: {
       variant: {

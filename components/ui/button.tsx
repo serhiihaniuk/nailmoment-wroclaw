@@ -5,24 +5,24 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-transparent text-sm font-semibold transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/30 aria-invalid:border-destructive",
+  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-transparent text-base font-semibold transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/30 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
-        default: "bg-white text-text-primary shadow-sm hover:bg-white/90",
+        default: "bg-white text-text-primary shadow-sm hover:shadow-md hover:brightness-95",
         secondary:
-          "border-border-subtle bg-transparent text-text-primary hover:bg-surface-muted/70",
-        accent: "bg-brand-olive text-white hover:bg-brand-olive/90",
-        warm: "bg-brand-brown text-white hover:bg-brand-brown/90",
+          "border-border-subtle bg-transparent text-text-primary hover:bg-surface-muted",
+        accent: "bg-brand-olive text-white hover:brightness-110 hover:shadow-md",
+        warm: "bg-brand-brown text-white hover:brightness-110 hover:shadow-md",
       },
       font: {
         default: "",
         regular: "font-medium",
       },
       size: {
-        default: "min-h-12 px-5 py-3",
-        sm: "min-h-10 px-4 py-2.5 text-sm",
-        lg: "min-h-14 px-6 py-4 text-base",
+        default: "min-h-15 px-8 py-2.5",
+        sm: "min-h-15 px-8 py-2.5",
+        lg: "min-h-15 px-8 py-2.5 text-lg",
         icon: "size-12 rounded-full",
       },
     },

@@ -5,9 +5,9 @@ import { ComponentPropsWithoutRef } from "react";
 const sectionVariants = cva("relative px-4 md:px-8 xl:px-12", {
   variants: {
     density: {
-      hero: "py-14 md:py-20",
-      default: "py-14 md:py-24",
-      compact: "py-10 md:py-16",
+      hero: "py-10 md:py-14",
+      default: "py-8 md:py-12",
+      compact: "py-6 md:py-10",
     },
     surface: {
       transparent: "bg-transparent",
