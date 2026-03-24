@@ -1,16 +1,17 @@
 import Link from "next/link";
-import { BuyTicketButton } from "@/entities/ticket/ui/buy-ticket-button";
-import Marquee from "@/shared/ui/marquee";
-import { Cluster } from "@/shared/ui/layout/cluster";
-import { Section } from "@/shared/ui/layout/section";
-import { Stack } from "@/shared/ui/layout/stack";
+import { HOME_HERO_CONTENT } from "@/features/hero/model/content";
+import { NailMomentLogo } from "@/shared/assets/icons";
+import { IMAGES } from "@/shared/config/const";
+import { mergeUi } from "@/shared/lib/utils";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
-import { mergeUi } from "@/shared/lib/utils";
-import { IMAGES } from "@/shared/config/const";
-import { HOME_HERO_CONTENT } from "@/features/hero/model/content";
-import { NailMomentLogo } from "@/shared/assets/icons";
+import { Cluster } from "@/shared/ui/layout/cluster";
+import { Section } from "@/shared/ui/layout/section";
+import { Stack } from "@/shared/ui/layout/stack";
+import Marquee from "@/shared/ui/marquee";
+import { BuyTicketButton } from "@/entities/ticket/ui/buy-ticket-button";
+import { TypographyTitle } from "@/shared/ui/typography";
 
 export function HeroSection() {
   return (
@@ -18,11 +19,11 @@ export function HeroSection() {
       uiId="hero-section"
       density="hero"
       innerClassName="max-w-none"
-      className="px-0 md:px-0 xl:px-0 pt-0 md:pt-0"
+      className="px-0 pt-0 md:px-0 md:pt-0 xl:px-0"
     >
       <div
         data-ui="hero-section-shell"
-        className="relative isolate flex flex-col overflow-hidden bg-surface-muted/50 px-4 pt-10 pb-20 md:px-8 md:pt-14 h-[clamp(650px,100dvh,750px)]"
+        className="relative isolate flex h-[clamp(650px,100dvh,750px)] flex-col overflow-hidden bg-surface-muted/50 px-4 pb-20 pt-10 md:px-8 md:pt-14"
       >
         <img
           data-ui="hero-background"
@@ -34,12 +35,12 @@ export function HeroSection() {
         <DecorativeImage
           uiId="hero-leaf-right"
           src={IMAGES.DECORATIVE_LEAF_1}
-          className="-right-8 -top-16 h-[21rem] w-[16rem] z-[1]"
+          className="-right-8 -top-16 z-[1] h-[21rem] w-[16rem]"
         />
         <DecorativeImage
           uiId="hero-leaf-left"
           src={IMAGES.DECORATIVE_LEAF_4}
-          className="-left-8 top-1 h-48 w-44 z-[1]"
+          className="-left-8 top-1 z-[1] h-48 w-44"
         />
 
         <Marquee
@@ -51,7 +52,10 @@ export function HeroSection() {
           className="absolute inset-x-0 top-[25px] z-[3] self-stretch bg-surface-muted font-medium"
         />
 
-        <div data-ui="hero-content" className="relative z-[2] flex flex-1 flex-col items-center pt-6 text-center">
+        <div
+          data-ui="hero-content"
+          className="relative z-[2] flex flex-1 flex-col items-center pt-6 text-center"
+        >
           <Cluster uiId="hero-badges" gap="sm" justify="center" className="w-full">
             {HOME_HERO_CONTENT.badges.map((badge, index) => (
               <Badge
@@ -67,9 +71,9 @@ export function HeroSection() {
           <div className="flex-1" />
 
           <h1 data-ui="hero-title-group" className="flex flex-col items-center gap-4 text-center">
-            <span data-ui="hero-eyebrow" className="text-2xl font-semibold uppercase leading-tight tracking-tight text-text-primary">
+            <TypographyTitle as="span" uiId="hero-eyebrow" order="order3" tone="default">
               {HOME_HERO_CONTENT.eyebrow}
-            </span>
+            </TypographyTitle>
             <Link href="/" aria-label="На головну">
               <NailMomentLogo data-ui="hero-logo" className="w-full max-w-sm" />
             </Link>
@@ -79,7 +83,7 @@ export function HeroSection() {
 
           <Stack uiId="hero-actions" gap="sm" className="w-full max-w-2xl">
             <BuyTicketButton uiId="hero-buy-ticket" className="w-full" />
-            <div data-ui="hero-shortcuts" className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div data-ui="hero-shortcuts" className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {HOME_HERO_CONTENT.shortcuts.map((shortcut, index) => (
                 <Button
                   key={shortcut.href}

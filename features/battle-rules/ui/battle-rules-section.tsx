@@ -186,7 +186,6 @@ export function BattleRulesSection() {
             <SectionHeader
               uiId="battle-rules-header"
               title={BATTLE_RULES_CONTENT.title}
-              description={BATTLE_RULES_CONTENT.description}
               tone="accent"
               descriptionClassName="max-w-3xl text-brand-brown text-base md:text-lg md:leading-8"
             />

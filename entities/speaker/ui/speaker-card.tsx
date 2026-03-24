@@ -2,6 +2,7 @@ import NextImage from "next/image";
 import { Card } from "@/shared/ui/card";
 import { cn, mergeUi } from "@/shared/lib/utils";
 import { ReactNode } from "react";
+import { TypographyTitle } from "@/shared/ui/typography";
 
 interface SpeakerCardProps {
   imageUrl: string;
@@ -55,12 +56,15 @@ export function SpeakerCard({
           data-ui={mergeUi(uiId, "content")}
           className="flex min-w-0 flex-1 flex-col gap-2 pr-3 md:gap-3 md:pr-4"
         >
-          <h3
-            data-ui={mergeUi(uiId, "title")}
-            className="text-xl font-black text-text-primary md:text-3xl"
+          <TypographyTitle
+            as="h3"
+            uiId={mergeUi(uiId, "title")}
+            order="order4"
+            align="left"
+            className="normal-case"
           >
             {name}
-          </h3>
+          </TypographyTitle>
           <div
             data-ui={mergeUi(uiId, "text")}
             className="space-y-1 text-sm leading-6 text-text-muted md:text-base md:leading-7"

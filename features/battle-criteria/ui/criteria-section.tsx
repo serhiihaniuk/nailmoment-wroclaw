@@ -128,7 +128,7 @@ export function CriteriaSection() {
                   <TypographyTitle
                     as="h3"
                     uiId={mergeUi("battle-nomination", nomination.id, "title")}
-                    size="card"
+                    order="order4"
                     tone="accent"
                     className="normal-case"
                   >

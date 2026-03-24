@@ -1,10 +1,11 @@
 import React from "react";
-import { cn } from "@/shared/lib/utils";
-import { IconLink as Link } from "@/shared/ui/icon-link";
-import { INFO_URL, COMPANY_INFO } from "@/shared/config/const";
-import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
-import { Section } from "@/shared/ui/layout/section";
 import { HOME_FOOTER_CONTENT } from "@/features/footer-info/model/content";
+import { COMPANY_INFO, INFO_URL } from "@/shared/config/const";
+import { cn } from "@/shared/lib/utils";
+import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
+import { IconLink as Link } from "@/shared/ui/icon-link";
+import { Section } from "@/shared/ui/layout/section";
+import { TypographyTitle } from "@/shared/ui/typography";
 
 interface FooterInfoSectionProps {
   className?: string;
@@ -29,16 +30,16 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
         contentClassName="mx-auto flex w-full max-w-sm flex-col items-center gap-5 px-4 pb-8 pt-8 md:px-8"
       >
         <div data-ui="footer-content" className="contents">
-          <div
-            data-ui="footer-company"
-            className="flex flex-col items-center gap-4"
-          >
-            <h3
-              data-ui="footer-company-title"
-              className="text-2xl font-semibold uppercase leading-tight tracking-tight text-text-inverse"
+          <div data-ui="footer-company" className="flex flex-col items-center gap-4">
+            <TypographyTitle
+              as="h3"
+              uiId="footer-company-title"
+              order="order3"
+              tone="inverse"
+              className="leading-tight"
             >
               ДАНІ КОМПАНІЇ
-            </h3>
+            </TypographyTitle>
             <div
               data-ui="footer-company-text"
               className="space-y-0.5 text-sm font-medium leading-relaxed tracking-tight text-text-inverse"
@@ -49,16 +50,16 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
             </div>
           </div>
 
-          <div
-            data-ui="footer-contact"
-            className="flex flex-col items-center gap-4"
-          >
-            <h3
-              data-ui="footer-contact-title"
-              className="text-2xl font-semibold uppercase leading-tight tracking-tight text-text-inverse"
+          <div data-ui="footer-contact" className="flex flex-col items-center gap-4">
+            <TypographyTitle
+              as="h3"
+              uiId="footer-contact-title"
+              order="order3"
+              tone="inverse"
+              className="leading-tight"
             >
               КОНТАКТНА ТОЧКА
-            </h3>
+            </TypographyTitle>
             <Link
               uiId="footer-contact-email"
               href={`mailto:${INFO_URL.EMAIL}`}
@@ -68,26 +69,23 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
             </Link>
           </div>
 
-          <div
-            data-ui="footer-support"
-            className="flex flex-col items-center gap-4"
-          >
-            <h3
-              data-ui="footer-support-title"
-              className="text-2xl font-semibold uppercase leading-tight tracking-tight text-text-inverse"
+          <div data-ui="footer-support" className="flex flex-col items-center gap-4">
+            <TypographyTitle
+              as="h3"
+              uiId="footer-support-title"
+              order="order3"
+              tone="inverse"
+              className="leading-tight"
             >
               ВІДДІЛ ТУРБОТИ
-            </h3>
+            </TypographyTitle>
             <p
               data-ui="footer-support-text"
               className="whitespace-pre-line text-sm font-medium leading-relaxed tracking-tight text-text-inverse"
             >
               {HOME_FOOTER_CONTENT.supportCopy}
             </p>
-            <div
-              data-ui="footer-support-socials"
-              className="flex justify-center gap-2.5 pt-2"
-            >
+            <div data-ui="footer-support-socials" className="flex justify-center gap-2.5 pt-2">
               <Link
                 uiId="footer-support-instagram"
                 href={INFO_URL.INSTAGRAM}

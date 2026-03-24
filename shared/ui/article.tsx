@@ -20,12 +20,12 @@ export function ArticleHeading({
   className,
   uiId,
   ...props
-}: Omit<ComponentPropsWithoutRef<typeof TypographyTitle>, "size" | "tone" | "align"> & {
+}: Omit<ComponentPropsWithoutRef<typeof TypographyTitle>, "order" | "tone" | "align"> & {
   uiId?: string;
 }) {
   return (
     <TypographyTitle
-      size="articleLg"
+      order="order3"
       tone="accent"
       align="left"
       data-ui={undefined}
@@ -40,12 +40,12 @@ export function ArticleSubheading({
   className,
   uiId,
   ...props
-}: Omit<ComponentPropsWithoutRef<typeof TypographyTitle>, "size" | "tone" | "align"> & {
+}: Omit<ComponentPropsWithoutRef<typeof TypographyTitle>, "order" | "tone" | "align"> & {
   uiId?: string;
 }) {
   return (
     <TypographyTitle
-      size="articleMd"
+      order="order4"
       tone="accent"
       align="left"
       data-ui={undefined}

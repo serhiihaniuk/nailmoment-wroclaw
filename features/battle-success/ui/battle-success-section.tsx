@@ -70,7 +70,7 @@ export function BattleSuccessSection() {
               as="h1"
               title={BATTLE_SUCCESS_CONTENT.title}
               description={BATTLE_SUCCESS_CONTENT.description}
-              size="display"
+              order="order1"
               tone="accent"
               descriptionClassName="max-w-3xl text-brand-brown text-base md:text-lg md:leading-8"
             />

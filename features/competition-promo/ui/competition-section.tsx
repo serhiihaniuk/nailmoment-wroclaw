@@ -62,7 +62,7 @@ function CompetitionCard({
           <TypographyTitle
             as="h3"
             uiId={mergeUi(uiId, "title")}
-            size="card"
+            order="order4"
             align="center"
             tone={accent ? "inverse" : "default"}
           >

@@ -70,7 +70,7 @@ export function CompetitionPeoplesSpeakerCard({
           <TypographyTitle
             as="h3"
             uiId={mergeUi(uiId, "title")}
-            size="card"
+            order="order4"
             align="center"
             tone="inverse"
             className="leading-[1.12]"

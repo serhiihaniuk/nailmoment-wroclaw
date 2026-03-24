@@ -26,11 +26,7 @@ function PrivacyPolicyArticle() {
         className="px-5 py-6 md:px-8 md:py-8"
       >
         <Stack uiId="privacy-policy-article-content" gap="xl">
-          <ArticleSubheading
-            as="h2"
-            uiId="privacy-policy-article-title"
-            className="text-2xl md:text-2xl"
-          >
+          <ArticleSubheading as="h2" uiId="privacy-policy-article-title">
             {PRIVACY_POLICY_CONTENT.title}
           </ArticleSubheading>
 
@@ -41,11 +37,7 @@ function PrivacyPolicyArticle() {
           {PRIVACY_POLICY_CONTENT.sections.map((section) => (
             <ArticleSection key={section.id} uiId={`privacy-policy-${section.id}`}>
               <Stack uiId={`privacy-policy-${section.id}-content`} gap="default">
-                <ArticleSubheading
-                  as="h3"
-                  uiId={`privacy-policy-${section.id}-title`}
-                  className="text-2xl md:text-2xl"
-                >
+                <ArticleSubheading as="h3" uiId={`privacy-policy-${section.id}-title`}>
                   {section.title}
                 </ArticleSubheading>
                 {section.paragraphs.map((paragraph, index) => (

@@ -3,6 +3,7 @@ import { CardContent, CardHeader, CardTitle } from "@/shared/ui/card";
 import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
 import { cn } from "@/shared/lib/utils";
 import { ReactNode } from "react";
+import { TypographyTitle } from "@/shared/ui/typography";
 
 type AccentCardProps = {
   children: ReactNode;
@@ -25,7 +26,11 @@ export function AccentCard({
       contentClassName="py-6 md:py-8"
     >
       <CardHeader className="relative z-[1]">
-        <CardTitle className="text-3xl uppercase md:text-4xl">{title}</CardTitle>
+        <CardTitle>
+          <TypographyTitle as="h3" order="order2" tone="inverse">
+            {title}
+          </TypographyTitle>
+        </CardTitle>
       </CardHeader>
       <CardContent
         className={cn("relative z-[1] flex flex-col gap-6", contentClassName)}

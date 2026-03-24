@@ -105,7 +105,7 @@ export const PeoplesSpeakerSection = () => (
             as="h1"
             title={PEOPLE_SPEAKER_CONTENT.title}
             description={PEOPLE_SPEAKER_CONTENT.description}
-            size="display"
+            order="order1"
             tone="default"
             descriptionClassName="max-w-3xl text-base md:text-lg md:leading-8"
           />
@@ -126,7 +126,7 @@ export const PeoplesSpeakerSection = () => (
               <TypographyTitle
                 as="h2"
                 uiId="people-speaker-hero-lead"
-                size="card"
+                order="order4"
                 tone="inverse"
                 className="normal-case"
               >

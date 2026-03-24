@@ -54,18 +54,20 @@ export function CompetitionPrizeBanner({
         <TypographyTitle
           as="p"
           uiId={mergeUi(uiId, "title")}
+          order="order2"
           tone="accent"
           align="center"
-          className="w-full font-black normal-case text-brand-brown text-[clamp(1.35rem,3vw,2.35rem)] leading-[0.95]"
+          className="w-full normal-case text-brand-brown leading-[0.95]"
         >
           {title}
         </TypographyTitle>
         <TypographyTitle
           as="p"
           uiId={mergeUi(uiId, "subtitle")}
+          order="order2"
           tone="accent"
           align="center"
-          className="w-full font-black normal-case text-brand-brown text-[clamp(1.2rem,2.6vw,2.15rem)] leading-[0.98]"
+          className="w-full normal-case text-brand-brown leading-[0.98]"
         >
           {subtitle}
         </TypographyTitle>

@@ -6,13 +6,11 @@ const titleVariants = cva(
   "font-montserrat font-black uppercase tracking-tight",
   {
     variants: {
-      size: {
-        card: "text-xl md:text-3xl",
-        section: "text-3xl",
-        articleLg: "text-2xl md:text-3xl",
-        articleMd: "text-xl md:text-2xl",
-        display: "text-3xl md:text-4xl",
-        sm: "text-3xl md:text-5xl",
+      order: {
+        order1: "text-4xl",
+        order2: "text-3xl",
+        order3: "text-2xl",
+        order4: "text-xl",
       },
       tone: {
         default: "text-text-primary",
@@ -25,7 +23,7 @@ const titleVariants = cva(
       },
     },
     defaultVariants: {
-      size: "section",
+      order: "order2",
       tone: "default",
       align: "center",
     },
@@ -67,7 +65,7 @@ export function TypographyTitle<T extends ElementType = "h2">({
   as,
   className,
   align,
-  size,
+  order,
   tone,
   uiId,
   ...props
@@ -76,7 +74,7 @@ export function TypographyTitle<T extends ElementType = "h2">({
   return (
     <Comp
       data-ui={mergeUi(uiId ?? "title")}
-      className={cn(titleVariants({ align, size, tone }), className)}
+      className={cn(titleVariants({ align, order, tone }), className)}
       {...props}
     />
   );

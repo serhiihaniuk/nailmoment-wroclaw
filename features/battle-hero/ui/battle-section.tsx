@@ -66,7 +66,7 @@ export function BattleSection() {
               as="h1"
               title="Битва Майстрів"
               description="Конкурс для майстрів манікюру у рамках фестивалю Nail Moment."
-              size="display"
+              order="order1"
               tone="accent"
               descriptionClassName="text-base leading-7 md:text-xl md:leading-8"
             />

@@ -86,7 +86,7 @@ export function MediaCardTitle({
   return (
     <TypographyTitle
       as="h3"
-      size="card"
+      order="order4"
       align="center"
       uiId={mergeUi(uiId, "title")}
       className={className}

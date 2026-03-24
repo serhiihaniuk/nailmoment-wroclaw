@@ -2,6 +2,7 @@ import React from "react";
 import NextImage from "next/image";
 import { cn } from "@/shared/lib/utils";
 import { Clock } from "lucide-react";
+import { TypographyTitle } from "@/shared/ui/typography";
 
 interface ProfileCardProps {
   imageUrl: string;
@@ -63,10 +64,17 @@ export const SpeakerScheduleCard: React.FC<ProfileCardProps> = ({
 
     {/* Text Content */}
     <div className="flex flex-col items-center text-center gap-2 w-full p-4">
-      <h3 className="uppercase text-xl font-black">{name}</h3>
-      <h4 className="uppercase text-2xl font-black leading-tight bg-accent-pink w-full text-white p-4 rounded-md">
+      <TypographyTitle as="h3" order="order4" className="w-full">
+        {name}
+      </TypographyTitle>
+      <TypographyTitle
+        as="h4"
+        order="order3"
+        tone="inverse"
+        className="w-full rounded-md bg-accent-pink p-4 leading-tight"
+      >
         {topic}
-      </h4>
+      </TypographyTitle>
 
       <div className="text-sm text-blue-foreground space-y-2">
         {description}

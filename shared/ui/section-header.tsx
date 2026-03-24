@@ -24,7 +24,7 @@ type SectionHeaderProps = VariantProps<typeof wrapperVariants> &
     className?: string;
     titleClassName?: string;
     descriptionClassName?: string;
-    size?: "sm" | "default" | "display";
+    order?: "order1" | "order2" | "order3" | "order4";
     tone?: "default" | "inverse" | "accent";
     uiId?: string;
   };
@@ -36,7 +36,7 @@ export function SectionHeader({
   description,
   descriptionClassName,
   eyebrow,
-  size,
+  order,
   title,
   titleClassName,
   tone,
@@ -60,7 +60,7 @@ export function SectionHeader({
       <TypographyTitle
         as={HeadingTag}
         align={align}
-        size={size === "default" ? "section" : size}
+        order={order}
         tone={tone}
         uiId={mergeUi(uiId, "title")}
         className={titleClassName}

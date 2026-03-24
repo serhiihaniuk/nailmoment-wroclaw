@@ -129,7 +129,7 @@ export function BattleInfoSection() {
                   <TypographyTitle
                     as="h3"
                     uiId={mergeUi("battle-step", step.stepNumber, "title")}
-                    size="card"
+                    order="order4"
                     tone="accent"
                     align="left"
                     className="normal-case"

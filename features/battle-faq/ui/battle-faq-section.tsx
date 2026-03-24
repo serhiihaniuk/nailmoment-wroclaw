@@ -190,7 +190,7 @@ export function BattleFaqSection() {
             <TypographyTitle
               as="h3"
               uiId="battle-faq-contact-title"
-              size="card"
+              order="order4"
               tone="accent"
               className="normal-case"
             >
