@@ -2,32 +2,35 @@ import { cn, mergeUi } from "@/shared/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ComponentPropsWithoutRef, ElementType } from "react";
 
-const titleVariants = cva("font-montserrat font-black uppercase tracking-tight", {
-  variants: {
-    size: {
-      card: "text-xl md:text-3xl",
-      section: "text-2xl md:text-3xl",
-      articleLg: "text-3xl md:text-4xl",
-      articleMd: "text-2xl md:text-3xl",
-      display: "text-3xl md:text-4xl",
-      sm: "text-3xl md:text-5xl",
+const titleVariants = cva(
+  "font-montserrat font-black uppercase tracking-tight",
+  {
+    variants: {
+      size: {
+        card: "text-xl md:text-3xl",
+        section: "text-3xl",
+        articleLg: "text-2xl md:text-3xl",
+        articleMd: "text-xl md:text-2xl",
+        display: "text-3xl md:text-4xl",
+        sm: "text-3xl md:text-5xl",
+      },
+      tone: {
+        default: "text-text-primary",
+        inverse: "text-text-inverse",
+        accent: "text-brand-brown",
+      },
+      align: {
+        left: "text-left",
+        center: "text-center",
+      },
     },
-    tone: {
-      default: "text-text-primary",
-      inverse: "text-text-inverse",
-      accent: "text-brand-brown",
-    },
-    align: {
-      left: "text-left",
-      center: "text-center",
+    defaultVariants: {
+      size: "section",
+      tone: "default",
+      align: "center",
     },
   },
-  defaultVariants: {
-    size: "section",
-    tone: "default",
-    align: "center",
-  },
-});
+);
 
 const textVariants = cva("", {
   variants: {
@@ -104,31 +107,34 @@ export function TypographyText<T extends ElementType = "p">({
   );
 }
 
-const displayVariants = cva("font-montserrat font-black uppercase tracking-normal leading-[1.1]", {
-  variants: {
-    size: {
-      default: "text-5xl",
-      lg: "text-6xl",
-      sm: "text-4xl",
+const displayVariants = cva(
+  "font-montserrat font-black uppercase tracking-normal leading-[1.1]",
+  {
+    variants: {
+      size: {
+        default: "text-5xl",
+        lg: "text-6xl",
+        sm: "text-4xl",
+      },
+      tone: {
+        default: "text-text-primary",
+        inverse: "text-text-inverse",
+        accent: "text-brand-brown",
+        olive: "text-brand-olive",
+        gold: "text-brand-gold",
+      },
+      align: {
+        left: "text-left",
+        center: "text-center",
+      },
     },
-    tone: {
-      default: "text-text-primary",
-      inverse: "text-text-inverse",
-      accent: "text-brand-brown",
-      olive: "text-brand-olive",
-      gold: "text-brand-gold",
-    },
-    align: {
-      left: "text-left",
-      center: "text-center",
+    defaultVariants: {
+      size: "default",
+      tone: "default",
+      align: "center",
     },
   },
-  defaultVariants: {
-    size: "default",
-    tone: "default",
-    align: "center",
-  },
-});
+);
 
 type TypographyDisplayProps<T extends ElementType = "span"> = {
   as?: T;

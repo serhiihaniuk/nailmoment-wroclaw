@@ -1,3 +1,4 @@
+import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { Card, CardContent } from "@/shared/ui/card";
 import { mergeUi } from "@/shared/lib/utils";
@@ -44,21 +45,19 @@ function CriteriaList({
   items: string[];
 }) {
   return (
-    <Card uiId={uiId} surface="subtle" spacing="none" className="rounded-[2rem]">
+    <Card uiId={uiId} surface="subtle" spacing="none" className="rounded-3xl">
       <CardContent uiId={uiId} className="px-5 py-5 md:px-6 md:py-6">
-        <Stack uiId={mergeUi(uiId, "items")} gap="default">
+        <Stack uiId={mergeUi(uiId, "items")} gap="sm">
           {items.map((criterion, index) => (
             <div
               key={criterion}
               data-ui={mergeUi(uiId, "item", index + 1)}
-              className="flex items-start gap-3"
+              className="flex items-start gap-3 rounded-xl bg-surface-page px-4 py-3"
             >
-              <span
-                data-ui={mergeUi(uiId, "item", index + 1, "number")}
-                className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-brand-olive text-xs font-bold text-white"
-              >
-                {index + 1}
-              </span>
+              <CheckCircle2
+                data-ui={mergeUi(uiId, "item", index + 1, "icon")}
+                className="mt-0.5 size-5 shrink-0 text-brand-brown"
+              />
               <TypographyText
                 as="p"
                 uiId={mergeUi(uiId, "item", index + 1, "text")}
@@ -82,13 +81,21 @@ export function CriteriaSection() {
     <Section uiId="battle-criteria-section" density="compact">
       <Stack uiId="battle-criteria-content" gap="xl" className="items-center">
         <Stack uiId="battle-nominations" gap="lg" className="w-full items-center">
-          <SectionHeader
-            uiId="battle-nominations-header"
-            title="Номінації у відбірковому турі"
-            tone="accent"
-            description="Обери категорію, у якій хочеш подати свою роботу на перший етап."
-            descriptionClassName="text-brand-brown"
-          />
+          <Stack uiId="battle-nominations-header" gap="sm" className="items-center text-center">
+            <SectionHeader
+              uiId="battle-nominations-title"
+              title="Номінації у відбірковому турі"
+              tone="accent"
+            />
+            <TypographyText
+              uiId="battle-nominations-description"
+              size="body"
+              tone="default"
+              className="text-brand-brown"
+            >
+              Обери категорію, у якій хочеш подати свою роботу на перший етап.
+            </TypographyText>
+          </Stack>
 
           <div
             data-ui="battle-nominations-list"
@@ -134,28 +141,58 @@ export function CriteriaSection() {
         </Stack>
 
         <Stack uiId="battle-first-round-criteria" gap="lg" className="w-full items-center">
-          <SectionHeader
+          <Stack
             uiId="battle-first-round-criteria-header"
-            title="Критерії відбору у першому турі"
-            tone="accent"
-            description="Саме на ці речі звертатимуть увагу під час оцінювання робіт."
-            descriptionClassName="text-brand-brown"
-          />
+            gap="sm"
+            className="items-center text-center"
+          >
+            <SectionHeader
+              uiId="battle-first-round-criteria-title"
+              title="Критерії відбору у першому турі"
+              tone="accent"
+            />
+            <TypographyText
+              uiId="battle-first-round-criteria-description"
+              size="body"
+              tone="default"
+              className="text-brand-brown"
+            >
+              Саме на ці речі звертатимуть увагу під час оцінювання робіт.
+            </TypographyText>
+          </Stack>
           <div data-ui="battle-first-round-criteria-shell" className="w-full max-w-4xl">
-            <CriteriaList uiId="battle-first-round-criteria-card" items={FIRST_ROUND_CRITERIA_DATA} />
+            <CriteriaList
+              uiId="battle-first-round-criteria-card"
+              items={FIRST_ROUND_CRITERIA_DATA}
+            />
           </div>
         </Stack>
 
         <Stack uiId="battle-final-round-criteria" gap="lg" className="w-full items-center">
-          <SectionHeader
+          <Stack
             uiId="battle-final-round-criteria-header"
-            title="Критерії фінального туру"
-            tone="accent"
-            description="Фінал оцінює не номінацію, а цілісне перевтілення та силу твоєї подачі."
-            descriptionClassName="text-brand-brown"
-          />
+            gap="sm"
+            className="items-center text-center"
+          >
+            <SectionHeader
+              uiId="battle-final-round-criteria-title"
+              title="Критерії фінального туру"
+              tone="accent"
+            />
+            <TypographyText
+              uiId="battle-final-round-criteria-description"
+              size="body"
+              tone="default"
+              className="text-brand-brown"
+            >
+              Фінал оцінює не номінацію, а цілісне перевтілення та силу твоєї подачі.
+            </TypographyText>
+          </Stack>
           <div data-ui="battle-final-round-criteria-shell" className="w-full max-w-4xl">
-            <CriteriaList uiId="battle-final-round-criteria-card" items={FINAL_ROUND_CRITERIA_DATA} />
+            <CriteriaList
+              uiId="battle-final-round-criteria-card"
+              items={FINAL_ROUND_CRITERIA_DATA}
+            />
           </div>
         </Stack>
       </Stack>

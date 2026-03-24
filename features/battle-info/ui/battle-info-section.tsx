@@ -74,8 +74,8 @@ export function BattleInfoSection() {
               tone="inverse"
               className="max-w-3xl text-text-inverse"
             >
-              «Битва Майстрів» — це унікальний конкурс для майстрів манікюру, де головними
-              критеріями є твоя креативність, професіоналізм та результат.
+              «Битва Майстрів» — це унікальний конкурс для майстрів манікюру, де
+              головними критеріями є твоя креативність, професіоналізм та результат.
             </TypographyText>
             <img
               data-ui="battle-intro-image"
@@ -90,19 +90,24 @@ export function BattleInfoSection() {
               tone="inverse"
               className="max-w-3xl text-text-inverse"
             >
-              Жодних строгих технік, відомих суддів чи жорстких таймінгів. Оцінювати роботи
-              будуть самі майстри, а переможець забере 2000 зл та кубок переможця.
+              Жодних строгих технік, відомих суддів чи жорстких таймінгів. Оцінювати
+              роботи будуть самі майстри, а переможець забере 2000 зл та кубок
+              переможця.
             </TypographyText>
           </CardContent>
         </Card>
 
-        <SectionHeader
-          uiId="battle-steps-title"
-          title="Етапи участі"
-          tone="accent"
-          description="Увесь шлях від ознайомлення з умовами до фіналу конкурсу."
-          descriptionClassName="text-brand-brown"
-        />
+        <Stack uiId="battle-steps-title" gap="sm" className="items-center text-center">
+          <SectionHeader uiId="battle-steps-heading" title="Етапи участі" tone="accent" />
+          <TypographyText
+            uiId="battle-steps-description"
+            size="body"
+            tone="default"
+            className="text-brand-brown"
+          >
+            Увесь шлях від ознайомлення з умовами до фіналу конкурсу.
+          </TypographyText>
+        </Stack>
 
         <Stack uiId="battle-steps" gap="lg" className="mx-auto w-full max-w-4xl">
           {BATTLE_STEPS_DATA.map((step) => (
@@ -152,7 +157,7 @@ export function BattleInfoSection() {
                     as="p"
                     uiId={mergeUi("battle-step", step.stepNumber, "note")}
                     align="left"
-                    size="sm"
+                    size="body"
                     tone="default"
                     className="rounded-2xl bg-surface-page px-4 py-3 italic text-brand-brown"
                   >
