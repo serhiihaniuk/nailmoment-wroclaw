@@ -7,6 +7,8 @@ const titleVariants = cva("font-montserrat font-black uppercase tracking-tight",
     size: {
       card: "text-xl md:text-3xl",
       section: "text-2xl md:text-3xl",
+      articleLg: "text-3xl md:text-4xl",
+      articleMd: "text-2xl md:text-3xl",
       display: "text-3xl md:text-4xl",
       sm: "text-3xl md:text-5xl",
     },

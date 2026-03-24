@@ -71,9 +71,11 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
   body {
     @apply bg-surface-page font-onest text-base text-text-primary;
+    overflow-x: clip;
   }
 
   h1,
