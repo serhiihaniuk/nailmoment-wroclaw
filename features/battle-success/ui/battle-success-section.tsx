@@ -61,7 +61,9 @@ export function BattleSuccessSection() {
               </Badge>
             </Cluster>
 
-            <NailMomentLogo data-ui="battle-success-logo" className="w-full max-w-sm" />
+            <Link href="/" aria-label="На головну">
+              <NailMomentLogo data-ui="battle-success-logo" className="w-full max-w-sm" />
+            </Link>
 
             <SectionHeader
               uiId="battle-success-header"

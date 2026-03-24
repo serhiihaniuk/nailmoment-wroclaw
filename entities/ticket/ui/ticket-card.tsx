@@ -1,16 +1,14 @@
+import Link from "next/link";
+import { cva, type VariantProps } from "class-variance-authority";
+import { type TicketFeature, type TicketInfo } from "@/entities/ticket/model/types";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
+import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
 import { cn, mergeUi } from "@/shared/lib/utils";
-import {
-  type TicketInfo,
-  type TicketFeature,
-} from "@/entities/ticket/model/types";
 import { TypographyDisplay } from "@/shared/ui/typography";
-import { cva, type VariantProps } from "class-variance-authority";
-import Link from "next/link";
 
 const cardVariants = cva(
-  "w-full max-w-xl mx-auto overflow-hidden rounded-3xl border shadow-card",
+  "mx-auto w-full max-w-xl overflow-hidden rounded-3xl border shadow-card",
   {
     variants: {
       variant: {
@@ -81,18 +79,8 @@ const PlusIcon = ({ className }: { className?: string }) => (
     className={cn("inline-block shrink-0", className)}
   >
     <circle cx="10" cy="10" r="9.5" fill="#FFF9EC" />
-    <path
-      d="M10 6.5V13.5"
-      stroke="#395500"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-    <path
-      d="M6.5 10H13.5"
-      stroke="#395500"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
+    <path d="M10 6.5V13.5" stroke="#395500" strokeWidth="2" strokeLinecap="round" />
+    <path d="M6.5 10H13.5" stroke="#395500" strokeWidth="2" strokeLinecap="round" />
   </svg>
 );
 
@@ -128,6 +116,79 @@ export function TicketCard({
 }: TicketCardProps) {
   const titleTone = variant === "maxi" ? "gold" : variant === "vip" ? "inverse" : undefined;
   const priceTone = variant === "maxi" || variant === "vip" ? "inverse" : "olive";
+  const useDecoratedOliveCard = variant === "maxi" || variant === "vip";
+
+  const content = (
+    <>
+      <img
+        data-ui={mergeUi(uiId, "image")}
+        src={imageUrl}
+        alt={imageAlt}
+        className="w-40"
+      />
+      <TypographyDisplay as="div" uiId={mergeUi(uiId, "title")} tone={titleTone}>
+        {title}
+      </TypographyDisplay>
+
+      <div data-ui={mergeUi(uiId, "features")} className="w-full">
+        {features.map((feature, index) => (
+          <div
+            data-ui={mergeUi(uiId, "feature", index + 1)}
+            key={`${variant}-${index}`}
+            className={cn(
+              "flex items-center gap-3 py-3 text-base leading-6",
+              feature.isVip && variant === "vip"
+                ? "justify-center text-left"
+                : "justify-center text-center",
+              featureBorderVariants({ variant })
+            )}
+          >
+            {feature.isVip && variant === "vip" ? <PlusIcon className="size-5" /> : null}
+            <span data-ui={mergeUi(uiId, "feature-text", index + 1)}>{feature.value}</span>
+          </div>
+        ))}
+      </div>
+
+      <TypographyDisplay as="div" uiId={mergeUi(uiId, "price")} tone={priceTone}>
+        {price}
+        <span className="ml-1 text-2xl lowercase">zł</span>
+      </TypographyDisplay>
+
+      <Button
+        uiId={mergeUi(uiId, "button")}
+        disabled={soldOut}
+        className={cn("w-full uppercase", buttonToneVariants({ variant }))}
+        asChild
+      >
+        {soldOut ? (
+          <span data-ui={mergeUi(uiId, "button-label")} className="text-center">
+            SOLD OUT
+          </span>
+        ) : (
+          <Link data-ui={mergeUi(uiId, "link")} target="_blank" href={href}>
+            {buttonText}
+          </Link>
+        )}
+      </Button>
+    </>
+  );
+
+  if (useDecoratedOliveCard) {
+    return (
+      <DecoratedOliveCard
+        uiId={mergeUi(uiId, "card")}
+        leafLayout="compact"
+        className={cn(cardVariants({ variant }), className)}
+        contentClassName={cn(
+          "flex flex-col items-center gap-6 px-6 py-8 text-center",
+          featureTextVariants({ variant })
+        )}
+        {...props}
+      >
+        {content}
+      </DecoratedOliveCard>
+    );
+  }
 
   return (
     <Card
@@ -143,49 +204,7 @@ export function TicketCard({
           featureTextVariants({ variant })
         )}
       >
-        <img data-ui={mergeUi(uiId, "image")} src={imageUrl} alt={imageAlt} className="w-40" />
-        <TypographyDisplay as="div" uiId={mergeUi(uiId, "title")} tone={titleTone}>{title}</TypographyDisplay>
-
-        <div data-ui={mergeUi(uiId, "features")} className="w-full">
-          {features.map((feature, index) => (
-            <div
-              data-ui={mergeUi(uiId, "feature", index + 1)}
-              key={`${variant}-${index}`}
-              className={cn(
-                "flex items-center gap-3 py-3 text-base leading-6",
-                feature.isVip && variant === "vip"
-                  ? "justify-center text-left"
-                  : "justify-center text-center",
-                featureBorderVariants({ variant })
-              )}
-            >
-              {feature.isVip && variant === "vip" ? (
-                <PlusIcon className="size-5" />
-              ) : null}
-              <span data-ui={mergeUi(uiId, "feature-text", index + 1)}>{feature.value}</span>
-            </div>
-          ))}
-        </div>
-
-        <TypographyDisplay as="div" uiId={mergeUi(uiId, "price")} tone={priceTone}>
-          {price}
-          <span className="ml-1 text-2xl lowercase">zł</span>
-        </TypographyDisplay>
-
-        <Button
-          uiId={mergeUi(uiId, "button")}
-          disabled={soldOut}
-          className={cn("w-full uppercase", buttonToneVariants({ variant }))}
-          asChild
-        >
-          {soldOut ? (
-            <span data-ui={mergeUi(uiId, "button-label")} className="text-center">SOLD OUT</span>
-          ) : (
-            <Link data-ui={mergeUi(uiId, "link")} target="_blank" href={href}>
-              {buttonText}
-            </Link>
-          )}
-        </Button>
+        {content}
       </CardContent>
     </Card>
   );

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/shared/ui/button";
-import { Card, CardContent } from "@/shared/ui/card";
+import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
 import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
 import { mergeUi } from "@/shared/lib/utils";
 
@@ -26,17 +26,14 @@ export function CompetitionPeoplesSpeakerCard({
   const uiId = mergeUi("competition", id);
 
   return (
-    <Card
+    <DecoratedOliveCard
       id={id}
       uiId={uiId}
-      spacing="none"
-      surface="accent"
+      leafLayout="compact"
       className="scroll-mt-24 rounded-[1.4rem] bg-brand-olive text-text-inverse"
+      contentClassName="flex flex-col items-center gap-4 px-4 pb-4 pt-6 text-center md:gap-5 md:px-6 md:pb-6"
     >
-      <CardContent
-        uiId={mergeUi(uiId, "content")}
-        className="relative flex flex-col items-center gap-4 px-4 pb-4 pt-6 text-center md:gap-5 md:px-6 md:pb-6"
-      >
+      <div data-ui={mergeUi(uiId, "content")} className="contents">
         <span
           aria-hidden="true"
           data-ui={mergeUi(uiId, "sparkle", 1)}
@@ -100,7 +97,7 @@ export function CompetitionPeoplesSpeakerCard({
         >
           <Link href={href}>{buttonText}</Link>
         </Button>
-      </CardContent>
-    </Card>
+      </div>
+    </DecoratedOliveCard>
   );
 }

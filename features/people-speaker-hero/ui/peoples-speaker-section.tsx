@@ -8,6 +8,7 @@ import { BackLink } from "@/shared/ui/back-link";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
+import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
@@ -95,7 +96,9 @@ export const PeoplesSpeakerSection = () => (
             </Badge>
           </div>
 
-          <NailMomentLogo data-ui="people-speaker-logo" className="w-full max-w-sm" />
+          <Link href="/" aria-label="На головну">
+            <NailMomentLogo data-ui="people-speaker-logo" className="w-full max-w-sm" />
+          </Link>
 
           <SectionHeader
             uiId="people-speaker-header"
@@ -107,15 +110,13 @@ export const PeoplesSpeakerSection = () => (
             descriptionClassName="max-w-3xl text-base md:text-lg md:leading-8"
           />
 
-          <Card
+          <DecoratedOliveCard
             uiId="people-speaker-hero-card"
-            spacing="none"
-            className="w-full max-w-4xl rounded-[2rem] border-transparent bg-brand-olive text-text-inverse"
+            leafLayout="compact"
+            className="w-full max-w-4xl rounded-[2rem] bg-brand-olive text-text-inverse"
+            contentClassName="flex flex-col items-center gap-5 px-6 py-8 text-center md:px-10 md:py-10"
           >
-            <CardContent
-              uiId="people-speaker-hero-card"
-              className="flex flex-col items-center gap-5 px-6 py-8 text-center md:px-10 md:py-10"
-            >
+            <div data-ui="people-speaker-hero-card-content" className="contents">
               <img
                 data-ui="people-speaker-hero-image"
                 src={PEOPLE_SPEAKER_CONTENT.heroImage}
@@ -166,24 +167,21 @@ export const PeoplesSpeakerSection = () => (
                   </Link>
                 </Button>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </DecoratedOliveCard>
         </Stack>
       </div>
     </Section>
 
     <Section uiId="people-speaker-content-section" density="compact">
       <Stack uiId="people-speaker-content" gap="xl" className="mx-auto w-full max-w-4xl">
-        <Card
+        <DecoratedOliveCard
           uiId="people-speaker-about-card"
-          surface="accent"
-          spacing="none"
-          className="rounded-[2rem] border-transparent"
+          leafLayout="default"
+          className="rounded-[2rem]"
+          contentClassName="flex flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
         >
-          <CardContent
-            uiId="people-speaker-about-card"
-            className="flex flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
-          >
+          <div data-ui="people-speaker-about-card-content" className="contents">
             <SectionHeader
               uiId="people-speaker-about-header"
               align="left"
@@ -205,8 +203,8 @@ export const PeoplesSpeakerSection = () => (
                 </TypographyText>
               ))}
             </Stack>
-          </CardContent>
-        </Card>
+          </div>
+        </DecoratedOliveCard>
 
         <div
           data-ui="people-speaker-main-grid"
@@ -304,15 +302,13 @@ export const PeoplesSpeakerSection = () => (
             </CardContent>
           </Card>
 
-          <Card
+          <DecoratedOliveCard
             uiId="people-speaker-prize-card"
-            spacing="none"
-            className="rounded-[2rem] border-transparent bg-brand-olive text-text-inverse"
+            leafLayout="default"
+            className="rounded-[2rem] bg-brand-olive text-text-inverse"
+            contentClassName="flex h-full flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
           >
-            <CardContent
-              uiId="people-speaker-prize-card"
-              className="flex h-full flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
-            >
+            <div data-ui="people-speaker-prize-card-content" className="contents">
               <SectionHeader
                 uiId="people-speaker-prize-header"
                 align="left"
@@ -335,8 +331,8 @@ export const PeoplesSpeakerSection = () => (
                   tone="inverse"
                 />
               </Stack>
-            </CardContent>
-          </Card>
+            </div>
+          </DecoratedOliveCard>
         </div>
 
         <Stack uiId="people-speaker-winner-block" gap="default" className="w-full">

@@ -58,7 +58,9 @@ export function BattleSection() {
           <div className="flex-1" />
 
           <Stack uiId="battle-hero-copy" gap="sm" className="w-full max-w-3xl items-center">
-            <NailMomentLogo data-ui="battle-hero-logo" className="w-full max-w-sm" />
+            <Link href="/" aria-label="На головну">
+              <NailMomentLogo data-ui="battle-hero-logo" className="w-full max-w-sm" />
+            </Link>
             <SectionHeader
               uiId="battle-hero-title"
               as="h1"

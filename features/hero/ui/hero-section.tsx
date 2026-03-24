@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BuyTicketButton } from "@/entities/ticket/ui/buy-ticket-button";
 import Marquee from "@/shared/ui/marquee";
 import { Cluster } from "@/shared/ui/layout/cluster";
@@ -69,7 +70,9 @@ export function HeroSection() {
             <span data-ui="hero-eyebrow" className="text-2xl font-semibold uppercase leading-tight tracking-tight text-text-primary">
               {HOME_HERO_CONTENT.eyebrow}
             </span>
-            <NailMomentLogo data-ui="hero-logo" className="w-full max-w-sm" />
+            <Link href="/" aria-label="На головну">
+              <NailMomentLogo data-ui="hero-logo" className="w-full max-w-sm" />
+            </Link>
           </h1>
 
           <div className="flex-1" />

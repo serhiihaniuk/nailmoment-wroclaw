@@ -1,8 +1,8 @@
 import React from "react";
 import { cn } from "@/shared/lib/utils";
 import { IconLink as Link } from "@/shared/ui/icon-link";
-import { INFO_URL, COMPANY_INFO, IMAGES } from "@/shared/config/const";
-import { DecorativeImage } from "@/shared/ui/decorative-image";
+import { INFO_URL, COMPANY_INFO } from "@/shared/config/const";
+import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
 import { Section } from "@/shared/ui/layout/section";
 import { HOME_FOOTER_CONTENT } from "@/features/footer-info/model/content";
 
@@ -21,32 +21,14 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
       className={cn("px-0 pb-0 pt-4 md:pt-6", className)}
       innerClassName="max-w-none"
     >
-      <section
+      <DecoratedOliveCard
         data-ui="footer-shell"
-        className="relative isolate min-h-96 overflow-hidden rounded-2xl bg-blue-foreground px-4 pb-8 pt-8 text-center md:px-8"
+        uiId="footer-shell"
+        leafLayout="footer"
+        className="min-h-96 rounded-2xl text-center"
+        contentClassName="mx-auto flex w-full max-w-sm flex-col items-center gap-5 px-4 pb-8 pt-8 md:px-8"
       >
-        <img
-          data-ui="footer-background"
-          src={IMAGES.DECORATIVE_BG_1}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-5"
-        />
-        <DecorativeImage
-          uiId="footer-leaf-left"
-          src={IMAGES.DECORATIVE_LEAF_7}
-          className="-left-5 top-10 h-40 w-52 z-0"
-        />
-        <DecorativeImage
-          uiId="footer-leaf-right"
-          src={IMAGES.DECORATIVE_LEAF_1}
-          className="-right-12 top-64 h-60 w-44 z-0"
-        />
-
-        <div
-          data-ui="footer-content"
-          className="relative z-[1] mx-auto flex w-full max-w-sm flex-col items-center gap-5"
-        >
+        <div data-ui="footer-content" className="contents">
           <div
             data-ui="footer-company"
             className="flex flex-col items-center gap-4"
@@ -156,7 +138,7 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
             <p data-ui="footer-copyright">{HOME_FOOTER_CONTENT.copyright}</p>
           </div>
         </div>
-      </section>
+      </DecoratedOliveCard>
     </Section>
   );
 };
