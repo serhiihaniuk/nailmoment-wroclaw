@@ -1,14 +1,16 @@
 import { IMAGES } from "@/shared/config/const";
-import { mergeUi } from "@/shared/lib/utils";
+import { cn, mergeUi } from "@/shared/lib/utils";
 import { TypographyTitle } from "@/shared/ui/typography";
 
 type CompetitionPrizeBannerProps = {
   title: string;
   subtitle: string;
   uiId?: string;
+  className?: string;
 };
 
 export function CompetitionPrizeBanner({
+  className,
   subtitle,
   title,
   uiId = "competition-prize-banner",
@@ -16,7 +18,10 @@ export function CompetitionPrizeBanner({
   return (
     <div
       data-ui={mergeUi(uiId, "shell")}
-      className="relative w-full self-stretch overflow-hidden rounded-[1.4rem] px-4 py-4 md:px-10 md:py-6"
+      className={cn(
+        "relative w-full self-stretch overflow-hidden rounded-[1.4rem] px-4 py-4 md:px-10 md:py-6",
+        className
+      )}
       style={{
         background:
           "linear-gradient(115deg, #edc12b 0%, #fff8ad 34%, #f0d04e 64%, #dc9d25 100%)",

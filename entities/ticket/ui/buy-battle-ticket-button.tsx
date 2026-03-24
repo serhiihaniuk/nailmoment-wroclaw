@@ -1,22 +1,17 @@
-import { Button } from "@/shared/ui/button";
-import { cn } from "@/shared/lib/utils";
-import { TicketIcon } from "@/shared/assets/icons";
 import { FC } from "react";
+import { cn } from "@/shared/lib/utils";
+import { BattleTicketBuyButton } from "@/shared/ui/battle-ticket-buy-button";
 
 export const BuyBattleTicketButton: FC<{ className?: string }> = ({
   className,
 }) => {
   return (
-    <Button className={cn("bg-accent-pink", className)} asChild>
-      <a
-        href="https://buy.stripe.com/9AQcMSb5T0l4ehW14x"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="uppercase bg-accent-pink flex items-center justify-center gap-2 text-white"
-      >
-        Придбати квиток участника Битви Майстрів
-        <TicketIcon className="size-7" />
-      </a>
-    </Button>
+    <BattleTicketBuyButton
+      uiId="buy-battle-ticket-button"
+      href="https://buy.stripe.com/9AQcMSb5T0l4ehW14x"
+      className={cn(className)}
+    >
+      Придбати квиток учасника Битви Майстрів
+    </BattleTicketBuyButton>
   );
 };

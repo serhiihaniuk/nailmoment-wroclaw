@@ -1,109 +1,95 @@
-import React from "react";
+import type { ReactNode } from "react";
+import NextLink from "next/link";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/shared/ui/accordion";
-import { SectionHeader } from "@/shared/ui/section-header";
-import { Section } from "@/shared/ui/layout/section";
-import { IconLink as UiLink } from "@/shared/ui/icon-link"; // Renamed to avoid conflict with Next/Link
-import NextLink from "next/link"; // For the "Back to main page" button
-import { Button } from "@/shared/ui/button"; // For the "Back to main page" button
-import { StepBack } from "lucide-react"; // For the "Back to main page" button
+import { Button } from "@/shared/ui/button";
 import { INFO_URL } from "@/shared/config/const";
+import { IconLink } from "@/shared/ui/icon-link";
+import { Section } from "@/shared/ui/layout/section";
+import { Stack } from "@/shared/ui/layout/stack";
+import { SectionHeader } from "@/shared/ui/section-header";
+import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
 
-// --- FAQ Data Type (can be reused) ---
-export type FaqEntry = {
+type FaqEntry = {
   id: string;
   question: string;
-  answer: React.ReactNode;
+  answer: ReactNode;
 };
 
-// --- Link Components ---
-const InstagramLink: React.FC<{ handle: string }> = ({ handle }) => (
-  <UiLink
-    href={`https://www.instagram.com/${handle}/`}
-    icon={true}
-    target="_blank"
-  >
+const InstagramLink = ({ handle }: { handle: string }) => (
+  <IconLink href={`https://www.instagram.com/${handle}/`} icon target="_blank">
     @{handle}
-  </UiLink>
+  </IconLink>
 );
 
-const TelegramLink: React.FC<{ href: string; text: string }> = ({
-  href,
-  text,
-}) => (
-  <UiLink href={href} icon={true} target="_blank">
+const TelegramLink = ({ href, text }: { href: string; text: string }) => (
+  <IconLink href={href} icon target="_blank">
     {text}
-  </UiLink>
+  </IconLink>
 );
 
-// --- Battle FAQ Data ---
 const battleFaqData: FaqEntry[] = [
   {
     id: "battle-faq-1",
-    question: "Чи мушу я вміти нарощувати щоб прийняти участь у конкурсі?",
+    question: "Чи мушу я вміти нарощувати, щоб прийняти участь у конкурсі?",
     answer: (
       <>
-        Ні, вам не потрібно вміти нарощувати. Головні критерії для відбіркового
-        туру: робота має відповідати номінації, робота має бути чистою,
-        акуратною і красивою, та що не менш важливо, фотографії мають бути чіткі
-        та високої якості.
+        Ні, вам не потрібно вміти нарощувати. Головні критерії для відбіркового туру: робота має
+        відповідати номінації, бути чистою, акуратною і візуально сильною, а фотографії — чіткими та
+        якісними.
         <br />
-        BCЕ! Більше дійсно нічого не потрібно ☺️
+        <br />
+        Це все. Більше нічого не потрібно.
         <br />
         <br />
         <em className="text-sm">
-          *вміти нарощувати треба тільки для номінації «Екстра довжина»
+          *Вміння нарощувати потрібне лише для номінації «Екстра довжина».
         </em>
       </>
     ),
   },
   {
     id: "battle-faq-2",
-    question:
-      "У відбірковому турі є намінації, а які номінації будуть у фіналі?",
+    question: "У відбірковому турі є номінації, а які номінації будуть у фіналі?",
     answer: (
       <>
-        У фіналі НЕ БУДЕ номінацій! У вашому розпорядженні буде одна рука моделі
-        і ви можете робити що завгодно на її нігтях 🤩. Найголовніше показати
-        максимум краси та креативу, щоб ті хто подивляться на ДО та ПІСЛЯ не
-        повірили що це одна й та сама рука.
+        У фіналі не буде номінацій. У твоєму розпорядженні буде одна рука моделі, і ти зможеш
+        зробити будь-яке перевтілення на власний розсуд.
         <br />
-        Можна нарощувати, ліпити, малювати, створювати картини чи глибокі
-        переходи. Проявити свій креатив та фантазію 💛
         <br />
-        Більш детально ознайомитися з умовами:{" "}
-        <UiLink href="/regulamin-konkursu" icon={false}>
+        Можна нарощувати, ліпити, малювати, створювати складні дизайни чи глибокі переходи. Головне —
+        показати максимум краси, техніки та креативу.
+        <br />
+        <br />
+        Більш детально можна ознайомитися тут:{" "}
+        <IconLink href="/battle/regulamin" icon={false}>
           повні умови конкурсу
-        </UiLink>
+        </IconLink>
         .
       </>
     ),
   },
   {
     id: "battle-faq-3",
-    question: "Можу я зробити один манікюр та вислати його у кілька номінацій?",
-    answer: <>Ні, на кожну номінацію треба робити нову роботу.</>,
+    question: "Чи можу я зробити один манікюр та вислати його у кілька номінацій?",
+    answer: <>Ні, для кожної номінації потрібно підготувати окрему роботу.</>,
   },
   {
     id: "battle-faq-4",
     question: "Як проходить голосування у відбірковому турі?",
     answer: (
       <>
-        У кожній номінації буде обрано 20 найкращих робіт. Голосування пройде в
-        чат-боті „Nail Moment. Битва майстрів” (посилання буде надано в
-        інстаграмі в день номінацій), в якому кожен охочий зможе проголосувати
-        за 1 (одну) вподобану роботу в номінації. 3 (три) роботи, що набрали
-        більшість голосів, пройдуть у фінал конкурсу.
+        У кожній номінації буде обрано 20 найкращих робіт. Голосування пройде у чат-боті «Nail
+        Moment. Битва Майстрів», посилання на який буде опубліковано в Instagram у день старту
+        голосування.
         <br />
-        Більш детально ознайомитися з умовами:{" "}
-        <UiLink href="/regulamin-konkursu" icon={false}>
-          повні умови конкурсу
-        </UiLink>
-        .
+        <br />
+        Кожен охочий зможе проголосувати за одну вподобану роботу в кожній номінації. Три роботи з
+        найбільшою кількістю голосів пройдуть у фінал.
       </>
     ),
   },
@@ -113,19 +99,18 @@ const battleFaqData: FaqEntry[] = [
       "Якщо я купила один квиток учасника фестивалю, яка знижка діє на наступні квитки?",
     answer: (
       <>
-        Перший квиток учасника конкурсу &quot;Битва Майстрів&quot; коштує 150
-        зл.
+        Перший квиток учасника конкурсу «Битва Майстрів» коштує 150 зл.
+        <br />
         <br />
         На наступні квитки учасника діють знижки:
-        <ul className="list-disc pl-5 mt-2">
-          <li>Другий квиток: 109 зл</li>
-          <li>Третій квиток: 99 зл</li>
-          <li>Четвертий квиток: 79 зл</li>
-          <li>Пʼятий квиток: 50 зл</li>
+        <ul className="mt-3 list-disc space-y-1 pl-5">
+          <li>другий квиток — 109 зл</li>
+          <li>третій квиток — 99 зл</li>
+          <li>четвертий квиток — 79 зл</li>
+          <li>п’ятий квиток — 50 зл</li>
         </ul>
-        <p className="mt-2 text-sm">
-          (Ціна вказана за квиток учасника конкурсу, не за квиток на сам
-          фестиваль).
+        <p className="mt-3 text-sm text-brand-brown">
+          Ціна вказана саме за квиток учасника конкурсу, а не за вхід на фестиваль.
         </p>
       </>
     ),
@@ -135,69 +120,95 @@ const battleFaqData: FaqEntry[] = [
     question: "Як докупити наступний квиток учасника конкурсу?",
     answer: (
       <>
-        Щоб купити наступний квиток учасника конкурсу &quot;Битва Майстрів&quot;
-        зі знижкою, будь ласка, напишіть нам на сторінку
+        Щоб купити наступний квиток учасника конкурсу зі знижкою, напишіть нам у{" "}
         <InstagramLink handle="nail_moment_pl" />.
       </>
     ),
   },
   {
     id: "battle-faq-7",
-    question: "Як отримати фактуру (рахунок-фактуру)?",
+    question: "Як отримати фактуру?",
     answer: (
       <>
-        Щоб отримати фактуру за квиток учасника конкурсу, будь ласка, напишіть
-        нам на сторінку <InstagramLink handle="nail_moment_pl" />.
+        Щоб отримати фактуру за квиток учасника конкурсу, напишіть нам у{" "}
+        <InstagramLink handle="nail_moment_pl" />.
       </>
     ),
   },
 ];
 
-// --- Battle FAQ Section Component ---
-
-export const BattleFaqSection: React.FC = () => {
+export function BattleFaqSection() {
   return (
-    <Section>
-      <SectionHeader
-        title="Битва Майстрів: Часті питання"
-        className="mb-8 md:mb-10 text-center"
-      />
-      <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
-        {battleFaqData.map((item) => (
-          <AccordionItem
-            value={item.id}
-            key={item.id}
-            className="border-b border-blue-foreground/20 last:border-b-0"
-          >
-            <AccordionTrigger className="text-lg text-left font-medium text-blue-foreground hover:no-underline py-4 px-2 md:px-4">
-              {item.question}
-            </AccordionTrigger>
-            <AccordionContent className="text-base text-blue-foreground/90 pb-4 pt-2 px-2 md:px-4 leading-relaxed">
-              {item.answer}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-      <div className="mt-12 text-center max-w-3xl mx-auto space-y-6">
-        <Button
-          className="text-blue-foreground w-full max-w-xs mx-auto flex gap-2 items-center"
-          asChild
-        >
-          <NextLink href="/">
-            <StepBack />
-            Повернутися на головну сторінку
-          </NextLink>
-        </Button>
+    <Section uiId="battle-faq-section" density="compact">
+      <Stack uiId="battle-faq-content" gap="lg" className="items-center">
+        <Stack uiId="battle-faq-header" gap="sm" className="items-center text-center">
+          <SectionHeader
+            uiId="battle-faq-title"
+            title="Битва Майстрів: часті питання"
+            tone="accent"
+          />
+          <TypographyText uiId="battle-faq-description" size="body" tone="default" className="text-brand-brown">
+            Зібрали найважливіші організаційні моменти, щоб участь у конкурсі була максимально
+            зрозумілою.
+          </TypographyText>
+        </Stack>
 
-        <div className="text-blue-foreground/90">
-          <h3 className="text-xl font-semibold mb-2">Зв’язок</h3>
-          <p>
-            Якщо у тебе виникли питання, звертайся до нашого відділу турботи ☺️
-            <br />
-            <TelegramLink href={INFO_URL.TELEGRAM} text="Написати в Telegram" />
-          </p>
+        <div
+          data-ui="battle-faq-shell"
+          className="w-full max-w-4xl rounded-3xl border border-border-subtle bg-surface-card px-4 py-2 shadow-card md:px-6"
+        >
+          <Accordion uiId="battle-faq-accordion" type="single" collapsible className="w-full">
+            {battleFaqData.map((item) => (
+              <AccordionItem
+                uiId={item.id}
+                value={item.id}
+                key={item.id}
+                className="border-b border-border-subtle last:border-b-0"
+              >
+                <AccordionTrigger
+                  uiId={item.id}
+                  className="px-2 py-5 text-left text-base font-medium text-brand-brown hover:no-underline md:text-lg"
+                >
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent
+                  uiId={item.id}
+                  className="px-2 pb-5 pt-0 text-sm leading-7 text-brand-brown md:text-base"
+                >
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
-      </div>
+
+        <Stack uiId="battle-faq-actions" gap="default" className="w-full max-w-3xl items-center">
+          <Button
+            uiId="battle-faq-home-link"
+            variant="secondary"
+            asChild
+            className="w-full border-2 border-brand-brown text-brand-brown font-black hover:bg-brand-brown/5 sm:max-w-xs"
+          >
+            <NextLink href="/">Повернутися на головну</NextLink>
+          </Button>
+
+          <Stack uiId="battle-faq-contact" gap="xs" className="items-center text-center">
+            <TypographyTitle
+              as="h3"
+              uiId="battle-faq-contact-title"
+              size="card"
+              tone="accent"
+              className="normal-case"
+            >
+              Потрібна допомога?
+            </TypographyTitle>
+            <TypographyText uiId="battle-faq-contact-copy" size="body" tone="default" className="text-brand-brown">
+              Якщо виникли додаткові питання, напиши нашому відділу турботи.
+            </TypographyText>
+            <TelegramLink href={INFO_URL.TELEGRAM} text="Написати в Telegram" />
+          </Stack>
+        </Stack>
+      </Stack>
     </Section>
   );
-};
+}

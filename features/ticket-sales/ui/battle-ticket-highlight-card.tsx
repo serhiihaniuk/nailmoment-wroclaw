@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { TicketIcon } from "@/shared/assets/icons";
+import { BattleTicketBuyButton } from "@/shared/ui/battle-ticket-buy-button";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
-import { TypographyText, TypographyDisplay } from "@/shared/ui/typography";
 import { mergeUi } from "@/shared/lib/utils";
+import { TypographyDisplay, TypographyText } from "@/shared/ui/typography";
 
 type BattleTicketHighlightCardProps = {
   imageUrl: string;
@@ -102,28 +102,19 @@ export function BattleTicketHighlightCard({
         </div>
 
         <div data-ui={mergeUi(uiId, "actions")} className="grid gap-3">
-          <Button
+          <BattleTicketBuyButton
             uiId={mergeUi(uiId, "buy-button")}
-            asChild
-            className="w-full justify-between bg-[linear-gradient(115deg,#edc12b_0%,#fff8ad_34%,#f0d04e_64%,#dc9d25_100%)] text-brand-brown shadow-none hover:brightness-100"
+            href="https://buy.stripe.com/9AQcMSb5T0l4ehW14x"
           >
-            <a href="#battle-of-masters">
-              <span>ПРИДБАТИ КВИТОК УЧАСНИКА БИТВИ МАЙСТРІВ</span>
-              <TicketIcon
-                data-ui={mergeUi(uiId, "buy-icon")}
-                color="currentColor"
-                aria-hidden="true"
-                className="h-[1.8rem] w-[1.8rem] shrink-0"
-              />
-            </a>
-          </Button>
+            Придбати квиток учасника Битви Майстрів
+          </BattleTicketBuyButton>
           <Button
             uiId={mergeUi(uiId, "details-button")}
             asChild
             variant="secondary"
             className="w-full border-white bg-transparent text-text-inverse hover:bg-white/8"
           >
-            <Link href="/battle">ДІЗНАТИСЯ ПОДРОБИЦІ</Link>
+            <Link href="/battle">Дізнатися подробиці</Link>
           </Button>
         </div>
       </CardContent>

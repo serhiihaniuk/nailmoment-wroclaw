@@ -7,7 +7,7 @@ import { PageShell } from "@/shared/ui/layout/page-shell";
 
 export function BattlePage() {
   return (
-    <PageShell className="flex min-h-[100dvh] flex-col space-y-14 bg-blue-background md:space-y-28">
+    <PageShell>
       <BattleSection />
       <BattleInfoSection />
       <CriteriaSection />
