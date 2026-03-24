@@ -49,13 +49,18 @@ const BATTLE_STEPS_DATA = [
     stepNumber: 5,
     title: "Фінальний тур",
     description:
-      "Якщо ти став фіналістом, приїжджай на фестиваль Nail Moment 7 червня у Варшаву, де відбудеться фінал конкурсу.\n\nНа фіналі тобі нададуть:\n• модель\n• стіл\n• два стільці\n• 2 години 30 хвилин для створення повного перевтілення однієї руки моделі за власним баченням\n\nПісля цього у тебе буде:\n• 30 хвилин на фото- та відеозйомку своєї роботи\n• 30 хвилин для підготовки фото- та відеопрезентації для фінального голосування",
+      "Якщо ти став фіналістом, приїжджай на фінал конкурсу «Битва Майстрів» у Варшаві.\n\nЩо ти отримаєш на фіналі:\nТобі нададуть:\n• одну руку моделі для роботи\n• стіл\n• 2 стільці\n\nЧас для створення роботи:\nУ фіналі тобі буде надано:\n• 3 години для створення повного перевтілення однієї руки моделі за власним баченням\nПісля завершення роботи:\n• 30 хвилин на фото та відеозйомку роботи\n• 30 хвилин на підготовку фото- та відеопрезентації для фінального голосування",
+    note:
+      "⚠️ УВАГА! Фінальний тур проходить за день до фестивалю Nail Moment.\n\n• 6 липня — фінал конкурсу «Битва Майстрів»\n• 7 липня — фестиваль Nail Moment",
+    actionText: "Ознайомитись з правилами фіналу",
+    actionHref: "/battle/regulamin#final-rules",
   },
   {
     stepNumber: 6,
     title: "Забери головний приз 2000 зл та кубок переможця",
     description:
-      "За підсумками фінального голосування 7 червня 2026 року буде визначено переможця конкурсу «Битва Майстрів». Якщо це буде твоя робота, ти отримаєш головний приз 2000 зл та кубок переможця.",
+      "Результати конкурсу будуть оголошені 7 липня на сцені фестивалю Nail Moment у Варшаві.\n\nСаме там стане відомо, хто стане переможцем «Битви Майстрів».",
+    note: "Переможці отримують",
   },
 ];
 
@@ -293,13 +298,77 @@ export function BattleInfoSection() {
                     className={
                       step.stepNumber === 3
                         ? "italic text-brand-brown"
-                        : step.stepNumber === 4
-                          ? "font-black text-red-600"
-                          : "text-red-600"
+                        : step.stepNumber === 5
+                          ? "whitespace-pre-line rounded-2xl border border-yellow-200 bg-yellow-50 px-4 py-3 font-semibold text-brand-brown"
+                          : step.stepNumber === 6
+                            ? "rounded-2xl bg-surface-page px-4 py-3 font-semibold text-brand-brown"
+                          : step.stepNumber === 4
+                            ? "font-black text-red-600"
+                            : "text-red-600"
                     }
                   >
                     {step.note}
                   </TypographyText>
+                ) : null}
+
+                {step.stepNumber === 6 ? (
+                  <>
+                    <div
+                      data-ui="battle-step-6-prizes"
+                      className="flex w-full flex-col gap-3"
+                    >
+                      {BATTLE_INTRO_PRIZES.map((item, index) => (
+                        <div
+                          key={`${item.icon}-${index}-step-6`}
+                          data-ui={mergeUi("battle-step-6-prize", index + 1)}
+                          className="rounded-xl bg-surface-page px-4 py-3 text-left"
+                        >
+                          <TypographyTitle
+                            as="p"
+                            uiId={mergeUi("battle-step-6-prize-title", index + 1)}
+                            order="order4"
+                            tone="accent"
+                            align="left"
+                            className="normal-case"
+                          >
+                            <span data-ui={mergeUi("battle-step-6-prize-icon", index + 1)}>
+                              {item.icon}{" "}
+                            </span>
+                            {item.title}
+                          </TypographyTitle>
+
+                          <div
+                            data-ui={mergeUi("battle-step-6-prize-lines", index + 1)}
+                            className="mt-2 space-y-1"
+                          >
+                            {item.lines.map((line, lineIndex) => (
+                              <TypographyText
+                                key={lineIndex}
+                                as="p"
+                                uiId={mergeUi("battle-step-6-prize-line", index + 1, lineIndex + 1)}
+                                size="body"
+                                tone="default"
+                                align="left"
+                                className="text-brand-brown"
+                              >
+                                {line}
+                              </TypographyText>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <TypographyText
+                      as="p"
+                      uiId="battle-step-6-prizes-note"
+                      size="body"
+                      tone="default"
+                      className="italic text-brand-brown"
+                    >
+                      ✨ Список подарунків буде доповнюватися після підтвердження партнерів.
+                    </TypographyText>
+                  </>
                 ) : null}
 
                 {step.stepNumber === 3 ? (

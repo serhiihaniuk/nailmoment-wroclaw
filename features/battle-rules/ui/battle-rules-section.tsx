@@ -48,6 +48,16 @@ function RulesBlock({ section }: { section: (typeof BATTLE_RULES_CONTENT.section
                 key={`${section.id}-subheading-${index + 1}`}
                 as="h3"
                 uiId={mergeUi("battle-rules", section.id, "subheading", index + 1)}
+                id={
+                  section.id === "stages" && block.text === "Фінальний конкурс «Битва Майстрів»"
+                    ? "final-rules"
+                    : undefined
+                }
+                className={
+                  section.id === "stages" && block.text === "Фінальний конкурс «Битва Майстрів»"
+                    ? "scroll-mt-24"
+                    : undefined
+                }
               >
                 {block.text}
               </ArticleSubheading>

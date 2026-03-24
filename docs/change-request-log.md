@@ -117,6 +117,26 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
 
+- Page / section: `/battle` steps, step 5
+- Request: Update the final-round step to:
+  - explain arrival to the final in Warsaw
+  - add a highlighted warning that the final is one day before the festival
+  - list what the finalist receives and the timing for work/photo/presentation
+  - add a button that links directly to the final rules block in `/battle/regulamin`
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+  - [battle-rules-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\ui\battle-rules-section.tsx)
+
+- Page / section: `/battle` steps, step 6
+- Request: Update the winner-announcement step to:
+  - say results are announced on `7 липня` on the Nail Moment festival stage in Warsaw
+  - make that announcement text more prominent
+  - repeat the full winners/finalists prize list inside this card
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+
 ## Historical recap from this thread
 
 - `/battle`: migrated to current design system, brown theme, single-column layout, rules/success pages migrated
