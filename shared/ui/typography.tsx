@@ -35,7 +35,7 @@ const titleVariants = cva(
 const textVariants = cva("", {
   variants: {
     size: {
-      sm: "text-sm leading-6",
+      sm: "text-base leading-6",
       body: "text-base leading-7 md:text-lg",
       lead: "text-base font-medium leading-7 md:text-lg md:leading-8",
     },

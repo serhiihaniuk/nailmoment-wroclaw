@@ -1,332 +1,368 @@
-import { Section } from "@/shared/ui/layout/section";
-import { SectionHeader } from "@/shared/ui/section-header";
-import { DecorativeImage } from "@/shared/ui/decorative-image";
+import Link from "next/link";
+import { SpeakerCard } from "@/entities/speaker/ui/speaker-card";
+import { FooterInfoSection } from "@/features/footer-info/ui/footer-info-section";
+import { PEOPLE_SPEAKER_CONTENT } from "@/features/people-speaker-hero/model/content";
+import { NailMomentLogo } from "@/shared/assets/icons";
+import { IMAGES } from "@/shared/config/const";
+import { BackLink } from "@/shared/ui/back-link";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
-import { IconLink as Link } from "@/shared/ui/icon-link";
-import { BackLink } from "@/shared/ui/back-link";
-import { IMAGES, INFO_URL } from "@/shared/config/const";
-import { NailIcon, MomentIcon } from "@/shared/assets/icons";
-import { Mic, Star, CheckCircle } from "lucide-react";
-import { cn } from "@/shared/lib/utils";
-import { ListItem } from "@/shared/ui/list-item";
-import { AccentCard } from "@/shared/ui/accent-card";
-import NextImage from "next/image";
+import { Card, CardContent } from "@/shared/ui/card";
+import { DecorativeImage } from "@/shared/ui/decorative-image";
+import { Section } from "@/shared/ui/layout/section";
+import { Stack } from "@/shared/ui/layout/stack";
+import { SectionHeader } from "@/shared/ui/section-header";
+import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
 
-const EVENT_BADGES = [{ label: "7 червня" }, { label: "Варшава" }];
-
-const WHAT_IS_ITEMS = [
-  {
-    icon: <Mic size={24} />,
-    text: "Унікальна можливість для кожного майстра манікюру проявити себе.",
-  },
-  {
-    icon: <Star size={24} />,
-    text: "Твоя тема, твій стиль, твоя енергія — і ти на сцені поруч із зірками нейл-індустрії!",
-  },
-  {
-    icon: <CheckCircle size={24} />,
-    text: "Виступати на одній сцені з мастодонтами nail‑індустрії такими як — Анастасія Котенко та Юлія Зварич.",
-  },
-];
-
-const WHY_JOIN_ITEMS = [
-  {
-    text: (
-      <>
-        <span className="font-semibold">Жодних обмежень:</span> неважливо,
-        скільки в тебе підписників або який у тебе Instagram.
-      </>
-    ),
-  },
-  {
-    text: (
-      <>
-        <span className="font-semibold">Головне — твоя ідея:</span> актуальна,
-        корисна, свіжа тема для виступу.
-      </>
-    ),
-  },
-  {
-    text: (
-      <>
-        <span className="font-semibold">Виступ на головній сцені:</span> 30
-        хвилин слави — майстер‑клас або спіч перед усією аудиторією.
-      </>
-    ),
-  },
-  { text: "Твоя фотографія на банері фестивалю." },
-  { text: "Визнання від усієї спільноти майстрів Польщі та Європи." },
-  {
-    text: (
-      <>
-        Шанс, який буває раз у житті! <Star size={20} className="inline" />
-      </>
-    ),
-  },
-];
-
-const PRIZE_ITEMS = [
-  {
-    icon: <Mic size={24} className="text-accent-pink" />,
-    text: (
-      <>
-        Виступ <span className="font-bold">7 червня</span> на головній сцені
-        фестивалю Nail Moment у Варшаві.
-      </>
-    ),
-  },
-  {
-    icon: <CheckCircle size={24} className="text-accent-pink" />,
-    text: (
-      <>
-        <span className="font-bold">30 хвилин</span> для майстер‑класу або
-        виступу на обрану тему.
-      </>
-    ),
-  },
-  {
-    icon: <CheckCircle size={24} className="text-accent-pink" />,
-    text: "Фотографія на банері фестивалю.",
-  },
-  {
-    icon: <CheckCircle size={24} className="text-accent-pink" />,
-    text: "Визнання, аудиторія, нові можливості.",
-  },
-  {
-    icon: <CheckCircle size={24} className="text-accent-pink" />,
-    text: "Реклама тебе у соцмережах фестивалю.",
-  },
-  {
-    icon: <CheckCircle size={24} className="text-accent-pink" />,
-    text: "Безкоштовний вхід на весь фестиваль.",
-  },
-];
-
-type BulletProps = {
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-  className?: string;
-};
-
-const Bullet: React.FC<BulletProps> = ({ icon, children, className }) => (
-  <li className={cn("flex items-start gap-3", className)}>
-    {icon && <span className="text-accent-pink mt-1">{icon}</span>}
-    <span>{children}</span>
-  </li>
-);
-
-// -----------------------------------------------------------------------------
-// Main component
-// -----------------------------------------------------------------------------
+function BulletList({
+  uiId,
+  items,
+  tone = "default",
+}: {
+  uiId: string;
+  items: string[];
+  tone?: "default" | "inverse";
+}) {
+  return (
+    <Stack uiId={uiId} gap="xs" className="w-full">
+      {items.map((item, index) => (
+        <div
+          key={item}
+          data-ui={`${uiId}-item-${index + 1}`}
+          className="px-1 py-2"
+        >
+          <TypographyText
+            as="p"
+            uiId={`${uiId}-item-${index + 1}-text`}
+            align="left"
+            size="body"
+            tone={tone}
+            className={
+              tone === "inverse"
+                ? "text-text-inverse"
+                : "text-brand-olive"
+            }
+          >
+            <span className="font-black">{index + 1}.</span> {item}
+          </TypographyText>
+        </div>
+      ))}
+    </Stack>
+  );
+}
 
 export const PeoplesSpeakerSection = () => (
   <>
-    {/* Hero */}
-    <Section className="flex mb-2 flex-col items-center relative pt-20">
-      {/* Decorative fruits */}
-      <DecorativeImage
-        src={IMAGES.ORANGES_URL}
-        className="-left-14 -top-5 md:-left-6 md:-top-5 rotate-[30deg] size-[180px] sm:size-[200px] z-0"
-      />
-      <DecorativeImage
-        src={IMAGES.LEMONS_URL}
-        className="-right-8 md:-right-2 -top-8 size-[160px] sm:size-[180px]"
-      />
-
-      {/* Date & City badges */}
-      <div className="grid grid-cols-2 gap-2 mb-5 relative z-[1]">
-        {EVENT_BADGES.map(({ label }) => (
-          <Badge key={label}>{label}</Badge>
-        ))}
-      </div>
-      <span className="flex scale-[0.5] w-[358px] h-[117px] flex-col items-center justify-center gap-3.5">
-        <NailIcon />
-        <span className="relative block">
-          <MomentIcon />
-          <img
-            src={IMAGES.LEMON_URL}
-            alt="O"
-            className="absolute left-[67px] -top-3 size-[62px] object-cover inline-block"
-          />
-        </span>
-      </span>
-    </Section>
-
-    {/* Intro */}
-    <Section className="space-y-5">
-      <SectionHeader title="«Народний спікер»" className="mb-2 text-5xl" />
-      <p className="gradient-orange py-2 text-xl text-shadow-md px-4 rounded-xl text-white max-w-md mx-auto text-center">
-        <span className="font-bold text-3xl">
-          стань зіркою головної сцени Nail Moment!
-        </span>
-      </p>
-      <div className="space-y-6 text-blue-foreground/95 text-base sm:text-lg leading-relaxed">
-        <p className="text-center text-lg sm:text-xl">
-          Перший в Україні та Польщі конкурс, де саме{" "}
-          <span className="font-bold text-accent-pink">ти</span> можеш стати
-          спікером фестивалю, навіть якщо тебе ще ніхто не знає!
-        </p>
-
-        <div className="font-black text-2xl overflow-hidden bg-blue-foreground text-white p-4 rounded-xl relative max-w-md uppercase mx-auto text-center">
-          <DecorativeImage
-            src={IMAGES.ORANGES_URL}
-            className="size-[99px] left-0 -top-10 z-0"
-          />
-          <DecorativeImage
-            src={IMAGES.PASSION_URL}
-            className="size-[99px] -right-5 -bottom-10 z-0"
-          />
-          <span className="relative z-10 text-shadow-md">
-            Ми шукаємо нові голоси, нові ідеї, нових героїв спільноти.
-          </span>
-        </div>
-        <p className="bg-blue-foreground py-2 text-xl text-shadow-md px-4 rounded-xl text-white max-w-md mx-auto text-center">
-          <span className="font-bold text-3xl">Це можеш бути ТИ!</span>
-        </p>
-      </div>
-    </Section>
-
-    <AccentCard className="relative" title="Народний Спікер - це:">
-      <DecorativeImage
-        src={IMAGES.LEMON_URL}
-        className="-right-12 -top-12 size-[120px]"
-      />
-      <ul className="space-y-3 w-full pt-5 mx-auto">
-        {WHAT_IS_ITEMS.map(({ text }, i) => (
-          <ListItem
-            key={i}
-            text={text}
-            className="[&_p]:text-white font-semibold text-lg"
-            iconClassName="text-white"
-          />
-        ))}
-      </ul>
-    </AccentCard>
-    <Section>
-      <SectionHeader
-        title="Чому варто приєднатися?"
-        className="mt-14 mb-6 text-blue-foreground"
-      />
-      <ul className="space-y-3 max-w-2xl mx-auto">
-        {WHY_JOIN_ITEMS.map(({ text }, i) => (
-          <Bullet key={i} icon={<CheckCircle size={24} />}>
-            {text}
-          </Bullet>
-        ))}
-      </ul>
-
-      <SectionHeader
-        title="Як взяти участь?"
-        className="mt-14 mb-6 text-blue-foreground"
-      />
-      <ol className="space-y-4 text-blue-foreground max-w-md mx-auto list-decimal bg-white p-6 rounded-xl list-inside marker:font-bold text-lg">
-        <li>
-          <span className="font-semibold">Запиши відео до 2 хвилин, де:</span>
-          <ul className="list-disc pl-6 mt-2 space-y-1">
-            <ListItem text="коротко розкажи про себе;" />
-            <ListItem text="презентуй тему, з якою хочеш виступити;" />
-            <ListItem text="поясни, чому ця тема важлива;" />
-            <ListItem text="розкажи, чому саме тебе мають обрати." />
-          </ul>
-        </li>
-        <li>
-          <span className="font-semibold">Змонтуй відео</span> так, щоб воно
-          було енергійним та зрозумілим.
-        </li>
-        <li>
-          <span className="font-semibold">Надішли його в Telegram</span>{" "}
-          фестивалю Nail Moment{" "}
-          <span className="font-bold text-accent-pink">до 15 червня</span>
-          <Link href={INFO_URL.TELEGRAM} target="_blank" icon className="ml-1">
-            (посилання)
-          </Link>
-          .
-        </li>
-      </ol>
-
-      <SectionHeader
-        title="Як обирається переможець?"
-        className="mt-14 mb-6 text-blue-foreground"
-      />
-
-      <ul className="flex relative flex-col gap-1.5 p-6 self-stretch max-w-md mx-auto bg-white rounded-lg mb-2.5 self-stretch">
-        <ListItem text="10‑15 найкращих роликів попадуть на народне голосування." />
-        <ListItem text="Дедлайн подачі презентацій — 15 червня." />
-        <ListItem text="З 20‑25 червня стартує народне голосування серед майстрів у чат‑боті." />
-        <ListItem text="27 червня оголошення переможця." />
-        <ListItem text="Хто набере найбільше голосів — той і стає “Народним спікером”." />
-      </ul>
-
-      {/* 5. Prize */}
-      <div className="mt-14 pt-6">
-        <SectionHeader
-          title="Що отримує переможець?"
-          className="mb-6 text-accent-pink"
+    <Section
+      uiId="people-speaker-hero-section"
+      density="compact"
+      innerClassName="max-w-none"
+      className="px-0 pt-0 md:px-0 md:pt-0 xl:px-0"
+    >
+      <div
+        data-ui="people-speaker-hero-shell"
+        className="relative isolate overflow-hidden rounded-[2rem] bg-surface-page px-4 pb-8 pt-10 md:px-8 md:pb-10 md:pt-14"
+      >
+        <img
+          data-ui="people-speaker-hero-background"
+          src={IMAGES.DECORATIVE_BG_1}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-40"
         />
-        <ul className="space-y-3 p-6 relative rounded-xl max-w-md text-lg mx-auto text-blue-foreground">
-          {PRIZE_ITEMS.map(({ text }, i) => (
-            <ListItem
-              key={i}
-              text={text}
-              iconClassName="text-white"
-              className={cn("[&_p]:text-white bg-accent-pink rounded-md", {
-                "w-[95%]": i === 0 || i === 3,
-                "w-[85%]": i === 1,
-                "w-[80%]": i === 2,
-              })}
-            />
-          ))}
-          <DecorativeImage
-            src={IMAGES.PASSION_URL}
-            className="right-0 translate-1/2 top-[5%] size-[180px]"
-          />
-        </ul>
-      </div>
-
-      {/* Featured People's Speaker */}
-      <div className="mt-16 mb-16">
-        <SectionHeader
-          title="Народний спікер 2025"
-          className="mb-8 text-accent-pink"
+        <DecorativeImage
+          uiId="people-speaker-hero-leaf-right"
+          src={IMAGES.DECORATIVE_LEAF_1}
+          className="-right-8 -top-16 z-[1] h-[19rem] w-[15rem]"
         />
-        <div className="bg-gradient-to-br from-accent-pink/10 to-blue-foreground/10 p-8 rounded-xl max-w-2xl mx-auto">
-          <div className="flex flex-col items-center gap-8">
-            <div className="relative">
-              <NextImage
-                src="https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/valentyna_kozlova.jpg"
-                alt="Валентина Козлова"
-                width={160}
-                height={224}
-                placeholder="blur"
-                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA4IDUnPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0nZycgeDE9JzAlJyB5MT0nMCUnIHgyPScwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyNmMGYwZjAnLz48c3RvcCBvZmZzZXQ9JzEwMCUnIHN0b3AtY29sb3I9JyNkOWQ5ZDknLz48L2xpbmVhckdyYWRpZW50PjxmaWx0ZXIgaWQ9J2InPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249JzEnLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9JzgnIGhlaWdodD0nNScgZmlsbD0ndXJsKCNnKScgZmlsdGVyPSd1cmwoI2IpJy8+PC9zdmc+"
-                sizes="(max-width: 767px) 160px, 160px"
-                className="w-40 h-56 rounded-xl object-cover border-4 border-white shadow-lg"
-              />
-              <div className="absolute -top-2 -right-2 bg-accent-pink text-white px-3 py-1 rounded-full text-sm font-bold">
-                Переможець
-              </div>
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl sm:text-3xl font-bold text-blue-foreground mb-4">
-                ВАЛЕНТИНА КОЗЛОВА
-              </h3>
-              <div className="text-lg text-blue-foreground/90 leading-relaxed">
-                Експертка з 8-річним досвідом,
-                <br />
-                Подологиня й викладачка.
-                <br />
-                Вона пройшла шлях від майстрині з прасувальної дошки до експертки з чеком за навчання $650 і записом на 2 місяці вперед.
-              </div>
-            </div>
+        <DecorativeImage
+          uiId="people-speaker-hero-leaf-left"
+          src={IMAGES.DECORATIVE_LEAF_4}
+          className="-left-8 top-2 z-[1] h-44 w-40"
+        />
+
+        <Stack
+          uiId="people-speaker-hero-content"
+          gap="lg"
+          className="relative z-[2] items-center text-center"
+        >
+          <div data-ui="people-speaker-badges" className="grid grid-cols-2 gap-2">
+            <Badge uiId="people-speaker-date" className="min-w-[9rem] border-0 bg-surface-card/90">
+              7 червня
+            </Badge>
+            <Badge uiId="people-speaker-city" className="min-w-[9rem] border-0 bg-surface-card/90">
+              Варшава
+            </Badge>
           </div>
-        </div>
-      </div>
 
-      {/* Back home link */}
-      <div className="mt-16 flex justify-center">
-        <BackLink href="/">Повернутися на головну</BackLink>
+          <NailMomentLogo data-ui="people-speaker-logo" className="w-full max-w-sm" />
+
+          <SectionHeader
+            uiId="people-speaker-header"
+            as="h1"
+            title={PEOPLE_SPEAKER_CONTENT.title}
+            description={PEOPLE_SPEAKER_CONTENT.description}
+            size="display"
+            tone="default"
+            descriptionClassName="max-w-3xl text-base md:text-lg md:leading-8"
+          />
+
+          <Card
+            uiId="people-speaker-hero-card"
+            spacing="none"
+            className="w-full max-w-4xl rounded-[2rem] border-transparent bg-brand-olive text-text-inverse"
+          >
+            <CardContent
+              uiId="people-speaker-hero-card"
+              className="flex flex-col items-center gap-5 px-6 py-8 text-center md:px-10 md:py-10"
+            >
+              <img
+                data-ui="people-speaker-hero-image"
+                src={PEOPLE_SPEAKER_CONTENT.heroImage}
+                alt={PEOPLE_SPEAKER_CONTENT.heroImageAlt}
+                className="mx-auto h-auto w-full max-w-[240px] object-contain"
+              />
+              <TypographyTitle
+                as="h2"
+                uiId="people-speaker-hero-lead"
+                size="card"
+                tone="inverse"
+                className="normal-case"
+              >
+                {PEOPLE_SPEAKER_CONTENT.heroLead}
+              </TypographyTitle>
+              <div
+                data-ui="people-speaker-hero-actions"
+                className="flex w-full max-w-2xl flex-col gap-3"
+              >
+                <Button
+                  uiId="people-speaker-primary-cta"
+                  variant="secondary"
+                  size="sm"
+                  asChild
+                  className="w-full border-white bg-transparent text-text-inverse hover:bg-white/8"
+                >
+                  <Link
+                    href={PEOPLE_SPEAKER_CONTENT.primaryCta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {PEOPLE_SPEAKER_CONTENT.primaryCta.label}
+                  </Link>
+                </Button>
+                <Button
+                  uiId="people-speaker-secondary-cta"
+                  variant="secondary"
+                  size="sm"
+                  asChild
+                  className="w-full border-white bg-transparent text-text-inverse hover:bg-white/8"
+                >
+                  <Link
+                    href={PEOPLE_SPEAKER_CONTENT.secondaryCta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {PEOPLE_SPEAKER_CONTENT.secondaryCta.label}
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </Stack>
       </div>
     </Section>
+
+    <Section uiId="people-speaker-content-section" density="compact">
+      <Stack uiId="people-speaker-content" gap="xl" className="mx-auto w-full max-w-4xl">
+        <Card
+          uiId="people-speaker-about-card"
+          surface="accent"
+          spacing="none"
+          className="rounded-[2rem] border-transparent"
+        >
+          <CardContent
+            uiId="people-speaker-about-card"
+            className="flex flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
+          >
+            <SectionHeader
+              uiId="people-speaker-about-header"
+              align="left"
+              title={PEOPLE_SPEAKER_CONTENT.aboutTitle}
+              tone="inverse"
+            />
+            <Stack uiId="people-speaker-about-list" gap="sm">
+              {PEOPLE_SPEAKER_CONTENT.aboutItems.map((item, index) => (
+                <TypographyText
+                  key={item}
+                  as="p"
+                  uiId={`people-speaker-about-item-${index + 1}`}
+                  align="left"
+                  size="body"
+                  tone="inverse"
+                  className="rounded-2xl bg-white/10 px-4 py-4 text-text-inverse"
+                >
+                  <span className="font-black">{index + 1}.</span> {item}
+                </TypographyText>
+              ))}
+            </Stack>
+          </CardContent>
+        </Card>
+
+        <div
+          data-ui="people-speaker-main-grid"
+          className="grid grid-cols-1 gap-6"
+        >
+          <Card
+            uiId="people-speaker-benefits-card"
+            surface="subtle"
+            spacing="none"
+            className="rounded-[2rem]"
+          >
+            <CardContent
+              uiId="people-speaker-benefits-card"
+              className="flex h-full flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
+            >
+              <SectionHeader
+                uiId="people-speaker-benefits-header"
+                align="left"
+                title={PEOPLE_SPEAKER_CONTENT.benefitsTitle}
+                tone="default"
+              />
+              <TypographyText
+                uiId="people-speaker-benefits-description"
+                align="left"
+                size="body"
+                tone="default"
+              >
+                {PEOPLE_SPEAKER_CONTENT.benefitsDescription}
+              </TypographyText>
+              <BulletList uiId="people-speaker-benefits-list" items={PEOPLE_SPEAKER_CONTENT.benefits} />
+            </CardContent>
+          </Card>
+
+          <Card
+            uiId="people-speaker-apply-card"
+            surface="subtle"
+            spacing="none"
+            className="rounded-[2rem]"
+          >
+            <CardContent
+              uiId="people-speaker-apply-card"
+              className="flex h-full flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
+            >
+              <SectionHeader
+                uiId="people-speaker-apply-header"
+                align="left"
+                title={PEOPLE_SPEAKER_CONTENT.applyTitle}
+                tone="default"
+              />
+              <TypographyText
+                uiId="people-speaker-apply-description"
+                align="left"
+                size="body"
+                tone="default"
+              >
+                {PEOPLE_SPEAKER_CONTENT.applyDescription}
+              </TypographyText>
+              <BulletList uiId="people-speaker-apply-list" items={PEOPLE_SPEAKER_CONTENT.applySteps} />
+            </CardContent>
+          </Card>
+        </div>
+
+        <div
+          data-ui="people-speaker-secondary-grid"
+          className="grid grid-cols-1 gap-6"
+        >
+          <Card
+            uiId="people-speaker-selection-card"
+            surface="subtle"
+            spacing="none"
+            className="rounded-[2rem]"
+          >
+            <CardContent
+              uiId="people-speaker-selection-card"
+              className="flex h-full flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
+            >
+              <SectionHeader
+                uiId="people-speaker-selection-header"
+                align="left"
+                title={PEOPLE_SPEAKER_CONTENT.selectionTitle}
+                tone="default"
+              />
+              <TypographyText
+                uiId="people-speaker-selection-description"
+                align="left"
+                size="body"
+                tone="default"
+              >
+                {PEOPLE_SPEAKER_CONTENT.selectionDescription}
+              </TypographyText>
+              <BulletList
+                uiId="people-speaker-selection-list"
+                items={PEOPLE_SPEAKER_CONTENT.selectionSteps}
+              />
+            </CardContent>
+          </Card>
+
+          <Card
+            uiId="people-speaker-prize-card"
+            spacing="none"
+            className="rounded-[2rem] border-transparent bg-brand-olive text-text-inverse"
+          >
+            <CardContent
+              uiId="people-speaker-prize-card"
+              className="flex h-full flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
+            >
+              <SectionHeader
+                uiId="people-speaker-prize-header"
+                align="left"
+                title={PEOPLE_SPEAKER_CONTENT.prizeTitle}
+                tone="inverse"
+              />
+              <TypographyText
+                uiId="people-speaker-prize-description"
+                align="left"
+                size="body"
+                tone="inverse"
+                className="text-text-inverse"
+              >
+                {PEOPLE_SPEAKER_CONTENT.prizeDescription}
+              </TypographyText>
+              <Stack uiId="people-speaker-prize-list" gap="sm">
+                <BulletList
+                  uiId="people-speaker-prize-list-items"
+                  items={PEOPLE_SPEAKER_CONTENT.prizes}
+                  tone="inverse"
+                />
+              </Stack>
+            </CardContent>
+          </Card>
+        </div>
+
+        <Stack uiId="people-speaker-winner-block" gap="default" className="w-full">
+          <SectionHeader
+            uiId="people-speaker-winner-header"
+            align="left"
+            title={PEOPLE_SPEAKER_CONTENT.winnerTitle}
+            tone="default"
+          />
+          <SpeakerCard
+            uiId="people-speaker-winner"
+            imageUrl={PEOPLE_SPEAKER_CONTENT.winnerImage}
+            imageAlt={PEOPLE_SPEAKER_CONTENT.winnerImageAlt}
+            name={PEOPLE_SPEAKER_CONTENT.winnerName}
+            description={<p>{PEOPLE_SPEAKER_CONTENT.winnerDescription}</p>}
+          />
+        </Stack>
+
+        <div data-ui="people-speaker-back" className="flex justify-center">
+          <BackLink uiId="people-speaker-back-link" href="/">
+            Повернутися на головну
+          </BackLink>
+        </div>
+      </Stack>
+    </Section>
+
+    <FooterInfoSection />
   </>
 );
