@@ -4,8 +4,8 @@ import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { FooterInfoSection } from "@/features/footer-info/ui/footer-info-section";
 import { IMAGES } from "@/shared/config/const";
 import { MomentIcon, NailIcon } from "@/shared/assets/icons";
-import { StepBack } from "lucide-react";
-import Link from "next/link"; // Import Link for the back button
+import { BackLink } from "@/shared/ui/back-link";
+import Link from "next/link";
 
 export default function Polityka() {
   return (
@@ -105,15 +105,9 @@ export default function Polityka() {
             Materiały te dotyczą wyłącznie oferty naszego Serwisu.
           </p>
         </div>
-        <Button
-          className="text-blue-foreground w-full max-w-80 mx-auto mt-10 flex gap-2 items-center"
-          asChild
-        >
-          <Link href="/">
-            <StepBack />
-            Повернутися на головну сторінку
-          </Link>
-        </Button>
+        <div className="mt-10 flex justify-center">
+          <BackLink href="/">Повернутися на головну</BackLink>
+        </div>
       </Section>
       <FooterInfoSection />
     </main>

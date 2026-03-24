@@ -1,12 +1,11 @@
 import type { ReactNode } from "react";
-import NextLink from "next/link";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/shared/ui/accordion";
-import { Button } from "@/shared/ui/button";
+import { BackLink } from "@/shared/ui/back-link";
 import { INFO_URL } from "@/shared/config/const";
 import { IconLink } from "@/shared/ui/icon-link";
 import { Section } from "@/shared/ui/layout/section";
@@ -183,14 +182,9 @@ export function BattleFaqSection() {
         </div>
 
         <Stack uiId="battle-faq-actions" gap="default" className="w-full max-w-3xl items-center">
-          <Button
-            uiId="battle-faq-home-link"
-            variant="secondary"
-            asChild
-            className="w-full border-2 border-brand-brown text-brand-brown font-black hover:bg-brand-brown/5 sm:max-w-xs"
-          >
-            <NextLink href="/">Повернутися на головну</NextLink>
-          </Button>
+          <BackLink uiId="battle-faq-home-link" href="/">
+            Повернутися на головну
+          </BackLink>
 
           <Stack uiId="battle-faq-contact" gap="xs" className="items-center text-center">
             <TypographyTitle

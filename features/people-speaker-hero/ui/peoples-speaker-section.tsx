@@ -4,9 +4,10 @@ import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import { IconLink as Link } from "@/shared/ui/icon-link";
+import { BackLink } from "@/shared/ui/back-link";
 import { IMAGES, INFO_URL } from "@/shared/config/const";
 import { NailIcon, MomentIcon } from "@/shared/assets/icons";
-import { Mic, Star, CheckCircle, StepBack } from "lucide-react";
+import { Mic, Star, CheckCircle } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 import { ListItem } from "@/shared/ui/list-item";
 import { AccentCard } from "@/shared/ui/accent-card";
@@ -322,16 +323,10 @@ export const PeoplesSpeakerSection = () => (
         </div>
       </div>
 
-      {/* Back home button */}
-      <Button
-        className="text-blue-foreground w-full max-w-xs mx-auto mt-20 flex gap-2 items-center"
-        asChild
-      >
-        <Link href="/" target="_self">
-          <StepBack />
-          Повернутися на головну сторінку
-        </Link>
-      </Button>
+      {/* Back home link */}
+      <div className="mt-16 flex justify-center">
+        <BackLink href="/">Повернутися на головну</BackLink>
+      </div>
     </Section>
   </>
 );

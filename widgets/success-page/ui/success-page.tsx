@@ -9,7 +9,7 @@ import { LocationSection } from "@/features/location/ui/location-section";
 import { IMAGES } from "@/shared/config/const";
 import { MomentIcon, NailIcon } from "@/shared/assets/icons";
 import { BattleCTA } from "@/widgets/battle-cta";
-import { StepBack } from "lucide-react";
+import { BackLink } from "@/shared/ui/back-link";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -67,15 +67,9 @@ export default function SuccessPayment() {
       </Suspense>
 
       <LocationSection />
-      <Button
-        className="text-blue-foreground w-full max-w-80 mx-auto my-6 flex gap-2 items-center"
-        asChild
-      >
-        <Link href="/">
-          <StepBack />
-          Повернутися на головну сторінку
-        </Link>
-      </Button>
+      <div className="my-6 flex justify-center">
+        <BackLink href="/">Повернутися на головну</BackLink>
+      </div>
       <FooterInfoSection />
     </main>
   );
