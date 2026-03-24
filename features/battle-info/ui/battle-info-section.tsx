@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { BuyBattleTicketButton } from "@/entities/ticket/ui/buy-battle-ticket-button";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
 import { IMAGES, INFO_URL } from "@/shared/config/const";
 import { mergeUi } from "@/shared/lib/utils";
+import { Image } from "@/shared/ui/image";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { SectionHeader } from "@/shared/ui/section-header";
@@ -55,6 +57,35 @@ const BATTLE_STEPS_DATA = [
   },
 ];
 
+const BATTLE_INTRO_PRIZES = [
+  {
+    icon: "🥇",
+    title: "1 місце",
+    lines: [
+      "Грошову нагороду — 2000 zł",
+      "Кубок переможця «Битви Майстрів»",
+      "Цінні подарунки від головного спонсора",
+      "Подарунки від партнерів фестивалю",
+    ],
+  },
+  {
+    icon: "🥈 🥉",
+    title: "2 та 3 місце",
+    lines: [
+      "Сертифікати переможців",
+      "Подарункові набори від партнерів конкурсу",
+    ],
+  },
+  {
+    icon: "🎁",
+    title: "Фіналісти конкурсу",
+    lines: [
+      "Подарунки від партнерів фестивалю",
+      "Сертифікат фіналіста",
+    ],
+  },
+];
+
 export function BattleInfoSection() {
   return (
     <Section uiId="battle-info-section" density="compact">
@@ -68,32 +99,118 @@ export function BattleInfoSection() {
             uiId="battle-intro"
             className="flex flex-col items-center gap-4 px-6 py-8 text-center md:px-10 md:py-10"
           >
+            <TypographyTitle
+              as="h2"
+              uiId="battle-intro-title"
+              order="order2"
+              tone="inverse"
+              className="max-w-[18ch] normal-case text-text-inverse"
+            >
+              Битва Майстрів — конкурс, де може перемогти саме твоя робота
+            </TypographyTitle>
             <TypographyText
               uiId="battle-intro-text-1"
               size="lead"
               tone="inverse"
               className="max-w-3xl text-text-inverse"
             >
-              «Битва Майстрів» — це унікальний конкурс для майстрів манікюру, де
-              головними критеріями є твоя креативність, професіоналізм та результат.
+              «Битва Майстрів» — це конкурс для майстрів манікюру, де головне не
+              титули та не популярність.
             </TypographyText>
-            <img
-              data-ui="battle-intro-image"
-              src={IMAGES.TICKET_BATTLE_DECOR}
-              alt=""
-              aria-hidden="true"
-              className="mx-auto h-auto w-full max-w-[250px] object-contain"
+            <Image
+              uiId="battle-intro"
+              url={IMAGES.BATTLE_INTRO_PHOTO}
+              alt="Битва Майстрів"
+              className="w-full rounded-[1.4rem]"
+              sizes="(max-width: 768px) 100vw, 896px"
             />
+            <TypographyTitle
+              as="p"
+              uiId="battle-intro-highlight"
+              order="order3"
+              tone="inverse"
+              className="max-w-3xl normal-case text-text-inverse"
+            >
+              Головне — твій дизайн, твоя креативність та твоя майстерність.
+            </TypographyTitle>
             <TypographyText
               uiId="battle-intro-text-2"
               size="lead"
               tone="inverse"
               className="max-w-3xl text-text-inverse"
             >
-              Жодних строгих технік, відомих суддів чи жорстких таймінгів. Оцінювати
-              роботи будуть самі майстри, а переможець забере 2000 зл та кубок
-              переможця.
+              Роботи оцінюють самі майстри nail-індустрії, тому перемагає не ім&apos;я,
+              а робота, яка дійсно вражає.
             </TypographyText>
+            <TypographyTitle
+              as="p"
+              uiId="battle-intro-prizes-heading"
+              order="order4"
+              tone="inverse"
+              className="mt-2 normal-case text-text-inverse"
+            >
+              🏆 Переможці отримують
+            </TypographyTitle>
+            <div data-ui="battle-intro-prizes" className="mt-2 flex w-full max-w-3xl flex-col gap-3">
+              {BATTLE_INTRO_PRIZES.map((item, index) => (
+                <div
+                  key={`${item.icon}-${index}`}
+                  data-ui={mergeUi("battle-intro-prize", index + 1)}
+                  className="rounded-xl bg-white/10 px-4 py-3 text-left text-text-inverse"
+                >
+                  <TypographyTitle
+                    as="p"
+                    uiId={mergeUi("battle-intro-prize-title", index + 1)}
+                    order="order4"
+                    tone="inverse"
+                    align="left"
+                    className="normal-case text-text-inverse"
+                  >
+                    <span data-ui={mergeUi("battle-intro-prize-icon", index + 1)}>{item.icon} </span>
+                    {item.title}
+                  </TypographyTitle>
+                  <div
+                    data-ui={mergeUi("battle-intro-prize-lines", index + 1)}
+                    className="mt-2 space-y-1"
+                  >
+                    {item.lines.map((line, lineIndex) => (
+                      <TypographyText
+                        key={lineIndex}
+                        as="p"
+                        uiId={mergeUi("battle-intro-prize-line", index + 1, lineIndex + 1)}
+                        size="body"
+                        tone="inverse"
+                        align="left"
+                        className="text-text-inverse"
+                      >
+                        {line}
+                      </TypographyText>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <TypographyText
+              as="p"
+              uiId="battle-intro-prizes-note"
+              size="body"
+              tone="inverse"
+              className="max-w-3xl italic text-text-inverse"
+            >
+              ✨ Список подарунків буде доповнюватися після підтвердження партнерів.
+            </TypographyText>
+            <TypographyTitle
+              as="p"
+              uiId="battle-intro-promise"
+              order="order3"
+              tone="inverse"
+              className="mt-2 max-w-3xl normal-case text-text-inverse"
+            >
+              Можливо, цього року переможе саме твоя робота
+            </TypographyTitle>
+            <BuyBattleTicketButton className="w-full">
+              Взяти участь у конкурсі
+            </BuyBattleTicketButton>
           </CardContent>
         </Card>
 
@@ -152,7 +269,7 @@ export function BattleInfoSection() {
                   {step.description}
                 </TypographyText>
 
-                {step.additionalInfo ? (
+                {step.stepNumber !== 3 && step.additionalInfo ? (
                   <TypographyText
                     as="p"
                     uiId={mergeUi("battle-step", step.stepNumber, "note")}
@@ -163,6 +280,12 @@ export function BattleInfoSection() {
                   >
                     {step.additionalInfo}
                   </TypographyText>
+                ) : null}
+
+                {step.stepNumber === 3 ? (
+                  <BuyBattleTicketButton className="ml-auto w-auto self-end">
+                    Взяти участь у конкурсі
+                  </BuyBattleTicketButton>
                 ) : null}
 
                 {step.actionText && step.actionHref ? (

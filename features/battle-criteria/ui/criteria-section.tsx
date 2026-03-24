@@ -109,18 +109,6 @@ export function CriteriaSection() {
                 spacing="none"
                 className="rounded-[2rem]"
               >
-                <div
-                  data-ui={mergeUi("battle-nomination", nomination.id, "media")}
-                  className="overflow-hidden rounded-t-[2rem]"
-                >
-                  <Image
-                    src={nomination.imageUrl}
-                    alt={nomination.title}
-                    width={960}
-                    height={720}
-                    className="aspect-[4/3] w-full object-cover"
-                  />
-                </div>
                 <CardContent
                   uiId={mergeUi("battle-nomination", nomination.id)}
                   className="px-5 py-5 text-center md:px-6"
@@ -135,6 +123,18 @@ export function CriteriaSection() {
                     {nomination.id}. {nomination.title}
                   </TypographyTitle>
                 </CardContent>
+                <div
+                  data-ui={mergeUi("battle-nomination", nomination.id, "media")}
+                  className="overflow-hidden rounded-b-[2rem]"
+                >
+                  <Image
+                    src={nomination.imageUrl}
+                    alt={nomination.title}
+                    width={960}
+                    height={720}
+                    className="aspect-[4/3] w-full object-cover"
+                  />
+                </div>
               </Card>
             ))}
           </div>

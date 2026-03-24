@@ -81,7 +81,9 @@ export function BattleSection() {
               subtitle={HOME_COMPETITION_CONTENT.battle.prizeSubtitle ?? ""}
               className="px-0 py-0"
             />
-            <BuyBattleTicketButton className="w-full" />
+            <BuyBattleTicketButton className="w-full">
+              Взяти участь у конкурсі
+            </BuyBattleTicketButton>
             <div data-ui="battle-hero-shortcuts" className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <Button uiId="battle-hero-rules" variant="secondary" size="sm" asChild className="w-full">
                 <Link href="/battle/regulamin">Умови участі</Link>
