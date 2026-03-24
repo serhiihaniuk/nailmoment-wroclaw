@@ -1,4 +1,3 @@
-import { BattleAtmosphereSection } from "@/features/battle-atmosphere/ui/battle-atmosphere-section";
 import { BattleFaqSection } from "@/features/battle-faq/ui/battle-faq-section";
 import { BattleSection } from "@/features/battle-hero/ui/battle-section";
 import { BattleInfoSection } from "@/features/battle-info/ui/battle-info-section";
@@ -12,7 +11,6 @@ export function BattlePage() {
       <BattleSection />
       <BattleInfoSection />
       <CriteriaSection />
-      <BattleAtmosphereSection />
       <BattleFaqSection />
       <FooterInfoSection />
     </PageShell>

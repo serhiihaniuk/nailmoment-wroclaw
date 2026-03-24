@@ -73,6 +73,50 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [battle-atmosphere-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-atmosphere\ui\battle-atmosphere-section.tsx)
   - [battle-page.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\widgets\battle-page\ui\battle-page.tsx)
 
+- Page / section: `/battle` structure
+- Request: Place `Атмосфера «Битви Майстрів» на фестивалі Nail Moment 2025` directly after the brown intro card, before the participation steps
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+  - [battle-page.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\widgets\battle-page\ui\battle-page.tsx)
+
+- Page / section: `/battle` steps, step 1
+- Request: Adjust the first step paragraph to:
+  - `Уважно прочитай повні умови участі у конкурсі.`
+  - `Подавши заявку, ти підтверджуєш, що ознайомився та погоджуєшся з усіма правилами конкурсу.`
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+
+- Page / section: `/battle` steps, step 2 and step 3
+- Request: Update the ticket wording to:
+  - step 2: festival ticket is required to participate
+  - step 3: explain that the participant must buy a festival ticket, list `Standard` / `VIP`, and add the warning `Без квитка на фестиваль участь у конкурсі неможлива.`
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+
+- Page / section: `/battle` steps, step 3
+- Request: Replace the old participant-ticket explanation with nomination-ticket pricing:
+  - `1 номінація = 1 квиток`
+  - explain separate ticket per nomination
+  - add multi-nomination discount note
+  - show pricing examples for 1-5 nominations
+  - add italic note that extra nominations can be bought via Instagram direct
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+
+- Page / section: `/battle` steps, step 4
+- Request: Update the submission step to:
+  - send `1-3` photos of one work
+  - emphasize the deadline `10 травня`
+  - explain that valid works go to public Telegram bot voting
+  - clarify that top `3` works in each nomination move to the final
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+
 ## Historical recap from this thread
 
 - `/battle`: migrated to current design system, brown theme, single-column layout, rules/success pages migrated

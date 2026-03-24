@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BattleAtmosphereSection } from "@/features/battle-atmosphere/ui/battle-atmosphere-section";
 import { BuyBattleTicketButton } from "@/entities/ticket/ui/buy-battle-ticket-button";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
@@ -15,7 +16,7 @@ const BATTLE_STEPS_DATA = [
     stepNumber: 1,
     title: "Ознайомся з умовами конкурсу",
     description:
-      "Уважно прочитай повні умови участі. Подавши заявку, ти підтверджуєш, що погоджуєшся з усіма правилами.",
+      "Уважно прочитай повні умови участі у конкурсі.\nПодавши заявку, ти підтверджуєш, що ознайомився та погоджуєшся з усіма правилами конкурсу.",
     actionText: "Прочитати умови",
     actionHref: "/battle/regulamin",
   },
@@ -23,25 +24,26 @@ const BATTLE_STEPS_DATA = [
     stepNumber: 2,
     title: "Придбай квиток на фестиваль Nail Moment",
     description:
-      "Щоб взяти участь у «Битві Майстрів», потрібно бути учасником фестивалю. Підійде квиток Standard або VIP.",
+      "Для того щоб прийняти участь у конкурсі «Битва Майстрів», треба бути учасником фестивалю.",
     actionText: "Придбати квиток",
     actionHref: "/#ticket-section",
   },
   {
     stepNumber: 3,
-    title: "Придбай квиток учасника конкурсу",
+    title: "Придбай квиток учасника",
     description:
-      "1 квиток = 1 номінація.\n\nЯкщо хочеш взяти участь у двох чи більше номінаціях, потрібно купити окремий квиток на кожну з них. На кожну наступну номінацію діє знижка учасника.",
-    additionalInfo: "Продажі ще не розпочато.",
+      "Щоб взяти участь у «Битві Майстрів», потрібно придбати квиток на обрану номінацію.\n\n📌 1 номінація = 1 квиток\n\nЯкщо ти хочеш брати участь у кількох номінаціях, потрібно придбати окремий квиток на кожну номінацію.\n\n✨ При участі у кількох номінаціях діє знижка для учасників.\n\nНаприклад:\n\n• 1 номінація — 199 zł\n• 2 номінації — 159 zł\n• 3 номінації — 119 zł\n• 4 номінації — 99 zł\n• 5 номінацій — 79 zł",
+    note: "*додаткові номінації можна купити через дірект (ссилка на instagram https://www.instagram.com/nail_moment_pl?igsh=YWZpY2JjOTFueXc5)*",
   },
   {
     stepNumber: 4,
     title: "Візьми участь у відбірковому турі",
     description:
-      "Обери свою номінацію та надішли 1–3 фотографії своєї роботи. 20 найкращих робіт з кожної номінації потраплять у публічне голосування.",
+      "Обери свою номінацію та надішли 1-3 фотографії своєї ОДНІЄЇ роботи.\n\nОстанній день прийому робіт — 10 травня\n\nУсі роботи, які відповідають умовам конкурсу, будуть опубліковані для публічного голосування у телеграм-боті (посилання надамо в день першого голосування)\n\nЗа результатами голосування 3 (три) роботи з кожної номінації, які отримають найбільшу кількість голосів — пройдуть у фінальний тур конкурсу.",
     actionText: "Вислати свою роботу",
     actionHref: INFO_URL.TELEGRAM,
     isExternal: true,
+    note: "10 травня",
   },
   {
     stepNumber: 5,
@@ -53,7 +55,7 @@ const BATTLE_STEPS_DATA = [
     stepNumber: 6,
     title: "Забери головний приз 2000 зл та кубок переможця",
     description:
-      "За підсумками фінального голосування 7 червня 2026 року буде визначено переможця конкурсу «Битва Майстрів». Якщо це будеш ти, отримаєш головний приз 2000 зл та кубок переможця.",
+      "За підсумками фінального голосування 7 червня 2026 року буде визначено переможця конкурсу «Битва Майстрів». Якщо це буде твоя робота, ти отримаєш головний приз 2000 зл та кубок переможця.",
   },
 ];
 
@@ -108,15 +110,17 @@ export function BattleInfoSection() {
             >
               Битва Майстрів — конкурс, де може перемогти саме твоя робота
             </TypographyTitle>
+
             <TypographyText
               uiId="battle-intro-text-1"
               size="lead"
               tone="inverse"
               className="max-w-3xl text-text-inverse"
             >
-              «Битва Майстрів» — це конкурс для майстрів манікюру, де головне не
-              титули та не популярність.
+              «Битва Майстрів» — це конкурс для майстрів манікюру, де головне не титули та не
+              популярність.
             </TypographyText>
+
             <Image
               uiId="battle-intro"
               url={IMAGES.BATTLE_INTRO_PHOTO}
@@ -124,6 +128,7 @@ export function BattleInfoSection() {
               className="w-full rounded-[1.4rem]"
               sizes="(max-width: 768px) 100vw, 896px"
             />
+
             <TypographyTitle
               as="p"
               uiId="battle-intro-highlight"
@@ -133,15 +138,17 @@ export function BattleInfoSection() {
             >
               Головне — твій дизайн, твоя креативність та твоя майстерність.
             </TypographyTitle>
+
             <TypographyText
               uiId="battle-intro-text-2"
               size="lead"
               tone="inverse"
               className="max-w-3xl text-text-inverse"
             >
-              Роботи оцінюють самі майстри nail-індустрії, тому перемагає не ім&apos;я,
-              а робота, яка дійсно вражає.
+              Роботи оцінюють самі майстри nail-індустрії, тому перемагає не ім&apos;я, а робота,
+              яка дійсно вражає.
             </TypographyText>
+
             <TypographyTitle
               as="p"
               uiId="battle-intro-prizes-heading"
@@ -151,6 +158,7 @@ export function BattleInfoSection() {
             >
               🏆 Переможці отримують
             </TypographyTitle>
+
             <div data-ui="battle-intro-prizes" className="mt-2 flex w-full max-w-3xl flex-col gap-3">
               {BATTLE_INTRO_PRIZES.map((item, index) => (
                 <div
@@ -169,6 +177,7 @@ export function BattleInfoSection() {
                     <span data-ui={mergeUi("battle-intro-prize-icon", index + 1)}>{item.icon} </span>
                     {item.title}
                   </TypographyTitle>
+
                   <div
                     data-ui={mergeUi("battle-intro-prize-lines", index + 1)}
                     className="mt-2 space-y-1"
@@ -190,6 +199,7 @@ export function BattleInfoSection() {
                 </div>
               ))}
             </div>
+
             <TypographyText
               as="p"
               uiId="battle-intro-prizes-note"
@@ -199,6 +209,7 @@ export function BattleInfoSection() {
             >
               ✨ Список подарунків буде доповнюватися після підтвердження партнерів.
             </TypographyText>
+
             <TypographyTitle
               as="p"
               uiId="battle-intro-promise"
@@ -208,11 +219,14 @@ export function BattleInfoSection() {
             >
               Можливо, цього року переможе саме твоя робота
             </TypographyTitle>
+
             <BuyBattleTicketButton className="w-full">
               Взяти участь у конкурсі
             </BuyBattleTicketButton>
           </CardContent>
         </Card>
+
+        <BattleAtmosphereSection />
 
         <Stack uiId="battle-steps-title" gap="sm" className="items-center text-center">
           <SectionHeader uiId="battle-steps-heading" title="Етапи участі" tone="accent" />
@@ -269,16 +283,22 @@ export function BattleInfoSection() {
                   {step.description}
                 </TypographyText>
 
-                {step.stepNumber !== 3 && step.additionalInfo ? (
+                {step.note ? (
                   <TypographyText
                     as="p"
                     uiId={mergeUi("battle-step", step.stepNumber, "note")}
                     align="left"
                     size="body"
                     tone="default"
-                    className="rounded-2xl bg-surface-page px-4 py-3 italic text-brand-brown"
+                    className={
+                      step.stepNumber === 3
+                        ? "italic text-brand-brown"
+                        : step.stepNumber === 4
+                          ? "font-black text-red-600"
+                          : "text-red-600"
+                    }
                   >
-                    {step.additionalInfo}
+                    {step.note}
                   </TypographyText>
                 ) : null}
 
@@ -294,7 +314,7 @@ export function BattleInfoSection() {
                     variant="secondary"
                     size="sm"
                     asChild
-                    className="w-full border-2 border-brand-brown text-brand-brown font-black hover:bg-brand-brown/5 sm:ml-auto sm:w-auto"
+                    className="w-full border-2 border-brand-brown font-black text-brand-brown hover:bg-brand-brown/5 sm:ml-auto sm:w-auto"
                   >
                     <Link
                       href={step.actionHref}
