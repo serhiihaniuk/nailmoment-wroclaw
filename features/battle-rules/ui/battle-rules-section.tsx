@@ -12,13 +12,11 @@ import {
   ArticleSubheading,
   ArticleText,
 } from "@/shared/ui/article";
-
-import { Card, CardContent } from "@/shared/ui/card";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { SectionHeader } from "@/shared/ui/section-header";
-import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
+import { Card, CardContent } from "@/shared/ui/card";
 
 function RulesBlock({ section }: { section: (typeof BATTLE_RULES_CONTENT.sections)[number] }) {
   return (
@@ -187,43 +185,16 @@ export function BattleRulesSection() {
               uiId="battle-rules-header"
               title={BATTLE_RULES_CONTENT.title}
               tone="accent"
+              titleClassName="max-w-[25ch]"
               descriptionClassName="max-w-3xl text-brand-brown text-base md:text-lg md:leading-8"
             />
-
-            <Card
-              uiId="battle-rules-intro"
-              spacing="none"
-              className="w-full max-w-4xl rounded-[2rem] border-transparent bg-brand-brown text-text-inverse"
-            >
-              <CardContent
-                uiId="battle-rules-intro"
-                className="flex flex-col items-center gap-5 px-6 py-8 text-center md:px-10 md:py-10"
-              >
-                <img
-                  data-ui="battle-rules-intro-image"
-                  src={IMAGES.TICKET_BATTLE_DECOR}
-                  alt=""
-                  aria-hidden="true"
-                  className="mx-auto h-auto w-full max-w-[250px] object-contain"
-                />
-                <TypographyText
-                  uiId="battle-rules-intro-copy"
-                  size="lead"
-                  tone="inverse"
-                  className="max-w-3xl text-text-inverse"
-                >
-                  {BATTLE_RULES_CONTENT.intro}
-                </TypographyText>
-                <TypographyText
-                  uiId="battle-rules-intro-notice"
-                  size="body"
-                  tone="inverse"
-                  className="max-w-3xl font-semibold text-text-inverse"
-                >
-                  {BATTLE_RULES_CONTENT.notice}
-                </TypographyText>
-              </CardContent>
-            </Card>
+            <img
+              data-ui="battle-rules-hero-image"
+              src={IMAGES.TICKET_BATTLE_DECOR}
+              alt=""
+              aria-hidden="true"
+              className="mx-auto h-auto w-full max-w-[200px] object-contain"
+            />
           </Stack>
         </div>
       </Section>
