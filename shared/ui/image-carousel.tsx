@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import NextImage from "next/image"; // Import Next.js Image
-import { cn } from "@/shared/lib/utils";
+import { cn, mergeUi } from "@/shared/lib/utils";
 import {
   Carousel,
   CarouselContent,
@@ -8,12 +10,15 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/shared/ui/carousel";
+import { useImageViewer } from "@/shared/ui/image-viewer";
 
 interface ImageCarouselProps {
   images: string[]; // Array of image URLs
   imageAlt?: string;
   className?: string;
   blurDataURLs?: string[];
+  uiId?: string;
+  fullscreen?: boolean;
 }
 
 const imageWidth = 900;
@@ -26,9 +31,22 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   images,
   imageAlt = "Past event",
   className,
+  uiId,
+  fullscreen = true,
 }) => {
+  const { openViewer } = useImageViewer();
+  const galleryImages = images.map((imageUrl, index) => ({
+    src: imageUrl,
+    alt: `${imageAlt} ${index + 1}`,
+    width: imageWidth,
+    height: imageHeight,
+  }));
+
   return (
-    <div className={cn("w-full relative max-w-xl mx-auto", className)}>
+    <div
+      data-ui={mergeUi(uiId ?? "image-carousel")}
+      className={cn("w-full relative max-w-xl mx-auto", className)}
+    >
       <Carousel
         opts={{
           align: "start",
@@ -38,7 +56,11 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
       >
         <CarouselContent className="bg-transparent -ml-4">
           {images.map((imageUrl, index) => (
-            <CarouselItem key={index} className="bg-transparent pl-4 w-">
+            <CarouselItem
+              key={index}
+              data-ui={mergeUi(uiId, `slide-${index + 1}`)}
+              className="bg-transparent pl-4"
+            >
               {/* Wrapper div for rounded corners and overflow clipping */}
               <div className="overflow-hidden rounded-lg w-full aspect-video relative">
                 <NextImage
@@ -52,6 +74,21 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   priority={index === 0}
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 900px"
                 />
+                {fullscreen ? (
+                  <button
+                    type="button"
+                    data-ui={mergeUi(uiId, `slide-${index + 1}-trigger`)}
+                    className="absolute inset-0 z-10 cursor-zoom-in rounded-[inherit] bg-transparent outline-none focus-visible:ring-4 focus-visible:ring-white/40"
+                    aria-label={`Відкрити зображення: ${imageAlt} ${index + 1}`}
+                    onClick={() =>
+                      openViewer({
+                        images: galleryImages,
+                        initialIndex: index,
+                        sourceUiId: mergeUi(uiId ?? "image-carousel"),
+                      })
+                    }
+                  />
+                ) : null}
               </div>
             </CarouselItem>
           ))}

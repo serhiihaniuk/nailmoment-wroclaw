@@ -113,7 +113,7 @@ export function PrivacyPolicySection() {
         >
           <PrivacyPolicyArticle />
 
-          <BackLink uiId="privacy-policy-back-link" href="/">
+          <BackLink uiId="privacy-policy-back-link" href="/" className="self-center">
             Повернутися на головну
           </BackLink>
         </Stack>

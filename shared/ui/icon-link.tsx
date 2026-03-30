@@ -24,15 +24,21 @@ export function IconLink({
     <NextLink
       data-ui={mergeUi(uiId ?? "link")}
       className={cn(
-        "inline-flex items-center gap-1 rounded-md text-text-primary underline underline-offset-2 outline-none transition-opacity hover:opacity-80 focus-visible:ring-[3px] focus-visible:ring-ring/30",
-        className
+        "rounded-md text-text-primary underline underline-offset-2 outline-none transition-opacity hover:opacity-80 focus-visible:ring-[3px] focus-visible:ring-ring/30",
+        className,
       )}
       href={href}
       rel="noopener noreferrer"
       target={target}
     >
       {children}
-      {icon ? <SquareArrowOutUpRight data-ui={mergeUi(uiId, "icon")} size={12} /> : null}
+      {icon ? (
+        <SquareArrowOutUpRight
+          data-ui={mergeUi(uiId, "icon")}
+          className="inline-block ml-1"
+          size={12}
+        />
+      ) : null}
     </NextLink>
   );
 }

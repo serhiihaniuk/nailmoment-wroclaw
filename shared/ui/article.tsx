@@ -19,14 +19,16 @@ export function ArticleSection({ className, uiId, ...props }: BaseProps) {
 export function ArticleHeading({
   className,
   uiId,
+  tone = "accent",
   ...props
-}: Omit<ComponentPropsWithoutRef<typeof TypographyTitle>, "order" | "tone" | "align"> & {
+}: Omit<ComponentPropsWithoutRef<typeof TypographyTitle>, "order" | "align"> & {
   uiId?: string;
+  tone?: "default" | "accent" | "inverse";
 }) {
   return (
     <TypographyTitle
       order="order3"
-      tone="accent"
+      tone={tone}
       align="left"
       data-ui={undefined}
       uiId={mergeUi(uiId ?? "article-heading")}
@@ -39,14 +41,16 @@ export function ArticleHeading({
 export function ArticleSubheading({
   className,
   uiId,
+  tone = "accent",
   ...props
-}: Omit<ComponentPropsWithoutRef<typeof TypographyTitle>, "order" | "tone" | "align"> & {
+}: Omit<ComponentPropsWithoutRef<typeof TypographyTitle>, "order" | "align"> & {
   uiId?: string;
+  tone?: "default" | "accent" | "inverse";
 }) {
   return (
     <TypographyTitle
       order="order4"
-      tone="accent"
+      tone={tone}
       align="left"
       data-ui={undefined}
       uiId={mergeUi(uiId ?? "article-subheading")}
@@ -132,7 +136,7 @@ export function ArticleCallout({
   uiId,
   ...props
 }: BaseProps & {
-  tone?: "default" | "danger";
+  tone?: "default" | "warning" | "danger";
 }) {
   return (
     <div
@@ -141,6 +145,8 @@ export function ArticleCallout({
         "rounded-2xl px-4 py-3 font-semibold",
         tone === "danger"
           ? "border border-red-200 bg-red-50 text-red-900"
+          : tone === "warning"
+            ? "border border-yellow-200 bg-yellow-50 text-brand-brown"
           : "border border-brand-brown/15 bg-white/70 text-brand-brown",
         className
       )}

@@ -3,6 +3,7 @@ import NextImage from "next/image";
 import { cn } from "@/shared/lib/utils";
 import { Clock } from "lucide-react";
 import { TypographyTitle } from "@/shared/ui/typography";
+import { Image } from "@/shared/ui/image";
 
 interface ProfileCardProps {
   imageUrl: string;
@@ -19,9 +20,6 @@ interface ProfileCardProps {
   logoBg?: "dark" | "light";
 }
 
-const genericBlurDataURL =
-  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA4IDUnPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0nZycgeDE9JzAlJyB5MT0nMCUnIHgyPScwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyNmMGYwZjAnLz48c3RvcCBvZmZzZXQ9JzEwMCUnIHN0b3AtY29sb3I9JyNkOWQ5ZDknLz48L2xpbmVhckdyYWRpZW50PjxmaWx0ZXIgaWQ9J2InPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249JzEnLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9JzgnIGhlaWdodD0nNScgZmlsbD0ndXJsKCNnKScgZmlsdGVyPSd1cmwoI2IpJy8+PC9zdmc+";
-
 const defaultImageSizes = "(max-width: 767px) 100vw, 192px";
 
 export const SpeakerScheduleCard: React.FC<ProfileCardProps> = ({
@@ -32,7 +30,6 @@ export const SpeakerScheduleCard: React.FC<ProfileCardProps> = ({
   time,
   description,
   className,
-  blurDataURL = genericBlurDataURL,
   sizes = defaultImageSizes,
   logo,
   logoSize,
@@ -46,15 +43,13 @@ export const SpeakerScheduleCard: React.FC<ProfileCardProps> = ({
   >
     {/* Photo */}
     <div className="relative w-full">
-      <NextImage
-        src={imageUrl}
+      <Image
+        url={imageUrl}
         alt={imageAlt}
         width={192}
         height={320}
-        placeholder="blur"
-        blurDataURL={blurDataURL}
         sizes={sizes}
-        className="w-full h-auto rounded-md object-cover"
+        className="aspect-[3/5] w-full rounded-md"
       />
       <span className="py-1 absolute bottom-2 bg-blue-foreground text-white px-4 font-bold text-2xl w-full inline-flex justify-center items-center gap-2 rounded-sm">
         <Clock size={18} />

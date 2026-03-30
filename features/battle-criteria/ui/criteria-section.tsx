@@ -29,9 +29,7 @@ export function CriteriaSection() {
         <Card uiId="battle-first-stage-card" surface="subtle" spacing="none" className="w-full rounded-3xl">
           <CardContent className="px-5 py-6 md:px-8 md:py-8">
             <Stack uiId="battle-first-stage" gap="default">
-              <ArticleHeading uiId="battle-first-stage-title">
-                Етап 1 — Онлайн відбірковий тур
-              </ArticleHeading>
+              <ArticleHeading uiId="battle-first-stage-title">Етап 1 — Онлайн відбірковий тур</ArticleHeading>
 
               <ArticleText uiId="battle-first-stage-text-1">
                 На першому етапі ти обираєш номінацію та надсилаєш фотографії своєї роботи.
@@ -79,12 +77,27 @@ export function CriteriaSection() {
         <Card uiId="battle-final-stage-card" surface="subtle" spacing="none" className="w-full rounded-3xl">
           <CardContent className="px-5 py-6 md:px-8 md:py-8">
             <Stack uiId="battle-final-stage" gap="default">
-              <ArticleHeading uiId="battle-final-stage-title">
-                Етап 2 — Фінальний тур
-              </ArticleHeading>
+              <ArticleHeading uiId="battle-final-stage-title">Етап 2 — Фінальний тур</ArticleHeading>
 
-              <ArticleCallout uiId="battle-final-stage-callout" tone="danger">
-                {"⚠️ УВАГА! Фінал конкурсу проходить за день до фестивалю Nail Moment.\n\n• 6 липня — фінал «Битви Майстрів»\n• 7 липня — фестиваль Nail Moment\nФінал відбудеться у Варшаві."}
+              <ArticleCallout uiId="battle-final-stage-callout" tone="warning">
+                <Stack uiId="battle-final-stage-callout-content" gap="xs">
+                  <ArticleText uiId="battle-final-stage-callout-text" className="font-semibold">
+                    ⚠️ УВАГА! Фінал конкурсу проходить за день до фестивалю Nail Moment.
+                  </ArticleText>
+
+                  <ArticleList uiId="battle-final-stage-callout-list">
+                    <ArticleListItem uiId="battle-final-stage-callout-item-1">
+                      6 липня — фінал «Битви Майстрів»
+                    </ArticleListItem>
+                    <ArticleListItem uiId="battle-final-stage-callout-item-2">
+                      7 липня — фестиваль Nail Moment
+                    </ArticleListItem>
+                  </ArticleList>
+
+                  <ArticleText uiId="battle-final-stage-callout-city">
+                    Фінал відбудеться у Варшаві.
+                  </ArticleText>
+                </Stack>
               </ArticleCallout>
 
               <Stack uiId="battle-final-stage-feature" gap="sm">

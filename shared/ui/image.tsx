@@ -1,26 +1,21 @@
+"use client";
+
 import React from "react";
-import NextImage from "next/image"; // Import the Next.js Image component
+import NextImage from "next/image";
+
 import { cn, mergeUi } from "@/shared/lib/utils";
+import { useImageViewer } from "@/shared/ui/image-viewer";
 
 interface ImageProps {
-  /** The source URL for the image */
   url: string;
-  /** Alt text for the image (important for accessibility) */
   alt?: string;
-  /** Optional additional CSS classes for the WRAPPER div */
   className?: string;
   width?: number;
   height?: number;
-  /** Optional: Set image priority for LCP optimization */
   priority?: boolean;
-  /**
-   * Optional but RECOMMENDED when using fill: A string defining image sizes for different viewport widths.
-   * Helps Next.js optimize image loading.
-   * Example: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-   * See Next.js Image docs for details.
-   */
   sizes?: string;
   uiId?: string;
+  fullscreen?: boolean;
 }
 
 const genericBlurDataURL =
@@ -28,20 +23,24 @@ const genericBlurDataURL =
 
 export const Image: React.FC<ImageProps> = ({
   url,
-  className, // This className applies to the wrapper div
+  className,
   alt = "",
   priority,
   sizes,
   uiId,
   width = 900,
   height = 507,
-  ...rest // Pass any other compatible props to NextImage
+  fullscreen = true,
+  ...rest
 }) => {
+  const { openViewer } = useImageViewer();
+  const isViewable = fullscreen && Boolean(url);
+
   return (
     <div
       data-ui={mergeUi(uiId ?? "image")}
       className={cn(
-        "relative overflow-hidden aspect-video rounded-lg", // Wrapper maintains aspect ratio and relative positioning
+        "relative overflow-hidden aspect-video rounded-lg",
         className
       )}
     >
@@ -57,6 +56,22 @@ export const Image: React.FC<ImageProps> = ({
         className="h-full w-full object-cover object-center"
         {...rest}
       />
+
+      {isViewable ? (
+        <button
+          type="button"
+          data-ui={mergeUi(uiId, "trigger")}
+          className="absolute inset-0 z-10 cursor-zoom-in rounded-[inherit] bg-transparent outline-none focus-visible:ring-4 focus-visible:ring-white/40"
+          aria-label={alt ? `Open image: ${alt}` : "Open image"}
+          onClick={() =>
+            openViewer({
+              images: [{ src: url, alt, width, height }],
+              initialIndex: 0,
+              sourceUiId: mergeUi(uiId ?? "image"),
+            })
+          }
+        />
+      ) : null}
     </div>
   );
 };

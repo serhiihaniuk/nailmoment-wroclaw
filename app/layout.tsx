@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Onest, Montserrat } from "next/font/google";
+import { ImageViewerProvider } from "@/shared/ui/image-viewer";
 import { LenisProvider } from "@/shared/ui/lenis-provider";
 import "./globals.css";
 import Script from "next/script";
@@ -104,7 +105,9 @@ export default function RootLayout({
       <body
         className={`${onestSans.variable} ${montserrat.variable} antialiased min-h-[100dvh] flex flex-col`}
       >
-        <LenisProvider>{children}</LenisProvider>
+        <ImageViewerProvider>
+          <LenisProvider>{children}</LenisProvider>
+        </ImageViewerProvider>
         <Analytics />
         <SpeedInsights />
       </body>
