@@ -1,4 +1,3 @@
-import { BackLink } from "@/shared/ui/back-link";
 import { FooterInfoSection } from "@/features/footer-info/ui/footer-info-section";
 import { BATTLE_RULES_CONTENT } from "@/features/battle-rules/model/content";
 import { IMAGES } from "@/shared/config/const";
@@ -12,20 +11,18 @@ import {
   ArticleSubheading,
   ArticleText,
 } from "@/shared/ui/article";
+import { BackLink } from "@/shared/ui/back-link";
+import { Card, CardContent } from "@/shared/ui/card";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { SectionHeader } from "@/shared/ui/section-header";
-import { Card, CardContent } from "@/shared/ui/card";
 
 function RulesBlock({ section }: { section: (typeof BATTLE_RULES_CONTENT.sections)[number] }) {
   return (
     <ArticleSection uiId={mergeUi("battle-rules", section.id)}>
       <Stack uiId={mergeUi("battle-rules", section.id, "content")} gap="default">
-        <ArticleSubheading
-          uiId={mergeUi("battle-rules", section.id, "title")}
-          as="h2"
-        >
+        <ArticleSubheading as="h2" uiId={mergeUi("battle-rules", section.id, "title")}>
           {section.title}
         </ArticleSubheading>
 
@@ -34,8 +31,9 @@ function RulesBlock({ section }: { section: (typeof BATTLE_RULES_CONTENT.section
             return (
               <ArticleText
                 key={`${section.id}-paragraph-${index + 1}`}
-                uiId={mergeUi("battle-rules", section.id, "paragraph", index + 1)}
                 as="p"
+                uiId={mergeUi("battle-rules", section.id, "paragraph", index + 1)}
+                className="whitespace-pre-line"
               >
                 {block.text}
               </ArticleText>
@@ -47,17 +45,9 @@ function RulesBlock({ section }: { section: (typeof BATTLE_RULES_CONTENT.section
               <ArticleSubheading
                 key={`${section.id}-subheading-${index + 1}`}
                 as="h3"
+                id={block.anchorId}
                 uiId={mergeUi("battle-rules", section.id, "subheading", index + 1)}
-                id={
-                  section.id === "stages" && block.text === "Фінальний конкурс «Битва Майстрів»"
-                    ? "final-rules"
-                    : undefined
-                }
-                className={
-                  section.id === "stages" && block.text === "Фінальний конкурс «Битва Майстрів»"
-                    ? "scroll-mt-24"
-                    : undefined
-                }
+                className={block.anchorId ? "scroll-mt-24" : undefined}
               >
                 {block.text}
               </ArticleSubheading>
@@ -107,6 +97,7 @@ function RulesBlock({ section }: { section: (typeof BATTLE_RULES_CONTENT.section
               key={`${section.id}-highlight-${index + 1}`}
               uiId={mergeUi("battle-rules", section.id, "highlight", index + 1)}
               tone={block.tone}
+              className="whitespace-pre-line"
             >
               {block.text}
             </ArticleCallout>
@@ -125,27 +116,20 @@ function RulesArticle() {
       spacing="none"
       className="rounded-[2rem]"
     >
-      <CardContent
-        uiId="battle-rules-article"
-        className="px-5 py-6 md:px-8 md:py-8"
-      >
+      <CardContent uiId="battle-rules-article" className="px-5 py-6 md:px-8 md:py-8">
         <Stack uiId="battle-rules-article-content" gap="xl">
-          <ArticleHeading
-            as="h2"
-            uiId="battle-rules-article-title"
-          >
+          <ArticleHeading as="h2" uiId="battle-rules-article-title">
             {BATTLE_RULES_CONTENT.title}
           </ArticleHeading>
-          <ArticleText
-            uiId="battle-rules-article-intro"
-          >
+
+          <ArticleText as="p" uiId="battle-rules-article-intro">
             {BATTLE_RULES_CONTENT.intro}
           </ArticleText>
-          <ArticleCallout
-            uiId="battle-rules-article-notice"
-          >
+
+          <ArticleCallout uiId="battle-rules-article-notice">
             {BATTLE_RULES_CONTENT.notice}
           </ArticleCallout>
+
           {BATTLE_RULES_CONTENT.sections.map((section) => (
             <RulesBlock key={section.id} section={section} />
           ))}
@@ -175,29 +159,27 @@ export function BattleRulesSection() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-40"
           />
+
           <DecorativeImage
             uiId="battle-rules-hero-leaf-left"
             src={IMAGES.DECORATIVE_LEAF_7}
             className="-left-10 top-8 h-40 w-52"
           />
+
           <DecorativeImage
             uiId="battle-rules-hero-leaf-right"
             src={IMAGES.DECORATIVE_LEAF_1}
             className="-right-10 top-6 h-44 w-36"
           />
 
-          <Stack
-            uiId="battle-rules-hero-content"
-            gap="lg"
-            className="relative z-[1] items-center"
-          >
+          <Stack uiId="battle-rules-hero-content" gap="lg" className="relative z-[1] items-center">
             <SectionHeader
               uiId="battle-rules-header"
               title={BATTLE_RULES_CONTENT.title}
               tone="accent"
               titleClassName="max-w-[25ch]"
-              descriptionClassName="max-w-3xl text-brand-brown text-base md:text-lg md:leading-8"
             />
+
             <img
               data-ui="battle-rules-hero-image"
               src={IMAGES.TICKET_BATTLE_DECOR}
@@ -213,7 +195,7 @@ export function BattleRulesSection() {
         <Stack uiId="battle-rules-content" gap="lg" className="mx-auto w-full max-w-4xl">
           <RulesArticle />
 
-          <BackLink uiId="battle-rules-back-link" href="/battle">
+          <BackLink uiId="battle-rules-back-link" href="/battle" className="mx-auto">
             Повернутися на сторінку Битви Майстрів
           </BackLink>
         </Stack>
