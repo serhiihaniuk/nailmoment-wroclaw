@@ -30,4 +30,10 @@ export const BATTLE_ATMOSPHERE_CONTENT = {
       imageAlt: "3 місце — робота переможця",
     },
   ],
+  cupTitle: "🔥 Можливо, цього року саме ти піднімеш кубок переможця «Битви Майстрів»",
+  cupImages: [
+    IMAGES.BATTLE_PHOTO,
+    IMAGES.PAST_EVENT,
+    IMAGES.WHY_ATTEND_3,
+  ],
 };

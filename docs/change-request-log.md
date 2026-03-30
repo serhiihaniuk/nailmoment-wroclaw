@@ -73,6 +73,16 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [battle-atmosphere-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-atmosphere\ui\battle-atmosphere-section.tsx)
   - [battle-page.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\widgets\battle-page\ui\battle-page.tsx)
 
+- Page / section: `/battle` atmosphere section, after winner cards
+- Request: Add a new block:
+  - `🔥 Можливо, цього року саме ти піднімеш кубок переможця «Битви Майстрів»`
+  - slider of `3` photos
+  - use placeholder images for now
+- Status: Done
+- Files:
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-atmosphere\model\content.ts)
+  - [battle-atmosphere-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-atmosphere\ui\battle-atmosphere-section.tsx)
+
 - Page / section: `/battle` structure
 - Request: Place `Атмосфера «Битви Майстрів» на фестивалі Nail Moment 2025` directly after the brown intro card, before the participation steps
 - Status: Done
@@ -179,3 +189,10 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - title hierarchy reduced to 4 orders
   - olive decorated cards extracted into shared UI
   - battle/speaker/footer decorative styling normalized
+
+- Page / section: /battle criteria block after atmosphere section
+- Request: Replace moved criteria block with literal two-stage explanation text for online stage and final stage
+- Status: Done
+- Files:
+  - [criteria-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-criteria\ui\criteria-section.tsx)
+

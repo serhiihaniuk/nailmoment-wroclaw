@@ -40,10 +40,7 @@ export function BattleAtmosphereSection() {
             tone="accent"
           />
 
-          <div
-            data-ui="battle-winners-cards"
-            className="grid w-full grid-cols-1 gap-5"
-          >
+          <div data-ui="battle-winners-cards" className="grid w-full grid-cols-1 gap-5">
             {BATTLE_ATMOSPHERE_CONTENT.winners.map((winner, index) => (
               <Card
                 key={winner.place}

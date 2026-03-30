@@ -1,200 +1,156 @@
-import { CheckCircle2 } from "lucide-react";
-import Image from "next/image";
+import {
+  ArticleCallout,
+  ArticleHeading,
+  ArticleList,
+  ArticleListItem,
+  ArticleSubheading,
+  ArticleText,
+} from "@/shared/ui/article";
 import { Card, CardContent } from "@/shared/ui/card";
-import { mergeUi } from "@/shared/lib/utils";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { SectionHeader } from "@/shared/ui/section-header";
-import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
-
-const images = {
-  n1: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n1-hFuSrP2kac5NPVHGhnDggxN9AUksTw.jpg",
-  n2: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n2-RlnJfo5lmKAWPS70QyOiu2Rk4E8h7i.jpg",
-  n3: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n3-RYvDpnKhqAS2nFULlymSxqZS3f1NkE.jpg",
-  n4: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n4-aNJOfZ6JCQa6N3RTOPEXS452M6mse2.jpg",
-  n5: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n5-1PdOyhwwxRnsvFyyi1vchTE2GeJqlY.jpg",
-  n6: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n6-07STkcqyAFGfns5IT9CoBJO5gjqsLo.jpg",
-};
-
-const NOMINATIONS_DATA = [
-  { id: 1, title: "Французький манікюр", imageUrl: images.n6 },
-  { id: 2, title: "Градієнт", imageUrl: images.n5 },
-  { id: 3, title: "3D / корейський дизайн", imageUrl: images.n4 },
-  { id: 4, title: "Неоновий манікюр", imageUrl: images.n3 },
-  { id: 5, title: "Однотонний манікюр", imageUrl: images.n2 },
-  { id: 6, title: "Екстра довжина", imageUrl: images.n1 },
-];
-
-const FIRST_ROUND_CRITERIA_DATA = [
-  "Робота має відповідати номінації.",
-  "Робота має бути чистою, акуратною і візуально сильною.",
-  "Фотографії мають бути чіткі та високої якості.",
-];
-
-const FINAL_ROUND_CRITERIA_DATA = [
-  "У фіналі немає номінацій — тільки твоя ідея, техніка та подача.",
-  "Можна нарощувати, ліпити, малювати, створювати складні дизайни й перевтілення.",
-  "Потрібно підготувати фото «до», «після», колаж та короткий відеоролик роботи.",
-];
-
-function CriteriaList({
-  uiId,
-  items,
-}: {
-  uiId: string;
-  items: string[];
-}) {
-  return (
-    <Card uiId={uiId} surface="subtle" spacing="none" className="rounded-3xl">
-      <CardContent uiId={uiId} className="px-5 py-5 md:px-6 md:py-6">
-        <Stack uiId={mergeUi(uiId, "items")} gap="sm">
-          {items.map((criterion, index) => (
-            <div
-              key={criterion}
-              data-ui={mergeUi(uiId, "item", index + 1)}
-              className="flex items-start gap-3 rounded-xl bg-surface-page px-4 py-3"
-            >
-              <CheckCircle2
-                data-ui={mergeUi(uiId, "item", index + 1, "icon")}
-                className="mt-0.5 size-5 shrink-0 text-brand-brown"
-              />
-              <TypographyText
-                as="p"
-                uiId={mergeUi(uiId, "item", index + 1, "text")}
-                align="left"
-                size="body"
-                tone="default"
-                className="text-brand-brown"
-              >
-                {criterion}
-              </TypographyText>
-            </div>
-          ))}
-        </Stack>
-      </CardContent>
-    </Card>
-  );
-}
 
 export function CriteriaSection() {
   return (
     <Section uiId="battle-criteria-section" density="compact">
       <Stack uiId="battle-criteria-content" gap="xl" className="items-center">
-        <Stack uiId="battle-nominations" gap="lg" className="w-full items-center">
-          <Stack uiId="battle-nominations-header" gap="sm" className="items-center text-center">
-            <SectionHeader
-              uiId="battle-nominations-title"
-              title="Номінації у відбірковому турі"
-              tone="accent"
-            />
-            <TypographyText
-              uiId="battle-nominations-description"
-              size="body"
-              tone="default"
-              className="text-brand-brown"
-            >
-              Обери категорію, у якій хочеш подати свою роботу на перший етап.
-            </TypographyText>
-          </Stack>
-
-          <div
-            data-ui="battle-nominations-list"
-            className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2"
-          >
-            {NOMINATIONS_DATA.map((nomination) => (
-              <Card
-                uiId={mergeUi("battle-nomination", nomination.id)}
-                key={nomination.id}
-                surface="subtle"
-                spacing="none"
-                className="rounded-[2rem]"
-              >
-                <CardContent
-                  uiId={mergeUi("battle-nomination", nomination.id)}
-                  className="px-5 py-5 text-center md:px-6"
-                >
-                  <TypographyTitle
-                    as="h3"
-                    uiId={mergeUi("battle-nomination", nomination.id, "title")}
-                    order="order4"
-                    tone="accent"
-                    className="normal-case"
-                  >
-                    {nomination.id}. {nomination.title}
-                  </TypographyTitle>
-                </CardContent>
-                <div
-                  data-ui={mergeUi("battle-nomination", nomination.id, "media")}
-                  className="overflow-hidden rounded-b-[2rem]"
-                >
-                  <Image
-                    src={nomination.imageUrl}
-                    alt={nomination.title}
-                    width={960}
-                    height={720}
-                    className="aspect-[4/3] w-full object-cover"
-                  />
-                </div>
-              </Card>
-            ))}
-          </div>
+        <Stack uiId="battle-criteria-intro" gap="sm" className="items-center text-center">
+          <SectionHeader
+            uiId="battle-criteria-title"
+            title="Як проходить конкурс «Битва Майстрів»"
+            tone="accent"
+          />
+          <ArticleText uiId="battle-criteria-description" className="text-center">
+            Конкурс складається з двох етапів.
+          </ArticleText>
         </Stack>
 
-        <Stack uiId="battle-first-round-criteria" gap="lg" className="w-full items-center">
-          <Stack
-            uiId="battle-first-round-criteria-header"
-            gap="sm"
-            className="items-center text-center"
-          >
-            <SectionHeader
-              uiId="battle-first-round-criteria-title"
-              title="Критерії відбору у першому турі"
-              tone="accent"
-            />
-            <TypographyText
-              uiId="battle-first-round-criteria-description"
-              size="body"
-              tone="default"
-              className="text-brand-brown"
-            >
-              Саме на ці речі звертатимуть увагу під час оцінювання робіт.
-            </TypographyText>
-          </Stack>
-          <div data-ui="battle-first-round-criteria-shell" className="w-full max-w-4xl">
-            <CriteriaList
-              uiId="battle-first-round-criteria-card"
-              items={FIRST_ROUND_CRITERIA_DATA}
-            />
-          </div>
-        </Stack>
+        <Card uiId="battle-first-stage-card" surface="subtle" spacing="none" className="w-full rounded-3xl">
+          <CardContent className="px-5 py-6 md:px-8 md:py-8">
+            <Stack uiId="battle-first-stage" gap="default">
+              <ArticleHeading uiId="battle-first-stage-title">
+                Етап 1 — Онлайн відбірковий тур
+              </ArticleHeading>
 
-        <Stack uiId="battle-final-round-criteria" gap="lg" className="w-full items-center">
-          <Stack
-            uiId="battle-final-round-criteria-header"
-            gap="sm"
-            className="items-center text-center"
-          >
-            <SectionHeader
-              uiId="battle-final-round-criteria-title"
-              title="Критерії фінального туру"
-              tone="accent"
-            />
-            <TypographyText
-              uiId="battle-final-round-criteria-description"
-              size="body"
-              tone="default"
-              className="text-brand-brown"
-            >
-              Фінал оцінює не номінацію, а цілісне перевтілення та силу твоєї подачі.
-            </TypographyText>
-          </Stack>
-          <div data-ui="battle-final-round-criteria-shell" className="w-full max-w-4xl">
-            <CriteriaList
-              uiId="battle-final-round-criteria-card"
-              items={FINAL_ROUND_CRITERIA_DATA}
-            />
-          </div>
-        </Stack>
+              <ArticleText uiId="battle-first-stage-text-1">
+                На першому етапі ти обираєш номінацію та надсилаєш фотографії своєї роботи.
+              </ArticleText>
+
+              <ArticleText uiId="battle-first-stage-text-2">
+                Усі роботи, що відповідають умовам конкурсу, публікуються для онлайн-голосування.
+              </ArticleText>
+
+              <ArticleText uiId="battle-first-stage-text-3">
+                За результатами голосування 3 (три) майстри з кожної номінації проходять у фінал конкурсу.
+              </ArticleText>
+
+              <Stack uiId="battle-first-stage-requirements" gap="sm">
+                <ArticleSubheading uiId="battle-first-stage-requirements-title">
+                  Вимоги до роботи
+                </ArticleSubheading>
+
+                <ArticleText uiId="battle-first-stage-requirements-intro">
+                  Щоб робота була прийнята до участі:
+                </ArticleText>
+
+                <ArticleList uiId="battle-first-stage-requirements-list">
+                  <ArticleListItem uiId="battle-first-stage-requirements-item-1">
+                    дизайн має відповідати обраній номінації
+                  </ArticleListItem>
+                  <ArticleListItem uiId="battle-first-stage-requirements-item-2">
+                    фотографія повинна бути чіткою та хорошої якості
+                  </ArticleListItem>
+                  <ArticleListItem uiId="battle-first-stage-requirements-item-3">
+                    робота повинна бути акуратною, без затікань та порізів
+                  </ArticleListItem>
+                  <ArticleListItem uiId="battle-first-stage-requirements-item-4">
+                    можна надіслати фото однієї або двох рук (за бажанням)
+                  </ArticleListItem>
+                  <ArticleListItem uiId="battle-first-stage-requirements-item-5">
+                    на фото має бути чітко видно дизайн та форму нігтів
+                  </ArticleListItem>
+                </ArticleList>
+              </Stack>
+            </Stack>
+          </CardContent>
+        </Card>
+
+        <Card uiId="battle-final-stage-card" surface="subtle" spacing="none" className="w-full rounded-3xl">
+          <CardContent className="px-5 py-6 md:px-8 md:py-8">
+            <Stack uiId="battle-final-stage" gap="default">
+              <ArticleHeading uiId="battle-final-stage-title">
+                Етап 2 — Фінальний тур
+              </ArticleHeading>
+
+              <ArticleCallout uiId="battle-final-stage-callout" tone="danger">
+                {"⚠️ УВАГА! Фінал конкурсу проходить за день до фестивалю Nail Moment.\n\n• 6 липня — фінал «Битви Майстрів»\n• 7 липня — фестиваль Nail Moment\nФінал відбудеться у Варшаві."}
+              </ArticleCallout>
+
+              <Stack uiId="battle-final-stage-feature" gap="sm">
+                <ArticleSubheading uiId="battle-final-stage-feature-title">
+                  Особливість фінального туру
+                </ArticleSubheading>
+
+                <ArticleCallout uiId="battle-final-stage-feature-callout">
+                  У фіналі немає номінацій.
+                </ArticleCallout>
+
+                <ArticleText uiId="battle-final-stage-feature-text-1">
+                  Тут головне — твоя фантазія, креативність та рівень майстерності.
+                </ArticleText>
+
+                <ArticleText uiId="battle-final-stage-feature-text-2">
+                  Ти можеш створити будь-який дизайн, який вважаєш найефектніший!
+                </ArticleText>
+
+                <ArticleText uiId="battle-final-stage-feature-text-3">
+                  Твоя задача — зробити максимально яскраве перевтілення руки моделі.
+                </ArticleText>
+              </Stack>
+
+              <Stack uiId="battle-final-stage-idea" gap="sm">
+                <ArticleText uiId="battle-final-stage-idea-title" className="font-semibold">
+                  ✨ Ідея фіналу проста:
+                </ArticleText>
+
+                <ArticleText uiId="battle-final-stage-idea-before-after">
+                  рука ДО → рука ПІСЛЯ
+                </ArticleText>
+
+                <ArticleText uiId="battle-final-stage-idea-text" className="whitespace-pre-line">
+                  {'Щоб глядачі подивилися на результат і сказали:\n“Вау! Я не вірю, що це одна і та сама рука.”'}
+                </ArticleText>
+              </Stack>
+
+              <Stack uiId="battle-final-stage-scoring" gap="sm">
+                <ArticleSubheading uiId="battle-final-stage-scoring-title">
+                  Що буде оцінюватися:
+                </ArticleSubheading>
+
+                <ArticleText uiId="battle-final-stage-scoring-text">
+                  Фінальні роботи оцінюють майстри та учасники фестивалю Nail Moment.
+                </ArticleText>
+
+                <ArticleText uiId="battle-final-stage-scoring-intro">
+                  Тому важливо:
+                </ArticleText>
+
+                <ArticleList uiId="battle-final-stage-scoring-list">
+                  <ArticleListItem uiId="battle-final-stage-scoring-item-1">
+                    проявити креативність
+                  </ArticleListItem>
+                  <ArticleListItem uiId="battle-final-stage-scoring-item-2">
+                    показати високу якість роботи
+                  </ArticleListItem>
+                  <ArticleListItem uiId="battle-final-stage-scoring-item-3">
+                    створити яскраве та ефектне перевтілення
+                  </ArticleListItem>
+                </ArticleList>
+              </Stack>
+            </Stack>
+          </CardContent>
+        </Card>
       </Stack>
     </Section>
   );
