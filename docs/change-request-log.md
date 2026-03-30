@@ -117,6 +117,16 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
 
+- Page / section: `/battle` steps, step 4
+- Request: Replace step 4 with the exact forwarded wording:
+  - `1–3 фотографії`
+  - `10 травня` as colored emphasis
+  - public voting in Telegram bot
+  - top `3` works from each nomination go to the final
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+
 - Page / section: `/battle` steps, step 5
 - Request: Update the final-round step to:
   - explain arrival to the final in Warsaw
@@ -150,6 +160,12 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 
 - Page / section: `/battle` steps, step 2 and step 3
 - Request: Restore `(Standard або VIP)` in the festival-ticket title and replace the raw pasted Instagram note with clean linked copy
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+
+- Page / section: `/battle` steps, step 2
+- Request: Replace step 2 body with the exact festival-ticket requirement text and keep the no-ticket warning as a separate emphasized block
 - Status: Done
 - Files:
   - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
