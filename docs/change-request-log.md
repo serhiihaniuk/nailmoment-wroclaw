@@ -128,11 +128,28 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
   - [battle-rules-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\ui\battle-rules-section.tsx)
 
+- Page / section: `/battle` steps, step 5
+- Request: Rewrite the final-round step from the forwarded message as the source of truth:
+  - keep the warning as a highlighted block
+  - use the exact text structure from the message
+  - keep only the two warning dates
+  - keep the final-rules reminder and CTA
+  - keep the CTA pointing to the final-rules block in `/battle/regulamin`
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+
 - Page / section: `/battle` steps, step 6
 - Request: Update the winner-announcement step to:
   - say results are announced on `7 липня` on the Nail Moment festival stage in Warsaw
   - make that announcement text more prominent
   - repeat the full winners/finalists prize list inside this card
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+
+- Page / section: `/battle` steps, step 2 and step 3
+- Request: Restore `(Standard або VIP)` in the festival-ticket title and replace the raw pasted Instagram note with clean linked copy
 - Status: Done
 - Files:
   - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
