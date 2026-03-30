@@ -8,6 +8,7 @@ import { BackLink } from "@/shared/ui/back-link";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
+import { CelebrationConfetti } from "@/shared/ui/celebration-confetti";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { IconLink } from "@/shared/ui/icon-link";
 import { Cluster } from "@/shared/ui/layout/cluster";
@@ -19,6 +20,8 @@ import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
 export function BattleSuccessSection() {
   return (
     <>
+      <CelebrationConfetti />
+
       <Section
         uiId="battle-success-hero-section"
         density="compact"
