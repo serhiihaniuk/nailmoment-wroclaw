@@ -9,6 +9,7 @@ import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
 import { CelebrationConfetti } from "@/shared/ui/celebration-confetti";
+import { CelebrationConfettiTrigger } from "@/shared/ui/celebration-confetti-trigger";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { IconLink } from "@/shared/ui/icon-link";
 import { Cluster } from "@/shared/ui/layout/cluster";
@@ -190,6 +191,10 @@ export function BattleSuccessSection() {
               </div>
             </CardContent>
           </Card>
+
+          <div data-ui="battle-success-confetti-trigger" className="flex justify-center">
+            <CelebrationConfettiTrigger uiId="battle-success-confetti-trigger-button" />
+          </div>
 
           <LocationSection />
 

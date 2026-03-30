@@ -8,6 +8,7 @@ import { BackLink } from "@/shared/ui/back-link";
 import { Badge } from "@/shared/ui/badge";
 import { Card, CardContent } from "@/shared/ui/card";
 import { CelebrationConfetti } from "@/shared/ui/celebration-confetti";
+import { CelebrationConfettiTrigger } from "@/shared/ui/celebration-confetti-trigger";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
@@ -140,6 +141,10 @@ export function SuccessSection() {
               </Stack>
             </CardContent>
           </Card>
+
+          <div data-ui="success-confetti-trigger" className="flex justify-center">
+            <CelebrationConfettiTrigger />
+          </div>
 
           <LocationSection />
 
