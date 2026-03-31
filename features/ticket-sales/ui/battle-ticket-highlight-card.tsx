@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BattleTicketBuyButton } from "@/shared/ui/battle-ticket-buy-button";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
+import { Image } from "@/shared/ui/image";
 import { mergeUi } from "@/shared/lib/utils";
 import { TypographyDisplay, TypographyText } from "@/shared/ui/typography";
 
@@ -37,11 +38,14 @@ export function BattleTicketHighlightCard({
         uiId={uiId}
         className="flex flex-col gap-5 px-5 py-5 text-center md:px-8 md:py-8"
       >
-        <img
-          data-ui={mergeUi(uiId, "image")}
-          src={imageUrl}
+        <Image
+          uiId={mergeUi(uiId, "image")}
+          url={imageUrl}
           alt={imageAlt}
-          className="mx-auto h-auto w-full max-w-[250px] object-contain"
+          width={250}
+          height={370}
+          className="mx-auto aspect-[25/37] w-full max-w-[250px] rounded-none"
+          imageClassName="object-contain"
         />
 
         <div

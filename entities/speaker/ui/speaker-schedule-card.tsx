@@ -13,7 +13,6 @@ interface ProfileCardProps {
   topic: string;
   time: string;
   className?: string;
-  blurDataURL?: string;
   sizes?: string;
   logo: string;
   logoSize?: { w?: number; h?: number };

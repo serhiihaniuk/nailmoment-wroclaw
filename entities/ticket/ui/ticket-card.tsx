@@ -4,6 +4,7 @@ import { type TicketFeature, type TicketInfo } from "@/entities/ticket/model/typ
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
 import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
+import { Image } from "@/shared/ui/image";
 import { cn, mergeUi } from "@/shared/lib/utils";
 import { TypographyDisplay } from "@/shared/ui/typography";
 
@@ -120,11 +121,14 @@ export function TicketCard({
 
   const content = (
     <>
-      <img
-        data-ui={mergeUi(uiId, "image")}
-        src={imageUrl}
+      <Image
+        uiId={mergeUi(uiId, "image")}
+        url={imageUrl}
         alt={imageAlt}
-        className="w-40"
+        width={320}
+        height={320}
+        className="aspect-square w-40 rounded-none"
+        imageClassName="object-contain"
       />
       <TypographyDisplay as="div" uiId={mergeUi(uiId, "title")} tone={titleTone}>
         {title}

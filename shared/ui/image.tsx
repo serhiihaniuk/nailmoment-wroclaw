@@ -10,6 +10,7 @@ interface ImageProps {
   url: string;
   alt?: string;
   className?: string;
+  imageClassName?: string;
   width?: number;
   height?: number;
   priority?: boolean;
@@ -24,6 +25,7 @@ const genericBlurDataURL =
 export const Image: React.FC<ImageProps> = ({
   url,
   className,
+  imageClassName,
   alt = "",
   priority,
   sizes,
@@ -53,7 +55,7 @@ export const Image: React.FC<ImageProps> = ({
         height={height}
         priority={priority}
         sizes={sizes}
-        className="h-full w-full object-cover object-center"
+        className={cn("h-full w-full object-cover object-center", imageClassName)}
         {...rest}
       />
 

@@ -10,7 +10,6 @@ interface SpeakerCardProps {
   name: string;
   description: ReactNode;
   className?: string;
-  blurDataURL?: string;
   sizes?: string;
   uiId?: string;
 }

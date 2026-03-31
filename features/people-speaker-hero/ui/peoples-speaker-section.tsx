@@ -10,6 +10,7 @@ import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
 import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
+import { Image } from "@/shared/ui/image";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { SectionHeader } from "@/shared/ui/section-header";
@@ -117,11 +118,14 @@ export const PeoplesSpeakerSection = () => (
             contentClassName="flex flex-col items-center gap-5 px-6 py-8 text-center md:px-10 md:py-10"
           >
             <div data-ui="people-speaker-hero-card-content" className="contents">
-              <img
-                data-ui="people-speaker-hero-image"
-                src={PEOPLE_SPEAKER_CONTENT.heroImage}
+              <Image
+                uiId="people-speaker-hero-image"
+                url={PEOPLE_SPEAKER_CONTENT.heroImage}
                 alt={PEOPLE_SPEAKER_CONTENT.heroImageAlt}
-                className="mx-auto h-auto w-full max-w-[240px] object-contain"
+                width={320}
+                height={320}
+                className="mx-auto aspect-square w-full max-w-[240px] rounded-none"
+                imageClassName="object-contain"
               />
               <TypographyTitle
                 as="h2"

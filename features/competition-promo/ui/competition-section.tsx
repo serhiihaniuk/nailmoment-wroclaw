@@ -2,6 +2,7 @@ import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
+import { Image } from "@/shared/ui/image";
 import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
 import { cn, mergeUi } from "@/shared/lib/utils";
 import { HOME_COMPETITION_CONTENT } from "@/features/competition-promo/model/content";
@@ -52,11 +53,12 @@ function CompetitionCard({
         uiId={mergeUi(uiId, "content")}
         className="flex flex-col gap-4 p-4 text-center md:gap-5 md:p-5"
       >
-        <img
-          data-ui={mergeUi(uiId, "image")}
-          className="aspect-video w-full rounded-[1.4rem] object-cover"
-          src={imageUrl}
+        <Image
+          uiId={mergeUi(uiId, "image")}
+          url={imageUrl}
           alt={imageAlt}
+          className="w-full rounded-[1.4rem]"
+          sizes="(max-width: 768px) 100vw, 896px"
         />
         <Stack uiId={mergeUi(uiId, "copy")} gap="sm" className="items-center">
           <TypographyTitle

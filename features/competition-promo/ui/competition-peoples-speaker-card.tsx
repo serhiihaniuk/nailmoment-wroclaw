@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
+import { Image } from "@/shared/ui/image";
 import { TypographyText, TypographyTitle } from "@/shared/ui/typography";
 import { mergeUi } from "@/shared/lib/utils";
 
@@ -56,11 +57,14 @@ export function CompetitionPeoplesSpeakerCard({
           ✦
         </span>
 
-        <img
-          data-ui={mergeUi(uiId, "image")}
-          className="relative z-[1] h-60 w-auto object-contain md:h-72"
-          src={imageUrl}
+        <Image
+          uiId={mergeUi(uiId, "image")}
+          url={imageUrl}
           alt={imageAlt}
+          width={320}
+          height={320}
+          className="relative z-[1] mx-auto aspect-square h-60 w-[240px] overflow-visible rounded-none md:h-72 md:w-[288px]"
+          imageClassName="object-contain"
         />
 
         <div
