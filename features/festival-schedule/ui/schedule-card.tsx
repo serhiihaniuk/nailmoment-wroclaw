@@ -10,6 +10,38 @@ type ScheduleProps = {
   uiId?: string;
 };
 
+function ScheduleTimeBadge({
+  time,
+  uiId,
+}: {
+  time: string;
+  uiId?: string;
+}) {
+  const [start, end] = time.split("–").map((part) => part.trim());
+  const hasRange = Boolean(start && end);
+
+  return (
+    <div
+      data-ui={mergeUi(uiId, "time")}
+      className={cn(
+        "inline-flex rounded-[1.75rem] bg-surface-muted px-3 text-sm font-semibold text-text-primary",
+        hasRange
+          ? "min-h-16 min-w-[84px] flex-col items-center justify-center py-2 text-center leading-5"
+          : "min-h-9 items-center justify-center"
+      )}
+    >
+      {hasRange ? (
+        <>
+          <span className="block whitespace-nowrap">{start}–</span>
+          <span className="block whitespace-nowrap">{end}</span>
+        </>
+      ) : (
+        time
+      )}
+    </div>
+  );
+}
+
 function ScheduleItem({
   time,
   title,
@@ -19,14 +51,9 @@ function ScheduleItem({
   return (
     <div
       data-ui={mergeUi(uiId, "item")}
-      className="grid items-start gap-3 grid-cols-[72px_minmax(0,1fr)]"
+      className="grid items-start gap-3 grid-cols-[84px_minmax(0,1fr)]"
     >
-      <div
-        data-ui={mergeUi(uiId, "time")}
-        className="inline-flex min-h-9 items-center justify-center rounded-full bg-surface-muted px-3 text-sm font-semibold text-text-primary"
-      >
-        {time}
-      </div>
+      <ScheduleTimeBadge time={time} uiId={uiId} />
       <div data-ui={mergeUi(uiId, "content")} className="space-y-1">
         <p data-ui={mergeUi(uiId, "title")} className="text-lg font-semibold leading-7 text-text-primary">{title}</p>
         {description ? (
