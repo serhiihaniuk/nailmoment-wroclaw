@@ -13,6 +13,7 @@ const titleVariants = cva(
         order4: "text-xl",
       },
       tone: {
+        inherit: "",
         default: "text-text-primary",
         inverse: "text-text-inverse",
         accent: "text-brand-brown",
@@ -24,7 +25,7 @@ const titleVariants = cva(
     },
     defaultVariants: {
       order: "order2",
-      tone: "default",
+      tone: "inherit",
       align: "center",
     },
   },
@@ -38,6 +39,7 @@ const textVariants = cva("", {
       lead: "text-base font-medium leading-7 md:text-lg md:leading-8",
     },
     tone: {
+      inherit: "",
       default: "text-text-primary",
       muted: "text-text-muted",
       inverse: "text-text-inverse/80",
@@ -50,7 +52,7 @@ const textVariants = cva("", {
   },
   defaultVariants: {
     size: "body",
-    tone: "default",
+    tone: "inherit",
     align: "center",
   },
 });
@@ -115,6 +117,7 @@ const displayVariants = cva(
         sm: "text-4xl",
       },
       tone: {
+        inherit: "",
         default: "text-text-primary",
         inverse: "text-text-inverse",
         accent: "text-brand-brown",
@@ -128,7 +131,7 @@ const displayVariants = cva(
     },
     defaultVariants: {
       size: "default",
-      tone: "default",
+      tone: "inherit",
       align: "center",
     },
   },

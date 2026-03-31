@@ -25,7 +25,7 @@ type SectionHeaderProps = VariantProps<typeof wrapperVariants> &
     titleClassName?: string;
     descriptionClassName?: string;
     order?: "order1" | "order2" | "order3" | "order4";
-    tone?: "default" | "inverse" | "accent";
+    tone?: "inherit" | "default" | "inverse" | "accent";
     uiId?: string;
   };
 
@@ -52,7 +52,7 @@ export function SectionHeader({
       {eyebrow ? (
         <span
           data-ui={mergeUi(uiId, "eyebrow")}
-          className="text-xs font-semibold uppercase tracking-[0.24em] text-text-muted"
+          className="text-xs font-semibold uppercase tracking-[0.24em] text-current opacity-70"
         >
           {eyebrow}
         </span>
@@ -71,7 +71,7 @@ export function SectionHeader({
         <TypographyText
           align={align}
           size="sm"
-          tone={tone === "default" ? "muted" : tone}
+          tone={tone}
           uiId={mergeUi(uiId, "description")}
           className={descriptionClassName}
         >

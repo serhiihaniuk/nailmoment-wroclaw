@@ -10,7 +10,7 @@ export function PageShell({ className, uiId, ...props }: PageShellProps) {
     <main
       data-ui={mergeUi(uiId ?? "page-shell")}
       className={cn(
-        "mx-auto w-full max-w-[960px] overflow-hidden bg-surface-page shadow-[0_24px_80px_rgba(57,85,0,0.12)]",
+        "mx-auto w-full max-w-[960px] overflow-hidden bg-surface-page text-text-primary shadow-[0_24px_80px_rgba(57,85,0,0.12)]",
         className
       )}
       {...props}

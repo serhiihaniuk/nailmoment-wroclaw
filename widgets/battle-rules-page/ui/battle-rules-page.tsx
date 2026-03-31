@@ -3,7 +3,7 @@ import { PageShell } from "@/shared/ui/layout/page-shell";
 
 export default function BattleRulesPage() {
   return (
-    <PageShell className="min-h-[100dvh]">
+    <PageShell className="min-h-[100dvh] text-brand-brown">
       <BattleRulesSection />
     </PageShell>
   );

@@ -6,7 +6,7 @@ import { PageShell } from "@/shared/ui/layout/page-shell";
 
 export function BattlePage() {
   return (
-    <PageShell>
+    <PageShell className="text-brand-brown">
       <BattleSection />
       <BattleInfoSection />
       <BattleFaqSection />

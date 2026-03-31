@@ -8,8 +8,8 @@ const cardVariants = cva(
   {
     variants: {
       surface: {
-        default: "border-border-subtle bg-surface-card text-text-primary",
-        subtle: "border-transparent bg-surface-muted text-text-primary",
+        default: "border-border-subtle bg-surface-card",
+        subtle: "border-transparent bg-surface-muted",
         accent: "border-transparent bg-brand-olive text-text-inverse",
       },
       spacing: {
@@ -87,7 +87,7 @@ function CardDescription({
     <div
       data-slot="card-description"
       data-ui={mergeUi(uiId ?? "card-description")}
-      className={cn("text-sm text-text-muted", className)}
+      className={cn("text-sm opacity-80", className)}
       {...props}
     />
   );

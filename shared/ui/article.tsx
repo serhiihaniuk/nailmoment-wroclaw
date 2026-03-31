@@ -19,11 +19,11 @@ export function ArticleSection({ className, uiId, ...props }: BaseProps) {
 export function ArticleHeading({
   className,
   uiId,
-  tone = "accent",
+  tone = "inherit",
   ...props
 }: Omit<ComponentPropsWithoutRef<typeof TypographyTitle>, "order" | "align"> & {
   uiId?: string;
-  tone?: "default" | "accent" | "inverse";
+  tone?: "inherit" | "default" | "accent" | "inverse";
 }) {
   return (
     <TypographyTitle
@@ -41,11 +41,11 @@ export function ArticleHeading({
 export function ArticleSubheading({
   className,
   uiId,
-  tone = "accent",
+  tone = "inherit",
   ...props
 }: Omit<ComponentPropsWithoutRef<typeof TypographyTitle>, "order" | "align"> & {
   uiId?: string;
-  tone?: "default" | "accent" | "inverse";
+  tone?: "inherit" | "default" | "accent" | "inverse";
 }) {
   return (
     <TypographyTitle
@@ -70,11 +70,11 @@ export function ArticleText({
   return (
     <TypographyText
       size="body"
-      tone="default"
+      tone="inherit"
       align="left"
       data-ui={undefined}
       uiId={mergeUi(uiId ?? "article-text")}
-      className={cn("text-brand-brown", className)}
+      className={className}
       {...props}
     />
   );
@@ -92,7 +92,7 @@ export function ArticleList({
 }) {
   const listClassName = cn(
     as === "ol" ? "list-decimal" : "list-disc",
-    "space-y-2 pl-5 text-brand-brown",
+    "space-y-2 pl-5",
     tone === "danger" && "marker:text-red-700",
     className
   );
