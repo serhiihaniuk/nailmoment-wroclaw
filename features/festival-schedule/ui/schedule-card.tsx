@@ -24,19 +24,26 @@ function ScheduleTimeBadge({
     <div
       data-ui={mergeUi(uiId, "time")}
       className={cn(
-        "inline-flex rounded-[1.75rem] bg-surface-muted px-3 text-sm font-semibold text-text-primary",
+        "inline-flex bg-surface-muted font-semibold text-text-primary",
         hasRange
-          ? "min-h-16 min-w-[84px] flex-col items-center justify-center py-2 text-center leading-5"
-          : "min-h-9 items-center justify-center"
+          ? "h-[52px] w-[92px] flex-col items-center justify-center rounded-xl"
+          : "min-h-10 min-w-[92px] items-center justify-center rounded-full px-3 text-center"
       )}
     >
       {hasRange ? (
         <>
-          <span className="block whitespace-nowrap">{start}–</span>
-          <span className="block whitespace-nowrap">{end}</span>
+          <span className="text-[15px] leading-none tabular-nums tracking-tight">
+            {start}
+          </span>
+          <span className="my-[3px] h-px w-5 bg-text-primary/15" />
+          <span className="text-[15px] leading-none tabular-nums tracking-tight">
+            {end}
+          </span>
         </>
       ) : (
-        time
+        <span className="whitespace-nowrap text-[1.05rem] leading-none tabular-nums tracking-tight">
+          {time}
+        </span>
       )}
     </div>
   );
@@ -51,7 +58,7 @@ function ScheduleItem({
   return (
     <div
       data-ui={mergeUi(uiId, "item")}
-      className="grid items-start gap-3 grid-cols-[84px_minmax(0,1fr)]"
+      className="grid items-start gap-4 grid-cols-[92px_minmax(0,1fr)]"
     >
       <ScheduleTimeBadge time={time} uiId={uiId} />
       <div data-ui={mergeUi(uiId, "content")} className="space-y-1">
