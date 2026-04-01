@@ -21,7 +21,6 @@ export function BattleAtmosphereSection() {
             uiId="battle-atmosphere-description"
             size="body"
             tone="default"
-            className="text-brand-brown"
           >
             {BATTLE_ATMOSPHERE_CONTENT.atmosphereDescription}
           </TypographyText>

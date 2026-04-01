@@ -12,7 +12,7 @@ export function BattleStep3Card() {
         align="left"
         size="body"
         tone="default"
-        className="whitespace-pre-line text-brand-brown"
+        className="whitespace-pre-line"
       >
         {
           "Щоб взяти участь у «Битві Майстрів», потрібно придбати квиток на обрану номінацію.\n📌 1 номінація = 1 квиток\n\nЯкщо ти хочеш брати участь у кількох номінаціях, потрібно придбати окремий квиток на кожну номінацію.\n✨ При участі у кількох номінаціях діє знижка для учасників.\n\nНаприклад:\n• 1 номінація — 199 zł\n• 2 номінації — 159 zł\n• 3 номінації — 119 zł\n• 4 номінації — 99 zł\n• 5 номінацій — 79 zł"
@@ -23,7 +23,7 @@ export function BattleStep3Card() {
         href="https://www.instagram.com/nail_moment_pl?igsh=YWZpY2JjOTFueXc5"
         uiId="battle-step-3-link"
         icon
-        className="italic text-brand-brown decoration-brand-brown/40"
+        className="italic decoration-brand-brown/40"
       >
         Додаткові номінації можна купити через дірект в Instagram.
       </IconLink>

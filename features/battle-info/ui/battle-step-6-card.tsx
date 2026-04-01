@@ -15,7 +15,7 @@ export function BattleStep6Card({ groups }: BattleStep6CardProps) {
         align="left"
         size="body"
         tone="default"
-        className="whitespace-pre-line text-brand-brown"
+        className="whitespace-pre-line"
       >
         {"Результати конкурсу будуть оголошені 7 липня на сцені фестивалю Nail Moment у Варшаві.\n\nСаме там стане відомо, хто стане переможцем «Битви Майстрів»."}
       </TypographyText>

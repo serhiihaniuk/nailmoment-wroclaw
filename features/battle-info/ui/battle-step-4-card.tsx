@@ -14,7 +14,6 @@ export function BattleStep4Card() {
         align="left"
         size="body"
         tone="default"
-        className="text-brand-brown"
       >
         Обери свою номінацію та надішли 1–3 фотографії своєї ОДНІЄЇ роботи.
       </TypographyText>
@@ -41,7 +40,6 @@ export function BattleStep4Card() {
         align="left"
         size="body"
         tone="default"
-        className="text-brand-brown"
       >
         Усі роботи, які відповідають умовам конкурсу, будуть опубліковані для публічного
         голосування у телеграм-боті (посилання надамо в день першого голосування)
@@ -53,7 +51,6 @@ export function BattleStep4Card() {
         align="left"
         size="body"
         tone="default"
-        className="text-brand-brown"
       >
         За результатами голосування 3 (три) роботи з кожної номінації, які отримають найбільшу
         кількість голосів — пройдуть у фінальний тур конкурсу.
@@ -64,7 +61,7 @@ export function BattleStep4Card() {
         variant="secondary"
         size="sm"
         asChild
-        className="w-full border-2 border-brand-brown font-black text-brand-brown hover:bg-brand-brown/5 sm:ml-auto sm:w-auto"
+        className="w-full border-2 border-brand-brown font-black hover:bg-brand-brown/5 sm:ml-auto sm:w-auto"
       >
         <Link href={INFO_URL.TELEGRAM} target="_blank" rel="noopener noreferrer">
           Вислати свою роботу

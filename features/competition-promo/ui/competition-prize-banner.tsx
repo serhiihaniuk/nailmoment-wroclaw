@@ -57,7 +57,7 @@ export function CompetitionPrizeBanner({
           order="order2"
           tone="accent"
           align="center"
-          className="w-full normal-case text-brand-brown leading-[0.95]"
+          className="w-full normal-case leading-[0.95]"
         >
           {title}
         </TypographyTitle>
@@ -67,7 +67,7 @@ export function CompetitionPrizeBanner({
           order="order2"
           tone="accent"
           align="center"
-          className="w-full normal-case text-brand-brown leading-[0.98]"
+          className="w-full normal-case leading-[0.98]"
         >
           {subtitle}
         </TypographyTitle>

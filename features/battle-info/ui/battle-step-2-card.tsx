@@ -16,7 +16,7 @@ export function BattleStep2Card() {
         align="left"
         size="body"
         tone="default"
-        className="whitespace-pre-line text-brand-brown"
+        className="whitespace-pre-line"
       >
         {
           "Щоб взяти участь у конкурсі «Битва Майстрів», необхідно бути учасником фестивалю Nail Moment.\n\nДля цього потрібно придбати квиток на фестиваль:\n\n• Standard\n• VIP"
@@ -44,7 +44,7 @@ export function BattleStep2Card() {
         variant="secondary"
         size="sm"
         asChild
-        className="w-full border-2 border-brand-brown font-black text-brand-brown hover:bg-brand-brown/5 sm:ml-auto sm:w-auto"
+        className="w-full border-2 border-brand-brown font-black hover:bg-brand-brown/5 sm:ml-auto sm:w-auto"
       >
         <Link href="/#ticket-section">Придбати квиток</Link>
       </Button>

@@ -24,7 +24,7 @@ function ScheduleTimeBadge({
     <div
       data-ui={mergeUi(uiId, "time")}
       className={cn(
-        "inline-flex bg-surface-muted font-semibold text-text-primary",
+        "inline-flex bg-surface-muted font-semibold",
         hasRange
           ? "h-[52px] w-[92px] flex-col items-center justify-center rounded-xl"
           : "min-h-10 min-w-[92px] items-center justify-center rounded-full px-3 text-center"
@@ -35,7 +35,7 @@ function ScheduleTimeBadge({
           <span className="text-[15px] leading-none tabular-nums tracking-tight">
             {start}
           </span>
-          <span className="my-[3px] h-px w-5 bg-text-primary/15" />
+          <span className="my-[3px] h-px w-5 bg-current/15" />
           <span className="text-[15px] leading-none tabular-nums tracking-tight">
             {end}
           </span>
@@ -62,9 +62,9 @@ function ScheduleItem({
     >
       <ScheduleTimeBadge time={time} uiId={uiId} />
       <div data-ui={mergeUi(uiId, "content")} className="space-y-1">
-        <p data-ui={mergeUi(uiId, "title")} className="text-lg font-semibold leading-7 text-text-primary">{title}</p>
+        <p data-ui={mergeUi(uiId, "title")} className="text-lg font-semibold leading-7">{title}</p>
         {description ? (
-          <p data-ui={mergeUi(uiId, "description")} className="text-sm leading-6 text-text-muted md:text-base">
+          <p data-ui={mergeUi(uiId, "description")} className="text-sm leading-6 opacity-[.78] md:text-base">
             {description}
           </p>
         ) : null}

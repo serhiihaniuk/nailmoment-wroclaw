@@ -58,14 +58,14 @@ function AccordionTrigger({
             data-ui={mergeUi(uiId, "icon-open")}
             strokeWidth={1}
             className={cn(
-              "size-8 text-blue-foreground transition-opacity hidden group-data-[state=open]:block"
+              "size-8 text-current transition-opacity hidden group-data-[state=open]:block"
             )}
           />
           <PlusCircle
             data-ui={mergeUi(uiId, "icon-closed")}
             strokeWidth={1}
             className={cn(
-              "size-8 text-blue-foreground transition-opacity block group-data-[state=open]:hidden"
+              "size-8 text-current transition-opacity block group-data-[state=open]:hidden"
             )}
           />
         </span>

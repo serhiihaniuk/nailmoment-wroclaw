@@ -113,7 +113,7 @@ export function BattleStep5Card() {
         variant="secondary"
         size="sm"
         asChild
-        className="w-full border-2 border-brand-brown font-black text-brand-brown hover:bg-brand-brown/5 sm:ml-auto sm:w-auto"
+        className="w-full border-2 border-brand-brown font-black hover:bg-brand-brown/5 sm:ml-auto sm:w-auto"
       >
         <Link href="/battle/regulamin#final-rules">
           Ознайомитись з правилами фіналу

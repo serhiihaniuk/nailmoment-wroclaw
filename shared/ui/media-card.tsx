@@ -30,7 +30,7 @@ export function MediaCard({
       uiId={mergeUi(uiId, "card")}
       surface={surface === "subtle" ? "subtle" : "default"}
       spacing="none"
-      className={cn("rounded-[2rem] text-text-primary", className)}
+      className={cn("rounded-[2rem]", className)}
     >
       <CardContent
         uiId={mergeUi(uiId, "content")}

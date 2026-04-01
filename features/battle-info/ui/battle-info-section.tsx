@@ -58,7 +58,6 @@ export function BattleInfoSection() {
             uiId="battle-steps-description"
             size="body"
             tone="default"
-            className="text-brand-brown"
           >
             Увесь шлях від ознайомлення з умовами до фіналу конкурсу.
           </TypographyText>

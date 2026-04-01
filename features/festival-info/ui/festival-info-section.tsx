@@ -21,7 +21,7 @@ export function FestivalInfoSection() {
                 title={FESTIVAL_INFO_CONTENT.introTitle}
               />
 
-              <p className="text-base font-medium text-text-primary">
+              <p className="text-base font-medium">
                 Тільки ми:
               </p>
 

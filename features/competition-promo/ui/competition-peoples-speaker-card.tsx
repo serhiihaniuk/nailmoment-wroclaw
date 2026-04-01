@@ -97,7 +97,7 @@ export function CompetitionPeoplesSpeakerCard({
           uiId={mergeUi(uiId, "button")}
           asChild
           variant="default"
-          className="mt-1 w-full uppercase text-brand-olive"
+          className="mt-1 w-full uppercase"
         >
           <Link href={href}>{buttonText}</Link>
         </Button>

@@ -55,7 +55,7 @@ export function BattlePrizeList({
                 size="body"
                 tone={isInverse ? "inverse" : "default"}
                 align="left"
-                className={isInverse ? "text-text-inverse" : "text-brand-brown"}
+                className={isInverse ? "text-text-inverse" : undefined}
               >
                 {line}
               </TypographyText>
@@ -70,7 +70,7 @@ export function BattlePrizeList({
           uiId={mergeUi(uiId, "note")}
           size="body"
           tone={isInverse ? "inverse" : "default"}
-          className={isInverse ? "italic text-text-inverse" : "italic text-brand-brown"}
+          className={isInverse ? "italic text-text-inverse" : "italic"}
         >
           {note}
         </TypographyText>

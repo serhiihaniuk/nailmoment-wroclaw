@@ -142,7 +142,7 @@ export function BattleFaqSection() {
       <Stack uiId="battle-faq-content" gap="lg" className="items-center">
         <Stack uiId="battle-faq-header" gap="sm" className="items-center text-center">
           <SectionHeader uiId="battle-faq-title" title="Битва Майстрів: часті питання" tone="accent" />
-          <TypographyText uiId="battle-faq-description" size="body" tone="default" className="text-brand-brown">
+          <TypographyText uiId="battle-faq-description" size="body" tone="default">
             Зібрали найважливіші організаційні моменти, щоб участь у конкурсі була максимально зрозумілою.
           </TypographyText>
         </Stack>
@@ -161,13 +161,13 @@ export function BattleFaqSection() {
               >
                 <AccordionTrigger
                   uiId={item.id}
-                  className="px-2 py-5 text-left text-base font-medium text-brand-brown hover:no-underline md:text-lg"
+                  className="px-2 py-5 text-left text-base font-medium hover:no-underline md:text-lg"
                 >
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent
                   uiId={item.id}
-                  className="px-2 pb-5 pt-0 text-sm leading-7 text-brand-brown md:text-base"
+                  className="px-2 pb-5 pt-0 text-sm leading-7 md:text-base"
                 >
                   {item.answer}
                 </AccordionContent>
@@ -191,7 +191,7 @@ export function BattleFaqSection() {
             >
               Потрібна допомога?
             </TypographyTitle>
-            <TypographyText uiId="battle-faq-contact-copy" size="body" tone="default" className="text-brand-brown">
+            <TypographyText uiId="battle-faq-contact-copy" size="body" tone="default">
               Якщо виникли додаткові питання, напиши нашому відділу турботи.
             </TypographyText>
             <TelegramLink href={INFO_URL.TELEGRAM} text="Написати в Telegram" />

@@ -24,7 +24,7 @@ export function IconLink({
     <NextLink
       data-ui={mergeUi(uiId ?? "link")}
       className={cn(
-        "rounded-md text-text-primary underline underline-offset-2 outline-none transition-opacity hover:opacity-80 focus-visible:ring-[3px] focus-visible:ring-ring/30",
+        "rounded-md underline underline-offset-2 outline-none transition-opacity hover:opacity-80 focus-visible:ring-[3px] focus-visible:ring-ring/30",
         className,
       )}
       href={href}

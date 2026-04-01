@@ -76,7 +76,7 @@ export function BattleSuccessSection() {
               description={BATTLE_SUCCESS_CONTENT.description}
               order="order1"
               tone="accent"
-              descriptionClassName="max-w-3xl text-brand-brown text-base md:text-lg md:leading-8"
+              descriptionClassName="max-w-3xl text-base md:text-lg md:leading-8"
             />
           </Stack>
         </div>
@@ -125,7 +125,6 @@ export function BattleSuccessSection() {
               uiId="battle-success-steps-description"
               size="body"
               tone="default"
-              className="text-brand-brown"
             >
               {BATTLE_SUCCESS_CONTENT.stepsDescription}
             </TypographyText>
@@ -154,7 +153,6 @@ export function BattleSuccessSection() {
                       align="left"
                       size="body"
                       tone="default"
-                      className="text-brand-brown"
                     >
                       <span className="font-black">{index + 1}.</span> {step}
                     </TypographyText>
@@ -171,7 +169,7 @@ export function BattleSuccessSection() {
                   variant="secondary"
                   size="sm"
                   asChild
-                  className="w-full border-2 border-brand-brown text-brand-brown font-black hover:bg-brand-brown/5"
+                  className="w-full border-2 border-brand-brown font-black hover:bg-brand-brown/5"
                 >
                   <Link href={BATTLE_SUCCESS_CONTENT.rulesHref}>
                     {BATTLE_SUCCESS_CONTENT.rulesLabel}
@@ -182,7 +180,7 @@ export function BattleSuccessSection() {
                   variant="secondary"
                   size="sm"
                   asChild
-                  className="w-full border-2 border-brand-brown text-brand-brown font-black hover:bg-brand-brown/5"
+                  className="w-full border-2 border-brand-brown font-black hover:bg-brand-brown/5"
                 >
                   <IconLink href={BATTLE_SUCCESS_CONTENT.telegramHref} target="_blank" icon={false}>
                     {BATTLE_SUCCESS_CONTENT.telegramLabel}

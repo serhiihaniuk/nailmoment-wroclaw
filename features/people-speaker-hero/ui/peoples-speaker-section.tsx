@@ -42,7 +42,7 @@ function BulletList({
             className={
               tone === "inverse"
                 ? "text-text-inverse"
-                : "text-brand-olive"
+                : undefined
             }
           >
             <span className="font-black">{index + 1}.</span> {item}

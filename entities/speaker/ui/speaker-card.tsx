@@ -60,7 +60,7 @@ export function SpeakerCard({
           </TypographyTitle>
           <div
             data-ui={mergeUi(uiId, "text")}
-            className="space-y-1 text-sm leading-6 text-text-muted md:text-base md:leading-7"
+            className="space-y-1 text-sm leading-6 opacity-[.78] md:text-base md:leading-7"
           >
             {description}
           </div>

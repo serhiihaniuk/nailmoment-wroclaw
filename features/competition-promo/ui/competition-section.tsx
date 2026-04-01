@@ -46,7 +46,7 @@ function CompetitionCard({
       surface={surface === "accent" ? "accent" : "default"}
       className={cn(
         "scroll-mt-24",
-        accent && "bg-brand-brown text-text-inverse"
+        accent && "bg-brand-brown text-text-inverse theme-brown"
       )}
     >
       <CardContent
@@ -98,7 +98,7 @@ function CompetitionCard({
           uiId={mergeUi(uiId, "button")}
           asChild
           variant={accent ? "default" : "accent"}
-          className={cn("w-full uppercase", accent ? "text-brand-brown" : "")}
+          className="w-full uppercase"
         >
           <Link href={href}>{buttonText}</Link>
         </Button>

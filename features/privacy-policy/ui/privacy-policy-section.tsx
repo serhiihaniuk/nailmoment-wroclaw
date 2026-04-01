@@ -99,7 +99,7 @@ export function PrivacyPolicySection() {
               title={PRIVACY_POLICY_CONTENT.title}
               description={PRIVACY_POLICY_CONTENT.description}
               tone="accent"
-              descriptionClassName="max-w-3xl text-brand-brown text-base md:text-lg md:leading-8"
+              descriptionClassName="max-w-3xl text-base md:text-lg md:leading-8"
             />
           </Stack>
         </div>

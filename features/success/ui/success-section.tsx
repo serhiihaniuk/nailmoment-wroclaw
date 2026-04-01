@@ -69,7 +69,7 @@ export function SuccessSection() {
               description={SUCCESS_CONTENT.description}
               order="order1"
               tone="accent"
-              descriptionClassName="max-w-3xl text-brand-brown text-base md:text-lg md:leading-8"
+              descriptionClassName="max-w-3xl text-base md:text-lg md:leading-8"
             />
           </Stack>
         </div>
@@ -91,7 +91,7 @@ export function SuccessSection() {
                     uiId={`success-lead-text-${index + 1}`}
                     size="lead"
                     tone="default"
-                    className="max-w-3xl text-brand-brown"
+                    className="max-w-3xl"
                   >
                     {paragraph}
                   </TypographyText>
@@ -106,7 +106,6 @@ export function SuccessSection() {
               uiId="success-next-description"
               size="body"
               tone="default"
-              className="text-brand-brown"
             >
               {SUCCESS_CONTENT.nextDescription}
             </TypographyText>
@@ -132,7 +131,6 @@ export function SuccessSection() {
                       align="left"
                       size="body"
                       tone="default"
-                      className="text-brand-brown"
                     >
                       <span className="font-black">{index + 1}.</span> {step}
                     </TypographyText>

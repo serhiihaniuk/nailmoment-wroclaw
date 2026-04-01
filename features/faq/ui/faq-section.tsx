@@ -119,13 +119,13 @@ export function FaqSection({ className }: FaqSectionProps) {
               >
                 <AccordionTrigger
                   uiId={item.id}
-                  className="px-2 py-5 text-left text-base font-medium text-text-primary hover:no-underline md:text-lg"
+                  className="px-2 py-5 text-left text-base font-medium hover:no-underline md:text-lg"
                 >
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent
                   uiId={item.id}
-                  className="px-2 pb-5 pt-0 text-sm leading-7 text-text-muted md:text-base"
+                  className="px-2 pb-5 pt-0 text-sm leading-7 opacity-[.78] md:text-base"
                 >
                   {item.answer}
                 </AccordionContent>

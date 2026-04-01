@@ -52,7 +52,7 @@ export function MarketShowcaseSection() {
               <MediaCardTitle uiId="boxopad">
                 {MARKET_SHOWCASE_CONTENT.boxopad.title}
               </MediaCardTitle>
-              <MediaCardText uiId="boxopad" className="text-text-muted">
+              <MediaCardText uiId="boxopad" className="opacity-[.78]">
                 {MARKET_SHOWCASE_CONTENT.boxopad.description}
               </MediaCardText>
             </Stack>

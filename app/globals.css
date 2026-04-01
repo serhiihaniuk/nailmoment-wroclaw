@@ -65,6 +65,18 @@
   --ring: var(--brand-olive);
 }
 
+/* Page color themes — override semantic tokens so every component
+   using text-text-primary / text-text-muted / border-border-subtle
+   automatically picks up the right palette. */
+.theme-brown {
+  --text-primary: var(--brand-brown);
+  --text-muted: rgb(84 40 38 / 0.78);
+  --border-subtle: rgb(84 40 38 / 0.14);
+  --color-text-primary: var(--brand-brown);
+  --color-text-muted: rgb(84 40 38 / 0.78);
+  --color-border-subtle: rgb(84 40 38 / 0.14);
+}
+
 @layer base {
   * {
     @apply outline-accent-orange/50;

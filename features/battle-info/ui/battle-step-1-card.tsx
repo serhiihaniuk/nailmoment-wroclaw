@@ -12,7 +12,7 @@ export function BattleStep1Card() {
         align="left"
         size="body"
         tone="default"
-        className="whitespace-pre-line text-brand-brown"
+        className="whitespace-pre-line"
       >
         {"Уважно прочитай повні умови участі у конкурсі.\nПодавши заявку, ти підтверджуєш, що ознайомився та погоджуєшся з усіма правилами конкурсу."}
       </TypographyText>
@@ -22,7 +22,7 @@ export function BattleStep1Card() {
         variant="secondary"
         size="sm"
         asChild
-        className="w-full border-2 border-brand-brown font-black text-brand-brown hover:bg-brand-brown/5 sm:ml-auto sm:w-auto"
+        className="w-full border-2 border-brand-brown font-black hover:bg-brand-brown/5 sm:ml-auto sm:w-auto"
       >
         <Link href="/battle/regulamin">Прочитати умови</Link>
       </Button>

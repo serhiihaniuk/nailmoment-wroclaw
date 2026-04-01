@@ -18,9 +18,9 @@ export const ListItem: FC<{
     >
       <CheckCircle
         data-ui={mergeUi(uiId, "icon")}
-        className={cn("mt-0.5 size-5 shrink-0 text-text-primary", iconClassName)}
+        className={cn("mt-0.5 size-5 shrink-0", iconClassName)}
       />
-      <p data-ui={mergeUi(uiId, "text")} className="leading-6 text-text-primary">
+      <p data-ui={mergeUi(uiId, "text")} className="leading-6">
         {text}
       </p>
     </li>
