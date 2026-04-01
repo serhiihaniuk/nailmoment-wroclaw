@@ -36,7 +36,7 @@ const TelegramLink = ({ href, text }: { href: string; text: string }) => (
 const battleFaqData: FaqEntry[] = [
   {
     id: "battle-faq-1",
-    question: "Чи мушу я вміти нарощувати, щоб прийняти участь у конкурсі?",
+      question: "Чи мушу я вміти нарощувати, щоб взяти участь у конкурсі?",
     answer: (
       <>
         Ні, для участі в конкурсі не обовʼязково вміти нарощувати.

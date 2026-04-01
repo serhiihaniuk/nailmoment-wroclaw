@@ -29,7 +29,7 @@ const faqData: FaqEntry[] = [
     question: "Як купити квиток?",
     answer: (
       <>
-        Ви можете купити квиток через сайт або написавши нам в Instagram <InstagramLink handle="nail_moment_pl" />.
+        Ви можете купити квиток через сайт або написавши нам у Instagram <InstagramLink handle="nail_moment_pl" />.
       </>
     ),
   },
@@ -38,7 +38,7 @@ const faqData: FaqEntry[] = [
     question: "Як отримати фактуру?",
     answer: (
       <>
-        Щоб отримати фактуру, напишіть нам NIP фірми та ваш e-mail у дірект на сторінку{" "}
+        Щоб отримати фактуру, напишіть нам NIP фірми та ваш e-mail у дірект сторінки{" "}
         <InstagramLink handle="nail_moment_pl" />.
       </>
     ),
@@ -70,7 +70,7 @@ const faqData: FaqEntry[] = [
   },
   {
     id: "faq-6",
-    question: "Де та до котрої буде afterparty?",
+    question: "Де й до котрої години буде afterparty?",
     answer: (
       <>
         Деталі щодо afterparty ми повідомимо окремо ближче до дати фестивалю. Слідкуйте за оновленнями на сторінці{" "}

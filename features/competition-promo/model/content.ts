@@ -6,11 +6,11 @@ export const HOME_COMPETITION_CONTENT = {
     imageUrl: IMAGES.BATTLE_PHOTO,
     imageAlt: "Battle of Masters Competition",
     title: "Супер-конкурс БИТВА МАЙСТРІВ",
-    description: "2000 зл + СУПЕР ПРИЗ від спонсору конкурсу",
+    description: "2000 зл + СУПЕР ПРИЗ від спонсора конкурсу",
     prizeTitle: "2000 зл + СУПЕР ПРИЗ",
-    prizeSubtitle: "від спонсору конкурсу",
+    prizeSubtitle: "від спонсора конкурсу",
     href: "/battle",
-    buttonText: "Перейти до БИТВА МАЙСТРІВ",
+    buttonText: "Перейти до «Битви Майстрів»",
     surface: "accent" as const,
   },
   peoplesSpeaker: {
@@ -19,9 +19,9 @@ export const HOME_COMPETITION_CONTENT = {
     imageAlt: "People's Speaker trophy",
     title: "ПРИЙМИ УЧАСТЬ У КОНКУРСІ НАРОДНИЙ СПІКЕР",
     description:
-      "Якщо ти гориш своєю справою та хочеш запалати інших, виступи зі спічем або МК на головній сцені фестивалю Nail Moment",
+      "Якщо ти гориш своєю справою та хочеш запалити інших, виступи зі спічем або МК на головній сцені фестивалю Nail Moment",
     href: "/speaker",
-    buttonText: "ПЕРЕЙТИ ДО НАРОДНИЙ СПІКЕР",
+    buttonText: "Перейти до «Народного спікера»",
     surface: "default" as const,
   },
 };
