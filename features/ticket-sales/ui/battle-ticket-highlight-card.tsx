@@ -42,9 +42,10 @@ export function BattleTicketHighlightCard({
           uiId={mergeUi(uiId, "image")}
           url={imageUrl}
           alt={imageAlt}
-          width={250}
-          height={370}
-          className="mx-auto aspect-[25/37] w-full max-w-[250px] rounded-none"
+          width={164}
+          height={312}
+          fullscreen={false}
+          className="mx-auto aspect-[41/78] w-full max-w-[100px] rounded-none"
           imageClassName="object-contain"
         />
 

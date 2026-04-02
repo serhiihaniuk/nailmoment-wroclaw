@@ -208,3 +208,17 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [battle-atmosphere-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-atmosphere\ui\battle-atmosphere-section.tsx)
   - [assets.md](C:\Users\Serge\Desktop\nailmoment-wroclaw\docs\assets.md)
 
+- Page / section: battle decorative logo image, including `ticket-highlight-image-trigger`
+- Request: Revert the shared battle decorative art back to `ticket-battle-decor.png` and treat it as the main battle logo
+- Status: Done
+- Files:
+  - [const.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\config\const.ts)
+
+- Page / section: battle decorative logo image, including `ticket-highlight-image-trigger`
+- Request: After cropping the battle decorative logo, update the layout to use the real asset proportion and fit it cleanly in the existing battle blocks
+- Status: Done
+- Files:
+  - [battle-ticket-highlight-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\ui\battle-ticket-highlight-card.tsx)
+  - [battle-success-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-success\ui\battle-success-section.tsx)
+  - [battle-rules-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\ui\battle-rules-section.tsx)
+

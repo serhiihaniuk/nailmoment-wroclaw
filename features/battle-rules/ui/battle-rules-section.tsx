@@ -185,7 +185,7 @@ export function BattleRulesSection() {
               src={IMAGES.TICKET_BATTLE_DECOR}
               alt=""
               aria-hidden="true"
-              className="mx-auto h-auto w-full max-w-[200px] object-contain"
+              className="mx-auto h-auto w-full max-w-[100px] object-contain"
             />
           </Stack>
         </div>

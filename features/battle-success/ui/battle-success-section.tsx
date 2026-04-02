@@ -99,7 +99,7 @@ export function BattleSuccessSection() {
                 src={IMAGES.TICKET_BATTLE_DECOR}
                 alt=""
                 aria-hidden="true"
-                className="mx-auto h-auto w-full max-w-[250px] object-contain"
+                className="mx-auto h-auto w-full max-w-[100px] object-contain"
               />
               {BATTLE_SUCCESS_CONTENT.lead.map((paragraph, index) => (
                 <TypographyText
