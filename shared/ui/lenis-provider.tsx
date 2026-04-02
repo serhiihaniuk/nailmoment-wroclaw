@@ -23,7 +23,20 @@ export function LenisProvider({ children }: LenisProviderProps) {
       stopInertiaOnNavigate: true,
     });
 
+    const handlePause = () => {
+      lenis.stop();
+    };
+
+    const handleResume = () => {
+      lenis.start();
+    };
+
+    window.addEventListener("image-viewer:open", handlePause);
+    window.addEventListener("image-viewer:close", handleResume);
+
     return () => {
+      window.removeEventListener("image-viewer:open", handlePause);
+      window.removeEventListener("image-viewer:close", handleResume);
       lenis.destroy();
     };
   }, []);

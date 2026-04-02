@@ -61,7 +61,7 @@ export function ImageViewerProvider({ children }: { children: ReactNode }) {
     setPayload(null);
 
     requestAnimationFrame(() => {
-      lastActiveElementRef.current?.focus();
+      lastActiveElementRef.current?.focus({ preventScroll: true });
     });
   }, []);
 
@@ -77,15 +77,22 @@ export function ImageViewerProvider({ children }: { children: ReactNode }) {
       return;
     }
 
+    window.dispatchEvent(new Event("image-viewer:open"));
     const previousBodyOverflow = document.body.style.overflow;
     const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousHtmlOverscrollBehavior =
+      document.documentElement.style.overscrollBehavior;
 
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.overscrollBehavior = "none";
 
     return () => {
+      window.dispatchEvent(new Event("image-viewer:close"));
       document.body.style.overflow = previousBodyOverflow;
       document.documentElement.style.overflow = previousHtmlOverflow;
+      document.documentElement.style.overscrollBehavior =
+        previousHtmlOverscrollBehavior;
     };
   }, [payload]);
 
@@ -140,7 +147,7 @@ function FullscreenImageViewer({
   return (
     <div
       data-ui={mergeUi(payload.sourceUiId, "fullscreen-viewer")}
-      className="fixed inset-0 z-[200] bg-black/90 p-4 md:p-8"
+      className="fixed inset-0 z-[200] overscroll-none bg-black/90 p-4 md:p-8"
       role="dialog"
       aria-modal="true"
       aria-label="Fullscreen image viewer"
