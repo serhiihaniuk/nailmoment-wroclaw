@@ -5,7 +5,7 @@ export const BATTLE_ATMOSPHERE_CONTENT = {
   atmosphereDescription:
     "Реальні майстри, справжні емоції та боротьба за перемогу",
   atmosphereImages: [
-    IMAGES.BATTLE_PHOTO,
+    IMAGES.BATTLE_INTRO_PHOTO,
     IMAGES.PAST_EVENT,
     IMAGES.MARKET_1,
     IMAGES.MARKET_2,
@@ -41,7 +41,7 @@ export const BATTLE_ATMOSPHERE_CONTENT = {
   ],
   cupTitle: "🔥 Можливо, цього року саме ти піднімеш кубок переможця «Битви Майстрів»",
   cupImages: [
-    IMAGES.BATTLE_PHOTO,
+    IMAGES.BATTLE_INTRO_PHOTO,
     IMAGES.PAST_EVENT,
     IMAGES.WHY_ATTEND_3,
   ],

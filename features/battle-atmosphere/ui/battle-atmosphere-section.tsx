@@ -55,7 +55,7 @@ export function BattleAtmosphereSection() {
                     alt={winner.imageAlt}
                     width={winner.imageWidth}
                     height={winner.imageHeight}
-                    className="aspect-[9/16] w-full rounded-[1.4rem]"
+                    className="aspect-[9/16] w-full rounded-[1.4rem] md:aspect-[3/4]"
                     imageClassName="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 896px"
                   />

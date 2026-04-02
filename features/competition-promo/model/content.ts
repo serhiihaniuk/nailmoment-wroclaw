@@ -3,7 +3,7 @@ import { IMAGES } from "@/shared/config/const";
 export const HOME_COMPETITION_CONTENT = {
   battle: {
     id: "battle-of-masters",
-    imageUrl: IMAGES.BATTLE_PHOTO,
+    imageUrl: IMAGES.BATTLE_INTRO_PHOTO,
     imageAlt: "Battle of Masters Competition",
     title: "Супер-конкурс БИТВА МАЙСТРІВ",
     description: "2000 зл + СУПЕР ПРИЗ від спонсора конкурсу",
