@@ -59,13 +59,12 @@ export const HOME_SPEAKERS: SpeakerProfile[] = [
   },
   {
     id: 5,
-    imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/valentyna_kozlova.jpg",
-    imageAlt: "Валентина Козлова",
-    name: "Валентина Козлова",
+    imageUrl: shadowImageUrl,
+    imageAlt: "Народний спікер 2026",
+    name: "TBD",
     description: (
       <>
-        <p>Народний спікер 2025</p>
+        <p>Народний спікер 2026</p>
       </>
     ),
   },
