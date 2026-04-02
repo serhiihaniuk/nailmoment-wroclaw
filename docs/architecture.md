@@ -1,5 +1,8 @@
 # Nail Moment Architecture
 
+See also:
+- [docs/assets.md](docs/assets.md)
+
 ## Layer map
 - `app/*`
   - route entrypoints only
@@ -28,6 +31,14 @@
   - global app constants and asset maps
 - `shared/assets/*`
   - icons and shared asset components
+
+## Asset structure
+- Decorative and UI-only assets live under `public/images/<year>/*`
+- Real repo-local content images live under `public/content/<year>/<slice>/*`
+- New uploaded content images should follow the blob namespace contract in [docs/assets.md](docs/assets.md)
+- Raw incoming image files should go through the repo-root `process/` intake folder before being processed or uploaded
+- Shared reusable image constants belong in `shared/config/*`
+- Feature-owned image URLs and arrays belong in `features/<slice>/model/*`
 
 ## Entity ownership
 - `entities/speaker`

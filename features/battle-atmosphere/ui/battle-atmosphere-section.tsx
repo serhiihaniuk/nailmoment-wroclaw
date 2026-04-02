@@ -53,7 +53,10 @@ export function BattleAtmosphereSection() {
                     uiId={`battle-winner-${index + 1}`}
                     url={winner.imageUrl}
                     alt={winner.imageAlt}
-                    className="w-full rounded-[1.4rem]"
+                    width={winner.imageWidth}
+                    height={winner.imageHeight}
+                    className="aspect-[9/16] w-full rounded-[1.4rem]"
+                    imageClassName="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 896px"
                   />
                   <TypographyTitle

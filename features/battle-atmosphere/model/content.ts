@@ -16,18 +16,27 @@ export const BATTLE_ATMOSPHERE_CONTENT = {
   winners: [
     {
       place: "1 місце",
-      imageUrl: IMAGES.BATTLE_INTRO_PHOTO,
+      imageUrl:
+        "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/battle-winner-1-947bc09e60924822be82b23df167c29a.28fa5686.webp",
       imageAlt: "1 місце — робота переможця",
+      imageWidth: 1080,
+      imageHeight: 1919,
     },
     {
       place: "2 місце",
-      imageUrl: IMAGES.PEOPLES_SPEAKER_PHOTO,
+      imageUrl:
+        "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/battle-winner-2-218b07569e8d4c7aa9d8bcce3ddac714.ccb6e3ff.webp",
       imageAlt: "2 місце — робота переможця",
+      imageWidth: 1080,
+      imageHeight: 1440,
     },
     {
       place: "3 місце",
-      imageUrl: IMAGES.SPEAKER_PLACEHOLDER,
+      imageUrl:
+        "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/battle-winner-3-328056c6fe66474cac3b939e990259b3.6c948aa5.webp",
       imageAlt: "3 місце — робота переможця",
+      imageWidth: 1080,
+      imageHeight: 1920,
     },
   ],
   cupTitle: "🔥 Можливо, цього року саме ти піднімеш кубок переможця «Битви Майстрів»",

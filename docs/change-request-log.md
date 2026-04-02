@@ -196,3 +196,15 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [criteria-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-criteria\ui\criteria-section.tsx)
 
+## 2026-04-02
+
+### Battle winners
+
+- Page / section: `/battle` atmosphere section, winner cards
+- Request: Replace the placeholder/incorrect winner images with the provided 1st, 2nd, and 3rd place work photos, process them for upload, keep portrait orientation readable, and switch to a flatter blob namespace with prefixed file names
+- Status: Done
+- Files:
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-atmosphere\model\content.ts)
+  - [battle-atmosphere-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-atmosphere\ui\battle-atmosphere-section.tsx)
+  - [assets.md](C:\Users\Serge\Desktop\nailmoment-wroclaw\docs\assets.md)
+

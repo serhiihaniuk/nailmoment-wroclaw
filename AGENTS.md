@@ -4,6 +4,7 @@ This file is the repo-specific operating guide for AI agents and other automated
 
 Use it together with:
 - [docs/architecture.md](docs/architecture.md)
+- [docs/assets.md](docs/assets.md)
 - [docs/design-system.md](docs/design-system.md)
 - [docs/change-request-log.md](docs/change-request-log.md)
 
@@ -80,6 +81,12 @@ Do not reintroduce:
 - Real content images should prefer the shared `Image` / `ImageCarousel` path.
 - Decorative assets stay under `public/images/...`.
 - Real content photos can live under `public/content/...` or external storage if already used that way.
+- For new folder and blob namespace decisions, follow [docs/assets.md](docs/assets.md).
+- Use the repo-root `process/` folder as a temporary local intake area for raw image files. It must stay gitignored.
+- Do not upload original oversized files blindly. Inspect the source image, identify the target block and rendered size range, then process to a sensible delivery size first.
+- Prefer flatter blob namespaces plus readable filename prefixes over many tiny one-off folders.
+- If the source arrives as `HEIC`, convert it before using `project-asset-pipeline`.
+- Match crop ratio and positioning to the block design, especially for portrait source images.
 
 ## 8. Battle Page Rules
 
