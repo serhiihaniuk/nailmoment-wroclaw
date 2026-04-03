@@ -128,6 +128,7 @@ export function TicketCard({
         alt={imageAlt}
         width={320}
         height={320}
+        fullscreen={false}
         className="aspect-square w-40 rounded-none"
         imageClassName="object-contain"
       />

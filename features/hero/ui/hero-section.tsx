@@ -10,6 +10,7 @@ import { Cluster } from "@/shared/ui/layout/cluster";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import Marquee from "@/shared/ui/marquee";
+import { MainSponsorBadge } from "@/shared/ui/main-sponsor-badge";
 import { BuyTicketButton } from "@/entities/ticket/ui/buy-ticket-button";
 import { TypographyTitle } from "@/shared/ui/typography";
 
@@ -80,6 +81,10 @@ export function HeroSection() {
           </h1>
 
           <div className="flex-1" />
+
+          <div data-ui="hero-main-sponsor" className="mt-8 mb-8 flex justify-center">
+            <MainSponsorBadge uiId="hero-main-sponsor" />
+          </div>
 
           <Stack uiId="hero-actions" gap="sm" className="w-full max-w-2xl">
             <BuyTicketButton uiId="hero-buy-ticket" className="w-full" />

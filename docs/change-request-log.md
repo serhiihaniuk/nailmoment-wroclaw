@@ -348,3 +348,22 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\model\content.ts)
 
+### Main sponsor visibility
+
+- Page / section: homepage hero and `/battle` hero
+- Request: Reflect DNKa as the general festival sponsor in the app, separate from the battle-specific XNail sponsor
+- Status: Done
+- Files:
+  - [const.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\config\const.ts)
+  - [main-sponsor-badge.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\main-sponsor-badge.tsx)
+  - [hero-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\hero\ui\hero-section.tsx)
+  - [battle-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-hero\ui\battle-section.tsx)
+
+### Extra festival speaker placeholder
+
+- Page / section: homepage festival speakers
+- Request: add one more separate unknown speaker card with `Coming soon`, matching the extra TBD slot in the schedule and keeping `Народний спікер` as its own card
+- Status: Done
+- Files:
+  - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
+

@@ -28,6 +28,8 @@ export const IMAGES = {
   BATTLE_INTRO_PHOTO: "/content/2026/battle-intro-photo.jpg",
   XNAIL_BLACK: "/content/2026/xnail_black.PNG",
   XNAIL_WHITE: "/content/2026/xnail_white.PNG",
+  DNKA_BLACK: "/content/2026/dnka_black.png",
+  DNKA_WHITE: "/content/2026/dnka_white.png",
   PAST_EVENT: "/images/2026/past-event.png",
   LOCATION_MAP: "/images/2026/location-map.png",
   // Legacy - keep for subpages that still use them

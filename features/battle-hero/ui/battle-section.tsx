@@ -10,6 +10,7 @@ import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { Cluster } from "@/shared/ui/layout/cluster";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
+import { MainSponsorBadge } from "@/shared/ui/main-sponsor-badge";
 import { SectionHeader } from "@/shared/ui/section-header";
 
 export function BattleSection() {
@@ -73,6 +74,10 @@ export function BattleSection() {
           </Stack>
 
           <div className="flex-1" />
+
+          <div data-ui="battle-hero-main-sponsor" className="mt-6 flex justify-center">
+            <MainSponsorBadge uiId="battle-hero-main-sponsor" />
+          </div>
 
           <Stack uiId="battle-hero-actions" gap="sm" className="w-full max-w-2xl">
             <CompetitionPrizeBanner
