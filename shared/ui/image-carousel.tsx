@@ -19,6 +19,7 @@ interface ImageCarouselProps {
   className?: string;
   uiId?: string;
   fullscreen?: boolean;
+  frameClassName?: string;
 }
 
 const imageWidth = 900;
@@ -33,6 +34,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   className,
   uiId,
   fullscreen = true,
+  frameClassName,
 }) => {
   const { openViewer } = useImageViewer();
   const galleryImages = images.map((imageUrl, index) => ({
@@ -61,7 +63,12 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
               data-ui={mergeUi(uiId, `slide-${index + 1}`)}
               className="bg-transparent pl-4"
             >
-              <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+              <div
+                className={cn(
+                  "relative aspect-video w-full overflow-hidden rounded-lg",
+                  frameClassName,
+                )}
+              >
                 <NextImage
                   src={imageUrl}
                   alt={`${imageAlt} ${index + 1}`}

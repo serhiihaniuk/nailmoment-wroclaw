@@ -5,12 +5,14 @@ export const BATTLE_ATMOSPHERE_CONTENT = {
   atmosphereDescription:
     "Реальні майстри, справжні емоції та боротьба за перемогу",
   atmosphereImages: [
-    IMAGES.BATTLE_INTRO_PHOTO,
-    IMAGES.PAST_EVENT,
-    IMAGES.MARKET_1,
-    IMAGES.MARKET_2,
-    IMAGES.WHY_ATTEND_1,
-    IMAGES.WHY_ATTEND_2,
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/atmosphere/img_6121.4452fa11.webp",
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/atmosphere/img_6122.e940cbb4.webp",
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/atmosphere/img_6123.5acb5119.webp",
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/atmosphere/img_6124.3cc61b89.webp",
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/atmosphere/img_6126.0a0f756c.webp",
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/atmosphere/img_6127.fbad5582.webp",
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/atmosphere/img_6128.f5f37193.webp",
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/atmosphere/img_6129.139fdcfe.webp",
   ],
   winnersTitle: "Роботи переможців попереднього конкурсу",
   winners: [

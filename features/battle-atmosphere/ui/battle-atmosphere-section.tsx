@@ -30,6 +30,7 @@ export function BattleAtmosphereSection() {
           images={BATTLE_ATMOSPHERE_CONTENT.atmosphereImages}
           imageAlt="Атмосфера Битви Майстрів 2025"
           className="max-w-4xl"
+          frameClassName="aspect-[9/16] sm:aspect-[3/4]"
         />
 
         <Stack uiId="battle-winners" gap="lg" className="w-full max-w-4xl items-center">
