@@ -15,7 +15,8 @@ const cardVariants = cva(
       variant: {
         guest: "border-border-subtle bg-surface-card",
         standard: "border-transparent bg-surface-muted",
-        maxi: "border-transparent bg-brand-olive text-text-inverse",
+        maxi:
+          "border-2 border-white/80 bg-[linear-gradient(241deg,rgba(255,211,143,0.98),rgba(245,240,210,0.99)_56%,rgba(75,114,5,0.71))] text-brand-brown shadow-[0_22px_48px_rgba(159,127,43,0.16)]",
         vip: "border-transparent bg-text-primary text-text-inverse",
       },
     },
@@ -30,7 +31,7 @@ const featureTextVariants = cva("w-full", {
     variant: {
       guest: "text-text-primary",
       standard: "text-text-primary",
-      maxi: "text-text-inverse",
+      maxi: "text-brand-brown",
       vip: "text-text-inverse",
     },
   },
@@ -44,7 +45,7 @@ const featureBorderVariants = cva("", {
     variant: {
       guest: "border-b border-border-subtle last:border-b-0",
       standard: "border-b border-border-subtle last:border-b-0",
-      maxi: "border-b border-white/20 last:border-b-0",
+      maxi: "border-b border-brand-brown/10 last:border-b-0",
       vip: "border-b border-white/20 last:border-b-0",
     },
   },
@@ -58,7 +59,7 @@ const buttonToneVariants = cva("", {
     variant: {
       guest: "bg-brand-olive text-white",
       standard: "bg-brand-olive text-white",
-      maxi: "bg-brand-gold text-brand-brown",
+      maxi: "bg-brand-brown text-white",
       vip: "bg-white text-text-primary",
     },
   },
@@ -115,9 +116,9 @@ export function TicketCard({
   variant = "guest",
   ...props
 }: TicketCardProps) {
-  const titleTone = variant === "maxi" ? "gold" : variant === "vip" ? "inverse" : undefined;
-  const priceTone = variant === "maxi" || variant === "vip" ? "inverse" : "olive";
-  const useDecoratedOliveCard = variant === "maxi" || variant === "vip";
+  const titleTone = variant === "maxi" ? "accent" : variant === "vip" ? "inverse" : undefined;
+  const priceTone = variant === "maxi" ? "accent" : variant === "vip" ? "inverse" : "olive";
+  const useDecoratedOliveCard = variant === "vip";
 
   const content = (
     <>

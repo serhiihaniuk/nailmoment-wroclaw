@@ -7,6 +7,7 @@ import {
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { SectionHeader } from "@/shared/ui/section-header";
+import { TypographyDisplay } from "@/shared/ui/typography";
 import { mergeUi } from "@/shared/lib/utils";
 import { IMAGES } from "@/shared/config/const";
 import { MARKET_SHOWCASE_CONTENT } from "../model/content";
@@ -40,6 +41,10 @@ export function MarketShowcaseSection() {
                   url={card.url}
                   alt="Market card"
                   width={900}
+                  className="aspect-[3/4]"
+                  imageClassName={
+                    index === 0 ? "object-[center_18%]" : "object-[center_28%]"
+                  }
                 />
                 <MediaCardText uiId={mergeUi("market-card", index + 1)}>
                   {card.caption}
@@ -47,21 +52,41 @@ export function MarketShowcaseSection() {
               </MediaCard>
             ))}
           </div>
-          <MediaCard uiId="boxopad" surface="subtle">
+          <MediaCard
+            uiId="boxopad"
+            surface="subtle"
+            className="relative overflow-visible border-2 border-white/80 bg-[linear-gradient(241deg,rgba(255,211,143,0.98),rgba(245,240,210,0.99)_56%,rgba(75,114,5,0.71))] shadow-[0_22px_48px_rgba(159,127,43,0.16)]"
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-6 top-5 h-24 rounded-full bg-[radial-gradient(circle,rgba(255,177,94,0.42),rgba(255,177,94,0))] blur-2xl"
+            />
             <Stack uiId="boxopad-copy" gap="sm" className="items-center text-center">
-              <MediaCardTitle uiId="boxopad">
+              <TypographyDisplay
+                as="h3"
+                uiId="boxopad-title"
+                tone="accent"
+                size="sm"
+              >
                 {MARKET_SHOWCASE_CONTENT.boxopad.title}
-              </MediaCardTitle>
+              </TypographyDisplay>
               <MediaCardText uiId="boxopad" className="opacity-[.78]">
                 {MARKET_SHOWCASE_CONTENT.boxopad.description}
               </MediaCardText>
             </Stack>
-            <MediaCardImage
-              uiId="boxopad"
-              url={MARKET_SHOWCASE_CONTENT.boxopad.url}
-              alt="Boxopad card"
-              width={900}
-            />
+            <div
+              data-ui="boxopad-frame"
+              className="relative rounded-[1.8rem] border-2 border-white/90 bg-white/70 p-0 shadow-[0_10px_26px_rgba(57,85,0,0.1)]"
+            >
+              <MediaCardImage
+                uiId="boxopad"
+                url={MARKET_SHOWCASE_CONTENT.boxopad.url}
+                alt="Boxopad card"
+                width={900}
+                className="aspect-[3/4] md:aspect-square rounded-[1.65rem]"
+                imageClassName="object-[center_18%]"
+              />
+            </div>
           </MediaCard>
         </Stack>
 

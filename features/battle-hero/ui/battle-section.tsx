@@ -22,7 +22,7 @@ export function BattleSection() {
     >
       <div
         data-ui="battle-hero-shell"
-        className="relative isolate flex h-[clamp(650px,100dvh,750px)] flex-col overflow-hidden bg-surface-muted/50 px-4 pb-[15px] pt-10 md:px-8 md:pb-[15px] md:pt-14"
+        className="relative isolate flex h-[clamp(700px,100dvh,1000px)] flex-col overflow-hidden bg-surface-muted/50 px-4 pb-[15px] pt-10 md:px-8 md:pb-[15px] md:pt-14"
       >
         <img
           data-ui="battle-hero-background"
@@ -78,7 +78,6 @@ export function BattleSection() {
             <CompetitionPrizeBanner
               uiId="battle-hero-prize"
               title={HOME_COMPETITION_CONTENT.battle.prizeTitle ?? ""}
-              subtitle={HOME_COMPETITION_CONTENT.battle.prizeSubtitle ?? ""}
               className="px-0 py-0"
             />
             <BuyBattleTicketButton className="w-full">

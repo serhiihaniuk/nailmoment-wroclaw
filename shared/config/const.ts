@@ -26,6 +26,8 @@ export const IMAGES = {
   TICKET_BATTLE_DECOR: "/images/2026/ticket-battle-decor.png",
   TICKET_VIP_DECOR: "/images/2026/ticket-vip-decor.png",
   BATTLE_INTRO_PHOTO: "/content/2026/battle-intro-photo.jpg",
+  XNAIL_BLACK: "/content/2026/xnail_black.PNG",
+  XNAIL_WHITE: "/content/2026/xnail_white.PNG",
   PAST_EVENT: "/images/2026/past-event.png",
   LOCATION_MAP: "/images/2026/location-map.png",
   // Legacy - keep for subpages that still use them

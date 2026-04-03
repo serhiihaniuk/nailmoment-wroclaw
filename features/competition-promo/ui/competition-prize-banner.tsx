@@ -4,14 +4,12 @@ import { TypographyTitle } from "@/shared/ui/typography";
 
 type CompetitionPrizeBannerProps = {
   title: string;
-  subtitle: string;
   uiId?: string;
   className?: string;
 };
 
 export function CompetitionPrizeBanner({
   className,
-  subtitle,
   title,
   uiId = "competition-prize-banner",
 }: CompetitionPrizeBannerProps) {
@@ -32,24 +30,10 @@ export function CompetitionPrizeBanner({
         data-ui={mergeUi(uiId, "highlight")}
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_48%_14%,rgba(255,255,255,0.65),transparent_32%),radial-gradient(circle_at_50%_75%,rgba(255,255,255,0.18),transparent_42%)]"
       />
-      <img
-        data-ui={mergeUi(uiId, "left", "stack")}
-        src={IMAGES.MONEY_STACK}
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute left-0 top-1/2 z-10 h-24 w-auto -translate-x-[18%] -translate-y-1/2 scale-x-[-1] mix-blend-multiply saturate-[1.5] sepia-[0.85] hue-rotate-[350deg] brightness-[1.02] contrast-[1.02] sm:h-28 sm:-translate-x-[14%] md:h-34 md:-translate-x-[10%] lg:h-44"
-      />
-      <img
-        data-ui={mergeUi(uiId, "right", "stack")}
-        src={IMAGES.MONEY_STACK}
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-1/2 z-10 h-24 w-auto translate-x-[18%] -translate-y-1/2 mix-blend-multiply saturate-[1.5] sepia-[0.85] hue-rotate-[350deg] brightness-[1.02] contrast-[1.02] sm:h-28 sm:translate-x-[14%] md:h-34 md:translate-x-[10%] lg:h-44"
-      />
 
       <div
         data-ui={mergeUi(uiId, "content")}
-        className="relative z-20 flex min-h-24 w-full flex-col items-center justify-center gap-2 text-center md:min-h-36 md:gap-3"
+        className="relative z-20 flex min-h-24 w-full flex-col items-center justify-center gap-2 py-4 text-center md:min-h-36 md:gap-3"
       >
         <TypographyTitle
           as="p"
@@ -69,8 +53,14 @@ export function CompetitionPrizeBanner({
           align="center"
           className="w-full normal-case leading-[0.98]"
         >
-          {subtitle}
+          від партнера конкурсу
         </TypographyTitle>
+        <img
+          data-ui={mergeUi(uiId, "partner-logo")}
+          src={IMAGES.XNAIL_BLACK}
+          alt="XNAIL"
+          className="h-auto w-[150px] object-contain"
+        />
       </div>
     </div>
   );

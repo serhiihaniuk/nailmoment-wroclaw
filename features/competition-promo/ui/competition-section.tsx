@@ -74,7 +74,6 @@ function CompetitionCard({
             <CompetitionPrizeBanner
               uiId={mergeUi(uiId, "prize")}
               title={prizeTitle}
-              subtitle={prizeSubtitle}
             />
           ) : (
             <div

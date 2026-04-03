@@ -230,3 +230,14 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
   - [image-carousel.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\image-carousel.tsx)
 
+## 2026-04-03
+
+### Homepage tickets
+
+- Page / section: `/` tickets block
+- Request: Add a real `Maxi` ticket tier between `Standard` and `VIP`, with visuals more premium than `Standard` but less premium than `VIP`, reusing the `БОКСОПАД` gold-green gradient language
+- Status: Done
+- Files:
+  - [ticket-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\ticket\ui\ticket-card.tsx)
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
+
