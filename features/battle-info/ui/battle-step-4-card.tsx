@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BattleStepCard } from "@/features/battle-info/ui/battle-step-card";
+import { ArticleCallout } from "@/shared/ui/article";
 import { Button } from "@/shared/ui/button";
 import { INFO_URL } from "@/shared/config/const";
 import { TypographyText } from "@/shared/ui/typography";
@@ -17,16 +18,18 @@ export function BattleStep4Card() {
         Обери свою номінацію та надішли 1–3 фотографії своєї ОДНІЄЇ роботи.
       </TypographyText>
 
-      <TypographyText
-        as="p"
-        uiId="battle-step-4-text-deadline"
-        align="left"
-        size="body"
-        tone="default"
-        className="font-black text-brand-brown"
-      >
-        Останній день прийому робіт — 10 травня
-      </TypographyText>
+      <ArticleCallout uiId="battle-step-4-callout" tone="danger">
+        <TypographyText
+          as="p"
+          uiId="battle-step-4-callout-text"
+          align="left"
+          size="body"
+          tone="default"
+          className="whitespace-pre-line font-black text-red-900"
+        >
+          {"Останній день прийому робіт:\n10 травня"}
+        </TypographyText>
+      </ArticleCallout>
 
       <TypographyText
         as="p"

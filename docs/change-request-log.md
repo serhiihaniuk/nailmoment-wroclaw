@@ -241,6 +241,12 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [ticket-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\ticket\ui\ticket-card.tsx)
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
 
+- Page / section: `/` tickets block
+- Request: Remove crossed-out perks from all ticket cards: `доступ до Малої Зали з МК` and `afterparty на терасі`
+- Status: Done
+- Files:
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
+
 ### Battle partner naming
 
 - Page / section: `/battle` intro prize copy, `/battle/regulamin` awards, homepage battle promo
