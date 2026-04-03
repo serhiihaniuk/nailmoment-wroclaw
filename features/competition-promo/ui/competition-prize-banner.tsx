@@ -53,7 +53,7 @@ export function CompetitionPrizeBanner({
           align="center"
           className="w-full normal-case leading-[0.98]"
         >
-          від партнера конкурсу
+          від партнера конкурсу XNail
         </TypographyTitle>
         <img
           data-ui={mergeUi(uiId, "partner-logo")}

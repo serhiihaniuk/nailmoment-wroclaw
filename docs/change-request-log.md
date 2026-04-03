@@ -241,3 +241,30 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [ticket-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\ticket\ui\ticket-card.tsx)
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
 
+### Battle partner naming
+
+- Page / section: `/battle` intro prize copy, `/battle/regulamin` awards, homepage battle promo
+- Request: Replace the old sponsor wording with explicit partner naming: `від партнера конкурсу XNail`
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\model\content.ts)
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
+  - [competition-prize-banner.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\competition-promo\ui\competition-prize-banner.tsx)
+
+### Battle step 2 ticket list
+
+- Page / section: `/battle` steps, step 2
+- Request: Add `Maxi` to the festival-ticket title and to the ticket list under it
+- Status: Done
+- Files:
+  - [battle-step-2-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-step-2-card.tsx)
+
+### Battle step 4 deadline
+
+- Page / section: `/battle` steps, step 4
+- Request: Change the `Останній день прийому робіт — 10 травня` line from a highlighted callout into a normal paragraph
+- Status: Done
+- Files:
+  - [battle-step-4-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-step-4-card.tsx)
+

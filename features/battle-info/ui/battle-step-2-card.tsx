@@ -8,7 +8,7 @@ export function BattleStep2Card() {
   return (
     <BattleStepCard
       stepNumber={2}
-      title="Придбай квиток на фестиваль Nail Moment (Standard або VIP)"
+      title="Придбай квиток на фестиваль Nail Moment (Standard, Maxi або VIP)"
     >
       <TypographyText
         as="p"
@@ -19,7 +19,7 @@ export function BattleStep2Card() {
         className="whitespace-pre-line"
       >
         {
-          "Щоб взяти участь у конкурсі «Битва Майстрів», необхідно бути учасником фестивалю Nail Moment.\n\nДля цього потрібно придбати квиток на фестиваль:\n\n• Standard\n• VIP"
+          "Щоб взяти участь у конкурсі «Битва Майстрів», необхідно бути учасником фестивалю Nail Moment.\n\nДля цього потрібно придбати квиток на фестиваль:\n\n• Standard\n• Maxi\n• VIP"
         }
       </TypographyText>
 
