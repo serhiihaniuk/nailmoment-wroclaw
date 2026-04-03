@@ -39,10 +39,10 @@ export function SpeakerCard({
             uiId={mergeUi(uiId, "image")}
             url={imageUrl}
             alt={imageAlt}
-            width={208}
-            height={320}
+            width={192}
+            height={256}
             sizes={sizes}
-            className="aspect-[13/20] h-auto w-28 rounded-2xl sm:w-32 md:w-36"
+            className="aspect-[3/4] h-auto w-28 rounded-2xl sm:w-32 md:w-36"
           />
         </div>
         <div

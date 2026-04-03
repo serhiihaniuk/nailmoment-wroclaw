@@ -9,7 +9,7 @@ export const HOME_SPEAKERS: SpeakerProfile[] = [
   {
     id: 1,
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/ragoza-bMjMeE9tpzi9EsVP6NOrFLgeGynAAd.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/festival-speakers/festival-speaker-rahoza.d99f9ff0.webp",
     imageAlt: "Ангеліна Рагоза",
     name: "Ангеліна Рагоза",
     description: (
@@ -28,7 +28,8 @@ export const HOME_SPEAKERS: SpeakerProfile[] = [
   },
   {
     id: 2,
-    imageUrl: shadowImageUrl,
+    imageUrl:
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/festival-speakers/festival-speaker-halyna.e2e0f2bf.webp",
     imageAlt: "Галина Орябінська",
     name: "Галина Орябінська",
     description: (
@@ -57,18 +58,31 @@ export const HOME_SPEAKERS: SpeakerProfile[] = [
   },
   {
     id: 3,
-    imageUrl: shadowImageUrl,
+    imageUrl:
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/festival-speakers/festival-speaker-daryna.05dac049.webp",
     imageAlt: "Дарья Shark",
     name: "Дарья Shark",
     description: (
       <>
-        <p>Від холодного клієнта до фаната вашого бренду</p>
+        <p>
+          Я пройшла всі етапи бʼюті-бізнесу: від «70 zł за нігті» до наставника
+          для інструкторів.
+        </p>
+        <p>Хедлайнер більшості бʼюті-конференцій.</p>
+        <p>Організатор власної конференції на понад 1000 учасників.</p>
+        <p>Проводила навчання у 22 містах Польщі.</p>
+        <p>
+          Працюю на польському ринку вже більше 6 років і знаю, як тут люди
+          купують.
+        </p>
+        <p>Навчила більше 7500 людей пиляти нігті і заробляти гроші.</p>
       </>
     ),
   },
   {
     id: 4,
-    imageUrl: shadowImageUrl,
+    imageUrl:
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/festival-speakers/festival-speaker-olesia.dc3e67aa.webp",
     imageAlt: "Олеся Кушнірук",
     name: "Олеся Кушнірук",
     description: (
@@ -107,7 +121,8 @@ export const HOME_SPEAKERS: SpeakerProfile[] = [
   },
   {
     id: 6,
-    imageUrl: shadowImageUrl,
+    imageUrl:
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/festival-speakers/festival-speaker-judi.c392deae.webp",
     imageAlt: "Judi",
     name: "Judi",
     description: (
@@ -134,7 +149,7 @@ export const HOME_SPEAKERS: SpeakerProfile[] = [
   {
     id: 7,
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/speakers/zvarych-1U0jIkTijnXkHE2qVUdMy2lIj2X34w.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/festival-speakers/festival-speaker-zwarych.2f38e9cf.webp",
     imageAlt: "Юлия Зварич",
     name: "Юлия Зварич",
     description: (

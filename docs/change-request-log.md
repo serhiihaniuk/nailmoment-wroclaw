@@ -230,6 +230,13 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
   - [image-carousel.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\image-carousel.tsx)
 
+- Page / section: homepage festival speakers cards
+- Request: Replace the current speaker photos with the provided cropped `3:4` photos from `process/`, upload them under the festival-speakers namespace, and make the shared speaker card match the new `3:4` ratio
+- Status: Done
+- Files:
+  - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
+  - [speaker-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\speaker\ui\speaker-card.tsx)
+
 ## 2026-04-03
 
 ### Homepage tickets
@@ -324,6 +331,14 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\people-speaker-hero\model\content.ts)
   - [peoples-speaker-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\people-speaker-hero\ui\peoples-speaker-section.tsx)
+
+### Festival speaker Shark description
+
+- Page / section: homepage festival speakers, Дарья Shark card
+- Request: Replace the temporary one-line placeholder with the forwarded business bio text about her beauty-business path, conferences, Poland market experience, and training scale
+- Status: Done
+- Files:
+  - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
 
 ### Battle regulamin ticket lineup
 
