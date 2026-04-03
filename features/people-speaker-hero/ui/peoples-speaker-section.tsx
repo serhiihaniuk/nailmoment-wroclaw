@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/shared/ui/card";
 import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { Image } from "@/shared/ui/image";
+import { IconLink } from "@/shared/ui/icon-link";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { SectionHeader } from "@/shared/ui/section-header";
@@ -353,6 +354,17 @@ export const PeoplesSpeakerSection = () => (
             name={PEOPLE_SPEAKER_CONTENT.winnerName}
             description={<p>{PEOPLE_SPEAKER_CONTENT.winnerDescription}</p>}
           />
+          <div data-ui="people-speaker-winner-instagram" className="flex justify-center">
+            <IconLink
+              uiId="people-speaker-winner-instagram-link"
+              href={PEOPLE_SPEAKER_CONTENT.winnerInstagramHref}
+              icon
+              target="_blank"
+              className="text-sm font-medium text-brand-olive"
+            >
+              Instagram Валентини Козлової: {PEOPLE_SPEAKER_CONTENT.winnerInstagramLabel}
+            </IconLink>
+          </div>
         </Stack>
 
         <div data-ui="people-speaker-back" className="flex justify-center">

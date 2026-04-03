@@ -247,6 +247,32 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
 
+### Festival speakers
+
+- Page / section: `/` speakers section, Олеся Кушнірук card
+- Request: Replace the old one-line talk title with the provided full bio
+- Status: Done
+- Files:
+  - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
+
+- Page / section: `/` speakers section, Галина Орябінська card
+- Request: Replace the old one-line talk title with the provided full bio
+- Status: Done
+- Files:
+  - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
+
+- Page / section: `/` speakers section, JUDI card
+- Request: Replace the old one-line talk title with the provided full bio
+- Status: Done
+- Files:
+  - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
+
+- Page / section: `/` speakers section, Ангеліна Рогоза card
+- Request: Replace the old one-line talk title with the provided short bio
+- Status: Done
+- Files:
+  - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
+
 ### Battle partner naming
 
 - Page / section: `/battle` intro prize copy, `/battle/regulamin` awards, homepage battle promo
@@ -257,6 +283,14 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\model\content.ts)
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
   - [competition-prize-banner.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\competition-promo\ui\competition-prize-banner.tsx)
+
+- Page / section: `/battle` and `/battle/regulamin` first-place prize bullet
+- Request: Change the line from `Цінні подарунки від партнера конкурсу XNail` to exact phrasing `Від партнера конкурсу XNail`
+- Status: Done
+- Files:
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\model\content.ts)
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
 
 ### Battle step 2 ticket list
 
@@ -273,4 +307,29 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Status: Done
 - Files:
   - [battle-step-4-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-step-4-card.tsx)
+
+### Speaker page year fix
+
+- Page / section: `/speaker` winner selection list
+- Request: Change the year in `Найбільша кількість голосів визначає Народного спікера 2025.` to `2026`
+- Status: Done
+- Files:
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\people-speaker-hero\model\content.ts)
+
+### Speaker winner link
+
+- Page / section: `/speaker` 2025 winner block
+- Request: Add a clearly labeled Instagram link for Валентина Козлова so users understand it is clickable
+- Status: Done
+- Files:
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\people-speaker-hero\model\content.ts)
+  - [peoples-speaker-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\people-speaker-hero\ui\peoples-speaker-section.tsx)
+
+### Battle regulamin ticket lineup
+
+- Page / section: `/battle/regulamin`
+- Request: Add `Maxi` anywhere the festival ticket lineup is listed so it matches the live battle page
+- Status: Done
+- Files:
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\model\content.ts)
 

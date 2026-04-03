@@ -31,6 +31,24 @@ export function CompetitionPrizeBanner({
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_48%_14%,rgba(255,255,255,0.65),transparent_32%),radial-gradient(circle_at_50%_75%,rgba(255,255,255,0.18),transparent_42%)]"
       />
 
+      <img
+        aria-hidden="true"
+        data-ui={mergeUi(uiId, "money-left")}
+        src={IMAGES.MONEY_STACK}
+        alt=""
+        className="pointer-events-none absolute left-0 top-1/2 z-10 h-auto w-[96px] -translate-x-[22%] -translate-y-1/2 scale-x-[-1] object-contain opacity-70 sepia saturate-150 md:w-[132px]"
+        style={{ filter: "sepia(0.95) saturate(1.55) hue-rotate(-6deg) brightness(1.04)" }}
+      />
+
+      <img
+        aria-hidden="true"
+        data-ui={mergeUi(uiId, "money-right")}
+        src={IMAGES.MONEY_STACK}
+        alt=""
+        className="pointer-events-none absolute right-0 top-1/2 z-10 h-auto w-[96px] translate-x-[22%] -translate-y-1/2 object-contain opacity-70 sepia saturate-150 md:w-[132px]"
+        style={{ filter: "sepia(0.95) saturate(1.55) hue-rotate(-6deg) brightness(1.04)" }}
+      />
+
       <div
         data-ui={mergeUi(uiId, "content")}
         className="relative z-20 flex min-h-24 w-full flex-col items-center justify-center gap-2 py-4 text-center md:min-h-36 md:gap-3"

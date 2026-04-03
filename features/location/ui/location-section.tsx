@@ -22,7 +22,7 @@ export function LocationSection({
         />
         <Link
           uiId="location-link"
-          href="https://maps.app.goo.gl/WarsawVarsovia"
+          href="https://www.google.com/maps?cid=4675373632790545280&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=embed"
           className="font-medium"
           icon
         >
