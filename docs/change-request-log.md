@@ -222,3 +222,11 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [battle-success-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-success\ui\battle-success-section.tsx)
   - [battle-rules-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\ui\battle-rules-section.tsx)
 
+- Page / section: `/battle` cup slider under `🔥 Можливо, цього року саме ти піднімеш кубок переможця «Битви Майстрів»`
+- Request: Replace the placeholder slider images with the provided 3 new photos from `process/`, keep them in `3:4`, and process/upload them under the battle namespace
+- Status: Done
+- Files:
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-atmosphere\model\content.ts)
+  - [battle-info-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-info\ui\battle-info-section.tsx)
+  - [image-carousel.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\image-carousel.tsx)
+

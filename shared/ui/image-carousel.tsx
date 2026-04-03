@@ -20,10 +20,9 @@ interface ImageCarouselProps {
   uiId?: string;
   fullscreen?: boolean;
   frameClassName?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }
-
-const imageWidth = 900;
-const imageHeight = Math.round(imageWidth * (9 / 16));
 
 const genericBlurDataURL =
   "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA4IDUnPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0nZycgeDE9JzAlJyB5MT0nMCUnIHgyPScwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyNmMGYwZjAnLz48c3RvcCBvZmZzZXQ9JzEwMCUnIHN0b3AtY29sb3I9JyNkOWQ5ZDknLz48L2xpbmVhckdyYWRpZW50PjxmaWx0ZXIgaWQ9J2InPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249JzEnLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9JzgnIGhlaWdodD0nNScgZmlsbD0ndXJsKCNnKScgZmlsdGVyPSd1cmwoI2IpJy8+PC9zdmc+";
@@ -35,6 +34,8 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   uiId,
   fullscreen = true,
   frameClassName,
+  imageWidth = 900,
+  imageHeight = Math.round(imageWidth * (9 / 16)),
 }) => {
   const { openViewer } = useImageViewer();
   const galleryImages = images.map((imageUrl, index) => ({

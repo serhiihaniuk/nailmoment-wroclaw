@@ -87,6 +87,9 @@ export function BattleInfoSection() {
             images={BATTLE_ATMOSPHERE_CONTENT.cupImages}
             imageAlt="Можливо, цього року саме ти піднімеш кубок переможця"
             className="max-w-4xl"
+            frameClassName="aspect-[3/4]"
+            imageWidth={1200}
+            imageHeight={1600}
           />
         </Stack>
 

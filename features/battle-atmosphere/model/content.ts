@@ -43,8 +43,8 @@ export const BATTLE_ATMOSPHERE_CONTENT = {
   ],
   cupTitle: "🔥 Можливо, цього року саме ти піднімеш кубок переможця «Битви Майстрів»",
   cupImages: [
-    IMAGES.BATTLE_INTRO_PHOTO,
-    IMAGES.PAST_EVENT,
-    IMAGES.WHY_ATTEND_3,
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/battle-cup-1.293d0e09.webp",
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/battle-cup-2.0bdc9d7f.webp",
+    "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/battle-cup-3.5de163fb.webp",
   ],
 };
