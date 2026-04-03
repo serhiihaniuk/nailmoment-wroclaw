@@ -94,6 +94,7 @@ interface TicketCardProps
   title: string;
   features: TicketFeature[];
   price: string;
+  newPrice?: string;
   buttonText: string;
   href: string;
   soldOut?: boolean;
@@ -110,6 +111,7 @@ export function TicketCard({
   imageAlt,
   imageUrl,
   price,
+  newPrice,
   soldOut,
   title,
   uiId,
@@ -155,10 +157,29 @@ export function TicketCard({
         ))}
       </div>
 
-      <TypographyDisplay as="div" uiId={mergeUi(uiId, "price")} tone={priceTone}>
-        {price}
-        <span className="ml-1 text-2xl lowercase">zł</span>
-      </TypographyDisplay>
+      <div
+        data-ui={mergeUi(uiId, "price-stack")}
+        className="flex items-end justify-center gap-3"
+      >
+        {newPrice ? (
+          <TypographyDisplay
+            as="div"
+            uiId={mergeUi(uiId, "price-old")}
+            tone={priceTone}
+            className={cn(
+              "opacity-45 line-through decoration-[3px]",
+              variant === "vip" ? "text-white/45 decoration-white/45" : undefined
+            )}
+          >
+            {price}
+            <span className="ml-1 text-2xl lowercase">zł</span>
+          </TypographyDisplay>
+        ) : null}
+        <TypographyDisplay as="div" uiId={mergeUi(uiId, "price")} tone={priceTone}>
+          {newPrice ?? price}
+          <span className="ml-1 text-2xl lowercase">zł</span>
+        </TypographyDisplay>
+      </div>
 
       {soldOut ? (
         <Button
