@@ -12,7 +12,7 @@ export const HOME_TICKET_SECTION = {
     highlights: [
       {
         icon: "🥇",
-        text: "1 місце — грошова нагорода 2000 zł, кубок переможця «Битви Майстрів», цінні подарунки від партнера конкурсу XNail та партнерів фестивалю",
+        text: "1 місце — грошова нагорода 2000 zł, кубок переможця «Битви Майстрів», від партнера конкурсу XNail та подарунки від партнерів фестивалю",
       },
       {
         icon: "🥈 🥉",
@@ -44,8 +44,9 @@ export const HOME_TICKETS: TicketInfo[] = [
     ],
     price: "499",
     newPrice: "399",
-    buttonText: "Перейти до оплати",
+    buttonText: "SOON",
     href: "https://buy.stripe.com/8wM14agqd4Bkc9O9B0",
+    soldOut: true,
   },
   {
     id: "maxi",
@@ -63,8 +64,9 @@ export const HOME_TICKETS: TicketInfo[] = [
     ],
     price: "649",
     newPrice: "549",
-    buttonText: "Перейти до оплати",
+    buttonText: "SOON",
     href: "https://buy.stripe.com/8wM14agqd4Bkc9O9B0",
+    soldOut: true,
   },
   {
     id: "vip",
@@ -83,7 +85,8 @@ export const HOME_TICKETS: TicketInfo[] = [
     ],
     price: "899",
     newPrice: "729",
-    buttonText: "Перейти до оплати",
+    buttonText: "SOON",
     href: "https://buy.stripe.com/aEUeV0c9X3xg6Pu14t",
+    soldOut: true,
   },
 ];

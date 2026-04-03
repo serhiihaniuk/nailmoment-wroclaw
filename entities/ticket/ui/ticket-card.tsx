@@ -159,22 +159,27 @@ export function TicketCard({
         <span className="ml-1 text-2xl lowercase">zł</span>
       </TypographyDisplay>
 
-      <Button
-        uiId={mergeUi(uiId, "button")}
-        disabled={soldOut}
-        className={cn("w-full uppercase", buttonToneVariants({ variant }))}
-        asChild
-      >
-        {soldOut ? (
+      {soldOut ? (
+        <Button
+          uiId={mergeUi(uiId, "button")}
+          disabled
+          className={cn("w-full uppercase", buttonToneVariants({ variant }))}
+        >
           <span data-ui={mergeUi(uiId, "button-label")} className="text-center">
-            SOLD OUT
+            {buttonText}
           </span>
-        ) : (
+        </Button>
+      ) : (
+        <Button
+          uiId={mergeUi(uiId, "button")}
+          className={cn("w-full uppercase", buttonToneVariants({ variant }))}
+          asChild
+        >
           <Link data-ui={mergeUi(uiId, "link")} target="_blank" href={href}>
             {buttonText}
           </Link>
-        )}
-      </Button>
+        </Button>
+      )}
     </>
   );
 

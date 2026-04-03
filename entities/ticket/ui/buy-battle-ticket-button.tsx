@@ -5,17 +5,15 @@ import { BattleTicketBuyButton } from "@/shared/ui/battle-ticket-buy-button";
 export const BuyBattleTicketButton: FC<{
   className?: string;
   children?: ReactNode;
-}> = ({
-  className,
-  children,
-}) => {
+}> = ({ className, children }) => {
   return (
     <BattleTicketBuyButton
       uiId="buy-battle-ticket-button"
       href="https://buy.stripe.com/9AQcMSb5T0l4ehW14x"
+      disabled
       className={cn(className)}
     >
-      {children ?? "Придбати квиток учасника Битви Майстрів"}
+      {children ?? "SOON"}
     </BattleTicketBuyButton>
   );
 };

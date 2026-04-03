@@ -31,7 +31,7 @@ export function TicketSection({ className }: TicketSectionProps) {
               price={ticket.newPrice}
               buttonText={ticket.buttonText}
               href={ticket.href}
-              soldOut={false}
+              soldOut={ticket.soldOut}
             />
           ))}
         </div>
