@@ -1,4 +1,4 @@
-# Change Request Log
+ï»¿# Change Request Log
 
 Brief tracker for non-technical content/design asks coming from chat messages, screenshots, and forwarded notes.
 
@@ -374,9 +374,9 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 
 - Page / section: homepage tickets
 - Request: Turn festival tickets on with automatic date-based pricing and Stripe links:
-  - `4.04–5.04`: Standard `349` instead of `399`, Maxi `499` instead of `590`, VIP `789` instead of `949`
-  - `6.04–20.04`: Standard `359` instead of `399`, Maxi `531` instead of `590`, VIP `854` instead of `949`
-  - `21.04–7.07`: Standard `399`, Maxi `590`, VIP `949`
+  - `4.04-5.04`: Standard `349` instead of `399`, Maxi `499` instead of `590`, VIP `789` instead of `949`
+  - `6.04-20.04`: Standard `359` instead of `399`, Maxi `531` instead of `590`, VIP `854` instead of `949`
+  - `21.04-7.07`: Standard `399`, Maxi `590`, VIP `949`
   - use provided base64-encoded Stripe links and avoid obvious naming like `MAXI_499`
 - Status: Done
 - Files:
@@ -384,3 +384,25 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
   - [ticket-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\ui\ticket-section.tsx)
   - [page.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\app\page.tsx)
+## 2026-04-04
+
+### Battle rules
+
+- Page / section: /battle/regulamin, final rules section forbidden list
+- Request: Replace the simple red bullet treatment with a more explicit warning or do-not-do-this visual treatment
+- Status: Done
+- Files:
+  - [battle-rules-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\ui\battle-rules-section.tsx)
+
+- Page / section: /battle/regulamin, final rules section allowed and forbidden lists
+- Request: Replace the oversized cross with compact warning emoji markers and present the allowed list as a success-style callout
+- Status: Done
+- Files:
+  - [battle-rules-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\ui\battle-rules-section.tsx)
+  - [article.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\article.tsx)
+
+- Page / section: /battle/regulamin, final rules section list layout
+- Request: Make the forbidden list use the same grouped callout layout as the allowed list instead of separate boxed items
+- Status: Done
+- Files:
+  - [battle-rules-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\ui\battle-rules-section.tsx)

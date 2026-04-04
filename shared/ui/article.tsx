@@ -136,7 +136,7 @@ export function ArticleCallout({
   uiId,
   ...props
 }: BaseProps & {
-  tone?: "default" | "warning" | "danger";
+  tone?: "default" | "warning" | "danger" | "success";
 }) {
   return (
     <div
@@ -145,6 +145,8 @@ export function ArticleCallout({
         "rounded-2xl px-4 py-3 font-semibold",
         tone === "danger"
           ? "border border-red-200 bg-red-50 text-red-900"
+          : tone === "success"
+            ? "border border-emerald-200 bg-emerald-50 text-emerald-950"
           : tone === "warning"
             ? "border border-yellow-200 bg-yellow-50 text-brand-brown"
           : "border border-brand-brown/15 bg-white/70 text-brand-brown",

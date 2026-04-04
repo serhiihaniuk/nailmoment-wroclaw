@@ -27,6 +27,14 @@ function RulesBlock({ section }: { section: (typeof BATTLE_RULES_CONTENT.section
         </ArticleSubheading>
 
         {section.blocks.map((block, index) => {
+          const previousBlock = index > 0 ? section.blocks[index - 1] : null;
+          const isAllowedFinalList =
+            section.id === "forbidden-and-allowed" &&
+            block.type === "unordered-list" &&
+            block.tone !== "danger" &&
+            previousBlock?.type === "subheading" &&
+            previousBlock.text === "Дозволено у фіналі";
+
           if (block.type === "paragraph") {
             return (
               <ArticleText
@@ -55,6 +63,65 @@ function RulesBlock({ section }: { section: (typeof BATTLE_RULES_CONTENT.section
           }
 
           if (block.type === "unordered-list") {
+            if (block.tone === "danger") {
+              return (
+                <ArticleCallout
+                  key={`${section.id}-list-${index + 1}`}
+                  uiId={mergeUi("battle-rules", section.id, "danger-callout")}
+                  tone="danger"
+                  className="px-5 py-5"
+                >
+                  <ul
+                    data-ui={mergeUi("battle-rules", section.id, "list", index + 1)}
+                    className="space-y-3"
+                  >
+                    {block.items.map((item, itemIndex) => (
+                      <li
+                        key={`${section.id}-bullet-${itemIndex + 1}`}
+                        data-ui={mergeUi("battle-rules", section.id, "bullet", itemIndex + 1)}
+                        className="flex items-start gap-3"
+                      >
+                        <span className="mt-[10px] shrink-0 text-lg leading-none" aria-hidden="true">
+                          ⚠️
+                        </span>
+
+                        <span className="text-base font-medium leading-7 md:text-lg">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </ArticleCallout>
+              );
+            }
+
+            if (isAllowedFinalList) {
+              return (
+                <ArticleCallout
+                  key={`${section.id}-list-${index + 1}`}
+                  uiId={mergeUi("battle-rules", section.id, "allowed-callout")}
+                  tone="success"
+                  className="px-5 py-5"
+                >
+                  <ul
+                    data-ui={mergeUi("battle-rules", section.id, "list", index + 1)}
+                    className="space-y-3"
+                  >
+                    {block.items.map((item, itemIndex) => (
+                      <li
+                        key={`${section.id}-bullet-${itemIndex + 1}`}
+                        data-ui={mergeUi("battle-rules", section.id, "bullet", itemIndex + 1)}
+                        className="flex items-start gap-3"
+                      >
+                        <span className="mt-[10px] shrink-0 text-lg leading-none" aria-hidden="true">
+                          ✅
+                        </span>
+                        <span className="text-base font-medium leading-7 md:text-lg">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </ArticleCallout>
+              );
+            }
+
             return (
               <ArticleList
                 key={`${section.id}-list-${index + 1}`}
