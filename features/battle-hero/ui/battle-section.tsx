@@ -23,7 +23,7 @@ export function BattleSection() {
     >
       <div
         data-ui="battle-hero-shell"
-        className="relative isolate flex h-[clamp(700px,100dvh,1000px)] flex-col overflow-hidden bg-surface-muted/50 px-4 pb-[15px] pt-10 md:px-8 md:pb-[15px] md:pt-14"
+        className="relative isolate flex flex-col overflow-hidden bg-surface-muted/50 px-4 pb-[15px] pt-10 md:px-8 md:pb-[15px] md:pt-14"
       >
         <img
           data-ui="battle-hero-background"
@@ -45,22 +45,40 @@ export function BattleSection() {
 
         <div
           data-ui="battle-hero-content"
-          className="relative z-[2] flex flex-1 flex-col items-center pt-6 text-center"
+          className="relative z-[2] gap-4 flex flex-1 flex-col items-center pt-6 text-center"
         >
-          <Cluster uiId="battle-hero-badges" gap="sm" justify="center" className="w-full">
-            <Badge uiId="battle-hero-date" className="min-w-[9rem] border-0 bg-surface-card/90">
+          <Cluster
+            uiId="battle-hero-badges"
+            gap="sm"
+            justify="center"
+            className="w-full"
+          >
+            <Badge
+              uiId="battle-hero-date"
+              className="min-w-[9rem] border-0 bg-surface-card/90"
+            >
               7 червня
             </Badge>
-            <Badge uiId="battle-hero-city" className="min-w-[9rem] border-0 bg-surface-card/90">
+            <Badge
+              uiId="battle-hero-city"
+              className="min-w-[9rem] border-0 bg-surface-card/90"
+            >
               Варшава
             </Badge>
           </Cluster>
 
           <div className="flex-1" />
 
-          <Stack uiId="battle-hero-copy" gap="sm" className="w-full max-w-3xl items-center">
+          <Stack
+            uiId="battle-hero-copy"
+            gap="sm"
+            className="w-full max-w-3xl pt-12 items-center"
+          >
             <Link href="/" aria-label="На головну">
-              <NailMomentLogo data-ui="battle-hero-logo" className="w-full max-w-sm" />
+              <NailMomentLogo
+                data-ui="battle-hero-logo"
+                className="w-full max-w-sm"
+              />
             </Link>
             <SectionHeader
               uiId="battle-hero-title"
@@ -75,11 +93,17 @@ export function BattleSection() {
 
           <div className="flex-1" />
 
-          <div data-ui="battle-hero-main-sponsor" className="mt-6 flex justify-center">
-            <MainSponsorBadge uiId="battle-hero-main-sponsor" />
-          </div>
-
-          <Stack uiId="battle-hero-actions" gap="sm" className="w-full max-w-2xl">
+          <Stack
+            uiId="battle-hero-actions"
+            gap="sm"
+            className="w-full max-w-2xl"
+          >
+            <div
+              data-ui="battle-hero-main-sponsor"
+              className="mt-6 flex justify-center"
+            >
+              <MainSponsorBadge uiId="battle-hero-main-sponsor" />
+            </div>
             <CompetitionPrizeBanner
               uiId="battle-hero-prize"
               title={HOME_COMPETITION_CONTENT.battle.prizeTitle ?? ""}
@@ -88,8 +112,17 @@ export function BattleSection() {
             <BuyBattleTicketButton className="w-full">
               Взяти участь у конкурсі
             </BuyBattleTicketButton>
-            <div data-ui="battle-hero-shortcuts" className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <Button uiId="battle-hero-rules" variant="secondary" size="sm" asChild className="w-full">
+            <div
+              data-ui="battle-hero-shortcuts"
+              className="grid grid-cols-1 gap-3 sm:grid-cols-2"
+            >
+              <Button
+                uiId="battle-hero-rules"
+                variant="secondary"
+                size="sm"
+                asChild
+                className="w-full"
+              >
                 <Link href="/battle/regulamin">Умови участі</Link>
               </Button>
               <Button

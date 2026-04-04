@@ -24,7 +24,7 @@ export function HeroSection() {
     >
       <div
         data-ui="hero-section-shell"
-        className="relative isolate flex h-[clamp(850px,100dvh,1000px)] flex-col overflow-hidden bg-surface-muted/50 px-4 pb-20 pt-10 md:px-8 md:pt-14"
+        className="relative isolate flex flex-col overflow-hidden bg-surface-muted/50 px-4 pb-20 pt-10 md:px-8 md:pt-14"
       >
         <img
           data-ui="hero-background"
@@ -55,9 +55,14 @@ export function HeroSection() {
 
         <div
           data-ui="hero-content"
-          className="relative z-[2] flex flex-1 flex-col items-center pt-6 text-center"
+          className="relative z-[2] gap-6 flex flex-1 flex-col items-center pt-6 text-center"
         >
-          <Cluster uiId="hero-badges" gap="sm" justify="center" className="w-full">
+          <Cluster
+            uiId="hero-badges"
+            gap="sm"
+            justify="center"
+            className="w-full"
+          >
             {HOME_HERO_CONTENT.badges.map((badge, index) => (
               <Badge
                 key={badge}
@@ -71,24 +76,37 @@ export function HeroSection() {
 
           <div className="flex-1" />
 
-          <h1 data-ui="hero-title-group" className="flex flex-col items-center gap-4 text-center">
-            <TypographyTitle as="span" uiId="hero-eyebrow" order="order3" tone="default">
+          <h1
+            data-ui="hero-title-group"
+            className="flex flex-col my-12 pt-6 items-center gap-4 text-center"
+          >
+            <TypographyTitle
+              as="span"
+              uiId="hero-eyebrow"
+              order="order3"
+              tone="default"
+            >
               {HOME_HERO_CONTENT.eyebrow}
             </TypographyTitle>
             <Link href="/" aria-label="На головну">
-              <NailMomentLogo data-ui="hero-logo" className="w-full max-w-sm" />
+              <NailMomentLogo
+                data-ui="hero-logo"
+                className="max-w-[350px] w-[350px]"
+              />
             </Link>
           </h1>
 
           <div className="flex-1" />
 
-          <div data-ui="hero-main-sponsor" className="mt-8 mb-8 flex justify-center">
-            <MainSponsorBadge uiId="hero-main-sponsor" />
-          </div>
-
           <Stack uiId="hero-actions" gap="sm" className="w-full max-w-2xl">
+            <div data-ui="hero-main-sponsor" className="flex justify-center">
+              <MainSponsorBadge uiId="hero-main-sponsor" />
+            </div>
             <BuyTicketButton uiId="hero-buy-ticket" className="w-full" />
-            <div data-ui="hero-shortcuts" className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div
+              data-ui="hero-shortcuts"
+              className="grid grid-cols-1 gap-3 sm:grid-cols-2"
+            >
               {HOME_HERO_CONTENT.shortcuts.map((shortcut, index) => (
                 <Button
                   key={shortcut.href}

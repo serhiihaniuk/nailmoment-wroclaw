@@ -17,20 +17,20 @@ export function MainSponsorBadge({
       data-ui={mergeUi(uiId, "shell")}
       className={cn(
         "inline-flex w-full max-w-xs flex-col items-center gap-3 text-center text-current",
-        className
+        className,
       )}
     >
       <img
         data-ui={mergeUi(uiId, "logo")}
         src={inverse ? IMAGES.DNKA_WHITE : IMAGES.DNKA_BLACK}
         alt="DNKa"
-        className="h-auto w-[150px] object-contain"
+        className="h-auto w-[100px] object-contain"
       />
       <p
         data-ui={mergeUi(uiId, "eyebrow")}
         className={cn(
           "text-xs font-semibold uppercase tracking-[0.18em]",
-          inverse ? "text-white/75" : "text-text-muted"
+          inverse ? "text-white/75" : "text-text-muted",
         )}
       >
         Генеральний партнер фестивалю
