@@ -1,6 +1,7 @@
 import { BATTLE_ATMOSPHERE_CONTENT } from "@/features/battle-atmosphere/model/content";
 import { BattleAtmosphereSection } from "@/features/battle-atmosphere/ui/battle-atmosphere-section";
 import { CriteriaSection } from "@/features/battle-criteria/ui/criteria-section";
+import { BattleNominationsSection } from "@/features/battle-nominations/ui/battle-nominations-section";
 import { BattleIntroCard } from "@/features/battle-info/ui/battle-intro-card";
 import { BattleStep1Card } from "@/features/battle-info/ui/battle-step-1-card";
 import { BattleStep2Card } from "@/features/battle-info/ui/battle-step-2-card";
@@ -71,6 +72,8 @@ export function BattleInfoSection() {
           <BattleStep5Card />
           <BattleStep6Card groups={BATTLE_PRIZE_GROUPS} />
         </Stack>
+
+        <BattleNominationsSection />
 
         <Stack uiId="battle-cup-slider" gap="lg" className="w-full max-w-4xl items-center">
           <TypographyTitle
