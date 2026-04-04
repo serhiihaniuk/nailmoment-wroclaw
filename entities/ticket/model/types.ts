@@ -13,7 +13,7 @@ export type TicketInfo = {
   title: string;
   features: TicketFeature[];
   price: string;
-  newPrice: string;
+  newPrice?: string;
   buttonText: string;
   href: string;
   soldOut?: boolean;

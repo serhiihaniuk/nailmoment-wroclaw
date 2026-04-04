@@ -367,3 +367,20 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
 
+
+## 2026-04-04
+
+### Ticket pricing schedule
+
+- Page / section: homepage tickets
+- Request: Turn festival tickets on with automatic date-based pricing and Stripe links:
+  - `4.04–5.04`: Standard `349` instead of `399`, Maxi `499` instead of `590`, VIP `789` instead of `949`
+  - `6.04–20.04`: Standard `359` instead of `399`, Maxi `531` instead of `590`, VIP `854` instead of `949`
+  - `21.04–7.07`: Standard `399`, Maxi `590`, VIP `949`
+  - use provided base64-encoded Stripe links and avoid obvious naming like `MAXI_499`
+- Status: Done
+- Files:
+  - [pricing.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\pricing.ts)
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
+  - [ticket-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\ui\ticket-section.tsx)
+  - [page.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\app\page.tsx)

@@ -4,6 +4,7 @@ import { TicketCard } from "@/entities/ticket/ui/ticket-card";
 import { SectionHeader } from "@/shared/ui/section-header";
 import { mergeUi } from "@/shared/lib/utils";
 import { HOME_TICKET_SECTION, HOME_TICKETS } from "@/features/ticket-sales/model/content";
+import { resolveTicketOffers } from "@/features/ticket-sales/model/pricing";
 import { BattleTicketHighlightCard } from "@/features/ticket-sales/ui/battle-ticket-highlight-card";
 
 type TicketSectionProps = {
@@ -11,6 +12,8 @@ type TicketSectionProps = {
 };
 
 export function TicketSection({ className }: TicketSectionProps) {
+  const tickets = resolveTicketOffers(HOME_TICKETS);
+
   return (
     <Section uiId="ticket-section" id="ticket-section" density="compact" className={className}>
       <Stack uiId="ticket-content" gap="lg" className="items-center">
@@ -19,7 +22,7 @@ export function TicketSection({ className }: TicketSectionProps) {
         <BattleTicketHighlightCard {...HOME_TICKET_SECTION.battleCard} />
 
         <div data-ui="ticket-cards" className="grid w-full gap-6">
-          {HOME_TICKETS.map((ticket, index) => (
+          {tickets.map((ticket, index) => (
             <TicketCard
               uiId={mergeUi("ticket-card", index + 1)}
               key={ticket.id}
@@ -28,7 +31,8 @@ export function TicketSection({ className }: TicketSectionProps) {
               imageAlt={ticket.imageAlt}
               title={ticket.title}
               features={ticket.features}
-              price={ticket.newPrice}
+              price={ticket.price}
+              newPrice={ticket.newPrice}
               buttonText={ticket.buttonText}
               href={ticket.href}
               soldOut={ticket.soldOut}
