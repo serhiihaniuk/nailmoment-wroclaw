@@ -406,3 +406,11 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Status: Done
 - Files:
   - [battle-rules-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\ui\battle-rules-section.tsx)
+
+### Battle nominations
+
+- Page / section: /battle nominations block
+- Request: Rename 3D / корейський дизайн to 3D / Крейзі дизайн
+- Status: Done
+- Files:
+  - [battle-nominations-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-nominations\ui\battle-nominations-section.tsx)

@@ -13,44 +13,48 @@ const NOMINATIONS = [
     id: 1,
     title: "Французький манікюр",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n1-hFuSrP2kac5NPVHGhnDggxN9AUksTw.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n6-07STkcqyAFGfns5IT9CoBJO5gjqsLo.jpg",
   },
   {
     id: 2,
     title: "Градієнт",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n2-RlnJfo5lmKAWPS70QyOiu2Rk4E8h7i.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n5-1PdOyhwwxRnsvFyyi1vchTE2GeJqlY.jpg",
   },
   {
     id: 3,
-    title: "3D / корейський дизайн",
+    title: "3D / Крейзі дизайн",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n3-RYvDpnKhqAS2nFULlymSxqZS3f1NkE.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n4-aNJOfZ6JCQa6N3RTOPEXS452M6mse2.jpg",
   },
   {
     id: 4,
     title: "Неоновий манікюр",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n4-aNJOfZ6JCQa6N3RTOPEXS452M6mse2.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n3-RYvDpnKhqAS2nFULlymSxqZS3f1NkE.jpg",
   },
   {
     id: 5,
     title: "Однотонний манікюр",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n5-1PdOyhwwxRnsvFyyi1vchTE2GeJqlY.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n2-RlnJfo5lmKAWPS70QyOiu2Rk4E8h7i.jpg",
   },
   {
     id: 6,
     title: "Екстра довжина",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n6-07STkcqyAFGfns5IT9CoBJO5gjqsLo.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n1-hFuSrP2kac5NPVHGhnDggxN9AUksTw.jpg",
   },
 ];
 
 export function BattleNominationsSection() {
   return (
     <Section uiId="battle-nominations-section" density="compact">
-      <Stack uiId="battle-nominations-content" gap="lg" className="items-center">
+      <Stack
+        uiId="battle-nominations-content"
+        gap="lg"
+        className="items-center"
+      >
         <SectionHeader
           uiId="battle-nominations-header"
           title="Номінації у відбірковому турі"
@@ -71,12 +75,20 @@ export function BattleNominationsSection() {
               className="rounded-[2rem]"
             >
               <CardContent
-                uiId={mergeUi("battle-nomination-card", nomination.id, "content")}
+                uiId={mergeUi(
+                  "battle-nomination-card",
+                  nomination.id,
+                  "content",
+                )}
                 className="px-5 py-5 text-center md:px-6"
               >
                 <TypographyTitle
                   as="h3"
-                  uiId={mergeUi("battle-nomination-card", nomination.id, "title")}
+                  uiId={mergeUi(
+                    "battle-nomination-card",
+                    nomination.id,
+                    "title",
+                  )}
                   order="order4"
                   tone="accent"
                   className="normal-case"
@@ -86,11 +98,19 @@ export function BattleNominationsSection() {
               </CardContent>
 
               <div
-                data-ui={mergeUi("battle-nomination-card", nomination.id, "media")}
+                data-ui={mergeUi(
+                  "battle-nomination-card",
+                  nomination.id,
+                  "media",
+                )}
                 className="overflow-hidden rounded-b-[2rem]"
               >
                 <Image
-                  uiId={mergeUi("battle-nomination-card", nomination.id, "image")}
+                  uiId={mergeUi(
+                    "battle-nomination-card",
+                    nomination.id,
+                    "image",
+                  )}
                   url={nomination.imageUrl}
                   alt={nomination.title}
                   width={960}
