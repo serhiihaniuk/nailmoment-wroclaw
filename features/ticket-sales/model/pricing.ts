@@ -49,7 +49,7 @@ const CHECKOUT_LINKS = {
 
 export const TICKET_SALES_MILESTONES = {
   startAt: "2026-04-04T08:00:00.000Z",
-  firstPriceIncreaseAt: "2026-04-06T08:00:00.000Z",
+  firstPriceIncreaseAt: "2026-04-05T08:00:00.000Z",
   secondPriceIncreaseAt: "2026-04-21T08:00:00.000Z",
 } as const;
 
@@ -170,7 +170,7 @@ export function getTicketSalesCountdown(now = new Date()): TicketSalesCountdown 
   } else if (nowMs < firstIncreaseMs) {
     mode = "price-increase";
     title = "До підвищення цін";
-    subtitle = "Поточні акційні ціни діють до 6 квітня, 10:00.";
+    subtitle = "Поточні акційні ціни діють до 5 квітня, 10:00.";
     targetAt = TICKET_SALES_MILESTONES.firstPriceIncreaseAt;
     diff = firstIncreaseMs - nowMs;
   } else if (nowMs < secondIncreaseMs) {
@@ -181,7 +181,7 @@ export function getTicketSalesCountdown(now = new Date()): TicketSalesCountdown 
     diff = secondIncreaseMs - nowMs;
   }
 
-  const totalSeconds = Math.floor(diff / 1000);
+  const totalSeconds = Math.max(0, Math.floor(diff / 1000));
   const days = Math.floor(totalSeconds / 86400);
   const hours = Math.floor((totalSeconds % 86400) / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
