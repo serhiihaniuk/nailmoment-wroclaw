@@ -167,17 +167,22 @@ export function TicketCard({
             uiId={mergeUi(uiId, "price-old")}
             tone={priceTone}
             className={cn(
-              "opacity-45 line-through decoration-[3px]",
+              "inline-flex items-baseline gap-1 opacity-45 line-through decoration-[3px]",
               variant === "vip" ? "text-white/45 decoration-white/45" : undefined
             )}
           >
-            {price}
-            <span className="ml-1 text-2xl lowercase">zł</span>
+            <span>{price}</span>
+            <span className="text-2xl lowercase">zł</span>
           </TypographyDisplay>
         ) : null}
-        <TypographyDisplay as="div" uiId={mergeUi(uiId, "price")} tone={priceTone}>
-          {newPrice ?? price}
-          <span className="ml-1 text-2xl lowercase">zł</span>
+        <TypographyDisplay
+          as="div"
+          uiId={mergeUi(uiId, "price")}
+          tone={priceTone}
+          className="inline-flex items-baseline gap-1"
+        >
+          <span>{newPrice ?? price}</span>
+          <span className="text-2xl lowercase">zł</span>
         </TypographyDisplay>
       </div>
 
