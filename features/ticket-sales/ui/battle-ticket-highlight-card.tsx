@@ -110,9 +110,8 @@ export function BattleTicketHighlightCard({
           <BattleTicketBuyButton
             uiId={mergeUi(uiId, "buy-button")}
             href="https://buy.stripe.com/9AQcMSb5T0l4ehW14x"
-            disabled
           >
-            SOON
+            Придбати квиток учасника Битви Майстрів
           </BattleTicketBuyButton>
           <Button
             uiId={mergeUi(uiId, "details-button")}

@@ -10,10 +10,9 @@ export const BuyBattleTicketButton: FC<{
     <BattleTicketBuyButton
       uiId="buy-battle-ticket-button"
       href="https://buy.stripe.com/9AQcMSb5T0l4ehW14x"
-      disabled
       className={cn(className)}
     >
-      {children ?? "SOON"}
+      {children ?? "Взяти участь у конкурсі"}
     </BattleTicketBuyButton>
   );
 };
