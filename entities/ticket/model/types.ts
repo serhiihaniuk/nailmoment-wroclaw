@@ -14,6 +14,7 @@ export type TicketInfo = {
   features: TicketFeature[];
   price: string;
   newPrice?: string;
+  lowestPriceLabel?: string;
   buttonText: string;
   href: string;
   soldOut?: boolean;

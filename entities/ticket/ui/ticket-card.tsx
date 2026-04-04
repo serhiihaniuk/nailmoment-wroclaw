@@ -95,6 +95,7 @@ interface TicketCardProps
   features: TicketFeature[];
   price: string;
   newPrice?: string;
+  lowestPriceLabel?: string;
   buttonText: string;
   href: string;
   soldOut?: boolean;
@@ -112,6 +113,7 @@ export function TicketCard({
   imageUrl,
   price,
   newPrice,
+  lowestPriceLabel,
   soldOut,
   title,
   uiId,
@@ -157,33 +159,47 @@ export function TicketCard({
         ))}
       </div>
 
-      <div
-        data-ui={mergeUi(uiId, "price-stack")}
-        className="flex items-end justify-center gap-3"
-      >
-        {newPrice ? (
+      <div data-ui={mergeUi(uiId, "price-meta")} className="flex w-full flex-col items-center gap-2">
+        <div
+          data-ui={mergeUi(uiId, "price-stack")}
+          className="flex items-end justify-center gap-3"
+        >
+          {newPrice ? (
+            <TypographyDisplay
+              as="div"
+              uiId={mergeUi(uiId, "price-old")}
+              tone={priceTone}
+              className={cn(
+                "inline-flex items-baseline gap-1 opacity-45 line-through decoration-[3px]",
+                variant === "vip" ? "text-white/45 decoration-white/45" : undefined
+              )}
+            >
+              <span>{price}</span>
+              <span className="text-2xl lowercase">zł</span>
+            </TypographyDisplay>
+          ) : null}
           <TypographyDisplay
             as="div"
-            uiId={mergeUi(uiId, "price-old")}
+            uiId={mergeUi(uiId, "price")}
             tone={priceTone}
-            className={cn(
-              "inline-flex items-baseline gap-1 opacity-45 line-through decoration-[3px]",
-              variant === "vip" ? "text-white/45 decoration-white/45" : undefined
-            )}
+            className="inline-flex items-baseline gap-1"
           >
-            <span>{price}</span>
+            <span>{newPrice ?? price}</span>
             <span className="text-2xl lowercase">zł</span>
           </TypographyDisplay>
+        </div>
+
+        {newPrice && lowestPriceLabel ? (
+          <p
+            data-ui={mergeUi(uiId, "lowest-price")}
+            className={cn(
+              "-mt-1 text-center text-[11px] leading-4",
+              variant === "vip" ? "text-white/75" : "text-brand-brown/70"
+            )}
+          >
+            {lowestPriceLabel}
+          </p>
         ) : null}
-        <TypographyDisplay
-          as="div"
-          uiId={mergeUi(uiId, "price")}
-          tone={priceTone}
-          className="inline-flex items-baseline gap-1"
-        >
-          <span>{newPrice ?? price}</span>
-          <span className="text-2xl lowercase">zł</span>
-        </TypographyDisplay>
       </div>
 
       {soldOut ? (

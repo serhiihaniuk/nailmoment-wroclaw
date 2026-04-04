@@ -7,6 +7,7 @@ type TicketBase = Omit<TicketInfo, "price" | "newPrice" | "buttonText" | "href" 
 type TicketOffer = {
   price: string;
   newPrice?: string;
+  lowestPriceLabel?: string;
   href: string;
 };
 
@@ -65,16 +66,19 @@ const PHASES: TicketPhase[] = [
       standard: {
         price: "399",
         newPrice: "349",
+        lowestPriceLabel: "Najniższa cena z 30 dni przed obniżką: 399 zł",
         href: CHECKOUT_LINKS.STANDARD_349,
       },
       maxi: {
         price: "590",
         newPrice: "499",
+        lowestPriceLabel: "Najniższa cena z 30 dni przed obniżką: 590 zł",
         href: CHECKOUT_LINKS.MAXI_499,
       },
       vip: {
         price: "949",
         newPrice: "789",
+        lowestPriceLabel: "Najniższa cena z 30 dni przed obniżką: 949 zł",
         href: CHECKOUT_LINKS.VIP_789,
       },
     },
@@ -86,16 +90,19 @@ const PHASES: TicketPhase[] = [
       standard: {
         price: "399",
         newPrice: "359",
+        lowestPriceLabel: "Najniższa cena z 30 dni przed obniżką: 349 zł",
         href: CHECKOUT_LINKS.STANDARD_359,
       },
       maxi: {
         price: "590",
         newPrice: "531",
+        lowestPriceLabel: "Najniższa cena z 30 dni przed obniżką: 499 zł",
         href: CHECKOUT_LINKS.MAXI_531,
       },
       vip: {
         price: "949",
         newPrice: "854",
+        lowestPriceLabel: "Najniższa cena z 30 dni przed obniżką: 789 zł",
         href: CHECKOUT_LINKS.VIP_854,
       },
     },
@@ -142,6 +149,7 @@ export function resolveTicketOffers(tickets: TicketBase[], now = new Date()): Ti
       ...ticket,
       price: offer.price,
       newPrice: offer.newPrice,
+      lowestPriceLabel: offer.lowestPriceLabel,
       buttonText: salesStarted ? "Придбати квиток" : "SOON",
       href: offer.href,
       soldOut: !salesStarted,
