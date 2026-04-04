@@ -69,7 +69,6 @@ export const PEOPLE_SPEAKER_CONTENT = {
   winnerImageAlt: "Народний спікер 2025 Валентина Козлова",
   winnerDescription:
     "Народний спікер 2025 — експертка з 8-річним досвідом, подологиня й викладачка. Вона пройшла шлях від майстрині з прасувальної дошки до експертки з вартістю навчання $650 і записом на 2 місяці вперед.",
-  winnerInstagramHref:
-    "https://www.instagram.com/noru.kozlova.instruktor?igsh=d2s4azRvYnhmenk3",
-  winnerInstagramLabel: "@noru.kozlova.instruktor",
+  winnerInstagramHref: "https://www.instagram.com/noru.kozlowa.instruktor",
+  winnerInstagramLabel: "@noru.kozlowa.instruktor",
 };
