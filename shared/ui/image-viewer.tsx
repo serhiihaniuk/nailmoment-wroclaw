@@ -171,41 +171,45 @@ function FullscreenImageViewer({
         data-ui={mergeUi(payload.sourceUiId, "fullscreen-content")}
         className="grid h-full w-full place-items-center"
       >
-        <Carousel
-          opts={{
-            align: "start",
-            loop: payload.images.length > 1,
-            startIndex: payload.initialIndex,
-          }}
-          setApi={setCarouselApi}
-          className="w-full max-w-7xl"
+        <div
           onClick={(event) => event.stopPropagation()}
+          className="w-full max-w-7xl"
         >
-          <CarouselContent className="-ml-0">
-            {payload.images.map((image, index) => (
-              <CarouselItem key={`${image.src}-${index}`} className="pl-0">
-                <div className="flex h-[calc(100dvh-8rem)] items-center justify-center">
-                  <NextImage
-                    src={image.src}
-                    alt={image.alt}
-                    width={image.width ?? 1600}
-                    height={image.height ?? 1200}
-                    sizes="100vw"
-                    priority={index === payload.initialIndex}
-                    className="max-h-full w-auto max-w-full rounded-2xl object-contain"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: payload.images.length > 1,
+              startIndex: payload.initialIndex,
+            }}
+            setApi={setCarouselApi}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-0">
+              {payload.images.map((image, index) => (
+                <CarouselItem key={`${image.src}-${index}`} className="pl-0">
+                  <div className="flex h-[calc(100dvh-8rem)] items-center justify-center">
+                    <NextImage
+                      src={image.src}
+                      alt={image.alt}
+                      width={image.width ?? 1600}
+                      height={image.height ?? 1200}
+                      sizes="100vw"
+                      priority={index === payload.initialIndex}
+                      className="max-h-full w-auto max-w-full rounded-2xl object-contain"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
 
-          {payload.images.length > 1 ? (
-            <>
-              <CarouselPrevious className="left-2 z-10 border-white/40 bg-black/30 text-white hover:bg-black/50 md:left-6" />
-              <CarouselNext className="right-2 z-10 border-white/40 bg-black/30 text-white hover:bg-black/50 md:right-6" />
-            </>
-          ) : null}
-        </Carousel>
+            {payload.images.length > 1 ? (
+              <>
+                <CarouselPrevious className="left-2 z-10 border-white/40 bg-black/30 text-white hover:bg-black/50 md:left-6" />
+                <CarouselNext className="right-2 z-10 border-white/40 bg-black/30 text-white hover:bg-black/50 md:right-6" />
+              </>
+            ) : null}
+          </Carousel>
+        </div>
       </div>
     </div>
   );
