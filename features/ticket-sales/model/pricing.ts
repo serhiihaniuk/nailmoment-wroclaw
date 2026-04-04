@@ -10,110 +10,130 @@ type TicketOffer = {
   href: string;
 };
 
+export type TicketSalesCountdown = {
+  mode: "start" | "price-increase" | "none";
+  title: string;
+  subtitle: string;
+  targetAt?: string;
+  isLive: boolean;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
+export type TicketSalesState = {
+  isLive: boolean;
+  startsAt: string;
+  tickets: TicketInfo[];
+  countdown: TicketSalesCountdown;
+};
+
 type TicketPhase = {
-  from: string;
-  toExclusive?: string;
+  startsAt: string;
+  endsAt?: string;
   offers: Record<TicketTier, TicketOffer>;
 };
 
-const CHECKOUT_VAULT = [
-  "aHR0cHM6Ly9idXkuc3RyaXBlLmNvbS9hRmFhRVgzU0wwUnFhWFNjOVpjN3Uweg==",
-  "aHR0cHM6Ly9idXkuc3RyaXBlLmNvbS8zY0kzY3ZkdGxlSWdmZThhMVJjN3UwRQ==",
-  "aHR0cHM6Ly9idXkuc3RyaXBlLmNvbS8zY0k0Z3phaDlhczAzdnFlaTdjN3UwRA==",
-  "aHR0cHM6Ly9idXkuc3RyaXBlLmNvbS81a1FjTjVmQnRlSWc4UEsyenBjN3UwQw==",
-  "aHR0cHM6Ly9idXkuc3RyaXBlLmNvbS82b1ViSjE3NFg5bldnaWMwcmhjN3UwQg==",
-  "aHR0cHM6Ly9idXkuc3RyaXBlLmNvbS9kUm1hRVhibGQ1N0cycm1iNVZjN3UwQQ==",
-  "aHR0cHM6Ly9idXkuc3RyaXBlLmNvbS80Z00xNG4zU0wwUnEycm1mbWJjN3UweQ==",
-  "aHR0cHM6Ly9idXkuc3RyaXBlLmNvbS83c1kxNG5leHA0M0M1RHkzRHRjN3UweA==",
-  "aHR0cHM6Ly9idXkuc3RyaXBlLmNvbS80Z000Z3o5ZDUwUnE3TEc3VEpjN3UwdQ==",
-] as const;
+const CHECKOUT_LINKS = {
+  VIP_854: "https://buy.stripe.com/aFaaEX3SL0RqaXSc9Zc7u0z",
+  MAXI_531: "https://buy.stripe.com/3cI3cvdtleIgfe8a1Rc7u0E",
+  MAXI_499: "https://buy.stripe.com/3cI4gzah9as03vqei7c7u0D",
+  STANDARD_399: "https://buy.stripe.com/5kQcN5fBteIg8PK2zpc7u0C",
+  STANDARD_359: "https://buy.stripe.com/6oUbJ174X9nWgic0rhc7u0B",
+  STANDARD_349: "https://buy.stripe.com/dRmaEXbld57G2rmb5Vc7u0A",
+  VIP_789: "https://buy.stripe.com/4gM14n3SL0Rq2rmfmbc7u0y",
+  VIP_949: "https://buy.stripe.com/7sY14nexp43C5Dy3Dtc7u0x",
+  MAXI_590: "https://buy.stripe.com/4gM4gz9d50Rq7LG7TJc7u0u",
+} as const;
 
-function decodeCheckout(value: string) {
-  return Buffer.from(value, "base64").toString("utf8");
-}
+export const TICKET_SALES_MILESTONES = {
+  startAt: "2026-04-04T08:00:00.000Z",
+  firstPriceIncreaseAt: "2026-04-06T08:00:00.000Z",
+  secondPriceIncreaseAt: "2026-04-21T08:00:00.000Z",
+} as const;
 
-function warsawDateKey(now = new Date()) {
-  return new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Europe/Warsaw",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(now);
+function hasSalesStarted(now = new Date()) {
+  return now.getTime() >= new Date(TICKET_SALES_MILESTONES.startAt).getTime();
 }
 
 const PHASES: TicketPhase[] = [
   {
-    from: "2026-04-04",
-    toExclusive: "2026-04-06",
+    startsAt: TICKET_SALES_MILESTONES.startAt,
+    endsAt: TICKET_SALES_MILESTONES.firstPriceIncreaseAt,
     offers: {
       standard: {
         price: "399",
         newPrice: "349",
-        href: decodeCheckout(CHECKOUT_VAULT[5]),
+        href: CHECKOUT_LINKS.STANDARD_349,
       },
       maxi: {
         price: "590",
         newPrice: "499",
-        href: decodeCheckout(CHECKOUT_VAULT[2]),
+        href: CHECKOUT_LINKS.MAXI_499,
       },
       vip: {
         price: "949",
         newPrice: "789",
-        href: decodeCheckout(CHECKOUT_VAULT[6]),
+        href: CHECKOUT_LINKS.VIP_789,
       },
     },
   },
   {
-    from: "2026-04-06",
-    toExclusive: "2026-04-21",
+    startsAt: TICKET_SALES_MILESTONES.firstPriceIncreaseAt,
+    endsAt: TICKET_SALES_MILESTONES.secondPriceIncreaseAt,
     offers: {
       standard: {
         price: "399",
         newPrice: "359",
-        href: decodeCheckout(CHECKOUT_VAULT[4]),
+        href: CHECKOUT_LINKS.STANDARD_359,
       },
       maxi: {
         price: "590",
         newPrice: "531",
-        href: decodeCheckout(CHECKOUT_VAULT[1]),
+        href: CHECKOUT_LINKS.MAXI_531,
       },
       vip: {
         price: "949",
         newPrice: "854",
-        href: decodeCheckout(CHECKOUT_VAULT[0]),
+        href: CHECKOUT_LINKS.VIP_854,
       },
     },
   },
   {
-    from: "2026-04-21",
+    startsAt: TICKET_SALES_MILESTONES.secondPriceIncreaseAt,
     offers: {
       standard: {
         price: "399",
-        href: decodeCheckout(CHECKOUT_VAULT[3]),
+        href: CHECKOUT_LINKS.STANDARD_399,
       },
       maxi: {
         price: "590",
-        href: decodeCheckout(CHECKOUT_VAULT[8]),
+        href: CHECKOUT_LINKS.MAXI_590,
       },
       vip: {
         price: "949",
-        href: decodeCheckout(CHECKOUT_VAULT[7]),
+        href: CHECKOUT_LINKS.VIP_949,
       },
     },
   },
 ];
 
 function resolvePhase(now = new Date()) {
-  const today = warsawDateKey(now);
+  const currentMs = now.getTime();
 
   return (
-    PHASES.find((phase) => today >= phase.from && (!phase.toExclusive || today < phase.toExclusive)) ??
-    PHASES[PHASES.length - 1]
+    PHASES.find((phase) => {
+      const startsAtMs = new Date(phase.startsAt).getTime();
+      const endsAtMs = phase.endsAt ? new Date(phase.endsAt).getTime() : Number.POSITIVE_INFINITY;
+      return currentMs >= startsAtMs && currentMs < endsAtMs;
+    }) ?? PHASES[0]
   );
 }
 
 export function resolveTicketOffers(tickets: TicketBase[], now = new Date()): TicketInfo[] {
   const phase = resolvePhase(now);
+  const salesStarted = hasSalesStarted(now);
 
   return tickets.map((ticket) => {
     const offer = phase.offers[ticket.id as TicketTier];
@@ -122,9 +142,74 @@ export function resolveTicketOffers(tickets: TicketBase[], now = new Date()): Ti
       ...ticket,
       price: offer.price,
       newPrice: offer.newPrice,
-      buttonText: "Придбати квиток",
+      buttonText: salesStarted ? "Придбати квиток" : "SOON",
       href: offer.href,
-      soldOut: false,
+      soldOut: !salesStarted,
     };
   });
+}
+
+export function getTicketSalesCountdown(now = new Date()): TicketSalesCountdown {
+  const nowMs = now.getTime();
+  const startMs = new Date(TICKET_SALES_MILESTONES.startAt).getTime();
+  const firstIncreaseMs = new Date(TICKET_SALES_MILESTONES.firstPriceIncreaseAt).getTime();
+  const secondIncreaseMs = new Date(TICKET_SALES_MILESTONES.secondPriceIncreaseAt).getTime();
+
+  let mode: TicketSalesCountdown["mode"] = "none";
+  let title = "";
+  let subtitle = "";
+  let targetAt: string | undefined;
+  let diff = 0;
+
+  if (nowMs < startMs) {
+    mode = "start";
+    title = "Старт продажів";
+    subtitle = "Знижки вже активні. Посилання на оплату відкриються 4 квітня о 10:00.";
+    targetAt = TICKET_SALES_MILESTONES.startAt;
+    diff = startMs - nowMs;
+  } else if (nowMs < firstIncreaseMs) {
+    mode = "price-increase";
+    title = "До підвищення цін";
+    subtitle = "Поточні акційні ціни діють до 6 квітня, 10:00.";
+    targetAt = TICKET_SALES_MILESTONES.firstPriceIncreaseAt;
+    diff = firstIncreaseMs - nowMs;
+  } else if (nowMs < secondIncreaseMs) {
+    mode = "price-increase";
+    title = "До наступного підвищення цін";
+    subtitle = "Поточні ціни діють до 21 квітня, 10:00.";
+    targetAt = TICKET_SALES_MILESTONES.secondPriceIncreaseAt;
+    diff = secondIncreaseMs - nowMs;
+  }
+
+  const totalSeconds = Math.floor(diff / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return {
+    mode,
+    title,
+    subtitle,
+    targetAt,
+    isLive: hasSalesStarted(now),
+    days,
+    hours,
+    minutes,
+    seconds,
+  };
+}
+
+export function resolveTicketSalesState(
+  tickets: TicketBase[],
+  now = new Date()
+): TicketSalesState {
+  const countdown = getTicketSalesCountdown(now);
+
+  return {
+    isLive: hasSalesStarted(now),
+    startsAt: TICKET_SALES_MILESTONES.startAt,
+    tickets: resolveTicketOffers(tickets, now),
+    countdown,
+  };
 }

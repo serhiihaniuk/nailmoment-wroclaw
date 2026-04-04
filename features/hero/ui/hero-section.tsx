@@ -24,7 +24,7 @@ export function HeroSection() {
     >
       <div
         data-ui="hero-section-shell"
-        className="relative isolate flex h-[clamp(700px,100dvh,750px)] flex-col overflow-hidden bg-surface-muted/50 px-4 pb-20 pt-10 md:px-8 md:pt-14"
+        className="relative isolate flex h-[clamp(850px,100dvh,1000px)] flex-col overflow-hidden bg-surface-muted/50 px-4 pb-20 pt-10 md:px-8 md:pt-14"
       >
         <img
           data-ui="hero-background"
