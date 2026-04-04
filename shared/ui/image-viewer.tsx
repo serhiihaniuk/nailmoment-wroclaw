@@ -47,7 +47,9 @@ export function useImageViewer() {
   const context = useContext(ImageViewerContext);
 
   if (!context) {
-    throw new Error("useImageViewer must be used within an ImageViewerProvider");
+    throw new Error(
+      "useImageViewer must be used within an ImageViewerProvider",
+    );
   }
 
   return context;
@@ -147,7 +149,7 @@ function FullscreenImageViewer({
   return (
     <div
       data-ui={mergeUi(payload.sourceUiId, "fullscreen-viewer")}
-      className="fixed inset-0 z-[200] overscroll-none bg-black/90 p-4 md:p-8"
+      className="fixed inset-0 z-[200] h-dvh overscroll-none bg-black/90 p-4 md:p-8"
       role="dialog"
       aria-modal="true"
       aria-label="Fullscreen image viewer"
@@ -167,8 +169,7 @@ function FullscreenImageViewer({
 
       <div
         data-ui={mergeUi(payload.sourceUiId, "fullscreen-content")}
-        className="flex h-full w-full items-center justify-center"
-        onClick={(event) => event.stopPropagation()}
+        className="grid h-full w-full place-items-center"
       >
         <Carousel
           opts={{
@@ -178,11 +179,12 @@ function FullscreenImageViewer({
           }}
           setApi={setCarouselApi}
           className="w-full max-w-7xl"
+          onClick={(event) => event.stopPropagation()}
         >
           <CarouselContent className="-ml-0">
             {payload.images.map((image, index) => (
               <CarouselItem key={`${image.src}-${index}`} className="pl-0">
-                <div className="flex h-[calc(100vh-8rem)] items-center justify-center">
+                <div className="flex h-[calc(100dvh-8rem)] items-center justify-center">
                   <NextImage
                     src={image.src}
                     alt={image.alt}
