@@ -25,13 +25,13 @@ const NOMINATIONS = [
     id: 3,
     title: "3D / Крейзі дизайн",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/a.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n4-aNJOfZ6JCQa6N3RTOPEXS452M6mse2.jpg",
   },
   {
     id: 4,
     title: "Неоновий манікюр",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n3-RYvDpnKhqAS2nFULlymSxqZS3f1NkE.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/a.jpg",
   },
   {
     id: 5,
