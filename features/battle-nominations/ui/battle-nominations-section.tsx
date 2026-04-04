@@ -13,37 +13,37 @@ const NOMINATIONS = [
     id: 1,
     title: "Французький манікюр",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n6-hFuSrP2kac5NPVHGhnDggxN9AUksTw.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n1-hFuSrP2kac5NPVHGhnDggxN9AUksTw.jpg",
   },
   {
     id: 2,
     title: "Градієнт",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n5-RlnJfo5lmKAWPS70QyOiu2Rk4E8h7i.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n2-RlnJfo5lmKAWPS70QyOiu2Rk4E8h7i.jpg",
   },
   {
     id: 3,
     title: "3D / корейський дизайн",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n4-RYvDpnKhqAS2nFULlymSxqZS3f1NkE.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n3-RYvDpnKhqAS2nFULlymSxqZS3f1NkE.jpg",
   },
   {
     id: 4,
     title: "Неоновий манікюр",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n3-aNJOfZ6JCQa6N3RTOPEXS452M6mse2.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n4-aNJOfZ6JCQa6N3RTOPEXS452M6mse2.jpg",
   },
   {
     id: 5,
     title: "Однотонний манікюр",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n2-1PdOyhwwxRnsvFyyi1vchTE2GeJqlY.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n5-1PdOyhwwxRnsvFyyi1vchTE2GeJqlY.jpg",
   },
   {
     id: 6,
     title: "Екстра довжина",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n1-07STkcqyAFGfns5IT9CoBJO5gjqsLo.jpg",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/n6-07STkcqyAFGfns5IT9CoBJO5gjqsLo.jpg",
   },
 ];
 
