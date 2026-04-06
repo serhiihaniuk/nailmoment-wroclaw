@@ -87,10 +87,10 @@ export function CriteriaSection() {
 
                   <ArticleList uiId="battle-final-stage-callout-list">
                     <ArticleListItem uiId="battle-final-stage-callout-item-1">
-                      6 липня — фінал «Битви Майстрів»
+                      6 червня — фінал «Битви Майстрів»
                     </ArticleListItem>
                     <ArticleListItem uiId="battle-final-stage-callout-item-2">
-                      7 липня — фестиваль Nail Moment
+                      7 червня — фестиваль Nail Moment
                     </ArticleListItem>
                   </ArticleList>
 

@@ -16,8 +16,8 @@ export function BattleFinalWarningCallout({
         </ArticleText>
 
         <ArticleList uiId={`${uiId}-list`}>
-          <ArticleListItem uiId={`${uiId}-item-1`}>6 липня — фінал «Битви Майстрів»</ArticleListItem>
-          <ArticleListItem uiId={`${uiId}-item-2`}>7 липня — фестиваль Nail Moment</ArticleListItem>
+          <ArticleListItem uiId={`${uiId}-item-1`}>6 червня — фінал «Битви Майстрів»</ArticleListItem>
+          <ArticleListItem uiId={`${uiId}-item-2`}>7 червня — фестиваль Nail Moment</ArticleListItem>
         </ArticleList>
 
         <ArticleText uiId={`${uiId}-city`}>Фінал відбудеться у Варшаві.</ArticleText>
