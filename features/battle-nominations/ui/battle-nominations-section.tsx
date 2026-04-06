@@ -31,7 +31,7 @@ const NOMINATIONS = [
     id: 4,
     title: "Неоновий манікюр",
     imageUrl:
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/battle/battle-nomination-neon.09fcd57b.webp",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/a.jpg",
   },
   {
     id: 5,
@@ -113,8 +113,8 @@ export function BattleNominationsSection() {
                   )}
                   url={nomination.imageUrl}
                   alt={nomination.title}
-                  width={1200}
-                  height={900}
+                  width={960}
+                  height={1280}
                   className="aspect-[4/3] rounded-none"
                 />
               </div>

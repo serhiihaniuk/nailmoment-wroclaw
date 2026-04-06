@@ -348,14 +348,6 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-rules\model\content.ts)
 
-### Battle nomination neon image
-
-- Page / section: `/battle` nominations, card `4. Неоновий манікюр`
-- Request: Replace the current nomination image with the provided file from `process/` and align the nomination card image metadata with the existing `4:3` card frame
-- Status: Done
-- Files:
-  - [battle-nominations-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-nominations\ui\battle-nominations-section.tsx)
-
 ### Main sponsor visibility
 
 - Page / section: homepage hero and `/battle` hero
