@@ -8,10 +8,39 @@ import {
 import { BackLink } from "@/shared/ui/back-link";
 import { Card, CardContent } from "@/shared/ui/card";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
+import { IconLink } from "@/shared/ui/icon-link";
 import { IMAGES } from "@/shared/config/const";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { SectionHeader } from "@/shared/ui/section-header";
+
+const URL_OR_EMAIL_RE = /(https?:\/\/[^\s,)]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+const IS_URL = /^https?:\/\//;
+const IS_EMAIL = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+function ParagraphWithLinks({ text }: { text: string }) {
+  const parts = text.split(URL_OR_EMAIL_RE);
+  return (
+    <>
+      {parts.map((part, i) => {
+        if (IS_URL.test(part)) {
+          const stripped = part.replace(/[.,;:]+$/, "");
+          const tail = part.slice(stripped.length);
+          return (
+            <span key={i}>
+              <IconLink href={stripped} icon>{stripped}</IconLink>
+              {tail}
+            </span>
+          );
+        }
+        if (IS_EMAIL.test(part)) {
+          return <IconLink key={i} href={`mailto:${part}`}>{part}</IconLink>;
+        }
+        return part;
+      })}
+    </>
+  );
+}
 
 function PrivacyPolicyArticle() {
   return (
@@ -31,7 +60,7 @@ function PrivacyPolicyArticle() {
           </ArticleSubheading>
 
           <ArticleText as="p" uiId="privacy-policy-article-intro">
-            {PRIVACY_POLICY_CONTENT.intro}
+            <ParagraphWithLinks text={PRIVACY_POLICY_CONTENT.intro} />
           </ArticleText>
 
           {PRIVACY_POLICY_CONTENT.sections.map((section) => (
@@ -46,7 +75,7 @@ function PrivacyPolicyArticle() {
                     as="p"
                     uiId={`privacy-policy-${section.id}-paragraph-${index + 1}`}
                   >
-                    {paragraph}
+                    <ParagraphWithLinks text={paragraph} />
                   </ArticleText>
                 ))}
               </Stack>

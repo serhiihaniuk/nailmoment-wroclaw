@@ -6,7 +6,6 @@ import { Onest, Montserrat } from "next/font/google";
 import { ImageViewerProvider } from "@/shared/ui/image-viewer";
 import { LenisProvider } from "@/shared/ui/lenis-provider";
 import "./globals.css";
-import Script from "next/script";
 
 const onestSans = Onest({
   variable: "--font-onest",
@@ -63,45 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
-      <head>
-        <Script />
-        <Script
-          src="https://connect.facebook.net/en_US/fbevents.js"
-          strategy="afterInteractive"
-        />
-
-        {/* initialise + track */}
-        <Script
-          id="fb-pixel"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            !function(f,b,e,v,n,t,s){
-              if(f.fbq)return;
-              n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;
-              n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
-              t=b.createElement(e);t.async=!0;t.src=v;
-              s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
-            }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init','1253761369478754');
-            fbq('track','PageView');
-          `,
-          }}
-        />
-
-        {/* noscript fallback */}
-        <noscript>
-          {/* eslint-disable-next-line jsx-a11y/alt-text */}
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1253761369478754&ev=PageView&noscript=1"
-          />
-        </noscript>
-      </head>
+      <head></head>
       <body
         className={`${onestSans.variable} ${montserrat.variable} antialiased min-h-[100dvh] flex flex-col`}
       >
