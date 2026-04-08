@@ -37,6 +37,7 @@ export const HOME_TICKETS: TicketInfo[] = [
     imageAlt: "Standard ticket decoration",
     title: "Standard",
     features: [
+      { value: "сертифікат про участь онлайн", isVip: false },
       { value: "доступ до nail-маркету", isVip: false },
       { value: "усі виступи спікерів", isVip: false },
       { value: "нетворкінг з учасниками", isVip: false },
@@ -53,6 +54,7 @@ export const HOME_TICKETS: TicketInfo[] = [
     imageAlt: "Maxi ticket decoration",
     title: "Maxi",
     features: [
+      { value: "презентації спікерів", isVip: false },
       { value: "подарунки від брендів", isVip: false },
       { value: "сертифікат про участь у заході", isVip: false },
       { value: "доступ до nail-маркету", isVip: false },
@@ -71,9 +73,12 @@ export const HOME_TICKETS: TicketInfo[] = [
     imageAlt: "VIP ticket decoration",
     title: "VIP",
     features: [
+      { value: "бізнес-ланч", isVip: true },
+      { value: "подарунки від організаторів", isVip: true },
       { value: "місця у перших рядах", isVip: true },
       { value: "подарунки від брендів", isVip: true },
       { value: "сертифікат про участь у заході", isVip: true },
+      { value: "презентації спікерів", isVip: false },
       { value: "доступ до nail-маркету", isVip: false },
       { value: "усі виступи спікерів", isVip: false },
       { value: "нетворкінг з учасниками", isVip: false },
