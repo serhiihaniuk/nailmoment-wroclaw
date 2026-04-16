@@ -29,7 +29,7 @@ const NOMINATIONS = [
   },
   {
     id: 4,
-    title: "Неоновий манікюр",
+    title: "Дизайн у стилі XNail (переможців вибирає бренд XNail)",
     imageUrl:
       "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/a.jpg",
   },
