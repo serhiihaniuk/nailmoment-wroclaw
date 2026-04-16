@@ -29,7 +29,8 @@ const NOMINATIONS = [
   },
   {
     id: 4,
-    title: "Дизайн у стилі XNail (переможців вибирає бренд XNail)",
+    title: "Дизайн у стилі XNail",
+    subtitle: "переможців вибирає бренд XNail",
     imageUrl:
       "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/images/nails/a.jpg",
   },
@@ -95,6 +96,18 @@ export function BattleNominationsSection() {
                 >
                   {nomination.id}. {nomination.title}
                 </TypographyTitle>
+                {nomination.subtitle ? (
+                  <p
+                    data-ui={mergeUi(
+                      "battle-nomination-card",
+                      nomination.id,
+                      "subtitle",
+                    )}
+                    className="mt-1 text-sm opacity-70"
+                  >
+                    ({nomination.subtitle})
+                  </p>
+                ) : null}
               </CardContent>
 
               <div
