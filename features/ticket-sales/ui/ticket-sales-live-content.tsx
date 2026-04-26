@@ -48,7 +48,9 @@ export function TicketSalesLiveContent({ initialState }: TicketSalesLiveContentP
             imageUrl={ticket.imageUrl}
             imageAlt={ticket.imageAlt}
             title={ticket.title}
+            description={ticket.description}
             features={ticket.features}
+            note={ticket.note}
             price={ticket.price}
             newPrice={ticket.newPrice}
             lowestPriceLabel={ticket.lowestPriceLabel}

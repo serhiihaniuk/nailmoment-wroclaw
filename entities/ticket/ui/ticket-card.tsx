@@ -92,7 +92,9 @@ interface TicketCardProps
   imageUrl: string;
   imageAlt: string;
   title: string;
+  description?: string;
   features: TicketFeature[];
+  note?: string;
   price: string;
   newPrice?: string;
   lowestPriceLabel?: string;
@@ -111,10 +113,12 @@ export function TicketCard({
   href,
   imageAlt,
   imageUrl,
+  description,
   price,
   newPrice,
   lowestPriceLabel,
   soldOut,
+  note,
   title,
   uiId,
   variant = "guest",
@@ -123,6 +127,18 @@ export function TicketCard({
   const titleTone = variant === "maxi" ? "accent" : variant === "vip" ? "inverse" : undefined;
   const priceTone = variant === "maxi" ? "accent" : variant === "vip" ? "inverse" : "olive";
   const useDecoratedOliveCard = variant === "vip";
+  const descriptionClassName =
+    variant === "vip"
+      ? "text-white/85"
+      : variant === "maxi"
+        ? "text-brand-brown/80"
+        : "text-text-muted";
+  const noteClassName =
+    variant === "vip"
+      ? "text-white/85"
+      : variant === "maxi"
+        ? "text-brand-brown/75"
+        : "text-text-muted";
 
   const content = (
     <>
@@ -136,9 +152,22 @@ export function TicketCard({
         className="aspect-square w-40 rounded-none"
         imageClassName="object-contain"
       />
-      <TypographyDisplay as="div" uiId={mergeUi(uiId, "title")} tone={titleTone}>
-        {title}
-      </TypographyDisplay>
+      <div className="flex flex-col items-center gap-2">
+        <TypographyDisplay as="div" uiId={mergeUi(uiId, "title")} tone={titleTone}>
+          {title}
+        </TypographyDisplay>
+        {description ? (
+          <p
+            data-ui={mergeUi(uiId, "description")}
+            className={cn(
+              "max-w-[19rem] whitespace-pre-line text-center text-base font-semibold leading-6",
+              descriptionClassName
+            )}
+          >
+            {description}
+          </p>
+        ) : null}
+      </div>
 
       <div data-ui={mergeUi(uiId, "features")} className="w-full">
         {features.map((feature, index) => (
@@ -148,16 +177,37 @@ export function TicketCard({
             className={cn(
               "flex items-center gap-3 py-3 text-base leading-6",
               feature.isVip && variant === "vip"
-                ? "justify-center text-left"
+                ? "justify-center text-left font-semibold"
                 : "justify-center text-center",
               featureBorderVariants({ variant })
             )}
           >
-            {feature.isVip && variant === "vip" ? <PlusIcon className="size-5" /> : null}
+            {feature.icon ? (
+              <span aria-hidden="true" className="shrink-0 text-xl leading-none">
+                {feature.icon}
+              </span>
+            ) : feature.isVip && variant === "vip" ? (
+              <PlusIcon className="size-5" />
+            ) : null}
             <span data-ui={mergeUi(uiId, "feature-text", index + 1)}>{feature.value}</span>
           </div>
         ))}
       </div>
+
+      {note ? (
+        <p
+          data-ui={mergeUi(uiId, "note")}
+          className={cn(
+            "flex max-w-[19rem] items-start justify-center gap-2 text-left text-base font-medium leading-6",
+            noteClassName
+          )}
+        >
+          <span aria-hidden="true" className="shrink-0 pt-0.5">
+            💬
+          </span>
+          <span>{note}</span>
+        </p>
+      ) : null}
 
       <div data-ui={mergeUi(uiId, "price-meta")} className="flex w-full flex-col items-center gap-2">
         <div

@@ -414,3 +414,16 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Status: Done
 - Files:
   - [battle-nominations-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\battle-nominations\ui\battle-nominations-section.tsx)
+
+## 2026-04-26
+
+### Homepage ticket descriptions
+
+- Page / section: homepage tickets
+- Request: Update Standard, Maxi, and VIP ticket descriptions from the forwarded screenshot, including short positioning lines, adjusted feature wording, and closing notes.
+- Status: Done
+- Files:
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\content.ts)
+  - [types.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\ticket\model\types.ts)
+  - [ticket-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\ticket\ui\ticket-card.tsx)
+  - [ticket-sales-live-content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\ui\ticket-sales-live-content.tsx)
