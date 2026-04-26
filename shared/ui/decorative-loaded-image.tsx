@@ -3,11 +3,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/shared/lib/utils";
 
-type DecorativeLoadedImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
+type DecorativeLoadedImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
+  initialScale?: string;
+  loadedScale?: string;
+};
 
 export function DecorativeLoadedImage({
   alt = "",
   className,
+  initialScale = "0.985",
+  loadedScale = "1",
   onLoad,
   style,
   ...props
@@ -38,7 +43,7 @@ export function DecorativeLoadedImage({
       style={{
         ...style,
         opacity: loaded ? style?.opacity : 0,
-        scale: loaded ? "1" : "0.985",
+        scale: loaded ? loadedScale : initialScale,
       }}
       onLoad={(event) => {
         setLoaded(true);

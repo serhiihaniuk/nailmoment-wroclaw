@@ -37,7 +37,9 @@ export function CompetitionPrizeBanner({
         data-ui={mergeUi(uiId, "money-left")}
         src={IMAGES.MONEY_STACK}
         alt=""
-        className="pointer-events-none absolute left-0 top-1/2 z-10 h-auto w-[96px] -translate-x-[22%] -translate-y-1/2 scale-x-[-1] object-contain opacity-70 sepia saturate-150 md:w-[132px]"
+        initialScale="-0.985 0.985"
+        loadedScale="-1 1"
+        className="pointer-events-none absolute left-0 top-1/2 z-10 h-auto w-[96px] -translate-x-[22%] -translate-y-1/2 object-contain opacity-70 sepia saturate-150 md:w-[132px]"
         style={{ filter: "sepia(0.95) saturate(1.55) hue-rotate(-6deg) brightness(1.04)" }}
       />
 
