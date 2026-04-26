@@ -438,3 +438,14 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [decorative-image.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\decorative-image.tsx)
   - [decorated-olive-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\decorated-olive-card.tsx)
   - [hero-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\hero\ui\hero-section.tsx)
+
+### SEO metadata
+
+- Page / section: site metadata and route indexing
+- Request: Review SEO metadata and correct obvious issues across the app.
+- Status: Done
+- Files:
+  - [layout.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\app\layout.tsx)
+  - [seo.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\config\seo.ts)
+  - [sitemap.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\app\sitemap.ts)
+  - [robots.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\app\robots.ts)

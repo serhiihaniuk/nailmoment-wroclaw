@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Onest, Montserrat } from "next/font/google";
 import { ImageViewerProvider } from "@/shared/ui/image-viewer";
 import { LenisProvider } from "@/shared/ui/lenis-provider";
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/shared/config/seo";
 import "./globals.css";
 
 const onestSans = Onest({
@@ -18,30 +19,43 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Nail Moment",
-  description: "Найбільша nail конференція в Польщі",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Nail Moment 2026 | Nail-фестиваль у Варшаві",
+    template: `%s | ${SITE_NAME}`,
+  },
+  description:
+    "Nail Moment 2026 у Варшаві — головний nail-фестиваль Польщі для майстрів манікюру, спікерів, брендів і професійної спільноти.",
   keywords:
-    "nail, moment, conference, poland, ukraine, конференція, польща, найбільша, квиток",
-  robots: "index,follow",
+    "Nail Moment, nail festival, nail conference, Warsaw, Warsaw nail event, manicure, beauty event, nail майстри, nail-фестиваль, Варшава, Польща, квитки",
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     type: "website",
-    url: "https://www.nailmoment.pl",
-    title: "Nail Moment",
-    description: "Найбільша nail конференція в Польщі.",
-    siteName: "Nail Moment",
-    images: [
-      {
-        url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nailmoment-wroclaw/assets/og2-itM99A0oDYEdytAq1F2DfFNlQ4CZC5.jpg",
-        width: 500,
-        height: 196,
-        alt: "Nail Moment",
-      },
-    ],
+    url: "/",
+    title: "Nail Moment 2026 | Nail-фестиваль у Варшаві",
+    description:
+      "Nail Moment 2026 у Варшаві — головний nail-фестиваль Польщі для майстрів манікюру, спікерів, брендів і професійної спільноти.",
+    siteName: SITE_NAME,
+    locale: "uk_UA",
+    alternateLocale: ["pl_PL"],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nail Moment",
-    description: "Найбільша nail конференція в Польщі.",
+    title: "Nail Moment 2026 | Nail-фестиваль у Варшаві",
+    description:
+      "Nail Moment 2026 у Варшаві — головний nail-фестиваль Польщі для майстрів манікюру, спікерів, брендів і професійної спільноти.",
+    images: [OG_IMAGE.url],
   },
 
   icons: {
