@@ -1,5 +1,6 @@
 import { IMAGES } from "@/shared/config/const";
 import { cn, mergeUi } from "@/shared/lib/utils";
+import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 import { TypographyTitle } from "@/shared/ui/typography";
 
 type CompetitionPrizeBannerProps = {
@@ -31,7 +32,7 @@ export function CompetitionPrizeBanner({
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_48%_14%,rgba(255,255,255,0.65),transparent_32%),radial-gradient(circle_at_50%_75%,rgba(255,255,255,0.18),transparent_42%)]"
       />
 
-      <img
+      <DecorativeLoadedImage
         aria-hidden="true"
         data-ui={mergeUi(uiId, "money-left")}
         src={IMAGES.MONEY_STACK}
@@ -40,7 +41,7 @@ export function CompetitionPrizeBanner({
         style={{ filter: "sepia(0.95) saturate(1.55) hue-rotate(-6deg) brightness(1.04)" }}
       />
 
-      <img
+      <DecorativeLoadedImage
         aria-hidden="true"
         data-ui={mergeUi(uiId, "money-right")}
         src={IMAGES.MONEY_STACK}

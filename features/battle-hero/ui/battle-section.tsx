@@ -7,6 +7,7 @@ import { IMAGES } from "@/shared/config/const";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
+import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 import { Cluster } from "@/shared/ui/layout/cluster";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
@@ -25,7 +26,7 @@ export function BattleSection() {
         data-ui="battle-hero-shell"
         className="relative isolate flex flex-col overflow-hidden bg-surface-muted/50 px-4 pb-[15px] pt-10 md:px-8 md:pb-[15px] md:pt-14"
       >
-        <img
+        <DecorativeLoadedImage
           data-ui="battle-hero-background"
           src={IMAGES.DECORATIVE_BG_1}
           alt=""

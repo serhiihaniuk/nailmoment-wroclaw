@@ -427,3 +427,14 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [types.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\ticket\model\types.ts)
   - [ticket-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\ticket\ui\ticket-card.tsx)
   - [ticket-sales-live-content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\ui\ticket-sales-live-content.tsx)
+
+### Decorative image loading
+
+- Page / section: shared decorative imagery, including hero decorative assets
+- Request: Make decorative images appear softly from transparency after their image file has loaded.
+- Status: Done
+- Files:
+  - [decorative-loaded-image.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\decorative-loaded-image.tsx)
+  - [decorative-image.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\decorative-image.tsx)
+  - [decorated-olive-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\decorated-olive-card.tsx)
+  - [hero-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\hero\ui\hero-section.tsx)

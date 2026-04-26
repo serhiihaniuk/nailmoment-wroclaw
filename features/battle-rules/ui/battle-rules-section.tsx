@@ -13,6 +13,7 @@ import {
 } from "@/shared/ui/article";
 import { BackLink } from "@/shared/ui/back-link";
 import { Card, CardContent } from "@/shared/ui/card";
+import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
@@ -219,7 +220,7 @@ export function BattleRulesSection() {
           data-ui="battle-rules-hero-shell"
           className="relative isolate overflow-hidden rounded-[2rem] bg-surface-page px-5 pb-5 pt-10 md:px-8 md:pb-8"
         >
-          <img
+          <DecorativeLoadedImage
             data-ui="battle-rules-hero-background"
             src={IMAGES.DECORATIVE_BG_1}
             alt=""

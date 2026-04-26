@@ -7,6 +7,7 @@ import {
 } from "@/shared/ui/article";
 import { BackLink } from "@/shared/ui/back-link";
 import { Card, CardContent } from "@/shared/ui/card";
+import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { IconLink } from "@/shared/ui/icon-link";
 import { IMAGES } from "@/shared/config/const";
@@ -100,7 +101,7 @@ export function PrivacyPolicySection() {
           data-ui="privacy-policy-hero-shell"
           className="relative isolate overflow-hidden rounded-[2rem] bg-surface-page px-5 pb-6 pt-10 md:px-8 md:pb-8"
         >
-          <img
+          <DecorativeLoadedImage
             data-ui="privacy-policy-hero-background"
             src={IMAGES.DECORATIVE_BG_1}
             alt=""

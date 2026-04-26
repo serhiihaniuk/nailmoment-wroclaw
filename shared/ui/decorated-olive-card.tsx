@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Card } from "@/shared/ui/card";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
+import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 import { IMAGES } from "@/shared/config/const";
 import { cn, mergeUi } from "@/shared/lib/utils";
 
@@ -58,7 +59,7 @@ export function DecoratedOliveCard({
       className={cn("relative isolate overflow-hidden border-transparent", className)}
       {...props}
     >
-      <img
+      <DecorativeLoadedImage
         data-ui={mergeUi(uiId, "background")}
         src={IMAGES.DECORATIVE_BG_1}
         alt=""

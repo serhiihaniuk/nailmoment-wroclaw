@@ -1,5 +1,6 @@
 import React from "react";
 import { cn, mergeUi } from "@/shared/lib/utils";
+import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 
 interface DecorativeImageProps {
   src: string;
@@ -20,7 +21,7 @@ export const DecorativeImage: React.FC<DecorativeImageProps> = ({
       className={cn("pointer-events-none absolute", className)}
       aria-hidden={alt === ""}
     >
-      <img
+      <DecorativeLoadedImage
         data-ui={mergeUi(uiId, "image")}
         src={src}
         alt={alt}

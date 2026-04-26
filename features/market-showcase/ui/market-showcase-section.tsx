@@ -11,12 +11,13 @@ import { TypographyDisplay } from "@/shared/ui/typography";
 import { mergeUi } from "@/shared/lib/utils";
 import { IMAGES } from "@/shared/config/const";
 import { MARKET_SHOWCASE_CONTENT } from "../model/content";
+import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 
 export function MarketShowcaseSection() {
   return (
     <Section uiId="market-section" density="compact">
       <div data-ui="market-shell" className="relative">
-        <img
+        <DecorativeLoadedImage
           data-ui="market-gap-background"
           src={IMAGES.DECORATIVE_BG_1}
           alt=""

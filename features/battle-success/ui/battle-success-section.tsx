@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/shared/ui/card";
 import { CelebrationConfetti } from "@/shared/ui/celebration-confetti";
 import { CelebrationConfettiTrigger } from "@/shared/ui/celebration-confetti-trigger";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
+import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 import { IconLink } from "@/shared/ui/icon-link";
 import { Cluster } from "@/shared/ui/layout/cluster";
 import { Section } from "@/shared/ui/layout/section";
@@ -33,7 +34,7 @@ export function BattleSuccessSection() {
           data-ui="battle-success-hero-shell"
           className="relative isolate overflow-hidden rounded-[2rem] bg-surface-page px-4 pb-8 pt-10 md:px-8 md:pb-10 md:pt-14"
         >
-          <img
+          <DecorativeLoadedImage
             data-ui="battle-success-background"
             src={IMAGES.DECORATIVE_BG_1}
             alt=""

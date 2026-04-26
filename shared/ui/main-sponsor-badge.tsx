@@ -24,7 +24,9 @@ export function MainSponsorBadge({
         data-ui={mergeUi(uiId, "logo")}
         src={inverse ? IMAGES.DNKA_WHITE : IMAGES.DNKA_BLACK}
         alt="DNKa"
-        className="h-auto w-[100px] object-contain"
+        width={100}
+        height={65}
+        className="h-[65px] w-[100px] object-contain"
       />
       <p
         data-ui={mergeUi(uiId, "eyebrow")}

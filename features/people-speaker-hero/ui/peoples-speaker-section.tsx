@@ -10,6 +10,7 @@ import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
 import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
+import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 import { Image } from "@/shared/ui/image";
 import { IconLink } from "@/shared/ui/icon-link";
 import { Section } from "@/shared/ui/layout/section";
@@ -66,7 +67,7 @@ export const PeoplesSpeakerSection = () => (
         data-ui="people-speaker-hero-shell"
         className="relative isolate overflow-hidden rounded-[2rem] bg-surface-page px-4 pb-8 pt-10 md:px-8 md:pb-10 md:pt-14"
       >
-        <img
+        <DecorativeLoadedImage
           data-ui="people-speaker-hero-background"
           src={IMAGES.DECORATIVE_BG_1}
           alt=""

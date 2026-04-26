@@ -6,6 +6,7 @@ import { mergeUi } from "@/shared/lib/utils";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
+import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 import { Cluster } from "@/shared/ui/layout/cluster";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
@@ -26,7 +27,7 @@ export function HeroSection() {
         data-ui="hero-section-shell"
         className="relative isolate flex flex-col overflow-hidden bg-surface-muted/50 px-4 pb-20 pt-10 md:px-8 md:pt-14"
       >
-        <img
+        <DecorativeLoadedImage
           data-ui="hero-background"
           src={IMAGES.DECORATIVE_BG_1}
           alt=""
