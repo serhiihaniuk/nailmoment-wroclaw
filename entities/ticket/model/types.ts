@@ -17,6 +17,7 @@ export type TicketInfo = {
   note?: string;
   price: string;
   newPrice?: string;
+  promoLabel?: string;
   lowestPriceLabel?: string;
   buttonText: string;
   href: string;

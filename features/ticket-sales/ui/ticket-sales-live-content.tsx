@@ -53,6 +53,7 @@ export function TicketSalesLiveContent({ initialState }: TicketSalesLiveContentP
             note={ticket.note}
             price={ticket.price}
             newPrice={ticket.newPrice}
+            promoLabel={ticket.promoLabel}
             lowestPriceLabel={ticket.lowestPriceLabel}
             buttonText={ticket.buttonText}
             href={ticket.href}

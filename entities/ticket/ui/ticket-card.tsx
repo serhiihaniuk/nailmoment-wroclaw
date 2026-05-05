@@ -97,6 +97,7 @@ interface TicketCardProps
   note?: string;
   price: string;
   newPrice?: string;
+  promoLabel?: string;
   lowestPriceLabel?: string;
   buttonText: string;
   href: string;
@@ -116,6 +117,7 @@ export function TicketCard({
   description,
   price,
   newPrice,
+  promoLabel,
   lowestPriceLabel,
   soldOut,
   note,
@@ -210,6 +212,20 @@ export function TicketCard({
       ) : null}
 
       <div data-ui={mergeUi(uiId, "price-meta")} className="flex w-full flex-col items-center gap-2">
+        {promoLabel ? (
+          <div
+            data-ui={mergeUi(uiId, "promo-label")}
+            className={cn(
+              "rounded-full px-4 py-1.5 text-center text-sm font-black uppercase tracking-[0.18em]",
+              variant === "vip"
+                ? "bg-white/15 text-white"
+                : "bg-red-600 text-white"
+            )}
+          >
+            {promoLabel}
+          </div>
+        ) : null}
+
         <div
           data-ui={mergeUi(uiId, "price-stack")}
           className="flex items-end justify-center gap-3"
@@ -220,8 +236,8 @@ export function TicketCard({
               uiId={mergeUi(uiId, "price-old")}
               tone={priceTone}
               className={cn(
-                "inline-flex items-baseline gap-1 opacity-45 line-through decoration-[3px]",
-                variant === "vip" ? "text-white/45 decoration-white/45" : undefined
+                "inline-flex items-baseline gap-1 opacity-45 line-through decoration-red-600 decoration-[3px]",
+                variant === "vip" ? "text-white/45" : undefined
               )}
             >
               <span>{price}</span>

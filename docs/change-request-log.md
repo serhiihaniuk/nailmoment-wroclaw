@@ -449,3 +449,14 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [seo.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\config\seo.ts)
   - [sitemap.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\app\sitemap.ts)
   - [robots.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\app\robots.ts)
+
+## 2026-05-05
+
+### Standard ticket price
+
+- Page / section: homepage tickets, Standard card
+- Request: Lower Standard ticket from `399 zł` to `199 zł`, show the previous site price crossed out, add the `ЩЕ ВИГІДНІШЕ` promo label, use the new Stripe payment link, and keep the Polish 30-day lowest-price disclosure (`359 zł` as of 2026-05-05).
+- Status: Done
+- Files:
+  - [pricing.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\pricing.ts)
+  - [ticket-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\ticket\ui\ticket-card.tsx)
