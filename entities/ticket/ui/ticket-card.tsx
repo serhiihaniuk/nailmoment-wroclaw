@@ -99,6 +99,7 @@ interface TicketCardProps
   newPrice?: string;
   promoLabel?: string;
   lowestPriceLabel?: string;
+  regularPriceLabel?: string;
   buttonText: string;
   href: string;
   soldOut?: boolean;
@@ -119,6 +120,7 @@ export function TicketCard({
   newPrice,
   promoLabel,
   lowestPriceLabel,
+  regularPriceLabel,
   soldOut,
   note,
   title,
@@ -236,35 +238,40 @@ export function TicketCard({
               uiId={mergeUi(uiId, "price-old")}
               tone={priceTone}
               className={cn(
-                "inline-flex items-baseline gap-1 opacity-45 line-through decoration-red-600 decoration-[3px]",
+                "inline-flex items-baseline gap-1 text-[2.7rem] opacity-45 line-through decoration-red-600 decoration-[3px]",
                 variant === "vip" ? "text-white/45" : undefined
               )}
             >
               <span>{price}</span>
-              <span className="text-2xl lowercase">zł</span>
+              <span className="text-[1.35rem] lowercase">zł</span>
             </TypographyDisplay>
           ) : null}
           <TypographyDisplay
             as="div"
             uiId={mergeUi(uiId, "price")}
             tone={priceTone}
-            className="inline-flex items-baseline gap-1"
+            className="inline-flex items-baseline gap-1 text-[2.7rem]"
           >
             <span>{newPrice ?? price}</span>
-            <span className="text-2xl lowercase">zł</span>
+            <span className="text-[1.35rem] lowercase">zł</span>
           </TypographyDisplay>
         </div>
 
-        {newPrice && lowestPriceLabel ? (
-          <p
-            data-ui={mergeUi(uiId, "lowest-price")}
+        {newPrice && (lowestPriceLabel || regularPriceLabel) ? (
+          <div
+            data-ui={mergeUi(uiId, "price-legal")}
             className={cn(
-              "-mt-1 text-center text-[11px] leading-4",
+              "-mt-1 space-y-0.5 text-center text-xs leading-5",
               variant === "vip" ? "text-white/75" : "text-brand-brown/70"
             )}
           >
-            {lowestPriceLabel}
-          </p>
+            {lowestPriceLabel ? (
+              <p data-ui={mergeUi(uiId, "lowest-price")}>{lowestPriceLabel}</p>
+            ) : null}
+            {regularPriceLabel ? (
+              <p data-ui={mergeUi(uiId, "regular-price")}>{regularPriceLabel}</p>
+            ) : null}
+          </div>
         ) : null}
       </div>
 

@@ -9,6 +9,7 @@ type TicketOffer = {
   newPrice?: string;
   promoLabel?: string;
   lowestPriceLabel?: string;
+  regularPriceLabel?: string;
   href: string;
 };
 
@@ -117,6 +118,7 @@ const PHASES: TicketPhase[] = [
         newPrice: "199",
         promoLabel: "ЩЕ ВИГІДНІШЕ",
         lowestPriceLabel: "Najniższa cena z 30 dni przed obniżką: 359 zł",
+        regularPriceLabel: "Cena regularna: 399 zł",
         href: CHECKOUT_LINKS.STANDARD_199,
       },
       maxi: {
@@ -156,6 +158,7 @@ export function resolveTicketOffers(tickets: TicketBase[], now = new Date()): Ti
       newPrice: offer.newPrice,
       promoLabel: offer.promoLabel,
       lowestPriceLabel: offer.lowestPriceLabel,
+      regularPriceLabel: offer.regularPriceLabel,
       buttonText: salesStarted ? "Придбати квиток" : "SOON",
       href: offer.href,
       soldOut: !salesStarted,
