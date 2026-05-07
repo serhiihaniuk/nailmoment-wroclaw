@@ -240,6 +240,20 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
 
   const shouldShowPanel = decision === null || view === "settings";
 
+  useEffect(() => {
+    if (!shouldShowPanel) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [shouldShowPanel]);
+
   return (
     <>
       {children}
@@ -354,7 +368,15 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                 </div>
 
                 <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center sm:justify-start">
+                  <Button
+                    type="button"
+                    variant="accent"
+                    className="min-h-12 sm:order-2 sm:self-end"
+                    onClick={() => saveDecision(true, "accept_all", "banner")}
+                  >
+                    {copy.acceptAll}
+                  </Button>
+                  <div className="flex w-full flex-col gap-2 sm:order-1 sm:w-auto sm:flex-row sm:items-center sm:justify-start">
                     <Button
                       type="button"
                       variant="secondary"
@@ -375,14 +397,6 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                       {copy.settings}
                     </Button>
                   </div>
-                  <Button
-                    type="button"
-                    variant="accent"
-                    className="order-1 min-h-12 sm:order-2 sm:self-end"
-                    onClick={() => saveDecision(true, "accept_all", "banner")}
-                  >
-                    {copy.acceptAll}
-                  </Button>
                 </div>
               </div>
             )}
