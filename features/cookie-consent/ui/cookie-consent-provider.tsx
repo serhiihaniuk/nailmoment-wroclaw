@@ -112,7 +112,7 @@ function LanguageSwitch({
     <div
       aria-label={COOKIE_COPY[language].languageLabel}
       data-ui="cookie-consent-language-switch"
-      className="inline-flex rounded-full border border-brand-olive/15 bg-white/70 p-1"
+      className="inline-flex w-fit self-start rounded-full border border-brand-olive/15 bg-white/70 p-1"
     >
       {(["pl", "uk"] as const).map((option) => (
         <button
@@ -245,12 +245,28 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
       return;
     }
 
-    const previousOverflow = document.body.style.overflow;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const { body, documentElement } = document;
+    const previousDocumentOverflow = documentElement.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+    const previousBodyPosition = body.style.position;
+    const previousBodyTop = body.style.top;
+    const previousBodyWidth = body.style.width;
 
-    document.body.style.overflow = "hidden";
+    documentElement.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      documentElement.style.overflow = previousDocumentOverflow;
+      body.style.overflow = previousBodyOverflow;
+      body.style.position = previousBodyPosition;
+      body.style.top = previousBodyTop;
+      body.style.width = previousBodyWidth;
+      window.scrollTo(scrollX, scrollY);
     };
   }, [shouldShowPanel]);
 
@@ -261,12 +277,12 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
       {decision !== undefined && shouldShowPanel ? (
         <div
           data-ui="cookie-consent-overlay"
-          className="fixed inset-x-0 bottom-0 z-50 px-3 pb-3 sm:px-5 sm:pb-5"
+          className="fixed inset-0 z-50 flex items-end overflow-y-auto overscroll-contain px-3 pb-3 pt-3 sm:px-5 sm:pb-5 sm:pt-5"
         >
           <section
             aria-label={copy.title}
             data-ui="cookie-consent-panel"
-            className="mx-auto max-w-4xl rounded-xl border border-brand-olive/15 bg-[#fffdf4] p-4 text-brand-olive shadow-[0_22px_60px_rgba(57,85,0,0.18)] sm:p-5"
+            className="mx-auto w-full max-w-4xl rounded-xl border border-brand-olive/15 bg-[#fffdf4] p-4 text-brand-olive shadow-[0_22px_60px_rgba(57,85,0,0.18)] sm:p-5"
           >
             {view === "settings" ? (
               <div data-ui="cookie-consent-settings" className="grid gap-4">
@@ -316,15 +332,15 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                 </div>
 
                 <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="order-2 flex w-full flex-col gap-2 sm:order-1 sm:w-auto sm:flex-row sm:items-center sm:justify-start">
-                    <Button
-                      type="button"
-                      variant="secondary"
-                      className="min-h-12"
-                      onClick={() => saveDecision(false, "reject_all", "settings")}
-                    >
-                      {copy.reject}
-                    </Button>
+                  <Button
+                    type="button"
+                    variant="accent"
+                    className="min-h-12 sm:order-2 sm:self-end"
+                    onClick={() => saveDecision(true, "accept_all", "settings")}
+                  >
+                    {copy.acceptAll}
+                  </Button>
+                  <div className="flex w-full flex-col gap-2 sm:order-1 sm:w-auto sm:flex-row sm:items-center sm:justify-start">
                     <Button
                       type="button"
                       variant="secondary"
@@ -335,15 +351,15 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                     >
                       {copy.save}
                     </Button>
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      className="min-h-12"
+                      onClick={() => saveDecision(false, "reject_all", "settings")}
+                    >
+                      {copy.reject}
+                    </Button>
                   </div>
-                  <Button
-                    type="button"
-                    variant="accent"
-                    className="min-h-12 sm:self-end"
-                    onClick={() => saveDecision(true, "accept_all", "settings")}
-                  >
-                    {copy.acceptAll}
-                  </Button>
                 </div>
               </div>
             ) : (
@@ -381,20 +397,20 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                       type="button"
                       variant="secondary"
                       className="min-h-12"
-                      onClick={() => saveDecision(false, "reject_all", "banner")}
-                    >
-                      {copy.reject}
-                    </Button>
-                    <Button
-                      type="button"
-                      variant="secondary"
-                      className="min-h-12"
                       onClick={() => {
                         setMarketingDraft(decision?.marketing ?? false);
                         setView("settings");
                       }}
                     >
                       {copy.settings}
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      className="min-h-12"
+                      onClick={() => saveDecision(false, "reject_all", "banner")}
+                    >
+                      {copy.reject}
                     </Button>
                   </div>
                 </div>
