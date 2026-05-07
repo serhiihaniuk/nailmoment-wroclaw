@@ -302,7 +302,7 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                 </div>
 
                 <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center sm:justify-start">
+                  <div className="order-2 flex w-full flex-col gap-2 sm:order-1 sm:w-auto sm:flex-row sm:items-center sm:justify-start">
                     <Button
                       type="button"
                       variant="secondary"
@@ -378,7 +378,7 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                   <Button
                     type="button"
                     variant="accent"
-                    className="min-h-12 sm:self-end"
+                    className="order-1 min-h-12 sm:order-2 sm:self-end"
                     onClick={() => saveDecision(true, "accept_all", "banner")}
                   >
                     {copy.acceptAll}

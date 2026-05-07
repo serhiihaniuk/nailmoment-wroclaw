@@ -472,3 +472,11 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [cookie-consent-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\ui\cookie-consent-provider.tsx)
   - [meta-pixel.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\lib\meta-pixel.ts)
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\privacy-policy\model\content.ts)
+
+### Mobile cookie banner buttons
+
+- Page / section: sitewide cookie consent banner
+- Request: On mobile, show the accept button first, then reject/cancel, then settings.
+- Status: Done
+- Files:
+  - [cookie-consent-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\ui\cookie-consent-provider.tsx)
