@@ -1,0 +1,6 @@
+const DEFAULT_COOKIE_CONSENT_TRACKING_ENDPOINT =
+  "https://dashboard.nailmoment.pl/api/analytics/cookie-consent";
+
+export const COOKIE_CONSENT_TRACKING_ENDPOINT =
+  process.env.NEXT_PUBLIC_COOKIE_CONSENT_TRACKING_ENDPOINT?.trim() ||
+  DEFAULT_COOKIE_CONSENT_TRACKING_ENDPOINT;

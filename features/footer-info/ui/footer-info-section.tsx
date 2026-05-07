@@ -1,5 +1,6 @@
 import React from "react";
 import { HOME_FOOTER_CONTENT } from "@/features/footer-info/model/content";
+import { CookieSettingsButton } from "@/features/footer-info/ui/cookie-settings-button";
 import { COMPANY_INFO, INFO_URL } from "@/shared/config/const";
 import { cn } from "@/shared/lib/utils";
 import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
@@ -132,6 +133,9 @@ export const FooterInfoSection: React.FC<FooterInfoSectionProps> = ({
               >
                 Polityka prywatnosci
               </Link>
+            </p>
+            <p data-ui="footer-cookie-settings-row">
+              <CookieSettingsButton />
             </p>
             <p data-ui="footer-copyright">{HOME_FOOTER_CONTENT.copyright}</p>
           </div>

@@ -460,3 +460,15 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [pricing.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\pricing.ts)
   - [ticket-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\ticket\ui\ticket-card.tsx)
+
+## 2026-05-07
+
+### Meta Pixel consent
+
+- Page / section: sitewide cookie consent, footer, privacy policy, Stripe checkout links
+- Request: Add a cookie consent banner and settings panel with Polish as the default language and a PL/UA switch, load Meta Pixel only after marketing consent, track page views and Stripe checkout clicks, and update the privacy policy for Meta Pixel usage.
+- Status: Done
+- Files:
+  - [cookie-consent-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\ui\cookie-consent-provider.tsx)
+  - [meta-pixel.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\lib\meta-pixel.ts)
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\privacy-policy\model\content.ts)

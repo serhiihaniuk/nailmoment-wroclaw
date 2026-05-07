@@ -291,7 +291,15 @@ export function TicketCard({
           className={cn("w-full uppercase", buttonToneVariants({ variant }))}
           asChild
         >
-          <Link data-ui={mergeUi(uiId, "link")} target="_blank" href={href}>
+          <Link
+            data-meta-checkout="festival-ticket"
+            data-meta-checkout-category={`festival_${variant}_ticket`}
+            data-meta-checkout-name={title}
+            data-ui={mergeUi(uiId, "link")}
+            target="_blank"
+            rel="noopener noreferrer"
+            href={href}
+          >
             {buttonText}
           </Link>
         </Button>

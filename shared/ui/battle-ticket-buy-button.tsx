@@ -44,6 +44,9 @@ export function BattleTicketBuyButton({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        data-meta-checkout="battle-ticket"
+        data-meta-checkout-category="battle_ticket"
+        data-meta-checkout-name="Battle ticket"
         data-ui={mergeUi(uiId, "link")}
       >
         <span data-ui={mergeUi(uiId, "label")}>{label}</span>
