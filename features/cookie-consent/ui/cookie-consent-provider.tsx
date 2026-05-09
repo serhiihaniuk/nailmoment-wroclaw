@@ -29,7 +29,11 @@ import {
   type CookieConsentTrackingAction,
   type CookieConsentTrackingSurface,
 } from "@/features/cookie-consent/lib/dashboard-tracking";
-import { COOKIE_SETTINGS_EVENT } from "@/shared/config/browser-events";
+import {
+  COOKIE_PANEL_CLOSE_EVENT,
+  COOKIE_PANEL_OPEN_EVENT,
+  COOKIE_SETTINGS_EVENT,
+} from "@/shared/config/browser-events";
 import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/ui/button";
 
@@ -239,42 +243,38 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
   }, [decision?.marketing]);
 
   const shouldShowPanel = decision === null || view === "settings";
+  const isPanelVisible = decision !== undefined && shouldShowPanel;
 
   useEffect(() => {
-    if (!shouldShowPanel) {
+    if (!isPanelVisible) {
       return;
     }
 
-    const scrollX = window.scrollX;
-    const scrollY = window.scrollY;
     const { body, documentElement } = document;
     const previousDocumentOverflow = documentElement.style.overflow;
+    const previousDocumentOverscrollBehavior =
+      documentElement.style.overscrollBehavior;
     const previousBodyOverflow = body.style.overflow;
-    const previousBodyPosition = body.style.position;
-    const previousBodyTop = body.style.top;
-    const previousBodyWidth = body.style.width;
 
+    window.dispatchEvent(new Event(COOKIE_PANEL_OPEN_EVENT));
     documentElement.style.overflow = "hidden";
+    documentElement.style.overscrollBehavior = "none";
     body.style.overflow = "hidden";
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.width = "100%";
 
     return () => {
       documentElement.style.overflow = previousDocumentOverflow;
+      documentElement.style.overscrollBehavior =
+        previousDocumentOverscrollBehavior;
       body.style.overflow = previousBodyOverflow;
-      body.style.position = previousBodyPosition;
-      body.style.top = previousBodyTop;
-      body.style.width = previousBodyWidth;
-      window.scrollTo(scrollX, scrollY);
+      window.dispatchEvent(new Event(COOKIE_PANEL_CLOSE_EVENT));
     };
-  }, [shouldShowPanel]);
+  }, [isPanelVisible]);
 
   return (
     <>
       {children}
 
-      {decision !== undefined && shouldShowPanel ? (
+      {isPanelVisible ? (
         <div
           data-ui="cookie-consent-overlay"
           className="fixed inset-0 z-50 flex items-end overflow-y-auto overscroll-contain px-3 pb-3 pt-3 sm:px-5 sm:pb-5 sm:pt-5"

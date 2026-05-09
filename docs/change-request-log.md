@@ -480,3 +480,15 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Status: Done
 - Files:
   - [cookie-consent-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\ui\cookie-consent-provider.tsx)
+
+## 2026-05-09
+
+### Cookie settings scroll lock
+
+- Page / section: footer cookie settings panel
+- Request: Fix the scroll jump caused by the cookie settings scroll lock fighting Lenis when closing the panel from the footer.
+- Status: Done
+- Files:
+  - [cookie-consent-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\ui\cookie-consent-provider.tsx)
+  - [lenis-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\lenis-provider.tsx)
+  - [browser-events.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\config\browser-events.ts)
