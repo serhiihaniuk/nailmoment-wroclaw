@@ -43,6 +43,14 @@ function getAnchor(target: EventTarget | null) {
   return target.closest<HTMLAnchorElement>("a[href]");
 }
 
+function shouldHandleLinkActivation(event: MouseEvent) {
+  if (event.type === "auxclick") {
+    return event.button === 1;
+  }
+
+  return event.button === 0;
+}
+
 function getLandingPath(url: URL) {
   return `${url.pathname}${url.search}${url.hash}`;
 }
@@ -252,7 +260,12 @@ export function UtmTrackingProvider({ children }: UtmTrackingProviderProps) {
       const link = getAnchor(event.target);
       const rawHref = link?.getAttribute("href");
 
-      if (!link || !rawHref || rawHref.startsWith("#")) {
+      if (
+        !link ||
+        !rawHref ||
+        rawHref.startsWith("#") ||
+        !shouldHandleLinkActivation(event)
+      ) {
         return;
       }
 
@@ -301,10 +314,12 @@ export function UtmTrackingProvider({ children }: UtmTrackingProviderProps) {
     persistCurrentUrl();
     window.addEventListener("popstate", persistCurrentUrl);
     document.addEventListener("click", handleLinkClick, { capture: true });
+    document.addEventListener("auxclick", handleLinkClick, { capture: true });
 
     return () => {
       window.removeEventListener("popstate", persistCurrentUrl);
       document.removeEventListener("click", handleLinkClick, { capture: true });
+      document.removeEventListener("auxclick", handleLinkClick, { capture: true });
     };
   }, [hasMarketingConsent]);
 
