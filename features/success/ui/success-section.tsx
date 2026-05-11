@@ -2,7 +2,6 @@ import Link from "next/link";
 import { FooterInfoSection } from "@/features/footer-info/ui/footer-info-section";
 import { LocationSection } from "@/features/location/ui/location-section";
 import { SUCCESS_CONTENT } from "@/features/success/model/content";
-import { SuccessAttributionReporter } from "@/features/success/ui/success-attribution-reporter";
 import { NailMomentLogo } from "@/shared/assets/icons";
 import { IMAGES } from "@/shared/config/const";
 import { BackLink } from "@/shared/ui/back-link";
@@ -20,7 +19,6 @@ import { TypographyText } from "@/shared/ui/typography";
 export function SuccessSection() {
   return (
     <>
-      <SuccessAttributionReporter />
       <CelebrationConfetti />
 
       <Section

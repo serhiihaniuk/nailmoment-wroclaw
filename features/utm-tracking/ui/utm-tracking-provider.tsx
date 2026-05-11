@@ -20,6 +20,21 @@ type UtmTrackingProviderProps = {
   children: ReactNode;
 };
 
+const CHECKOUT_ATTRIBUTION_START_ENDPOINT =
+  process.env.NEXT_PUBLIC_DASHBOARD_ATTRIBUTION_START_URL ??
+  "https://dashboard.nailmoment.pl/api/stripe/checkout-attribution/start";
+
+const UTM_KEYS = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term",
+] as const;
+
+type UtmKey = (typeof UTM_KEYS)[number];
+type UtmPayload = Record<UtmKey, string | null>;
+
 function getAnchor(target: EventTarget | null) {
   if (!(target instanceof Element)) {
     return null;
@@ -63,10 +78,137 @@ function shouldDecorateLink(link: HTMLAnchorElement, url: URL) {
   return link.hasAttribute("data-meta-checkout");
 }
 
+function shouldCreateCheckoutAttribution(link: HTMLAnchorElement) {
+  return link.dataset.metaCheckout === "festival-ticket";
+}
+
 function getCurrentAttributionParams() {
   const currentUrl = new URL(window.location.href);
 
   return extractAttributionParams(currentUrl.searchParams);
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
+function getUtmPayload(params: AttributionParams): UtmPayload {
+  return UTM_KEYS.reduce<UtmPayload>(
+    (payload, key) => ({
+      ...payload,
+      [key]: params[key] ?? null,
+    }),
+    {
+      utm_campaign: null,
+      utm_content: null,
+      utm_medium: null,
+      utm_source: null,
+      utm_term: null,
+    }
+  );
+}
+
+function hasUtmPayloadValues(utm: UtmPayload) {
+  return Object.values(utm).some(
+    (value) => typeof value === "string" && value.length > 0
+  );
+}
+
+async function createCheckoutClientReferenceId(params: AttributionParams) {
+  const utm = getUtmPayload(params);
+
+  if (!hasUtmPayloadValues(utm)) {
+    return null;
+  }
+
+  const response = await fetch(CHECKOUT_ATTRIBUTION_START_ENDPOINT, {
+    body: JSON.stringify({
+      landingPage: window.location.href,
+      referrer: document.referrer || null,
+      utm,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+  });
+
+  if (!response.ok) {
+    throw new Error("Checkout attribution reference request failed");
+  }
+
+  const json: unknown = await response.json();
+
+  if (!isRecord(json) || typeof json.clientReferenceId !== "string") {
+    throw new Error("Checkout attribution reference response was invalid");
+  }
+
+  if (!json.clientReferenceId.startsWith("attr_")) {
+    throw new Error("Checkout attribution reference had an unexpected format");
+  }
+
+  return json.clientReferenceId;
+}
+
+function openCheckoutWindow(link: HTMLAnchorElement) {
+  if (link.target !== "_blank") {
+    return null;
+  }
+
+  const checkoutWindow = window.open("about:blank", "_blank");
+  if (checkoutWindow) {
+    checkoutWindow.opener = null;
+  }
+
+  return checkoutWindow;
+}
+
+function redirectToCheckout(
+  link: HTMLAnchorElement,
+  href: string,
+  checkoutWindow: Window | null
+) {
+  if (checkoutWindow && !checkoutWindow.closed) {
+    checkoutWindow.location.replace(href);
+    return;
+  }
+
+  if (link.target === "_blank") {
+    const openedWindow = window.open(href, "_blank", "noopener,noreferrer");
+
+    if (openedWindow) {
+      return;
+    }
+  }
+
+  window.location.assign(href);
+}
+
+async function redirectWithCheckoutAttribution({
+  decoratedHref,
+  link,
+  params,
+}: {
+  decoratedHref: string;
+  link: HTMLAnchorElement;
+  params: AttributionParams;
+}) {
+  const checkoutWindow = openCheckoutWindow(link);
+
+  try {
+    const clientReferenceId = await createCheckoutClientReferenceId(params);
+    const href = clientReferenceId
+      ? appendAttributionParamsToUrl(
+          decoratedHref,
+          { client_reference_id: clientReferenceId },
+          window.location.href
+        )
+      : decoratedHref;
+
+    redirectToCheckout(link, href, checkoutWindow);
+  } catch {
+    redirectToCheckout(link, decoratedHref, checkoutWindow);
+  }
 }
 
 export function UtmTrackingProvider({ children }: UtmTrackingProviderProps) {
@@ -137,6 +279,19 @@ export function UtmTrackingProvider({ children }: UtmTrackingProviderProps) {
         params,
         window.location.href
       );
+
+      if (
+        link.hasAttribute("data-meta-checkout") &&
+        shouldCreateCheckoutAttribution(link)
+      ) {
+        event.preventDefault();
+        void redirectWithCheckoutAttribution({
+          decoratedHref: nextHref,
+          link,
+          params,
+        });
+        return;
+      }
 
       if (nextHref !== rawHref) {
         link.setAttribute("href", nextHref);
