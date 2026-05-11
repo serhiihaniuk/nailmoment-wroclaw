@@ -1,6 +1,12 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useSyncExternalStore } from "react";
+import {
+  getCookieConsentServerSnapshot,
+  getCookieConsentSnapshot,
+  hasMarketingCookieConsent,
+  subscribeCookieConsent,
+} from "@/shared/lib/marketing-consent";
 import {
   appendAttributionParamsToUrl,
   extractAttributionParams,
@@ -64,7 +70,16 @@ function getCurrentAttributionParams() {
 }
 
 export function UtmTrackingProvider({ children }: UtmTrackingProviderProps) {
+  const cookieConsent = useSyncExternalStore(
+    subscribeCookieConsent,
+    getCookieConsentSnapshot,
+    getCookieConsentServerSnapshot
+  );
+  const hasMarketingConsent = hasMarketingCookieConsent(cookieConsent);
+
   useEffect(() => {
+    if (!hasMarketingConsent) return;
+
     function persistCurrentUrl() {
       const currentUrl = new URL(window.location.href);
       const params = extractAttributionParams(currentUrl.searchParams);
@@ -136,7 +151,7 @@ export function UtmTrackingProvider({ children }: UtmTrackingProviderProps) {
       window.removeEventListener("popstate", persistCurrentUrl);
       document.removeEventListener("click", handleLinkClick, { capture: true });
     };
-  }, []);
+  }, [hasMarketingConsent]);
 
   return children;
 }

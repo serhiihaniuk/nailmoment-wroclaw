@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
+import {
+  getCookieConsentServerSnapshot,
+  getCookieConsentSnapshot,
+  hasMarketingCookieConsent,
+  subscribeCookieConsent,
+} from "@/shared/lib/marketing-consent";
 
 const ATTRIBUTION_ENDPOINT =
   process.env.NEXT_PUBLIC_DASHBOARD_ATTRIBUTION_URL ??
@@ -20,9 +26,17 @@ function readTrackingValue(params: URLSearchParams, key: string) {
 }
 
 export function SuccessAttributionReporter() {
+  const cookieConsent = useSyncExternalStore(
+    subscribeCookieConsent,
+    getCookieConsentSnapshot,
+    getCookieConsentServerSnapshot
+  );
+  const hasMarketingConsent = hasMarketingCookieConsent(cookieConsent);
   const sentPayloadKey = useRef<string | null>(null);
 
   useEffect(() => {
+    if (!hasMarketingConsent) return;
+
     const url = new URL(window.location.href);
     const sessionId = readTrackingValue(url.searchParams, "session_id");
 
@@ -52,7 +66,7 @@ export function SuccessAttributionReporter() {
     }).catch(() => {
       sentPayloadKey.current = null;
     });
-  }, []);
+  }, [hasMarketingConsent]);
 
   return null;
 }
