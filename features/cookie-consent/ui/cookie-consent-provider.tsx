@@ -7,7 +7,6 @@ import {
   ReactNode,
   useCallback,
   useEffect,
-  useRef,
   useState,
   useSyncExternalStore,
 } from "react";
@@ -165,8 +164,6 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
   const [view, setView] = useState<ConsentView>("banner");
   const [language, setLanguage] = useState<ConsentLanguage>("pl");
   const [marketingDraft, setMarketingDraft] = useState(false);
-  const lastTrackedPageRef = useRef<string | null>(null);
-  const lastTrackedPurchaseRef = useRef<string | null>(null);
   const copy = COOKIE_COPY[language];
 
   const saveDecision = useCallback(
@@ -209,22 +206,15 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
   }, [decision]);
 
   useEffect(() => {
-    if (!decision?.marketing) {
-      return;
-    }
-
-    const pageKey = `${decision.decidedAt}:${pathname ?? "/"}`;
-
-    if (lastTrackedPageRef.current === pageKey) {
+    if (decision?.marketing === false) {
       return;
     }
 
     trackMetaPixelPageView();
-    lastTrackedPageRef.current = pageKey;
   }, [decision?.decidedAt, decision?.marketing, pathname]);
 
   useEffect(() => {
-    if (!decision?.marketing) {
+    if (decision?.marketing === false) {
       return;
     }
 
@@ -245,7 +235,7 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
   }, [decision?.marketing]);
 
   useEffect(() => {
-    if (!decision?.marketing || pathname !== "/success") {
+    if (decision?.marketing === false || pathname !== "/success") {
       return;
     }
 
@@ -256,15 +246,8 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
       return;
     }
 
-    const purchaseKey = `${decision.decidedAt}:${sessionId}`;
-
-    if (lastTrackedPurchaseRef.current === purchaseKey) {
-      return;
-    }
-
     trackMetaPixelPurchase();
-    lastTrackedPurchaseRef.current = purchaseKey;
-  }, [decision?.decidedAt, decision?.marketing, pathname]);
+  }, [decision?.marketing, pathname]);
 
   const shouldShowPanel = decision === null || view === "settings";
   const isPanelVisible = decision !== undefined && shouldShowPanel;
