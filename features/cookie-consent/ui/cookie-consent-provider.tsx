@@ -23,6 +23,7 @@ import {
   revokeMetaPixelConsent,
   trackMetaPixelInitiateCheckout,
   trackMetaPixelPageView,
+  trackMetaPixelPurchase,
 } from "@/features/cookie-consent/lib/meta-pixel";
 import {
   trackCookieConsentDecision,
@@ -165,6 +166,7 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
   const [language, setLanguage] = useState<ConsentLanguage>("pl");
   const [marketingDraft, setMarketingDraft] = useState(false);
   const lastTrackedPageRef = useRef<string | null>(null);
+  const lastTrackedPurchaseRef = useRef<string | null>(null);
   const copy = COOKIE_COPY[language];
 
   const saveDecision = useCallback(
@@ -241,6 +243,28 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
       document.removeEventListener("click", handleCheckoutClick, { capture: true });
     };
   }, [decision?.marketing]);
+
+  useEffect(() => {
+    if (!decision?.marketing || pathname !== "/success") {
+      return;
+    }
+
+    const currentUrl = new URL(window.location.href);
+    const sessionId = currentUrl.searchParams.get("session_id");
+
+    if (!sessionId) {
+      return;
+    }
+
+    const purchaseKey = `${decision.decidedAt}:${sessionId}`;
+
+    if (lastTrackedPurchaseRef.current === purchaseKey) {
+      return;
+    }
+
+    trackMetaPixelPurchase();
+    lastTrackedPurchaseRef.current = purchaseKey;
+  }, [decision?.decidedAt, decision?.marketing, pathname]);
 
   const shouldShowPanel = decision === null || view === "settings";
   const isPanelVisible = decision !== undefined && shouldShowPanel;

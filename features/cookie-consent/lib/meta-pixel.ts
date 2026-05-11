@@ -1,3 +1,10 @@
+import {
+  extractAttributionParams,
+  hasAttributionParams,
+  readStoredAttribution,
+  type AttributionParams,
+} from "@/features/utm-tracking/model/attribution";
+
 const META_PIXEL_ID = "1253761369478754";
 const META_PIXEL_SCRIPT_ID = "meta-pixel-script";
 
@@ -21,6 +28,45 @@ declare global {
 }
 
 let isMetaPixelInitialized = false;
+
+function getBrowserAttributionParams(): AttributionParams {
+  if (typeof window === "undefined") {
+    return {};
+  }
+
+  try {
+    const currentUrl = new URL(window.location.href);
+    const currentParams = extractAttributionParams(currentUrl.searchParams);
+
+    if (hasAttributionParams(currentParams)) {
+      return currentParams;
+    }
+
+    return readStoredAttribution(window.localStorage)?.params ?? {};
+  } catch {
+    return {};
+  }
+}
+
+function getMetaAttributionParams(): MetaPixelParams {
+  const attributionParams = getBrowserAttributionParams();
+  const metaParams: MetaPixelParams = {};
+
+  Object.entries(attributionParams).forEach(([key, value]) => {
+    if (key.startsWith("utm_")) {
+      metaParams[key] = value;
+    }
+  });
+
+  return metaParams;
+}
+
+function withAttributionParams(params: MetaPixelParams = {}): MetaPixelParams {
+  return {
+    ...getMetaAttributionParams(),
+    ...params,
+  };
+}
 
 function createFbq(): Fbq {
   const fbq = ((...args: MetaPixelArgs) => {
@@ -100,7 +146,7 @@ export function revokeMetaPixelConsent() {
 
 export function trackMetaPixelPageView() {
   const fbq = ensureMetaPixel();
-  fbq?.("track", "PageView");
+  fbq?.("track", "PageView", withAttributionParams());
 }
 
 export function trackMetaPixelInitiateCheckout(params: {
@@ -110,7 +156,14 @@ export function trackMetaPixelInitiateCheckout(params: {
   const fbq = ensureMetaPixel();
 
   fbq?.("track", "InitiateCheckout", {
+    ...withAttributionParams(),
     content_category: params.contentCategory,
     content_name: params.contentName,
   });
+}
+
+export function trackMetaPixelPurchase() {
+  const fbq = ensureMetaPixel();
+
+  fbq?.("track", "Purchase", withAttributionParams());
 }

@@ -504,3 +504,12 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [utm-tracking-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\utm-tracking\ui\utm-tracking-provider.tsx)
   - [attribution.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\utm-tracking\model\attribution.ts)
   - [app-providers.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\widgets\app-providers\ui\app-providers.tsx)
+
+### Meta Pixel UTM context
+
+- Page / section: sitewide Meta Pixel events and `/success`
+- Request: Keep the Meta Pixel enrichment that sends saved UTM context with Pixel events, without adding separate dashboard/order metadata.
+- Status: Done
+- Files:
+  - [meta-pixel.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\lib\meta-pixel.ts)
+  - [cookie-consent-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\ui\cookie-consent-provider.tsx)
