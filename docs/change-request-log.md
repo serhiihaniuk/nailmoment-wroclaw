@@ -492,3 +492,15 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [cookie-consent-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\ui\cookie-consent-provider.tsx)
   - [lenis-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\lenis-provider.tsx)
   - [browser-events.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\config\browser-events.ts)
+
+## 2026-05-11
+
+### UTM attribution persistence
+
+- Page / section: sitewide navigation and checkout links
+- Request: Persist UTM and ad click-id parameters between page links and reloads, and carry them into checkout links for attribution.
+- Status: Done
+- Files:
+  - [utm-tracking-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\utm-tracking\ui\utm-tracking-provider.tsx)
+  - [attribution.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\utm-tracking\model\attribution.ts)
+  - [app-providers.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\widgets\app-providers\ui\app-providers.tsx)
