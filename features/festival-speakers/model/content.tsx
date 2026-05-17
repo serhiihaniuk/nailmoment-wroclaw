@@ -1,5 +1,4 @@
 import { type SpeakerProfile } from "@/entities/speaker/model/types";
-import { shadowImageUrl } from "@/shared/config/const";
 
 export const HOME_SPEAKER_SECTION = {
   title: "Спікери фестивалю",
@@ -120,23 +119,52 @@ export const HOME_SPEAKERS: SpeakerProfile[] = [
   },
   {
     id: 5,
-    imageUrl: shadowImageUrl,
-    imageAlt: "Coming soon",
-    name: "Coming soon",
+    imageUrl:
+      "https://hodpa6ifpplv4yxb.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/festival-speakers/festival-speaker-anastasiia-kokhana.62d8c5de.webp",
+    imageAlt: "Анастасія Кохана",
+    name: "Анастасія Кохана",
     description: (
       <>
-        <p>Спікера буде оголошено згодом.</p>
+        <p>
+          Амбасадорка бренду DNKa’, майстриня з понад 10-річним досвідом у
+          nail-індустрії та викладачка, якій довірилися вже понад 500 учениць
+          по всій Європі.
+        </p>
+        <p>
+          У своїх навчаннях Анастасія поєднує сильну технічну базу, сучасний
+          підхід та практичні рішення, які реально полегшують роботу майстра. Її
+          виступи — це не лише про матеріали й техніку, а про впевненість у
+          роботі, системність та професійний ріст.
+        </p>
+        <p>
+          На сцені Nail Moment Анастасія проведе спеціальний Майстер Клас від
+          DNKa’
+        </p>
       </>
     ),
   },
   {
     id: 6,
-    imageUrl: shadowImageUrl,
-    imageAlt: "Народний спікер 2026",
-    name: "Народний спікер",
+    imageUrl:
+      "https://hodpa6ifpplv4yxb.public.blob.vercel-storage.com/assets/v1/nailmoment-wroclaw/content/2026/festival-speakers/festival-speaker-marina-morozivska.ee5aeb90.webp",
+    imageAlt: "Маріна Морозівська",
+    name: "Маріна Морозівська",
     description: (
       <>
-        <p>Народний спікер 2026</p>
+        <p>Переможниця конкурсу «Народний спікер» на Nail Moment 💛</p>
+        <p>
+          Майстриня з 12-річним досвідом, власниця студії в Ополе та інструкторка
+          школи Юлії Зварич.
+        </p>
+        <p>
+          Сьогодні Маріна не лише розвиває власний бізнес, а й допомагає іншим
+          підприємницям масштабуватись: будувати команди, налагоджувати процеси
+          та розбиратись у фінансах і маркетингу.
+        </p>
+        <p>
+          На сцені Nail Moment Маріна поділиться своїм реальним досвідом розвитку
+          студії та системного підходу до бізнесу в nail-індустрії.
+        </p>
       </>
     ),
   },

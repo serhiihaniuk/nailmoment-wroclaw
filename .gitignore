@@ -44,6 +44,7 @@ next-env.d.ts
 .claude/
 .mcp.json
 .next-dev.log
+.next-dev.err.log
 
 # local image intake / processing workspace
 /process/

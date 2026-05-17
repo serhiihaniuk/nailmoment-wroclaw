@@ -513,3 +513,22 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [meta-pixel.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\lib\meta-pixel.ts)
   - [cookie-consent-provider.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\cookie-consent\ui\cookie-consent-provider.tsx)
+
+## 2026-05-17
+
+### Festival speakers
+
+- Page / section: homepage festival speakers, Coming soon card
+- Request: Replace the circled `Coming soon` speaker card with Анастасія Кохана using the provided `IMG_4029.JPG`, process it as a `3:4` speaker photo, upload it under the festival-speakers namespace, and use the forwarded bio text.
+- Status: Done
+- Files:
+  - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-schedule\model\content.ts)
+  - [next.config.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\next.config.ts)
+
+- Page / section: homepage festival speakers, Народний спікер card and schedule slot
+- Request: Replace the `Народний спікер` speaker card with Маріна Морозівська using the provided `IMG_5065.JPEG`, tighten the top crop for the `3:4` speaker photo, upload it under the festival-speakers namespace, use the forwarded bio text, and update the `15:40–16:10` schedule item with her talk title.
+- Status: Done
+- Files:
+  - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-schedule\model\content.ts)
