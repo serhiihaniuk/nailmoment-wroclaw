@@ -12,7 +12,6 @@ import { DecoratedOliveCard } from "@/shared/ui/decorated-olive-card";
 import { DecorativeImage } from "@/shared/ui/decorative-image";
 import { DecorativeLoadedImage } from "@/shared/ui/decorative-loaded-image";
 import { Image } from "@/shared/ui/image";
-import { IconLink } from "@/shared/ui/icon-link";
 import { Section } from "@/shared/ui/layout/section";
 import { Stack } from "@/shared/ui/layout/stack";
 import { SectionHeader } from "@/shared/ui/section-header";
@@ -125,9 +124,9 @@ export const PeoplesSpeakerSection = () => (
                 url={PEOPLE_SPEAKER_CONTENT.heroImage}
                 alt={PEOPLE_SPEAKER_CONTENT.heroImageAlt}
                 width={320}
-                height={320}
-                className="mx-auto aspect-square w-full max-w-[240px] rounded-none"
-                imageClassName="object-contain"
+                height={427}
+                className="mx-auto aspect-[3/4] w-full max-w-[220px] rounded-2xl"
+                imageClassName="object-cover"
               />
               <TypographyTitle
                 as="h2"
@@ -151,8 +150,6 @@ export const PeoplesSpeakerSection = () => (
                 >
                   <Link
                     href={PEOPLE_SPEAKER_CONTENT.primaryCta.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
                     {PEOPLE_SPEAKER_CONTENT.primaryCta.label}
                   </Link>
@@ -212,10 +209,7 @@ export const PeoplesSpeakerSection = () => (
           </div>
         </DecoratedOliveCard>
 
-        <div
-          data-ui="people-speaker-main-grid"
-          className="grid grid-cols-1 gap-6"
-        >
+        <div data-ui="people-speaker-main-grid" className="grid grid-cols-1 gap-6">
           <Card
             uiId="people-speaker-benefits-card"
             surface="subtle"
@@ -243,6 +237,30 @@ export const PeoplesSpeakerSection = () => (
               <BulletList uiId="people-speaker-benefits-list" items={PEOPLE_SPEAKER_CONTENT.benefits} />
             </CardContent>
           </Card>
+
+          <Stack uiId="people-speaker-winner-block" gap="default" className="w-full">
+            <SectionHeader
+              uiId="people-speaker-winner-header"
+              align="left"
+              title={PEOPLE_SPEAKER_CONTENT.winnerTitle}
+              tone="default"
+            />
+            <SpeakerCard
+              uiId="people-speaker-winner"
+              imageUrl={PEOPLE_SPEAKER_CONTENT.winnerImage}
+              imageAlt={PEOPLE_SPEAKER_CONTENT.winnerImageAlt}
+              name={PEOPLE_SPEAKER_CONTENT.winnerName}
+              description={
+                <>
+                  <p>{PEOPLE_SPEAKER_CONTENT.winnerDescription}</p>
+                  <p>
+                    <strong>Тема виступу:</strong>{" "}
+                    {PEOPLE_SPEAKER_CONTENT.winnerTalkTitle}
+                  </p>
+                </>
+              }
+            />
+          </Stack>
 
           <Card
             uiId="people-speaker-apply-card"
@@ -272,101 +290,6 @@ export const PeoplesSpeakerSection = () => (
             </CardContent>
           </Card>
         </div>
-
-        <div
-          data-ui="people-speaker-secondary-grid"
-          className="grid grid-cols-1 gap-6"
-        >
-          <Card
-            uiId="people-speaker-selection-card"
-            surface="subtle"
-            spacing="none"
-            className="rounded-[2rem]"
-          >
-            <CardContent
-              uiId="people-speaker-selection-card"
-              className="flex h-full flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
-            >
-              <SectionHeader
-                uiId="people-speaker-selection-header"
-                align="left"
-                title={PEOPLE_SPEAKER_CONTENT.selectionTitle}
-                tone="default"
-              />
-              <TypographyText
-                uiId="people-speaker-selection-description"
-                align="left"
-                size="body"
-                tone="default"
-              >
-                {PEOPLE_SPEAKER_CONTENT.selectionDescription}
-              </TypographyText>
-              <BulletList
-                uiId="people-speaker-selection-list"
-                items={PEOPLE_SPEAKER_CONTENT.selectionSteps}
-              />
-            </CardContent>
-          </Card>
-
-          <DecoratedOliveCard
-            uiId="people-speaker-prize-card"
-            leafLayout="default"
-            className="rounded-[2rem] bg-brand-olive text-text-inverse"
-            contentClassName="flex h-full flex-col gap-5 px-6 py-8 md:px-8 md:py-8"
-          >
-            <div data-ui="people-speaker-prize-card-content" className="contents">
-              <SectionHeader
-                uiId="people-speaker-prize-header"
-                align="left"
-                title={PEOPLE_SPEAKER_CONTENT.prizeTitle}
-                tone="inverse"
-              />
-              <TypographyText
-                uiId="people-speaker-prize-description"
-                align="left"
-                size="body"
-                tone="inverse"
-                className="text-text-inverse"
-              >
-                {PEOPLE_SPEAKER_CONTENT.prizeDescription}
-              </TypographyText>
-              <Stack uiId="people-speaker-prize-list" gap="sm">
-                <BulletList
-                  uiId="people-speaker-prize-list-items"
-                  items={PEOPLE_SPEAKER_CONTENT.prizes}
-                  tone="inverse"
-                />
-              </Stack>
-            </div>
-          </DecoratedOliveCard>
-        </div>
-
-        <Stack uiId="people-speaker-winner-block" gap="default" className="w-full">
-          <SectionHeader
-            uiId="people-speaker-winner-header"
-            align="left"
-            title={PEOPLE_SPEAKER_CONTENT.winnerTitle}
-            tone="default"
-          />
-          <SpeakerCard
-            uiId="people-speaker-winner"
-            imageUrl={PEOPLE_SPEAKER_CONTENT.winnerImage}
-            imageAlt={PEOPLE_SPEAKER_CONTENT.winnerImageAlt}
-            name={PEOPLE_SPEAKER_CONTENT.winnerName}
-            description={<p>{PEOPLE_SPEAKER_CONTENT.winnerDescription}</p>}
-          />
-          <div data-ui="people-speaker-winner-instagram" className="flex justify-center">
-            <IconLink
-              uiId="people-speaker-winner-instagram-link"
-              href={PEOPLE_SPEAKER_CONTENT.winnerInstagramHref}
-              icon
-              target="_blank"
-              className="text-sm font-medium text-brand-olive"
-            >
-              Instagram Валентини Козлової: {PEOPLE_SPEAKER_CONTENT.winnerInstagramLabel}
-            </IconLink>
-          </div>
-        </Stack>
 
         <div data-ui="people-speaker-back" className="flex justify-center">
           <BackLink uiId="people-speaker-back-link" href="/">

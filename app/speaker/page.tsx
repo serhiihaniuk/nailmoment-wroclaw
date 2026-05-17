@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/shared/config/seo";
 export const metadata = createPageMetadata({
   title: "Народний спікер 2026",
   description:
-    "Конкурс для майстрів манікюру, які хочуть виступити на головній сцені Nail Moment у Варшаві.",
+    "Конкурс «Народний спікер» завершено. Переможниця 2026 — Маріна Морозівська, яка виступить на сцені Nail Moment у Варшаві.",
   path: "/speaker",
 });
 

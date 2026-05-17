@@ -524,6 +524,14 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-schedule\model\content.ts)
+
+- Page / section: `/speaker` people speaker page
+- Request: Since the contest is over, remove the outdated application/voting flow and keep the page focused on the 2026 winner Маріна Морозівська and her festival talk.
+- Status: Done
+- Files:
+  - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\people-speaker-hero\model\content.ts)
+  - [peoples-speaker-section.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\people-speaker-hero\ui\peoples-speaker-section.tsx)
+  - [page.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\app\speaker\page.tsx)
   - [next.config.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\next.config.ts)
 
 - Page / section: homepage festival speakers, Народний спікер card and schedule slot
