@@ -525,6 +525,18 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
   - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-schedule\model\content.ts)
 
+## 2026-05-21
+
+### Battle sales ended
+
+- Page / section: `/battle` buy buttons and homepage battle ticket highlight
+- Request: Disable Battle of Masters purchases because sales ended.
+- Status: Done
+- Files:
+  - [battle-ticket-buy-button.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\shared\ui\battle-ticket-buy-button.tsx)
+  - [buy-battle-ticket-button.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\entities\ticket\ui\buy-battle-ticket-button.tsx)
+  - [battle-ticket-highlight-card.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\ui\battle-ticket-highlight-card.tsx)
+
 - Page / section: `/speaker` people speaker page
 - Request: Since the contest is over, remove the outdated application/voting flow and keep the page focused on the 2026 winner Маріна Морозівська and her festival talk.
 - Status: Done

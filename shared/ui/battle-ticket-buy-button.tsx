@@ -18,7 +18,7 @@ export function BattleTicketBuyButton({
   href,
   uiId = "battle-ticket-buy-button",
 }: BattleTicketBuyButtonProps) {
-  const label = disabled ? "SOON" : children;
+  const label = children;
   const buttonClassName = cn(
     "w-full justify-center gap-3 bg-[linear-gradient(115deg,#edc12b_0%,#fff8ad_34%,#f0d04e_64%,#dc9d25_100%)] text-brand-brown shadow-none hover:brightness-100",
     className
