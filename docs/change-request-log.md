@@ -552,3 +552,13 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Files:
   - [content.tsx](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-speakers\model\content.tsx)
   - [content.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\festival-schedule\model\content.ts)
+
+## 2026-06-04
+
+### Public mailing image
+
+- Page / section: public image URL
+- Request: Serve the uploaded `3days.png` Vercel Blob image through the `nailmoment.pl` domain for a public mailing link.
+- Status: Done
+- Files:
+  - [next.config.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\next.config.ts)
