@@ -55,10 +55,19 @@ export const TICKET_SALES_MILESTONES = {
   startAt: "2026-04-04T08:00:00.000Z",
   firstPriceIncreaseAt: "2026-04-05T08:00:00.000Z",
   secondPriceIncreaseAt: "2026-04-21T08:00:00.000Z",
+  closedAt: "2026-06-07T00:00:00.000Z",
 } as const;
 
 function hasSalesStarted(now = new Date()) {
   return now.getTime() >= new Date(TICKET_SALES_MILESTONES.startAt).getTime();
+}
+
+function hasSalesClosed(now = new Date()) {
+  return now.getTime() >= new Date(TICKET_SALES_MILESTONES.closedAt).getTime();
+}
+
+function areTicketSalesOpen(now = new Date()) {
+  return hasSalesStarted(now) && !hasSalesClosed(now);
 }
 
 const PHASES: TicketPhase[] = [
@@ -147,7 +156,8 @@ function resolvePhase(now = new Date()) {
 
 export function resolveTicketOffers(tickets: TicketBase[], now = new Date()): TicketInfo[] {
   const phase = resolvePhase(now);
-  const salesStarted = hasSalesStarted(now);
+  const salesClosed = hasSalesClosed(now);
+  const salesOpen = areTicketSalesOpen(now);
 
   return tickets.map((ticket) => {
     const offer = phase.offers[ticket.id as TicketTier];
@@ -159,9 +169,9 @@ export function resolveTicketOffers(tickets: TicketBase[], now = new Date()): Ti
       promoLabel: offer.promoLabel,
       lowestPriceLabel: offer.lowestPriceLabel,
       regularPriceLabel: offer.regularPriceLabel,
-      buttonText: salesStarted ? "Придбати квиток" : "SOON",
+      buttonText: salesOpen ? "Придбати квиток" : salesClosed ? "Продаж завершено" : "SOON",
       href: offer.href,
-      soldOut: !salesStarted,
+      soldOut: !salesOpen,
     };
   });
 }
@@ -209,7 +219,7 @@ export function getTicketSalesCountdown(now = new Date()): TicketSalesCountdown 
     title,
     subtitle,
     targetAt,
-    isLive: hasSalesStarted(now),
+    isLive: areTicketSalesOpen(now),
     days,
     hours,
     minutes,
@@ -224,7 +234,7 @@ export function resolveTicketSalesState(
   const countdown = getTicketSalesCountdown(now);
 
   return {
-    isLive: hasSalesStarted(now),
+    isLive: areTicketSalesOpen(now),
     startsAt: TICKET_SALES_MILESTONES.startAt,
     tickets: resolveTicketOffers(tickets, now),
     countdown,

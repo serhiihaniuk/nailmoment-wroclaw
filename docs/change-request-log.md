@@ -562,3 +562,13 @@ Brief tracker for non-technical content/design asks coming from chat messages, s
 - Status: Done
 - Files:
   - [next.config.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\next.config.ts)
+
+## 2026-06-07
+
+### Festival ticket sales closed
+
+- Page / section: homepage tickets
+- Request: Disable festival ticket purchases because the festival starts tomorrow morning.
+- Status: Done
+- Files:
+  - [pricing.ts](C:\Users\Serge\Desktop\nailmoment-wroclaw\features\ticket-sales\model\pricing.ts)
